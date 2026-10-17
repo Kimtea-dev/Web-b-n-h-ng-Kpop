@@ -1,0 +1,72 @@
+/* =========================================================
+   client.css  -  style chung cho giao diện KHÁCH HÀNG   (N1)
+   Chứa: header, footer, thẻ sản phẩm, lưới sản phẩm, phân trang
+   ========================================================= */
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.header .logo { font-size: 26px; font-weight: 700; }
+.header nav ul { display: flex; gap: 20px; }
+.header nav a { color: var(--muted); }
+.header nav a.active, .header nav a:hover { color: var(--text); font-weight: 600; }
+.header-icons { display: flex; gap: 14px; font-size: 22px; }
+
+/* ---------- Khu nội dung ---------- */
+.client-main { padding: 24px 40px; min-height: 60vh; }
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 24px 40px;
+  background: var(--card);
+  border-top: 1px solid var(--line);
+}
+.footer h3 { margin-bottom: 8px; }
+.footer p { color: var(--muted); font-size: 14px; }
+
+/* ---------- Hàng tiêu đề (vd: "Sản phẩm nổi bật" ...... [Xem tất cả]) ---------- */
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* ---------- Lưới + thẻ sản phẩm ---------- */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.product-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+}
+.product-card .thumb {
+  aspect-ratio: 1 / 1;
+  background: #d9dce1;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
+}
+.product-card .group { font-size: 13px; color: var(--muted); }
+.product-card .album { font-weight: 700; }
+.product-card .price { margin: 4px 0; }
+.product-card .row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; }
+
+/* ---------- Phân trang ---------- */
+.pagination { display: flex; justify-content: center; gap: 8px; margin: 28px 0; }
+.pagination a {
+  padding: 4px 14px;
+  background: #e5e7eb;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+}
+.pagination a.active { background: var(--dark); color: #fff; }

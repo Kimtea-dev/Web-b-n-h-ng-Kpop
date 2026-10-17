@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm - Tên shop</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/client.css">
+</head>
+<body>
+
+  <!-- ===== HEADER (copy y nguyên sang mọi trang khách hàng) ===== -->
+  <header class="header">
+    <a class="logo" href="index.html">Tên shop</a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="products.html" class="active">Sản phẩm</a></li>
+        <li><a href="about.html">Giới thiệu</a></li>
+      </ul>
+    </nav>
+    <div class="header-icons">
+      <a href="cart.html" title="Giỏ hàng">🛒</a>
+      <a href="login.html" title="Tài khoản">👤</a>
+    </div>
+  </header>
+
+  <!-- ===== NỘI DUNG TRANG ===== -->
+  <main class="client-main">
+    <div class="todo-box">
+      <strong>Chi tiết sản phẩm</strong> &mdash; phần của <strong>N2</strong>. Xóa khung này khi làm xong.
+      <ul>
+      <li>Bố cục 2 cột (grid 1fr 1fr): ảnh trái, card thông tin phải</li>
+      <li>Badge, tên album (h1), mô tả, giá, sao + (... đánh giá), đường kẻ hr</li>
+      <li>Phân loại: nút Ver 1 / Ver 2; Số lượng: nút -, ô số, nút +</li>
+      <li>Nút '🛒 Thêm vào giỏ hàng' (JS: js/quantity.js)</li>
+      <li>CSS riêng: tạo file css/detail.css rồi link thêm vào &lt;head&gt;</li>
+      </ul>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->
+  <footer class="footer">
+    <h3>Thông tin liên hệ</h3>
+    <p>Địa chỉ: ... &nbsp;|&nbsp; Hotline: ... &nbsp;|&nbsp; Mạng xã hội: ...</p>
+  </footer>
+
+  <script src="js/quantity.js"></script>
+</body>
+</html>

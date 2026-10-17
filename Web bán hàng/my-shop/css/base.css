@@ -1,0 +1,92 @@
+/* =========================================================
+   base.css  -  "LỚP CHA" của cả dự án      (Người phụ trách: N1)
+   Cả 4 người cùng dùng file này. CHỈ N1 ĐƯỢC SỬA.
+   Cần thêm gì thì nhắn N1.
+   ========================================================= */
+
+/* 1. Biến CSS = hằng số (giống static final trong Java) */
+:root {
+  --bg: #f5f6fa;
+  --card: #ffffff;
+  --text: #2d3436;
+  --muted: #636e72;
+  --line: #e9ecef;
+  --dark: #4b5563;          /* màu nút chính (xám đậm như bản vẽ) */
+
+  --success: #166534;  --success-bg: #dcfce7;   /* Hoàn thành */
+  --warning: #854d0e;  --warning-bg: #fef3c7;   /* Chờ xử lý  */
+  --danger:  #991b1b;  --danger-bg:  #fee2e2;   /* Đã hủy     */
+  --info:    #1e40af;  --info-bg:    #dbeafe;   /* Đang giao  */
+
+  --radius: 12px;           /* card */
+  --radius-lg: 20px;        /* modal, login */
+  --radius-pill: 999px;     /* nút viên thuốc */
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button, input, select { font: inherit; }
+
+/* 3. Component dùng chung */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: #e5e7eb;
+  color: var(--text);
+}
+.btn:hover { filter: brightness(0.95); }
+.btn-primary { background: var(--dark); color: #fff; }
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+}
+.badge-success { background: var(--success-bg); color: var(--success); }
+.badge-warning { background: var(--warning-bg); color: var(--warning); }
+.badge-danger  { background: var(--danger-bg);  color: var(--danger); }
+.badge-info    { background: var(--info-bg);    color: var(--info); }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label { font-size: 14px; color: var(--muted); }
+.form-group input, .form-group select {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #fff;
+}
+
+/* Khung "chỗ của bạn" - XÓA khối này trong HTML khi bạn làm xong */
+.todo-box {
+  border: 2px dashed #9ca3af;
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px 0;
+  background: #fffbe6;
+  color: var(--muted);
+}
+.todo-box strong { color: var(--text); }
+.todo-box ul { list-style: disc; padding-left: 20px; margin: 8px 0 12px; }

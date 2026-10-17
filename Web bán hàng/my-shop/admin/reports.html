@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo cáo - Admin</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+
+  <!-- ===== SIDEBAR (copy y nguyên sang mọi trang admin) ===== -->
+  <aside class="admin-sidebar">
+    <div class="logo">Tên shop</div>
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="products.html">Sản phẩm</a></li>
+        <li><a href="orders.html">Đơn hàng</a></li>
+        <li><a href="customers.html">Khách hàng</a></li>
+        <li><a href="reports.html" class="active">Báo cáo</a></li>
+    </ul>
+  </aside>
+
+  <main class="admin-main">
+
+    <!-- ===== TOPBAR (chỉ đổi breadcrumb, tiêu đề, phụ đề) ===== -->
+    <div class="admin-topbar">
+      <div>
+        <div class="breadcrumb">Trang chủ / Báo cáo</div>
+        <h1>Báo cáo</h1>
+        <p class="subtitle">Phân tích doanh thu, đơn hàng và hiệu quả kinh doanh</p>
+      </div>
+      <div class="admin-user">
+        <div class="avatar"></div>
+        <div><strong>Admin</strong><small>Quản trị viên</small></div>
+      </div>
+    </div>
+
+    <!-- ===== NỘI DUNG TRANG ===== -->
+    <div class="todo-box">
+      <strong>Báo cáo</strong> &mdash; phần của <strong>N3</strong>. Xóa khung này khi làm xong.
+      <ul>
+        <li>Thanh lọc: icon lịch, dropdown (Hôm nay, Tuần này...), nút 'Áp dụng lọc', nút 'Xuất CSV'</li>
+        <li>4 .stat-card: Tổng doanh thu, Đơn hàng, Sản phẩm đã bán, Lợi nhuận ước tính</li>
+        <li>2 .chart-card: Doanh thu theo ngày + Tỷ lệ đơn hàng</li>
+        <li>Bảng 'Báo cáo chi tiết đơn hàng' + ô tìm kiếm + phân trang</li>
+      </ul>
+    </div>
+
+  </main>
+
+</body>
+</html>
