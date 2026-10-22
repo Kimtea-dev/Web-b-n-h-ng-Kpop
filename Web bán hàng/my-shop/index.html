@@ -6,6 +6,8 @@
   <title>Trang chủ - Tên shop</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/client.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
 
@@ -27,21 +29,12 @@
 
   <!-- ===== NỘI DUNG TRANG ===== -->
   <main class="client-main">
-    <!DOCTYPE html>
-    <html lang="vi">
-    <body>
-
-      <div class="container">
-        <div class="search-bar">
-          <input type="text" placeholder="Tìm kiếm nghệ sĩ...">
-        </div>
-
         <div class="hero-slider" id="hero-slider">
-          <img src="image/arirang.jpg" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/deadline.jpg" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/green.jpg" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/bomp.jpg" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/EP.jpg" alt="Banner quảng cáo" class="slider-img">
+          <img src="image/1.png" alt="Banner quảng cáo" class="slider-img">
+          <img src="image/2.jpg" alt="Banner quảng cáo" class="slider-img">
+          <img src="image/3.png" alt="Banner quảng cáo" class="slider-img">
+          <img src="image/4.png" alt="Banner quảng cáo" class="slider-img">
+          <img src="image/5.png" alt="Banner quảng cáo" class="slider-img">
           
           <button class="slider-btn prev-btn" id="prev-btn">&#10094;</button>
           <button class="slider-btn next-btn" id="next-btn">&#10095;</button>
@@ -52,45 +45,45 @@
           </div>
         </div>
 
-        <div class="artists-section">
-          <h3>Nghệ sĩ nổi bật</h3>
-          <div class="artist-list">
-            <div class="artist-item">
-              <img src="image/bts.jpg" alt="Artist 1" class="artist-avatar-img">
-              <span>BTS</span>
-            </div>
-          </div>
-          <div class="artist-list">
-            <div class="artist-item">
-              <img src="image/blackpink.jpg" alt="Artist 2" class="artist-avatar-img">
-              <span>BLACKPINK</span>
-            </div>
-          </div>
-          <div class="artist-list">
-            <div class="artist-item">
-              <img src="image/cortis.jpg" alt="Artist 3" class="artist-avatar-img">
-              <span>CORTIS</span>
-            </div>
-          </div>
-          <div class="artist-list">
-            <div class="artist-item">
-              <img src="image/newjeans.jpg" alt="Artist 4" class="artist-avatar-img">
-              <span>NEWJEANS</span>
-            </div>
-          </div>
-          <div class="artist-list">
-            <div class="artist-item">
-              <img src="image/illit.jpg" alt="Artist 5" class="artist-avatar-img">
-              <span>ILLIT</span>
-            </div>
-          </div>
+      <div class="container">
+        <div class="search-bar">
+          <input type="text" placeholder="Tìm kiếm nghệ sĩ...">
         </div>
       </div>
 
-      <div class="section-title">
-        <h3>Sản phẩm nổi bật</h3>
-        <a href="products.html" style="color: #666; text-decoration-line: none;">Xem tất cả</a>
-      </div>
+      <div class="container">
+        <div class="artists-container-box">
+          <div class="artists-section">
+            <h3>Nghệ sĩ nổi bật</h3>
+            <div class="artist-list">
+              <div class="artist-item">
+                <img src="image/bts.jpg" alt="Artist 1" class="artist-avatar-img">
+                <span>BTS</span>
+              </div>
+              <div class="artist-item">
+                <img src="image/blackpink.jpg" alt="Artist 2" class="artist-avatar-img">
+                <span>BLACKPINK</span>
+              </div>
+              <div class="artist-item">
+                <img src="image/cortis.jpg" alt="Artist 3" class="artist-avatar-img">
+                <span>CORTIS</span>
+              </div>
+              <div class="artist-item">
+                <img src="image/newjeans.jpg" alt="Artist 4" class="artist-avatar-img">
+                <span>NEWJEANS</span>
+              </div>
+              <div class="artist-item">
+                <img src="image/illit.jpg" alt="Artist 5" class="artist-avatar-img">
+                <span>ILLIT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h3>Sản phẩm nổi bật</h3>
+          <a href="products.html" class="btn-see-all">Xem tất cả</a>
+        </div>
 
       <div class="product-grid">
         
@@ -137,21 +130,6 @@
           </div>
         </div>
       </div>
-
-      <script src="js/slider.js"></script>
-    </body>
-    </head>
-    </html>
-    <div class="todo-box">
-      <strong>Trang chủ</strong> &mdash; phần của <strong>N2</strong>. Xóa khung này khi làm xong.
-      <ul>
-      <li>Banner chạy hình: .hero-slider, nút &lt; &gt;, chấm tròn (JS: js/slider.js)</li>
-      <li>Thanh tìm kiếm 'Artist' bo tròn, căn giữa</li>
-      <li>Khối 'Nghệ sĩ nổi bật': 5 avatar + tên, nằm trong 1 card</li>
-      <li>'Sản phẩm nổi bật': hàng tiêu đề + nút 'Xem tất cả' + 4 .product-card (nút 'Xem' dẫn sang product-detail.html)</li>
-      <li>CSS riêng: tạo file css/home.css rồi link thêm vào &lt;head&gt;</li>
-      </ul>
-    </div>
   </main>
 
   <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->

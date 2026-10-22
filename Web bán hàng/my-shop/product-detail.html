@@ -6,6 +6,8 @@
   <title>Chi tiết sản phẩm - Tên shop</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/client.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
 
@@ -26,18 +28,44 @@
   </header>
 
   <!-- ===== NỘI DUNG TRANG ===== -->
-  <main class="client-main">
-    <div class="todo-box">
-      <strong>Chi tiết sản phẩm</strong> &mdash; phần của <strong>N2</strong>. Xóa khung này khi làm xong.
-      <ul>
-      <li>Bố cục 2 cột (grid 1fr 1fr): ảnh trái, card thông tin phải</li>
-      <li>Badge, tên album (h1), mô tả, giá, sao + (... đánh giá), đường kẻ hr</li>
-      <li>Phân loại: nút Ver 1 / Ver 2; Số lượng: nút -, ô số, nút +</li>
-      <li>Nút '🛒 Thêm vào giỏ hàng' (JS: js/quantity.js)</li>
-      <li>CSS riêng: tạo file css/detail.css rồi link thêm vào &lt;head&gt;</li>
-      </ul>
+ <main class="client-main">
+  <div class="container">
+    <div class="product-detail-container">
+      <div class="detail-img-box">
+        <img src="image/arirang.jpg" alt="Tên album" class="detail-img">
+      </div>
+
+      <div class="detail-info">
+        <div class="detail-title"><b>ARIRANG</b></div>
+        <div class="detail-desc"> • Travel Tag CD Box Set: Hộp gồm Jewel Case, đĩa CD, sách ảnh (Booklet), móc khóa dạng thẻ (Chainkey Tag) và poster.<br>
+• Phiên bản Đĩa than (Vinyl): Gồm các bản Modern Korea, Group Red, Deluxe B&W, Deluxe Color, và 7 phiên bản riêng của từng thành viên.</div>
+        <div class="detail-price"><b>3.260.000 ₫</b></div>
+        <div class="rating">★★★★★ (... đánh giá)</div>
+
+        <hr class="detail-divider">
+
+        <div class="option-group">
+          <label>Phân loại</label>
+          <button class="version-btn active">CD BOX SET</button>
+          <button class="version-btn">VINYL</button>
+        </div>
+
+        <div class="option-group">
+          <label>Số lượng</label>
+          <div class="quantity-control">
+            <button class="quantity-btn" id="btn-minus">-</button>
+            <input type="number" id="quantity-input" value="1" min="1">
+            <button class="quantity-btn" id="btn-plus">+</button>
+          </div>
+        </div>
+
+        <hr class="detail-divider">
+
+        <button class="btn-add-cart">🛒 Thêm vào giỏ hàng</button>
+      </div>
     </div>
-  </main>
+  </div>
+</main>
 
   <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->
   <footer class="footer">
