@@ -8,3 +8,37 @@
    2. Với mỗi phần tử có [data-close]: khi click -> xóa class 'show' của modal chứa nó (dùng closest('.modal')).
    3. Khi click ra vùng nền mờ (chính là .modal, không phải .modal-box) -> cũng đóng.
 */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const openButtons = document.querySelectorAll('[data-open]');
+  const closeButtons = document.querySelectorAll('[data-close]');
+
+  openButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const modalId = button.getAttribute('data-open');
+      const modal = document.getElementById(modalId);
+
+      if (modal) {
+        modal.classList.add('show');
+      }
+    });
+  });
+
+  closeButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const modal = button.closest('.modal');
+
+      if (modal) {
+        modal.classList.remove('show');
+      }
+    });
+  });
+
+  document.querySelectorAll('.modal').forEach((modal) => {
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.classList.remove('show');
+      }
+    });
+  });
+});
