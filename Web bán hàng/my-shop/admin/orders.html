@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,36 +9,34 @@
   <link rel="stylesheet" href="../css/admin.css">
   <link rel="stylesheet" href="../css/admin-forms.css">
 </head>
+
 <body>
 
-  <!-- ===== SIDEBAR (copy y nguyên sang mọi trang admin) ===== -->
   <aside class="admin-sidebar">
     <div class="logo">Tên shop</div>
     <ul>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="products.html">Sản phẩm</a></li>
-        <li><a href="orders.html" class="active">Đơn hàng</a></li>
-        <li><a href="customers.html">Khách hàng</a></li>
-        <li><a href="reports.html">Báo cáo</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="products.html">Sản phẩm</a></li>
+      <li><a href="orders.html" class="active">Đơn hàng</a></li>
+      <li><a href="customers.html">Khách hàng</a></li>
+      <li><a href="reports.html">Báo cáo</a></li>
     </ul>
   </aside>
 
   <main class="admin-main">
-
-    <!-- ===== TOPBAR (chỉ đổi breadcrumb, tiêu đề, phụ đề) ===== -->
     <div class="admin-topbar">
       <div>
         <div class="breadcrumb">Trang chủ / Đơn hàng</div>
         <h1>Đơn hàng</h1>
-        <p class="subtitle">Theo dõi và xử lý đơn hàng của khách</p>
+        <p class="subtitle">Tra cứu và xử lý đơn hàng của khách</p>
       </div>
       <div class="admin-user">
-        <div class="avatar"></div>
+        <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
         <div><strong>Admin</strong><small>Quản trị viên</small></div>
       </div>
     </div>
 
-    <!-- ===== NỘI DUNG TRANG ===== -->
+    <!-- Ghi chú orders cũ (được giữ lại nhưng không hiển thị trên giao diện):
     <div class="todo-box">
       <strong>Đơn hàng</strong> &mdash; phần của <strong>N4</strong>. Xóa khung này khi làm xong.
       <ul>
@@ -48,18 +47,148 @@
       </ul>
       <button class="btn btn-primary" data-open="addOrderModal">+ Tạo đơn hàng</button>
     </div>
+    -->
 
+    <div class="toolbar-card">
+      <div class="search-box">
+        <input type="text" placeholder="Tìm mã đơn, khách hàng...">
+      </div>
+      <button class="btn btn-primary" data-open="addOrderModal">+ Tạo đơn hàng</button>
+    </div>
+
+    <div class="stats-grid-4">
+      <div class="stat-card">
+        <div class="label">Tổng đơn hàng</div>
+        <div class="value">6205</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Hoàn thành</div>
+        <div class="value">6000</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Đang xử lý</div>
+        <div class="value">203</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Đã hủy</div>
+        <div class="value">2</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Danh sách đơn hàng</h3>
+        <p class="subtitle">Tra cứu và cập nhật trạng thái đơn hàng</p>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mã đơn</th>
+            <th>Khách hàng</th>
+            <th>Ngày đặt</th>
+            <th>Sản phẩm</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#DH1204</td>
+            <td>Quỳnh Trang</td>
+            <td>31/05/2025</td>
+            <td>Album SEVENTEEN</td>
+            <td>700.000đ</td>
+            <td><span class="badge badge-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td>#DH1205</td>
+            <td>Hoài Như</td>
+            <td>13/09/2026</td>
+            <td>Album CORTIS GREEN GREEN STANDARD</td>
+            <td>1.200.000đ</td>
+            <td><span class="badge badge-warning">Đang xử lý</span></td>
+          </tr>
+          <tr>
+            <td>#DH1206</td>
+            <td>Linh Chi</td>
+            <td>14/09/2026</td>
+            <td>Album BLACKPINK DEADLINE STANDARD</td>
+            <td>880.000đ</td>
+            <td><span class="badge badge-success">Hoàn thành</span></td>
+          </tr>
+          <tr>
+            <td>#DH1207</td>
+            <td>Thủy Tiên</td>
+            <td>15/09/2026</td>
+            <td>Album BTS ARIRANG STANDARD</td>
+            <td>3.260.000đ</td>
+            <td><span class="badge badge-info">Đang giao</span></td>
+          </tr>
+          <tr>
+            <td>#DH1208</td>
+            <td>Thảo Trần</td>
+            <td>17/09/2026</td>
+            <td>Album JENNIE RUBY STANDARD</td>
+            <td>1.200.000đ</td>
+            <td><span class="badge badge-danger">Đã hủy</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button class="btn">&laquo; Trang trước</button>
+        <button class="btn btn-primary">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <span>...</span>
+        <button class="btn">5</button>
+        <button class="btn">Trang sau &raquo;</button>
+      </div>
+    </div>
   </main>
 
-  <!-- ===== MODAL: Tạo đơn hàng (khung sẵn - N4 điền form vào trong) ===== -->
   <div class="modal" id="addOrderModal">
-    <div class="modal-box">
+    <div class="modal-box order-modal-box">
       <button class="modal-close" data-close>&times;</button>
       <h3>Tạo đơn hàng</h3>
-      <!-- TODO (N4): form theo bản vẽ + nút "Lưu thông tin" -->
+
+      <form class="order-form">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="customerName">Tên khách hàng</label>
+            <input type="text" id="customerName" placeholder="Nhập tên khách hàng..." required>
+          </div>
+          <div class="form-group">
+            <label for="productName">Tên sản phẩm</label>
+            <input type="text" id="productName" placeholder="Nhập tên sản phẩm..." required>
+          </div>
+          <div class="form-group">
+            <label for="quantity">Số lượng</label>
+            <input type="number" id="quantity" placeholder="Nhập số lượng..." required>
+          </div>
+          <div class="form-group">
+            <label for="orderStatus">Trạng thái</label>
+            <div class="select-wrap">
+              <select id="orderStatus" required>
+                <option value="" disabled selected>Chờ xử lý</option>
+                <option>Chờ xử lý</option>
+                <option>Đang xử lý</option>
+                <option>Hoàn thành</option>
+                <option>Đã hủy</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+        </div>
+      </form>
     </div>
   </div>
 
   <script src="../js/modal.js"></script>
 </body>
+
 </html>

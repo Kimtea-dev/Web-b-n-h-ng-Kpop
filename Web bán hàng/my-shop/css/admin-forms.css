@@ -106,6 +106,10 @@
   width: 580px;
 }
 
+.customer-modal-box {
+  width: 500px;
+}
+
 .modal-box h3 {
   margin: 0 0 18px;
   font-size: 2rem;

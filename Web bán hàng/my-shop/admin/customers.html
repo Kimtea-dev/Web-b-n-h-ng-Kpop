@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,18 @@
   <link rel="stylesheet" href="../css/admin.css">
   <link rel="stylesheet" href="../css/admin-forms.css">
 </head>
+
 <body>
 
   <!-- ===== SIDEBAR (copy y nguyên sang mọi trang admin) ===== -->
   <aside class="admin-sidebar">
     <div class="logo">Tên shop</div>
     <ul>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="products.html">Sản phẩm</a></li>
-        <li><a href="orders.html">Đơn hàng</a></li>
-        <li><a href="customers.html" class="active">Khách hàng</a></li>
-        <li><a href="reports.html">Báo cáo</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="products.html">Sản phẩm</a></li>
+      <li><a href="orders.html">Đơn hàng</a></li>
+      <li><a href="customers.html" class="active">Khách hàng</a></li>
+      <li><a href="reports.html">Báo cáo</a></li>
     </ul>
   </aside>
 
@@ -32,34 +34,140 @@
         <p class="subtitle">Quản lý thông tin khách hàng của cửa hàng</p>
       </div>
       <div class="admin-user">
-        <div class="avatar"></div>
+        <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
         <div><strong>Admin</strong><small>Quản trị viên</small></div>
       </div>
     </div>
 
-    <!-- ===== NỘI DUNG TRANG ===== -->
-    <div class="todo-box">
-      <strong>Khách hàng</strong> &mdash; phần của <strong>N4</strong>. Xóa khung này khi làm xong.
-      <ul>
-        <li>Toolbar: ô tìm theo tên / số điện thoại + nút '+ Thêm khách hàng'</li>
-        <li>4 thẻ: Tổng khách hàng, Khách hàng thân thiết, Khách hàng mới, Tổng lượt mua</li>
-        <li>Bảng 7 cột: Mã KH, Khách hàng, Số điện thoại, Email, Số đơn, Tổng chi tiêu, nút Xóa</li>
-        <li>Modal 'Thêm khách hàng': Họ và tên, Số điện thoại, Email, nút 'Lưu thông tin'</li>
-      </ul>
+    <div class="toolbar-card">
+      <div class="search-box">
+        <input type="search" placeholder="Tìm tên, số điện thoại,...">
+      </div>
       <button class="btn btn-primary" data-open="addCustomerModal">+ Thêm khách hàng</button>
+    </div>
+
+    <div class="stats-grid-4">
+      <div class="stat-card">
+        <div class="label">Tổng khách hàng</div>
+        <div class="value">2026</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Khách hàng thân thiết</div>
+        <div class="value">1201</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Khách hàng mới</div>
+        <div class="value">35</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Tổng lượt mua</div>
+        <div class="value">6203</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Danh sách khách hàng</h3>
+        <p class="subtitle">Thông tin liên hệ và lịch sử mua hàng của khách</p>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Mã KH</th>
+            <th>Khách hàng</th>
+            <th>Số điện thoại</th>
+            <th>Email</th>
+            <th>Số đơn</th>
+            <th>Tổng chi tiêu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>KH001</strong></td>
+            <td>Quỳnh Trang</td>
+            <td>123456789</td>
+            <td>quynhtrang@example.com</td>
+            <td>8</td>
+            <td>5.600.000đ</td>
+          </tr>
+          <tr>
+            <td><strong>KH002</strong></td>
+            <td>Hoài Như</td>
+            <td>987654321</td>
+            <td>hoainhu@example.com</td>
+            <td>5</td>
+            <td>4.200.000đ</td>
+          </tr>
+          <tr>
+            <td><strong>KH003</strong></td>
+            <td>Linh Chi</td>
+            <td>234567890</td>
+            <td>linhchi@example.com</td>
+            <td>3</td>
+            <td>2.640.000đ</td>
+          </tr>
+          <tr>
+            <td><strong>KH004</strong></td>
+            <td>Thủy Tiên</td>
+            <td>098765432</td>
+            <td>thuytien@example.com</td>
+            <td>2</td>
+            <td>1.850.000đ</td>
+          </tr>
+          <tr>
+            <td><strong>KH005</strong></td>
+            <td>Thảo Trần</td>
+            <td>999999999</td>
+            <td>thaotran@example.com</td>
+            <td>1</td>
+            <td>1.200.000đ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="pagination">
+        <button class="btn">&laquo; Trang trước</button>
+        <button class="btn btn-primary">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
+        <span>...</span>
+        <button class="btn">5</button>
+        <button class="btn">Trang sau &raquo;</button>
+      </div>
     </div>
 
   </main>
 
-  <!-- ===== MODAL: Thêm khách hàng (khung sẵn - N4 điền form vào trong) ===== -->
   <div class="modal" id="addCustomerModal">
-    <div class="modal-box">
+    <div class="modal-box customer-modal-box">
       <button class="modal-close" data-close>&times;</button>
       <h3>Thêm khách hàng</h3>
-      <!-- TODO (N4): form theo bản vẽ + nút "Lưu thông tin" -->
+
+      <form class="customer-form">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="customerFullName">Họ và tên</label>
+            <input type="text" id="customerFullName" required>
+          </div>
+          <div class="form-group">
+            <label for="customerPhone">Số điện thoại</label>
+            <input type="tel" id="customerPhone" required>
+          </div>
+          <div class="form-group">
+            <label for="customerEmail">Email</label>
+            <input type="email" id="customerEmail" required>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+        </div>
+      </form>
     </div>
   </div>
 
   <script src="../js/modal.js"></script>
 </body>
+
 </html>
