@@ -3,63 +3,240 @@
    Dùng cho: admin/products.html, orders.html, customers.html
    ========================================================= */
 
+/* ---------- Admin page layout ---------- */
+body {
+  font-family: "Roboto", Arial, sans-serif;
+  background: #fff;
+}
+
+.admin-sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 10;
+  width: 256px;
+  padding: 24px 12px;
+  overflow-y: auto;
+  background: #fff;
+  font-family: "Roboto", Arial, sans-serif;
+  line-height: normal;
+}
+
+.admin-sidebar .shop-name {
+  margin: 0 0 32px;
+  padding: 0 12px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.admin-sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.admin-sidebar .btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 46px;
+  margin: 0 0 8px;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #000;
+  font-family: "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 0.25s;
+}
+
+.admin-sidebar .btn:hover {
+  background: #f1f2f6;
+  color: #2f3542;
+  filter: none;
+  transform: none;
+}
+
+.admin-sidebar .btn.active {
+  background: #f1f2f6;
+  color: #2f3542;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.admin-sidebar .btn i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 7px;
+  flex-shrink: 0;
+}
+
+.admin-main {
+  width: calc(100% - 256px);
+  min-width: 0;
+  margin-left: 256px;
+  padding: 32px;
+}
+
+.admin-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.admin-topbar h1 {
+  margin: 4px 0;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.admin-topbar .subtitle,
+.card-header .subtitle {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.admin-user .avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-user strong,
+.admin-user small {
+  display: block;
+}
+
+.admin-user small {
+  color: var(--muted);
+}
+
 /* ---------- Toolbar: ô tìm kiếm + nút thêm ---------- */
 .toolbar,
 .toolbar-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-  padding: 14px 16px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #dfe1e5;
-  border-radius: 18px;
-  box-shadow: none;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 28px;
+  padding: 24px 28px;
+  background: #fff;
+  border: 0;
+  border-radius: 28px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .search-box {
-  flex: 1;
+  flex: 0 1 42%;
+  min-width: 180px;
 }
 
 .toolbar input,
 .search-box input {
   width: 100%;
-  max-width: 420px;
-  padding: 10px 14px;
+  max-width: 720px;
+  min-height: 54px;
+  padding: 12px 24px;
   border: 1px solid #d1d5db;
   border-radius: 999px;
   outline: none;
-  background: rgba(255, 255, 255, 0.7);
+  background: #fff;
+  font-size: 16px;
+}
+
+.admin-main .btn,
+.modal .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-height: 0;
+  margin-bottom: 0;
+  padding: 8px 18px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.admin-main .toolbar-card .btn {
+  padding: 12px 18px;
+  border-radius: 0;
+  background: transparent;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 400;
+  box-shadow: none;
+}
+
+.admin-main .toolbar-card .btn:hover {
+  background: transparent;
+  filter: none;
+  transform: none;
 }
 
 .stats-grid-3 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
   margin-bottom: 24px;
 }
 
 .stats-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  gap: 16px;
   margin-bottom: 24px;
 }
 
-.stat-card {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid #d9dfe4;
-  box-shadow: none;
-  border-radius: 14px;
-  padding: 16px 18px;
+.stats-grid-3 .stat-card,
+.stats-grid-4 .stat-card {
+  background: #fff;
+  border: 0;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.stats-grid-3 .label,
+.stats-grid-4 .label {
+  margin: 0 0 8px;
+  color: #30383a;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.stats-grid-3 .value,
+.stats-grid-4 .value {
+  margin: 0;
+  color: #30383a;
+  font-size: 26px;
+  font-weight: 700;
 }
 
 .card {
+  min-width: 0;
+  overflow-x: auto;
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid #dfe1e5;
   box-shadow: none;
   border-radius: 18px;
+  padding: 20px;
 }
 
 .card-header {
@@ -237,6 +414,7 @@
 
 .data-table {
   width: 100%;
+  min-width: 720px;
   border-collapse: collapse;
 }
 
