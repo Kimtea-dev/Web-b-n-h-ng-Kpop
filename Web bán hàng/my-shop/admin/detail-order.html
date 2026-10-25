@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chi tiết đơn hàng - Admin</title>
+        <link rel="stylesheet" href="../css/admin-detail-order.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </head>
+
+    <body>
+        <div class="admin-layout">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <p class="shop-name"><strong>K-POP STORE</strong></p>
+            
+                <div>
+                    <a href="dashboard.html" class="btn"><i class="bi bi-clipboard-data"></i> Dashboard</a>
+                    <a href="products.html" class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</a>
+                    <a href="orders.html" class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</a>
+                    <a href="customers.html" class="btn"><i class="bi bi-people"></i> Khách hàng</a>
+                    <a href="reports.html" class="btn"><i class="bi bi-graph-up"></i> Báo cáo</a>
+                </div>
+            </div>
+
+            <!-- Phần Nội dung Admin -->
+            <div class="admin-page">
+                <div class="page-header">
+                    <div class="page-description">
+                        <p class="breadcrumb"></p>
+                        <p class="page-title"><strong>Chi tiết đơn hàng</strong></p>
+                        <p class="page-subtitle"></p>
+                    </div>
+
+                    <div class="admin-profile">
+                        <img class="admin-avatar" src="../image/sigma-face-meme.jpg" alt="Admin Avatar">
+                        <div class="admin-info">
+                            <span class="admin-name"><strong>Admin</strong></span>
+                            <span class="admin-role">Quản trị viên</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-title">
+                    <div>
+                        <h2>Chi tiết đơn #DH001</h2>
+                        <p>Ngày đặt: 20/10/2026</p>
+                    </div>
+                    <a href="reports.html" class="btn-back">← Quay lại danh sách</a>
+                </div>
+
+                <!-- Bố cục lưới 2 cột chính -->
+                <div class="main-content-grid">
+                    <!-- Cột bên trái: Thông tin đơn hàng & Sản phẩm -->
+                    <div class="left-column">
+                        <div class="card-detail-order">
+                            <div class="card-header-flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <p style="margin: 0; font-weight: bold;">Thông tin đơn hàng</p>
+                                <!-- Thêm id để tự động đổi badge trạng thái -->
+                                <span id="orderStatusBadge" class="badge-cancelled">Đã hủy</span>
+                            </div>
+                            <div class="info-order">
+                                <div class="info-group">
+                                    <div class="info-title">KHÁCH HÀNG</div>
+                                    <div class="info-value">Phan Nguyễn Hoài Như</div>
+                                    <div class="info-sub">
+                                        <p style="margin: 2px 0;">Điện thoại: 0901234567</p>
+                                        <p style="margin: 2px 0;">Email: hoainhu@example.com</p>
+                                    </div>
+                                </div>
+                                <div class="info-group">
+                                    <div class="info-title">ĐỊA CHỈ GIAO HÀNG</div>
+                                    <div class="info-value">123 Nguyễn Trãi, Phường Bến Thành</div>
+                                    <div class="info-sub">Quận 1, TP. Hồ Chí Minh</div>
+                                </div>
+                                <div class="info-group">
+                                    <div class="info-title">PHƯƠNG THỨC THANH TOÁN</div>
+                                    <div class="info-value">Thanh toán khi nhận hàng (COD)</div>
+                                </div>
+                                <div class="info-group">
+                                    <div class="info-title">ĐƠN VỊ VẬN CHUYỂN</div>
+                                    <div class="info-value">Giao hàng tiêu chuẩn</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-product-detail">
+                            <p>Sản phẩm trong đơn hàng</p>
+                            <div class="data-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Sản phẩm</th>
+                                            <th>Đơn giá</th>
+                                            <th>Số lượng</th>
+                                            <th>Thành tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="product-cell">
+                                                    <img src="../image/arirang.jpg" style="width: 45px; height: 45px; object-fit: cover; border-radius: 6px;">
+                                                    <div>
+                                                        <div class="product-title">ARIRANG STANDARD</div>
+                                                        <div class="product-sub">CD BOX SET</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>3.260.000đ</td>
+                                            <td>1</td>
+                                            <td><strong>3.260.000đ</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="product-cell">
+                                                    <img src="../image/green.jpg" style="width: 45px; height: 45px; object-fit: cover; border-radius: 6px;">
+                                                    <div>
+                                                        <div class="product-title">GREEN GREEN STANDARD</div>
+                                                        <div class="product-sub">CD BOX SET</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>1.200.000đ</td>
+                                            <td>1</td>
+                                            <td><strong>1.200.000đ</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <div class="order-summary">
+                                    <div class="summary-row">
+                                        <span>Tạm tính</span>
+                                        <span>4.460.000đ</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Phí vận chuyển</span>
+                                        <span>0đ</span>
+                                    </div>
+                                    <div class="summary-row">
+                                        <span>Giảm giá</span>
+                                        <span>0đ</span>
+                                    </div>
+                                    <div class="summary-row total">
+                                        <span>Tổng thanh toán</span>
+                                        <span class="total-price">4.460.000đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cột bên phải: Cập nhật đơn hàng, Thanh toán & Thao tác -->
+                    <div class="right-column">
+                        <div class="order-update">
+                            <div class="card-title" style="margin-bottom: 15px;"><span>Cập nhật đơn hàng</span></div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="statusSelect">Trạng thái đơn hàng</label>
+                                    <select id="statusSelect">
+                                        <option value="pending">Chờ xác nhận</option>
+                                        <option value="shipping">Đang giao hàng</option>
+                                        <option value="completed">Hoàn thành</option>
+                                        <option value="cancelled" selected>Đã hủy</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="adminNote">Ghi chú của Admin</label>
+                                    <textarea id="adminNote" placeholder="Nhập ghi chú..."></textarea>
+                                </div>
+                                <!-- Thêm id cho nút Lưu thay đổi -->
+                                <button type="button" id="btnSave" class="save-btn" style="cursor: pointer;">Lưu thay đổi</button>
+                            </div>
+                        </div>
+
+                        <div class="payment">
+                            <div class="card-title" style="margin-bottom: 15px;"><span>Thanh toán</span></div>
+                            <div class="card-body" style="display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #334155;">
+                                <div>Phương thức: <strong>COD</strong></div>
+                                <div>Trạng thái: <strong style="color: #e11d48;">Chưa thanh toán</strong></div>
+                                <div>Số tiền: <strong>4.460.000đ</strong></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Thêm id cho 2 nút thao tác -->
+                        <div class="operate">
+                            <button id="btnConfirm" style="flex: 1; background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">Xác nhận đơn hàng</button>
+                            <button id="btnCancel" style="flex: 1; background: #e11d48; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">Hủy đơn hàng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Đoạn script xử lý logic -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const statusSelect = document.getElementById("statusSelect");
+                const statusBadge = document.getElementById("orderStatusBadge");
+                const adminNoteInput = document.getElementById("adminNote");
+                const btnSave = document.getElementById("btnSave");
+                const btnConfirm = document.getElementById("btnConfirm");
+                const btnCancel = document.getElementById("btnCancel");
+
+                const statusConfig = {
+                    "pending": { text: "Chờ xác nhận", className: "badge-pending" },
+                    "shipping": { text: "Đang giao hàng", className: "badge-shipping" },
+                    "completed": { text: "Hoàn thành", className: "badge-completed" },
+                    "cancelled": { text: "Đã hủy", className: "badge-cancelled" }
+                };
+
+                // 1. Đồng bộ trạng thái từ ô chọn sang nhãn bên trái
+                statusSelect.addEventListener("change", function () {
+                    const selectedValue = this.value;
+                    const config = statusConfig[selectedValue];
+
+                    if (config) {
+                        statusBadge.textContent = config.text;
+                        statusBadge.className = config.className;
+                    }
+                });
+
+                // 2. Xử lý nút "Lưu thay đổi" ghi chú (chỉ thông báo lưu thành công, không làm thay đổi giao diện)
+                btnSave.addEventListener("click", function () {
+                    const noteText = adminNoteInput.value.trim();
+                    if (noteText !== "") {
+                        alert("Đã lưu thay đổi ghi chú thành công!");
+                    } else {
+                        alert("Vui lòng nhập nội dung ghi chú trước khi lưu!");
+                    }
+                });
+
+                // 3. Hộp thoại xác nhận khi bấm "Xác nhận đơn hàng"
+                btnConfirm.addEventListener("click", function () {
+                    if (confirm("Bạn có chắc chắn muốn xác nhận đơn hàng này không?")) {
+                        statusSelect.value = "shipping";
+                        statusSelect.dispatchEvent(new Event("change"));
+                        alert("Đã xác nhận đơn hàng thành công!");
+                    }
+                });
+
+                // 4. Hộp thoại xác nhận khi bấm "Hủy đơn hàng"
+                btnCancel.addEventListener("click", function () {
+                    if (confirm("Bạn có chắc chắn muốn hủy đơn hàng này không?")) {
+                        statusSelect.value = "cancelled";
+                        statusSelect.dispatchEvent(new Event("change"));
+                        alert("Đã hủy đơn hàng!");
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
