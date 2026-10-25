@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Chi tiết đơn hàng - Admin</title>
-        <link rel="stylesheet" href="../css/admin-detail-order.css">
+        <link rel="stylesheet" href="../css/base.css">
+        <link rel="stylesheet" href="../css/admin.css">
+        <link rel="stylesheet" href="../css/admin-forms.css">
+        <link rel="stylesheet" href="../css/admin-auth.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -14,32 +17,36 @@
     <body>
         <div class="admin-layout">
             <!-- Sidebar -->
-            <div class="sidebar">
+            <aside class="admin-sidebar">
                 <p class="shop-name"><strong>K-POP STORE</strong></p>
             
-                <div>
-                    <a href="dashboard.html" class="btn"><i class="bi bi-clipboard-data"></i> Dashboard</a>
-                    <a href="products.html" class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</a>
-                    <a href="orders.html" class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</a>
-                    <a href="customers.html" class="btn"><i class="bi bi-people"></i> Khách hàng</a>
-                    <a href="reports.html" class="btn"><i class="bi bi-graph-up"></i> Báo cáo</a>
-                </div>
-            </div>
+                <ul>
+                    <li><a href="dashboard.html" class="btn"><i class="bi bi-clipboard-data"></i> Dashboard</a></li>
+                    <li><a href="products.html" class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</a></li>
+                    <li><a href="orders.html" class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</a></li>
+                    <li><a href="customers.html" class="btn"><i class="bi bi-people"></i> Khách hàng</a></li>
+                    <li><a href="users.html" class="btn"><i class="bi bi-person-gear"></i> Người dùng</a></li>
+                    <li><a href="reports.html" class="btn"><i class="bi bi-graph-up"></i> Báo cáo</a></li>
+                </ul>
+            </aside>
 
             <!-- Phần Nội dung Admin -->
-            <div class="admin-page">
-                <div class="page-header">
-                    <div class="page-description">
-                        <p class="breadcrumb"></p>
-                        <p class="page-title"><strong>Chi tiết đơn hàng</strong></p>
-                        <p class="page-subtitle"></p>
+            <main class="admin-main">
+                <div class="admin-topbar">
+                    <div>
+                        <h1>Chi tiết đơn hàng</h1>
+                        <p class="subtitle">Thông tin và trạng thái đơn hàng</p>
                     </div>
 
-                    <div class="admin-profile">
-                        <img class="admin-avatar" src="../image/sigma-face-meme.jpg" alt="Admin Avatar">
-                        <div class="admin-info">
-                            <span class="admin-name"><strong>Admin</strong></span>
-                            <span class="admin-role">Quản trị viên</span>
+                    <div class="admin-user">
+                        <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
+                        <div>
+                            <strong>Admin</strong>
+                            <small>Quản trị viên</small>
+                        </div>
+                        <div class="admin-auth-actions">
+                            <a href="login.html">Đăng nhập</a>
+                            <button type="button" disabled>Đăng xuất</button>
                         </div>
                     </div>
                 </div>
@@ -160,19 +167,19 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="statusSelect">Trạng thái đơn hàng</label>
-                                    <select id="statusSelect">
+                                    <select id="statusSelect" disabled>
                                         <option value="pending">Chờ xác nhận</option>
+                                        <option value="confirmed">Đã xác nhận</option>
                                         <option value="shipping">Đang giao hàng</option>
-                                        <option value="completed">Hoàn thành</option>
+                                        <option value="completed">Đã giao</option>
                                         <option value="cancelled" selected>Đã hủy</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="adminNote">Ghi chú của Admin</label>
-                                    <textarea id="adminNote" placeholder="Nhập ghi chú..."></textarea>
+                                    <textarea id="adminNote" placeholder="Nhập ghi chú..." disabled></textarea>
                                 </div>
-                                <!-- Thêm id cho nút Lưu thay đổi -->
-                                <button type="button" id="btnSave" class="save-btn" style="cursor: pointer;">Lưu thay đổi</button>
+                                <button type="button" class="save-btn" disabled>Lưu thay đổi</button>
                             </div>
                         </div>
 
@@ -185,72 +192,14 @@
                             </div>
                         </div>
                         
-                        <!-- Thêm id cho 2 nút thao tác -->
                         <div class="operate">
-                            <button id="btnConfirm" style="flex: 1; background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">Xác nhận đơn hàng</button>
-                            <button id="btnCancel" style="flex: 1; background: #e11d48; color: white; border: none; padding: 10px; border-radius: 6px; cursor: pointer;">Hủy đơn hàng</button>
+                            <button type="button" disabled style="flex: 1; background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px;">Xác nhận đơn hàng</button>
+                            <button type="button" disabled style="flex: 1; background: #e11d48; color: white; border: none; padding: 10px; border-radius: 6px;">Hủy đơn hàng</button>
                         </div>
                     </div>
                 </div>
+                </main>
             </div>
-        </div>
 
-        <!-- Đoạn script xử lý logic -->
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const statusSelect = document.getElementById("statusSelect");
-                const statusBadge = document.getElementById("orderStatusBadge");
-                const adminNoteInput = document.getElementById("adminNote");
-                const btnSave = document.getElementById("btnSave");
-                const btnConfirm = document.getElementById("btnConfirm");
-                const btnCancel = document.getElementById("btnCancel");
-
-                const statusConfig = {
-                    "pending": { text: "Chờ xác nhận", className: "badge-pending" },
-                    "shipping": { text: "Đang giao hàng", className: "badge-shipping" },
-                    "completed": { text: "Hoàn thành", className: "badge-completed" },
-                    "cancelled": { text: "Đã hủy", className: "badge-cancelled" }
-                };
-
-                // 1. Đồng bộ trạng thái từ ô chọn sang nhãn bên trái
-                statusSelect.addEventListener("change", function () {
-                    const selectedValue = this.value;
-                    const config = statusConfig[selectedValue];
-
-                    if (config) {
-                        statusBadge.textContent = config.text;
-                        statusBadge.className = config.className;
-                    }
-                });
-
-                // 2. Xử lý nút "Lưu thay đổi" ghi chú (chỉ thông báo lưu thành công, không làm thay đổi giao diện)
-                btnSave.addEventListener("click", function () {
-                    const noteText = adminNoteInput.value.trim();
-                    if (noteText !== "") {
-                        alert("Đã lưu thay đổi ghi chú thành công!");
-                    } else {
-                        alert("Vui lòng nhập nội dung ghi chú trước khi lưu!");
-                    }
-                });
-
-                // 3. Hộp thoại xác nhận khi bấm "Xác nhận đơn hàng"
-                btnConfirm.addEventListener("click", function () {
-                    if (confirm("Bạn có chắc chắn muốn xác nhận đơn hàng này không?")) {
-                        statusSelect.value = "shipping";
-                        statusSelect.dispatchEvent(new Event("change"));
-                        alert("Đã xác nhận đơn hàng thành công!");
-                    }
-                });
-
-                // 4. Hộp thoại xác nhận khi bấm "Hủy đơn hàng"
-                btnCancel.addEventListener("click", function () {
-                    if (confirm("Bạn có chắc chắn muốn hủy đơn hàng này không?")) {
-                        statusSelect.value = "cancelled";
-                        statusSelect.dispatchEvent(new Event("change"));
-                        alert("Đã hủy đơn hàng!");
-                    }
-                });
-            });
-        </script>
     </body>
 </html>

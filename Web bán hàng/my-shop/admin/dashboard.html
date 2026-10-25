@@ -1,208 +1,185 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="../css/admin-dashboard.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    </head>
 
-    <body>
-        <!--Sidebar-->
-        <div class="admin-layout">
-            <div class="sidebar">
-                <p class="shop-name"><strong>K-POP STORE</strong></p><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-forms.css">
+    <link rel="stylesheet" href="../css/admin-auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <!--Sidebar-->
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <p class="shop-name"><strong>K-POP STORE</strong></p><br>
+            <ul>
+                <li><a href="dashboard.html" class="btn active"><i class="bi bi-clipboard-data"></i> Dashboard</a></li>
+                <li><a href="products.html" class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</a></li>
+                <li><a href="orders.html" class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</a></li>
+                <li><a href="customers.html" class="btn"><i class="bi bi-people"></i> Khách hàng</a></li>
+                <li><a href="users.html" class="btn"><i class="bi bi-person-gear"></i> Người dùng</a></li>
+                <li><a href="reports.html" class="btn"><i class="bi bi-graph-up"></i> Báo cáo</a></li>
+            </ul>
+        </aside>
+
+        <!--Phần Admin-->
+        <main class="admin-main">
+            <div class="admin-topbar">
                 <div>
-                    <a href="dashboard.html" class="btn"><i class="bi bi-clipboard-data"></i> Dashboard</a>
-                    <a href="products.html" class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</a>
-                    <a href="orders.html" class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</a>
-                    <a href="customers.html" class="btn"><i class="bi bi-people"></i> Khách hàng</a>
-                    <a href="reports.html" class="btn"><i class="bi bi-graph-up"></i> Báo cáo</a>
+                    <h1>Tổng quan</h1>
+                    <p class="subtitle">Theo dõi tình hình kinh doanh của cửa hàng</p>
+                </div>
+
+                <div class="admin-user">
+                    <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Quản trị viên</small>
+                    </div>
+                    <div class="admin-auth-actions">
+                        <a href="login.html">Đăng nhập</a>
+                        <button type="button" disabled>Đăng xuất</button>
+                    </div>
                 </div>
             </div>
 
-            <!--Phần Admin-->
-            <div class="admin_page">
-                <div class="page-header">
-                    <div class="page-description">
-                        <p class="breadcrumb">Trang chủ/Dashboard</p>
-                        <p class="page-title"><strong>Tổng quan</strong></p>
-                        <p class="page-subtitle">Theo dõi tình hình kinh doanh của cửa hàng</p>
-                    </div>
+            <div class="overview dashboard-overview">
+                <div class="overview-box">
+                    <p class="overview-title">Tổng doanh thu</p>
+                    <p class="overview-data">48.650.000đ</p>
+                    <p class="overview-subtitle"><span class="highlight-increase">↑ 12,8%</span> so với kỳ trước</p>
+                </div>
+                <div class="overview-box">
+                    <p class="overview-title">Tổng đơn hàng</p>
+                    <p class="overview-data">60.205</p>
+                    <p class="overview-subtitle"><span class="highlight-increase">↑ 8,2%</span> so với kỳ trước</p>
+                </div>
+                <div class="overview-box">
+                    <p class="overview-title">Khách hàng</p>
+                    <p class="overview-data">1.102</p>
+                    <p class="overview-subtitle"><span class="highlight-increase">↑ 6,5%</span> khách hàng đã mua</p>
+                </div>
+                <div class="overview-box">
+                    <p class="overview-title">sản phẩm</p>
+                    <p class="overview-data">478</p>
+                    <p class="overview-subtitle"><span class="highlight-descrease">155</span> sản phẩm sắp hết hàng</p>
+                </div>
+            </div>
 
-                    <div class="admin-profile">
-                        <img class="admin-avatar" src="../image/sigma-face-meme.jpg">
-                        <div class="admin-info">
-                            <span class="admin-name"><strong>Admin</strong></span>
-                            <span class="admin-role">Quản trị viên</span>
+            <div class="revenue-dashboard">
+                <div class="column-chart">
+                    <div class="column-header-flex">
+                        <div>
+                            <p class="column-title">Doanh thu bán hàng</p>
+                            <p class="column-subtitle">Biến động doanh thu trong 7 ngày gần nhất</p>
                         </div>
+                        <select id="metric-select" class="dropdown" disabled>
+                            <option value="doanhThu">Doanh thu</option>
+                            <option value="donHang">Đơn hàng</option>
+                        </select>
+                    </div>
+                    <div class="column-description">
+                        <img id="doanhThu" class="chart-box active" src="../image/column-chart-revenue.png">
+                        <img id="donHang" class="chart-box" src="../image/column-chart-order.png">
                     </div>
                 </div>
 
-                <div class="overview">
-                    <div class="overview-box">
-                        <p class="overview-title">Tổng doanh thu</p>
-                        <p class="overview-data">48.650.000đ</p>
-                        <p class="overview-subtitle"><span class="highlight-increase">↑ 12,8%</span> so với kỳ trước</p>
+                <div class="pie-chart">
+                    <div class="pie-header-flex">
+                        <div>
+                            <p class="pie-title">Trạng thái đơn hàng</p>
+                            <p class="pie-subtitle">Tỷ lệ đơn hàng theo trạng thái</p>
+                        </div>
                     </div>
-                    <div class="overview-box">
-                        <p class="overview-title">Tổng đơn hàng</p>
-                        <p class="overview-data">1.248</p>
-                        <p class="overview-subtitle"><span class="highlight-increase">↑ 8,2%</span> so với kỳ trước</p>
-                    </div>
-                    <div class="overview-box">
-                        <p class="overview-title">Khách hàng</p>
-                        <p class="overview-data">1.102</p>
-                        <p class="overview-subtitle"><span class="highlight-increase">↑ 6,5%</span> khách hàng đã mua</p>
-                    </div>
-                    <div class="overview-box">
-                        <p class="overview-title">sản phẩm</p>
-                        <p class="overview-data">136</p>
-                        <p class="overview-subtitle"><span class="highlight-descrease">12</span> sản phẩm sắp hết hàng</p>
+                    <div class="pie-content">
+                        <img class="pie-img" src="../image/pie-chart.png" alt="Biểu đồ trạng thái đơn hàng">
                     </div>
                 </div>
+            </div>
 
-                <div class="revenue-dashboard">
-                    <div class="column-chart">
-                        <div class="column-header-flex">
-                            <div>
-                                <p class="column-title">Doanh thu bán hàng</p>
-                                <p class="column-subtitle">Biến động doanh thu trong 7 ngày gần nhất</p>
-                            </div>
-                            <select id="metric-select" class="dropdown">
-                                <option value="doanhThu">Doanh thu</option>
-                                <option value="donHang">Đơn hàng</option>
-                            </select>
-                        </div>
-                        <div class="column-description">
-                            <img id="doanhThu" class="chart-box active" src="../image/column-chart-revenue.png">
-                            <img id="donHang" class="chart-box" src="../image/column-chart-order.png">
-                        </div>
+            <div class="other-option">
+                <a href="products.html" class="product-btn">
+                    <div class="product-btn-information">
+                        <p class="option-title">Quản lý sản phẩm</p>
+                        <p class="option-subtitle">Xem và cập nhật kho hàng</p>
                     </div>
+                </a>
+                <a href="orders.html" class="order-btn">
+                    <div class="order-btn-information">
+                        <p class="option-title">Quản lý đơn hàng</p>
+                        <p class="option-subtitle">Theo dõi đơn mới và trạng thái</p>
+                    </div>
+                </a>
+                <a href="reports.html" class="report-btn">
+                    <div class="report-btn-information">
+                        <p class="option-title">Xem báo cáo</p>
+                        <p class="option-subtitle">Phân tích doanh thu và lợi nhuận</p>
+                    </div>
+                </a>
+            </div>
 
-                    <div class="pie-chart">
-                        <div class="pie-header-flex">
-                            <div>
-                                <p class="pie-title">Trạng thái đơn hàng</p>
-                                <p class="pie-subtitle">Tỷ lệ đơn hàng theo trạng thái</p>
-                            </div>
-                        </div>
-                        <div class="pie-content">
-                            <img class="pie-img" src="../image/pie-chart.png" alt="Biểu đồ trạng thái đơn hàng">
-                        </div>
+            <div class="recent-order card">
+                <div class="order-status-information">
+                    <div class="order-header">
+                        <p>Đơn hàng gần đây</p>
                     </div>
+                    <a href="orders.html" class="all-order-btn">Xem tất cả &rarr;</a>
                 </div>
 
-                <div class="other-option">
-                    <a href="products.html" class="product-btn">
-                        <div class="product-btn-information">
-                            <p class="option-title">Quản lý sản phẩm</p>
-                            <p class="option-subtitle">Xem và cập nhật kho hàng</p>
-                        </div>
-                    </a>
-                    <a href="orders.html" class="order-btn">
-                        <div class="order-btn-information">
-                            <p class="option-title">Quản lý đơn hàng</p>
-                            <p class="option-subtitle">Theo dõi đơn mới và trạng thái</p>
-                        </div>
-                    </a>
-                    <a href="reports.html" class="report-btn">
-                        <div class="report-btn-information">
-                            <p class="option-title">Xem báo cáo</p>
-                            <p class="option-subtitle">Phân tích doanh thu và lợi nhuận</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="recent-order">
-                    <div class="order-status-information">
-                        <div class="order-header"><p>Đơn hàng gần đây</p></div>
-                        <a href="orders.html" class="all-order-btn">Xem tất cả &rarr;</a>
-                    </div>
-
-                    <table>
-                        <thead>
-                            <tr>
+                <table class="data-table">
+                    <thead>
+                        <tr>
                             <th>Mã đơn</th>
                             <th>Khách hàng</th>
                             <th>Ngày đặt</th>
                             <th>Tổng tiền</th>
                             <th>Trạng thái</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <td><strong>#DH1024</strong></td>
-                            <td>Nguyễn Văn A</td>
-                            <td>18/10/2026</td>
-                            <td>1.250.000 đ</td>
-                            <td><span class="badge success">Hoàn thành</span></td>
-                            </tr>
-                            <tr>
-                            <td><strong>#DH1023</strong></td>
-                            <td>Trần Thị B</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>#DH1208</strong></td>
+                            <td>Thảo Trần</td>
+                            <td>17/10/2025</td>
+                            <td>1.200.000đ</td>
+                            <td><span class="badge badge-success">Hoàn thành</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DH1207</strong></td>
+                            <td>Hoài Như</td>
                             <td>17/10/2026</td>
-                            <td>850.000 đ</td>
-                            <td><span class="badge warning">Chờ xử lý</span></td>
-                            </tr>
-                            <tr>
-                            <td><strong>#DH1022</strong></td>
-                            <td>Lê Văn C</td>
+                            <td>4.460.000đ</td>
+                            <td><span class="badge badge-warning">Đang xử lý</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DH1206</strong></td>
+                            <td>Linh Chi</td>
                             <td>17/10/2026</td>
-                            <td>2.100.000 đ</td>
-                            <td><span class="badge success">Hoàn thành</span></td>
-                            </tr>
-                            <tr>
-                            <td><strong>#DH1021</strong></td>
-                            <td>Phạm Thị D</td>
+                            <td>880.000đ</td>
+                            <td><span class="badge badge-success">Hoàn thành</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>#DH1205</strong></td>
+                            <td>Thủy Tiên</td>
                             <td>16/10/2026</td>
-                            <td>450.000 đ</td>
-                            <td><span class="badge danger">Đã hủy</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                            <td>3.260.000đ</td>
+                            <td><span class="badge badge-info">Đang giao</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
+        </main>
+    </div>
 
-        <script>
-    // Lấy thẻ select và các bức ảnh biểu đồ
-            const metricSelect = document.getElementById('metric-select');
-            const doanhThuImg = document.getElementById('doanhThu');
-            const donHangImg = document.getElementById('donHang');
+</body>
 
-            // Lắng nghe sự kiện khi người dùng thay đổi lựa chọn trong ô dropdown
-            metricSelect.addEventListener('change', function() {
-                const selectedValue = this.value; // Lấy giá trị đang chọn ('doanhThu' hoặc 'donHang')
-
-                if (selectedValue === 'doanhThu') {
-                    // Nếu chọn Doanh thu: Hiện ảnh doanh thu, ẩn ảnh đơn hàng
-                    doanhThuImg.classList.add('active');
-                    donHangImg.classList.remove('active');
-                } else if (selectedValue === 'donHang') {
-                    // Nếu chọn Đơn hàng: Hiện ảnh đơn hàng, ẩn ảnh doanh thu
-                    donHangImg.classList.add('active');
-                    doanhThuImg.classList.remove('active');
-                }
-            });
-
-            const currentLocation = window.location.pathname.split("/").pop() || 'dashboard.html';
-    
-            // Lấy tất cả các đường dẫn trong sidebar
-            const menuItems = document.querySelectorAll('.sidebar .btn');
-
-            menuItems.forEach(item => {
-                const itemHref = item.getAttribute('href');
-                
-                // Nếu tên file trùng khớp với href, thêm class active
-                if (itemHref === currentLocation) {
-                    item.classList.add('active');
-                }
-            });
-        </script>
-    </body>
 </html>

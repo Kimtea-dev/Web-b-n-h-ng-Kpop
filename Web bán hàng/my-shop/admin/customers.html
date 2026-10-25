@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../css/base.css">
   <link rel="stylesheet" href="../css/admin.css">
   <link rel="stylesheet" href="../css/admin-forms.css">
+  <link rel="stylesheet" href="../css/admin-auth.css">
 </head>
 
 <body>
@@ -26,6 +27,7 @@
       <li><a href="products.html" class="btn"><i class="bi bi-box-seam"></i>Sản phẩm</a></li>
       <li><a href="orders.html" class="btn"><i class="bi bi-bag-check"></i>Đơn hàng</a></li>
       <li><a href="customers.html" class="btn active"><i class="bi bi-people"></i>Khách hàng</a></li>
+      <li><a href="users.html" class="btn"><i class="bi bi-person-gear"></i>Người dùng</a></li>
       <li><a href="reports.html" class="btn"><i class="bi bi-graph-up"></i>Báo cáo</a></li>
     </ul>
   </aside>
@@ -35,19 +37,22 @@
     <!-- ===== TOPBAR (chỉ đổi breadcrumb, tiêu đề, phụ đề) ===== -->
     <div class="admin-topbar">
       <div>
-        <div class="breadcrumb">Trang chủ / Khách hàng</div>
         <h1>Khách hàng</h1>
         <p class="subtitle">Quản lý thông tin khách hàng của cửa hàng</p>
       </div>
       <div class="admin-user">
         <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
         <div><strong>Admin</strong><small>Quản trị viên</small></div>
+        <div class="admin-auth-actions">
+          <a href="login.html">Đăng nhập</a>
+          <button type="button" disabled>Đăng xuất</button>
+        </div>
       </div>
     </div>
 
     <div class="toolbar-card">
       <div class="search-box">
-        <input type="search" placeholder="Tìm tên, số điện thoại,...">
+        <input type="search" placeholder="Tìm tên, số điện thoại,..." disabled>
       </div>
       <button class="btn btn-primary" data-open="addCustomerModal">+ Thêm khách hàng</button>
     </div>
@@ -133,13 +138,13 @@
       </table>
 
       <div class="pagination">
-        <button class="btn">&laquo; Trang trước</button>
-        <button class="btn btn-primary">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
+        <button class="btn" disabled>&laquo; Trang trước</button>
+        <button class="btn btn-primary" disabled>1</button>
+        <button class="btn" disabled>2</button>
+        <button class="btn" disabled>3</button>
         <span>...</span>
-        <button class="btn">5</button>
-        <button class="btn">Trang sau &raquo;</button>
+        <button class="btn" disabled>5</button>
+        <button class="btn" disabled>Trang sau &raquo;</button>
       </div>
     </div>
 
@@ -154,20 +159,20 @@
         <div class="form-grid-2">
           <div class="form-group">
             <label for="customerFullName">Họ và tên</label>
-            <input type="text" id="customerFullName" required>
+            <input type="text" id="customerFullName" required disabled>
           </div>
           <div class="form-group">
             <label for="customerPhone">Số điện thoại</label>
-            <input type="tel" id="customerPhone" required>
+            <input type="tel" id="customerPhone" required disabled>
           </div>
           <div class="form-group">
             <label for="customerEmail">Email</label>
-            <input type="email" id="customerEmail" required>
+            <input type="email" id="customerEmail" required disabled>
           </div>
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn btn-primary">Lưu thông tin</button>
+          <button type="button" class="btn btn-primary" disabled>Lưu thông tin</button>
         </div>
       </form>
     </div>

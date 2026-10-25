@@ -4,7 +4,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title></title>
-        <link rel="stylesheet" href="admin.css">
+        <link rel="stylesheet" href="../css/base.css">
+        <link rel="stylesheet" href="../css/admin.css">
+        <link rel="stylesheet" href="../css/admin-forms.css">
+        <link rel="stylesheet" href="../css/admin-auth.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -13,34 +16,37 @@
 
     <body>
         <div class="admin-layout">
-            <div class="sidebar">
+            <aside class="admin-sidebar">
                 <p class="shop-name"><strong>Tên shop</strong></p><br>
                 <div>
-                    <button class="btn"><i class="bi bi-clipboard-data"></i> Dashboard</button>
-                    <button class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</button>
-                    <button class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</button>
-                    <button class="btn"><i class="bi bi-people"></i> Khách hàng</button>
-                    <button class="btn"><i class="bi bi-graph-up"></i> Báo cáo</button>
+                    <button class="btn" type="button" disabled><i class="bi bi-clipboard-data"></i> Dashboard</button>
+                    <button class="btn" type="button" disabled><i class="bi bi-box-seam"></i> Sản phẩm</button>
+                    <button class="btn" type="button" disabled><i class="bi bi-bag-check"></i> Đơn hàng</button>
+                    <button class="btn" type="button" disabled><i class="bi bi-people"></i> Khách hàng</button>
+                    <button class="btn" type="button" disabled><i class="bi bi-graph-up"></i> Báo cáo</button>
                 </div>
-            </div>
+            </aside>
 
-            <div class="admin_page">
-                <div class="page-header">
-                    <div class="page-description">
-                        <p class="breadcrumb">Trang chủ/...</p>
-                        <p class="page-title"><strong>Tiêu đề trang</strong></p>
-                        <p class="page-subtitle">Phụ đề</p>
+            <main class="admin-main">
+                <div class="admin-topbar">
+                    <div>
+                        <h1>Tiêu đề trang</h1>
+                        <p class="subtitle">Phụ đề</p>
                     </div>
 
-                    <div class="admin-profile">
-                        <img class="admin-avatar" src="../image/sigma-face-meme.jpg">
-                        <div class="admin-info">
-                            <span class="admin-name"><strong>Admin</strong></span>
-                            <span class="admin-role">Quản trị viên</span>
+                    <div class="admin-user">
+                        <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
+                        <div>
+                            <strong>Admin</strong>
+                            <small>Quản trị viên</small>
+                        </div>
+                        <div class="admin-auth-actions">
+                            <a href="login.html">Đăng nhập</a>
+                            <button type="button" disabled>Đăng xuất</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     </body>
 </html>
