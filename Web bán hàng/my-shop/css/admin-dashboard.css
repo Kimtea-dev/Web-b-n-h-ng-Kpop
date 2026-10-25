@@ -1,0 +1,424 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: var(--);
+    color: var(--);
+    overflow-x: hidden;
+}
+
+.admin-layout{
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.page-header{
+    min-height: 120px;
+    padding: 20px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    background-color: var(--);
+}
+
+.page-description{
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-page{
+    flex: 1;
+    min-width: 0;
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.admin-profile{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    width: 192.06px;
+    height: 62.92px;
+}
+
+.admin-avatar{
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.admin-info{
+    width: 110px;
+    height: 52px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-name{
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.admin-role{
+    font-weight: 300;
+}
+
+.sidebar{
+    width: 256px;
+    padding: 24px 12px;
+    background-color: var(--);
+    flex-shrink: 0;
+}
+
+.btn {
+    width: 100%;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    
+    /* Đổi màu chữ mặc định thành màu đen (hoặc #2f3542) */
+    color: #000000 !important; 
+    
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+/* Đảm bảo cả icon bên trong cũng nhận màu đen khi không active */
+.btn i {
+    color: #000000 !important;
+}
+
+/* Khi hover vào (nếu muốn giữ nguyên hoặc đổi màu nhẹ) */
+.btn:hover {
+    background-color: var(--sidebar-hover);
+}
+
+.shop-name{
+    margin: 0 0 32px;
+    padding: 0 12px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+i{
+    width: 40px;
+    height: 40px;
+    margin-right: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.breadcrumb{
+    font-size: 16px;
+    color: var(--);
+    font-weight: 200px;
+    margin-bottom: 10px;
+}
+
+.page-title{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+.page-subtitle{
+    font-size: 16px;
+    color: var(--);
+    font-weight: 200px;
+    margin-top: 0;
+}
+
+.overview{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: var(--);
+    padding: 15px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.overview-box{
+    background-color: var(--);
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 12px 14px;
+    flex: 1 1 200px;
+    box-sizing: border-box;
+}
+
+.overview-title{
+    font-size: 14px;
+    color: var(--);
+    font-weight: 400;
+    margin: 0 0 8px 0;
+}
+
+.overview-data{
+    font-size: 26px;
+    color:(--);
+    font-weight: bold;
+    margin: 0 0 12px 0;
+}
+
+.overview-subtitle{
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.highlight-increase{
+    color: green;   
+}
+
+.highlight-descrease{
+    color: red;
+}
+
+.revenue-dashboard{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-warp: wrap;
+}
+
+.column-chart{
+    flex: 2;
+    min-width: 300px;
+    background-color: var(--);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.column-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.pie-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.pie-chart{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    align-items: center;    
+    flex: 1;
+    min-width: 280px;
+    background-color: var(--);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.pie-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+}
+
+.column-information, .pie-information {
+    margin-bottom: 15px;
+}
+
+.column-title, .pie-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+}
+
+.column-subtitle, .pie-subtitle {
+    font-size: 13px;
+    color: var(--);
+    margin: 0;
+    font-weight: 200;
+}
+
+.dropdown{
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--);
+    outline: none;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.chart-box{
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.pie-img {
+    display: block !important;
+    max-width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.chart-box.active {
+    display: block;
+}
+
+.other-option {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.other-option button,
+.other-option a {
+    flex: 1;
+    min-width: 220px;
+    background: #ffffff; /* Đặt màu nền trắng cho nút */
+    border: 1px solid #e2e8f0; /* Thêm viền nhẹ cho nổi bật (tùy chọn) */
+    border-radius: 12px;
+    padding: 16px;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none; /* Tránh gạch chân nếu dùng thẻ a */
+    display: block;
+}
+
+.other-option button:hover,
+.other-option a:hover {
+    transform: translateY(-2px);
+    background-color: #f8fafc; /* Đổi màu nhẹ khi hover */
+}
+
+.option-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1e293b; /* Đặt màu chữ tiêu đề đậm rõ ràng */
+    margin: 0 0 4px 0;
+}
+
+.option-subtitle {
+    font-size: 13px;
+    color: #64748b; /* Đặt màu chữ mô tả nhạt hơn */
+    margin: 0;
+}
+
+.recent-order {
+    background: var(--);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    overflow-x: auto;
+}
+
+.order-status-information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.order-header p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.all-order-btn {
+    background-color: var(--bg-light, #f0f2f5); /* Thay thế bằng biến màu nền của bạn */
+    color: var(--text-color, #333);           /* Màu chữ */
+    border: none;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-decoration: none;                     /* Bỏ gạch chân mặc định của thẻ a */
+    display: inline-block;
+    transition: background-color 0.2s ease;
+}
+
+.all-order-btn:hover {
+    background-color: var(--bg-hover, #e4e6eb); /* Màu nền khi rê chuột vào */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--);
+    background-color: var(--);
+    padding: 10px 12px;
+}
+
+td {
+    padding: 12px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--);
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.badge.success { background-color: #dcfce7; color: #166534; }
+.badge.warning { background-color: #fef3c7; color: #854d0e; }
+.badge.danger { background-color: #fee2e2; color: #991b1b; }
+
+/* Ép toàn bộ các mục menu ở trạng thái active chuyển sang xám, mất gạch chân và đồng bộ màu chữ */
+.sidebar .btn.active,
+.sidebar a.active,
+.sidebar .btn.active i,
+.sidebar a.active i {
+    background-color: #f1f2f6 !important; /* Màu nền xám nhạt */
+    color: #2f3542 !important;            /* Màu chữ xám đậm */
+    font-weight: 600;
+    text-decoration: none !important;     /* Xóa hẳn gạch chân */
+}
+
+a{
+    text-decoration: none;
+}
