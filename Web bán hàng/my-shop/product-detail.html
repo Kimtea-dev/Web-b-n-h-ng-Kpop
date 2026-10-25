@@ -13,7 +13,16 @@
 
   <!-- ===== HEADER (copy y nguyên sang mọi trang khách hàng) ===== -->
   <header class="header">
-    <a class="logo" href="index.html">Tên shop</a>
+    <a class="logo" href="index.html">
+      <span>K-POP STORE</span>
+      <span class="logo-badge">Official</span>
+    </a>
+
+    <!-- Thanh tìm kiếm ở đầu trang -->
+    <div class="header-search">
+      <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
+      <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
+    </div>
     <nav>
       <ul>
         <li><a href="index.html">Trang chủ</a></li>
@@ -22,8 +31,13 @@
       </ul>
     </nav>
     <div class="header-icons">
-      <a href="cart.html" title="Giỏ hàng">🛒</a>
-      <a href="login.html" title="Tài khoản">👤</a>
+      <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
+        🛒
+        <span class="cart-badge" id="header-cart-count">0</span>
+      </a>
+      <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
+        👤
+      </a>
     </div>
   </header>
 
@@ -69,10 +83,54 @@
 
   <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->
   <footer class="footer">
-    <h3>Thông tin liên hệ</h3>
-    <p>Địa chỉ: ... &nbsp;|&nbsp; Hotline: ... &nbsp;|&nbsp; Mạng xã hội: ...</p>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>K-POP STORE</h3>
+        <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
+        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook">📘</a>
+          <a href="#" class="social-btn" title="Instagram">📷</a>
+          <a href="#" class="social-btn" title="TikTok">🎵</a>
+          <a href="#" class="social-btn" title="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Khám phá</h4>
+        <div class="footer-links">
+          <a href="index.html">Trang chủ</a>
+          <a href="products.html">Tất cả sản phẩm</a>
+          <a href="about.html">Giới thiệu cửa hàng</a>
+          <a href="cart.html">Giỏ hàng</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Chính sách</h4>
+        <div class="footer-links">
+          <a href="#">Chính sách đổi trả 7 ngày</a>
+          <a href="#">Bảo hiểm vận chuyển album</a>
+          <a href="#">Hướng dẫn thanh toán & ship</a>
+          <a href="#">Bảo mật thông tin</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Thông tin liên hệ</h4>
+        <p>📍 <strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>📞 <strong>Hotline:</strong> 0909 123 456 (9:00 - 21:00)</p>
+        <p>✉️ <strong>Email:</strong> support@kpopstore.vn</p>
+        <p>⏰ <strong>Thời gian:</strong> Thứ 2 - Chủ Nhật (9:00 - 22:00)</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 K-POP STORE.</p>
+    </div>
   </footer>
 
   <script src="js/quantity.js"></script>
+  <script src="js/cart.js"></script>
 </body>
 </html>

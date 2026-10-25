@@ -3,15 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giới thiệu - Tên shop</title>
+  <title>Giới thiệu - K-POP STORE</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/client.css">
 </head>
 <body>
 
-  <!-- ===== HEADER (copy y nguyên sang mọi trang khách hàng) ===== -->
+  <!-- ===== HEADER CHUẨN CÓ THANH TÌM KIẾM ===== -->
   <header class="header">
-    <a class="logo" href="index.html">Tên shop</a>
+    <a class="logo" href="index.html">
+      <span>K-POP STORE</span>
+      <span class="logo-badge">Official</span>
+    </a>
+
+    <!-- Thanh tìm kiếm ở đầu trang -->
+    <div class="header-search">
+      <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
+      <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
+    </div>
+
     <nav>
       <ul>
         <li><a href="index.html">Trang chủ</a></li>
@@ -19,28 +29,136 @@
         <li><a href="about.html" class="active">Giới thiệu</a></li>
       </ul>
     </nav>
+
     <div class="header-icons">
-      <a href="cart.html" title="Giỏ hàng">🛒</a>
-      <a href="login.html" title="Tài khoản">👤</a>
+      <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
+        🛒
+        <span class="cart-badge" id="header-cart-count">0</span>
+      </a>
+      <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
+        👤
+      </a>
     </div>
   </header>
 
-  <!-- ===== NỘI DUNG TRANG ===== -->
+  <!-- ===== NỘI DUNG GIỚI THIỆU CANH NGAY GIỮA (KHÔNG CHÈN ẢNH) ===== -->
   <main class="client-main">
-    <div class="todo-box">
-      <strong>Giới thiệu</strong> &mdash; phần của <strong>N1</strong>. Xóa khung này khi làm xong.
-      <ul>
-      <li>2 cột: khung ảnh/logo bo góc bên trái</li>
-      <li>Cột phải: h1 'Câu chuyện của Tên shop', đoạn giới thiệu, danh sách 3 ưu điểm có dấu ✔</li>
-      </ul>
+    <div class="container">
+      
+      <div class="about-centered-container">
+        
+        <span class="about-badge-pill">Về chúng tôi &bull; K-POP STORE</span>
+        
+        <h1>Câu chuyện của K-POP STORE</h1>
+        
+        <p class="about-lead-text">
+          Được thành lập từ năm 2021 bởi những người hâm mộ K-Pop chân chính, <strong>K-POP STORE</strong> ra đời với sứ mệnh kết nối tình yêu âm nhạc cuồng nhiệt của các bạn trẻ Việt Nam với thần tượng thông qua những ấn phẩm album nguyên seal và vật phẩm chính hãng 100% từ Hàn Quốc.
+        </p>
+
+        <p class="about-sub-text">
+          Chúng tôi hiểu rằng mỗi cuốn photobook, mỗi tấm photocard bo góc quý giá không đơn thuần chỉ là một món hàng sưu tầm, mà là cả tình cảm, kỷ niệm và sự tự hào bạn dành cho thần tượng của mình. Do đó, K-POP STORE cam kết đem đến trải nghiệm mua sắm an tâm tuyệt đối, minh bạch và tận tâm nhất.
+        </p>
+
+        <!-- Danh sách 3 ưu điểm có dấu ✔ căn đều dạng Card -->
+        <div class="about-features-list">
+          <div class="about-feature-box">
+            <div class="about-feature-icon-circle">✔</div>
+            <h3>100% Album Chính Hãng & Tính BXH</h3>
+            <p>Mọi album nhập trực tiếp từ nhà phát hành tại Seoul, tính doanh số 100% vào bảng xếp hạng Hanteo Chart và Circle Chart để tiếp sức cho thần tượng của bạn.</p>
+          </div>
+
+          <div class="about-feature-box">
+            <div class="about-feature-icon-circle">✔</div>
+            <h3>Đóng Gói Chống Sốc 3 Lớp Chuyên Nghiệp</h3>
+            <p>Bao bọc nghiêm ngặt với 3 lớp bóng khí xốp dày, hộp carton cứng cáp và dán băng keo niêm phong cẩn thận, đảm bảo album và photocard vuông vức không móp méo.</p>
+          </div>
+
+          <div class="about-feature-box">
+            <div class="about-feature-icon-circle">✔</div>
+            <h3>Giao Hàng Hỏa Tốc & Bảo Hành 1:1</h3>
+            <p>Hỗ trợ giao hàng nhanh chóng trên toàn quốc, đồng kiểm hàng trước khi thanh toán, và chính sách đổi trả minh bạch trong 7 ngày nếu có lỗi từ nhà sản xuất.</p>
+          </div>
+        </div>
+
+        <!-- Khối 3 thông số thống kê uy tín căn giữa -->
+        <div class="about-stats-row">
+          <div class="stat-pill">
+            <div class="number">50.000+</div>
+            <div class="label">Đơn hàng trao tận tay fan</div>
+          </div>
+          <div class="stat-pill">
+            <div class="number">100%</div>
+            <div class="label">Album nguyên Seal & Quà tặng</div>
+          </div>
+          <div class="stat-pill">
+            <div class="number">5.0 ★</div>
+            <div class="label">Đánh giá tin cậy từ khách hàng</div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </main>
 
-  <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->
+  <!-- ===== FOOTER ĐỒNG NHẤT CANH ĐỀU ===== -->
   <footer class="footer">
-    <h3>Thông tin liên hệ</h3>
-    <p>Địa chỉ: ... &nbsp;|&nbsp; Hotline: ... &nbsp;|&nbsp; Mạng xã hội: ...</p>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h3>K-POP STORE</h3>
+        <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
+        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" title="Facebook">📘</a>
+          <a href="#" class="social-btn" title="Instagram">📷</a>
+          <a href="#" class="social-btn" title="TikTok">🎵</a>
+          <a href="#" class="social-btn" title="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Khám phá</h4>
+        <div class="footer-links">
+          <a href="index.html">Trang chủ</a>
+          <a href="products.html">Tất cả sản phẩm</a>
+          <a href="about.html">Giới thiệu cửa hàng</a>
+          <a href="cart.html">Giỏ hàng</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Chính sách</h4>
+        <div class="footer-links">
+          <a href="#">Chính sách đổi trả 7 ngày</a>
+          <a href="#">Bảo hiểm vận chuyển album</a>
+          <a href="#">Hướng dẫn thanh toán & ship</a>
+          <a href="#">Bảo mật thông tin</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Thông tin liên hệ</h4>
+        <p>📍 <strong>Địa chỉ:</strong> 123 Đường K-Pop, Quận 1, TP. Hồ Chí Minh</p>
+        <p>📞 <strong>Hotline:</strong> 0909 123 456 (9:00 - 21:00)</p>
+        <p>✉️ <strong>Email:</strong> support@kpopstore.vn</p>
+        <p>⏰ <strong>Thời gian:</strong> Thứ 2 - Chủ Nhật (9:00 - 22:00)</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 K-POP STORE</p>
+    </div>
   </footer>
 
+  <script src="js/cart.js"></script>
+  <script>
+    function executeSearch() {
+      const input = document.getElementById('header-search-input');
+      if (input && input.value.trim()) {
+        const query = encodeURIComponent(input.value.trim());
+        window.location.href = `products.html?search=${query}`;
+      }
+    }
+  </script>
 </body>
 </html>

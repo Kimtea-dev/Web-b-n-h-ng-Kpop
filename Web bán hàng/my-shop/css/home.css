@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: inherit;
 }
 
 body {
@@ -10,7 +10,8 @@ body {
     color: #333;
 }
 
-header {
+/* header styling is unified in client.css */
+.legacy-home-header {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
     padding: 15px 40px;
@@ -24,7 +25,7 @@ header {
     font-weight: bold;
 }
 
-nav a{
+.legacy-nav a {
     margin-left: 20px;
     text-decoration: none;
     color: #333;
@@ -41,7 +42,8 @@ nav a:hover {
     padding: 0 20px;
 }
 
-.shop-header {
+.shop-/* header styling is unified in client.css */
+.legacy-home-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
