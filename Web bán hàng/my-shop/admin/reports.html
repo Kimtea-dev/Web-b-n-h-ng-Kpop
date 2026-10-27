@@ -1,217 +1,253 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="stylesheet" href="../css/base.css">
-        <link rel="stylesheet" href="../css/admin.css">
-        <link rel="stylesheet" href="../css/admin-forms.css">
-        <link rel="stylesheet" href="../css/admin-auth.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    </head>
 
-    <body>
-        <div class="admin-layout">
-            <aside class="admin-sidebar">
-                <p class="shop-name"><strong>K-POP STORE</strong></p><br>
-                <ul>
-                    <li><a href="dashboard.html" class="btn"><i class="bi bi-clipboard-data"></i> Dashboard</a></li>
-                    <li><a href="products.html" class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</a></li>
-                    <li><a href="orders.html" class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</a></li>
-                    <li><a href="customers.html" class="btn"><i class="bi bi-people"></i> Khách hàng</a></li>
-                    <li><a href="users.html" class="btn"><i class="bi bi-person-gear"></i> Người dùng</a></li>
-                    <li><a href="reports.html" class="btn active"><i class="bi bi-graph-up"></i> Báo cáo</a></li>
-                </ul>
-            </aside>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo - Admin</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/admin-forms.css">
+    <link rel="stylesheet" href="../css/admin-auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
 
-            <main class="admin-main">
-                <div class="admin-topbar">
-                    <div>
-                        <h1>Báo cáo</h1>
-                        <p class="subtitle">Phân tích doanh thu, đơn hàng và hiệu quả kinh doanh</p>
-                    </div>
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <p class="shop-name"><strong>K-POP STORE</strong></p><br>
+            <ul>
+                <li><a href="dashboard.html" class="btn"><i class="bi bi-clipboard-data"></i> Dashboard</a></li>
+                <li><a href="products.html" class="btn"><i class="bi bi-box-seam"></i> Sản phẩm</a></li>
+                <li><a href="orders.html" class="btn"><i class="bi bi-bag-check"></i> Đơn hàng</a></li>
+                <li><a href="customers.html" class="btn"><i class="bi bi-people"></i> Khách hàng</a></li>
+                <li><a href="users.html" class="btn"><i class="bi bi-person-gear"></i> Người dùng</a></li>
+                <li><a href="reports.html" class="btn active"><i class="bi bi-graph-up"></i> Báo cáo</a></li>
+            </ul>
+        </aside>
 
-                    <div class="admin-user">
-                        <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
-                        <div>
-                            <strong>Admin</strong>
-                            <small>Quản trị viên</small>
-                        </div>
-                        <div class="admin-auth-actions">
-                            <a href="login.html">Đăng nhập</a>
-                            <button type="button" disabled>Đăng xuất</button>
-                        </div>
-                    </div>
+        <main class="admin-main">
+            <div class="admin-topbar">
+                <div>
+                    <h1>Báo cáo</h1>
+                    <p class="subtitle">Phân tích doanh thu, đơn hàng và hiệu quả kinh doanh</p>
                 </div>
 
-                <div class="report-header">
-                    <div class="day-filter">
-                        <div class="filter-left-group">
-                            <i class="bi bi-calendar"></i>
-                            <p>Bộ lọc báo cáo</p>
+                <div class="admin-user">
+                    <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Quản trị viên</small>
+                    </div>
+                    <div class="admin-auth-actions">
+                        <a href="login.html">Đăng nhập</a>
+                        <button type="button" disabled>Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-header">
+                <div class="day-filter">
+                    <div class="filter-left-group">
+                        <i class="bi bi-calendar"></i>
+                        <p>Bộ lọc báo cáo</p>
+                    </div>
+                    <select id="metric-select" class="dropdown" disabled>
+                        <option value="homNay">Hôm nay</option>
+                        <option value="7Ngay">7 ngày qua</option>
+                        <option value="toanThoiGian">Toàn thời gian</option>
+                    </select>
+                </div>
+                <div class="header-btn">
+                    <button type="button" class="filter-btn" disabled>Áp dụng lọc <i
+                            class="bi bi-arrow-up-right"></i></button>
+                    <button type="button" class="download-btn" disabled>Xuất CSV <i class="bi bi-download"></i></button>
+                </div>
+            </div>
+
+            <div class="overview dashboard-overview">
+                <div class="overview-box">
+                    <p class="overview-title">Tổng doanh thu</p>
+                    <p class="overview-data">48.650.000đ</p>
+                    <p class="overview-subtitle"><span class="highlight-increase">↑ 12,8%</span> so với kỳ trước</p>
+                </div>
+                <div class="overview-box">
+                    <p class="overview-title">Đơn hàng</p>
+                    <p class="overview-data">60.205</p>
+                    <p class="overview-subtitle"><span class="highlight-increase">↑ 8,2%</span> so với kỳ trước</p>
+                </div>
+                <div class="overview-box">
+                    <p class="overview-title">Sản phẩm đã bán</p>
+                    <p class="overview-data">1.102</p>
+                    <p class="overview-subtitle"><span class="highlight-increase">↑ 5,4%</span> so với kỳ trước</p>
+                </div>
+                <div class="overview-box">
+                    <p class="overview-title">Lợi nhuận ước tính</p>
+                    <p class="overview-data">12.480.000đ</p>
+                    <p class="overview-subtitle"><span class="highlight-descrease">↓ 2,1%</span> so với kỳ trước</p>
+                </div>
+            </div>
+
+            <section class="top-customer-report">
+                <div class="card-header">
+                    <h3>Top 5 khách hàng mua nhiều nhất</h3>
+                    <p class="subtitle">Số liệu minh họa tĩnh; cần cơ sở dữ liệu để tính theo khoảng thời gian.</p>
+                </div>
+                <div class="report-date-range">
+                    <div class="form-group">
+                        <label for="topCustomerFrom">Từ ngày</label>
+                        <input id="topCustomerFrom" type="date" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="topCustomerTo">Đến ngày</label>
+                        <input id="topCustomerTo" type="date" disabled>
+                    </div>
+                    <button type="button" class="btn btn-primary" disabled>Thống kê</button>
+                </div>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Hạng</th>
+                            <th>Khách hàng</th>
+                            <th>Số đơn</th>
+                            <th>Tổng tiền mua</th>
+                            <th>Đơn hàng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Quỳnh Trang</td>
+                            <td>8</td>
+                            <td>5.600.000đ</td>
+                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Hoài Như</td>
+                            <td>2</td>
+                            <td>4.460.000đ</td>
+                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Linh Chi</td>
+                            <td>3</td>
+                            <td>2.640.000đ</td>
+                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Thủy Tiên</td>
+                            <td>2</td>
+                            <td>1.850.000đ</td>
+                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Thảo Trần</td>
+                            <td>1</td>
+                            <td>1.200.000đ</td>
+                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="revenue-dashboard">
+                <div class="column-chart">
+                    <div class="column-header-flex">
+                        <div>
+                            <p class="column-title">Doanh thu bán hàng</p>
+                            <p class="column-subtitle">Biến động doanh thu trong 7 ngày gần nhất</p>
                         </div>
-                        <select id="metric-select" class="dropdown" disabled>
-                            <option value="homNay">Hôm nay</option>
-                            <option value="7Ngay">7 ngày qua</option>
-                            <option value="toanThoiGian">Toàn thời gian</option>
+                        <select id="chart-metric-select" class="dropdown" disabled>
+                            <option value="doanhThu">Doanh thu</option>
+                            <option value="donHang">Đơn hàng</option>
                         </select>
                     </div>
-                    <div class="header-btn">
-                        <button type="button" class="filter-btn" disabled>Áp dụng lọc <i class="bi bi-arrow-up-right"></i></button>
-                        <button type="button" class="download-btn" disabled>Xuất CSV <i class="bi bi-download"></i></button>
+                    <div class="column-description">
+                        <img id="doanhThu" class="chart-box active" src="../image/column-chart-revenue.png">
+                        <img id="donHang" class="chart-box" src="../image/column-chart-order.png">
                     </div>
                 </div>
 
-                <div class="overview dashboard-overview">
-                    <div class="overview-box">
-                        <p class="overview-title">Tổng doanh thu</p>
-                        <p class="overview-data">48.650.000đ</p>
-                        <p class="overview-subtitle"><span class="highlight-increase">↑ 12,8%</span> so với kỳ trước</p>
+                <div class="pie-chart">
+                    <div class="pie-header-flex">
+                        <div>
+                            <p class="pie-title">Trạng thái đơn hàng</p>
+                            <p class="pie-subtitle">Tỷ lệ đơn hàng theo trạng thái</p>
+                        </div>
                     </div>
-                    <div class="overview-box">
-                        <p class="overview-title">Đơn hàng</p>
-                        <p class="overview-data">60.205</p>
-                        <p class="overview-subtitle"><span class="highlight-increase">↑ 8,2%</span> so với kỳ trước</p>
+                    <div class="pie-content">
+                        <img class="pie-img" src="../image/pie-chart.png" alt="Biểu đồ trạng thái đơn hàng">
                     </div>
-                    <div class="overview-box">
-                        <p class="overview-title">Sản phẩm đã bán</p>
-                        <p class="overview-data">1.102</p>
-                        <p class="overview-subtitle"><span class="highlight-increase">↑ 5,4%</span> so với kỳ trước</p>
+                </div>
+            </div>
+
+            <div class="recent-order card">
+                <div class="order-status-information">
+                    <div class="order-header">
+                        <p>Đơn hàng gần đây</p>
                     </div>
-                    <div class="overview-box">
-                        <p class="overview-title">Lợi nhuận ước tính</p>
-                        <p class="overview-data">12.480.000đ</p>
-                        <p class="overview-subtitle"><span class="highlight-descrease">↓ 2,1%</span> so với kỳ trước</p>
+                    <div class="search-group">
+                        <div class="search-input-wrapper">
+                            <i class="bi bi-search"></i>
+                            <input class="search-box" type="text" placeholder="Tìm mã đơn, sản phẩm..." disabled>
+                        </div>
+                        <input class="search-btn" type="button" value="Tìm kiếm" disabled>
                     </div>
                 </div>
 
-                <section class="top-customer-report">
-                    <div class="card-header">
-                        <h3>Top 5 khách hàng mua nhiều nhất</h3>
-                        <p class="subtitle">Số liệu minh họa tĩnh; cần cơ sở dữ liệu để tính theo khoảng thời gian.</p>
-                    </div>
-                    <div class="report-date-range">
-                        <div class="form-group">
-                            <label for="topCustomerFrom">Từ ngày</label>
-                            <input id="topCustomerFrom" type="date" disabled>
-                        </div>
-                        <div class="form-group">
-                            <label for="topCustomerTo">Đến ngày</label>
-                            <input id="topCustomerTo" type="date" disabled>
-                        </div>
-                        <button type="button" class="btn btn-primary" disabled>Thống kê</button>
-                    </div>
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Hạng</th>
-                                <th>Khách hàng</th>
-                                <th>Số đơn</th>
-                                <th>Tổng tiền mua</th>
-                                <th>Đơn hàng</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Quỳnh Trang</td><td>8</td><td>5.600.000đ</td><td><button type="button" class="btn" disabled>Xem đơn hàng</button></td></tr>
-                            <tr><td>2</td><td>Hoài Như</td><td>2</td><td>4.460.000đ</td><td><button type="button" class="btn" disabled>Xem đơn hàng</button></td></tr>
-                            <tr><td>3</td><td>Linh Chi</td><td>3</td><td>2.640.000đ</td><td><button type="button" class="btn" disabled>Xem đơn hàng</button></td></tr>
-                            <tr><td>4</td><td>Thủy Tiên</td><td>2</td><td>1.850.000đ</td><td><button type="button" class="btn" disabled>Xem đơn hàng</button></td></tr>
-                            <tr><td>5</td><td>Thảo Trần</td><td>1</td><td>1.200.000đ</td><td><button type="button" class="btn" disabled>Xem đơn hàng</button></td></tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <div class="revenue-dashboard">
-                    <div class="column-chart">
-                        <div class="column-header-flex">
-                            <div>
-                                <p class="column-title">Doanh thu bán hàng</p>
-                                <p class="column-subtitle">Biến động doanh thu trong 7 ngày gần nhất</p>
-                            </div>
-                            <select id="chart-metric-select" class="dropdown" disabled>
-                                <option value="doanhThu">Doanh thu</option>
-                                <option value="donHang">Đơn hàng</option>
-                            </select>
-                        </div>
-                        <div class="column-description">
-                            <img id="doanhThu" class="chart-box active" src="../image/column-chart-revenue.png">
-                            <img id="donHang" class="chart-box" src="../image/column-chart-order.png">
-                        </div>
-                    </div>
-
-                    <div class="pie-chart">
-                        <div class="pie-header-flex">
-                            <div>
-                                <p class="pie-title">Trạng thái đơn hàng</p>
-                                <p class="pie-subtitle">Tỷ lệ đơn hàng theo trạng thái</p>
-                            </div>
-                        </div>
-                        <div class="pie-content">
-                            <img class="pie-img" src="../image/pie-chart.png" alt="Biểu đồ trạng thái đơn hàng">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="recent-order card">
-                    <div class="order-status-information">
-                        <div class="order-header"><p>Đơn hàng gần đây</p></div>
-                        <div class="search-group">
-                            <div class="search-input-wrapper">
-                                <i class="bi bi-search"></i>
-                                <input class="search-box" type="text" placeholder="Tìm mã đơn, sản phẩm..." disabled>
-                            </div>
-                            <input class="search-btn" type="button" value="Tìm kiếm" disabled>
-                        </div>
-                    </div>
-
-                    <table class="data-table">
-                        <thead>
-                            <tr>
+                <table class="data-table">
+                    <thead>
+                        <tr>
                             <th>Mã đơn</th>
                             <th>Khách hàng</th>
                             <th>Ngày đặt</th>
                             <th>Tổng tiền</th>
                             <th>Chi tiết</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
                             <td><strong>#DH1208</strong></td>
                             <td>Thảo Trần</td>
                             <td>17/10/2025</td>
                             <td>1.200.000đ</td>
                             <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                            </tr>
-                            <tr>
+                        </tr>
+                        <tr>
                             <td><strong>#DH1207</strong></td>
                             <td>Hoài Như</td>
                             <td>17/10/2026</td>
                             <td>4.460.000đ</td>
                             <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                            </tr>
-                            <tr>
+                        </tr>
+                        <tr>
                             <td><strong>#DH1206</strong></td>
                             <td>Linh Chi</td>
                             <td>17/10/2026</td>
                             <td>880.000đ</td>
                             <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                            </tr>
-                            <tr>
+                        </tr>
+                        <tr>
                             <td><strong>#DH1205</strong></td>
                             <td>Thủy Tiên</td>
                             <td>16/10/2026</td>
                             <td>3.260.000đ</td>
                             <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                </main>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </main>
+    </div>
 
-    </body>
+</body>
+
 </html>
