@@ -3,20 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đăng nhập & Đăng ký - K-POP STORE</title>
+  <title>Tài khoản - K-POP STORE</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/client.css">
+  <style>
+    /* Ô nhập bị khóa: rê chuột vào hiện dấu cấm đỏ */
+    .auth-form input:disabled,
+    .auth-form button:disabled,
+    .auth-form label:has(input:disabled) {
+      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='3' stroke-linecap='round'><circle cx='12' cy='12' r='9'/><line x1='5.6' y1='5.6' x2='18.4' y2='18.4'/></svg>") 14 14, not-allowed;
+    }
+    .auth-form input:disabled,
+    .auth-form button:disabled { opacity: .65; }
+    .auth-form input:disabled:hover,
+    .auth-form button:disabled:hover { border-color: #dc2626; box-shadow: 0 0 0 2px rgba(220,38,38,.15); }
+    .static-notice { margin: 14px 0 0; padding: 10px 12px; border-radius: 8px; background: #fef2f2; color: #b91c1c; font-size: 13px; text-align: center; }
+    .back-home-link { display: block; margin-top: 14px; text-align: center; font-weight: 700; font-size: 14px; color: var(--dark); text-decoration: underline; }
+
+    /* Lịch sử đơn hàng (nhóm theo đơn) */
+    .order-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; text-align: left; background: #fff; }
+    .order-card-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+    .order-date { font-size: 12px; color: #6b7280; margin-right: auto; }
+    .order-status { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
+    .st-done { background: #dcfce7; color: #166534; }
+    .st-shipping { background: #dbeafe; color: #1e40af; }
+    .order-line { display: flex; justify-content: space-between; gap: 10px; padding: 4px 0; font-size: 13px; }
+    .order-line em { color: #6b7280; font-style: normal; }
+    .order-ship { color: #6b7280; border-top: 1px dashed #e5e7eb; margin-top: 6px; padding-top: 8px; }
+    .order-card-foot { border-top: 1px dashed #e5e7eb; margin-top: 6px; padding-top: 8px; font-size: 13px; display: grid; gap: 3px; }
+    .order-total { display: flex; justify-content: space-between; margin-top: 4px; }
+    .order-total strong { color: #dc2626; font-size: 15px; }
+  </style>
 </head>
 <body>
 
-  <!-- ===== HEADER CHUẨN CÓ THANH TÌM KIẾM ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="header">
     <a class="logo" href="index.html">
       <span>K-POP STORE</span>
-      <span class="logo-badge">Official</span>
     </a>
 
-    <!-- Thanh tìm kiếm ở đầu trang -->
     <div class="header-search">
       <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
       <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
@@ -33,7 +59,7 @@
     <div class="header-icons">
       <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
         🛒
-        <span class="cart-badge" id="header-cart-count">0</span>
+        <span class="cart-badge" id="header-cart-count">3</span>
       </a>
       <a href="login.html" class="header-icon-btn active" id="header-user-btn" title="Tài khoản">
         👤
@@ -41,172 +67,39 @@
     </div>
   </header>
 
-  <!-- ===== NỘI DUNG: AUTH CARD CĂN GIỮA MÀN HÌNH ===== -->
   <main class="client-main">
     <div class="auth-wrapper">
-      
       <div class="auth-card" id="auth-card">
-        
-        <!-- ==============================================
-             KHỐI 1: CHƯA ĐĂNG NHẬP (TAB ĐĂNG NHẬP & ĐĂNG KÝ)
-             ============================================== -->
-        <div id="auth-forms-container">
-          
-          <!-- Tabs chuyển đổi giữa Đăng nhập và Đăng ký -->
-          <div class="auth-tabs">
-            <button type="button" class="auth-tab-btn active" id="tab-btn-login" onclick="switchAuthTab('login')">
-              🔑 Đăng nhập
-            </button>
-            <button type="button" class="auth-tab-btn" id="tab-btn-register" onclick="switchAuthTab('register')">
-              📝 Đăng ký khách mới
-            </button>
-          </div>
 
-          <!-- FORM 1: ĐĂNG NHẬP (Cho người đã có tài khoản) -->
-          <div id="login-view">
-            <div class="auth-header">
-              <div class="auth-icon-circle">🔐</div>
-              <h1>Đăng nhập tài khoản</h1>
-              <p>Dành cho khách hàng đã có tài khoản tại K-POP STORE</p>
-            </div>
-
-            <form id="login-form" class="auth-form" onsubmit="handleLoginSubmit(event)">
-              <div class="form-group">
-                <label for="login-email">Địa chỉ Email</label>
-                <input type="email" id="login-email" placeholder="kpopfan@store.vn" required>
-              </div>
-
-              <div class="form-group">
-                <label for="login-password">Mật khẩu</label>
-                <input type="password" id="login-password" placeholder="••••••••" required>
-              </div>
-
-              <div class="auth-options">
-                <label>
-                  <input type="checkbox" id="remember-me" checked>
-                  Ghi nhớ đăng nhập
-                </label>
-                <a href="#" onclick="alert('Vui lòng liên hệ Hotline hoặc Admin để đặt lại mật khẩu!'); return false;">Quên mật khẩu?</a>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-submit">
-                Đăng nhập ngay
-              </button>
-            </form>
-
-            <div class="demo-account-hint">
-              <strong>💡 Tài khoản mẫu thử nhanh:</strong><br>
-              Email: <code>kpopfan@store.vn</code> | Pass: <code>123456</code>
-              <button type="button" onclick="fillDemoCredentials()">👉 Bấm vào đây để tự động điền mẫu</button>
-            </div>
-
-            <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
-              Khách hàng mới chưa có tài khoản? 
-              <a href="#" onclick="switchAuthTab('register'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">
-                Đăng ký tại đây
-              </a>
-            </div>
-          </div>
-
-          <!-- FORM 2: ĐĂNG KÝ (Bắt buộc điền thông tin cá nhân đầy đủ) -->
-          <div id="register-view" style="display: none;">
-            <div class="auth-header">
-              <div class="auth-icon-circle">✨</div>
-              <h1>Đăng ký thành viên mới</h1>
-              <p>Vui lòng điền đầy đủ thông tin cá nhân để nhận ưu đãi và mua hàng</p>
-            </div>
-
-            <form id="register-form" class="auth-form" onsubmit="handleRegisterSubmit(event)">
-              
-              <div class="form-group">
-                <label for="reg-fullname">Họ và tên <span class="text-danger">*</span></label>
-                <input type="text" id="reg-fullname" placeholder="Ví dụ: Nguyễn Thu Hà" required>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="reg-email">Email <span class="text-danger">*</span></label>
-                  <input type="email" id="reg-email" placeholder="thuha@gmail.com" required>
-                </div>
-                <div class="form-group">
-                  <label for="reg-phone">Số điện thoại <span class="text-danger">*</span></label>
-                  <input type="tel" id="reg-phone" placeholder="0901234567" pattern="[0-9]{10,11}" required title="Số điện thoại gồm 10 hoặc 11 chữ số">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="reg-address">Địa chỉ giao hàng mặc định <span class="text-danger">*</span></label>
-                <input type="text" id="reg-address" placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/TP" required>
-              </div>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="reg-password">Mật khẩu <span class="text-danger">*</span></label>
-                  <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự" minlength="6" required>
-                </div>
-                <div class="form-group">
-                  <label for="reg-confirm-password">Xác nhận mật khẩu <span class="text-danger">*</span></label>
-                  <input type="password" id="reg-confirm-password" placeholder="Nhập lại mật khẩu" minlength="6" required>
-                </div>
-              </div>
-
-              <div class="auth-options">
-                <label>
-                  <input type="checkbox" id="reg-terms" required checked>
-                  Tôi đồng ý với Điều khoản và Chính sách của K-POP STORE
-                </label>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-submit">
-                Hoàn tất đăng ký & Đăng nhập ngay
-              </button>
-            </form>
-
-            <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
-              Đã có tài khoản rồi? 
-              <a href="#" onclick="switchAuthTab('login'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">
-                Đăng nhập ngay
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- ==============================================
-             KHỐI 2: ĐÃ ĐĂNG NHẬP (HỒ SƠ CÁ NHÂN & NÚT ĐĂNG XUẤT)
-             Cách thể hiện khác biệt hoàn toàn: hiển thị avatar,
-             thông tin cá nhân đã lưu, đơn hàng và nút Đăng xuất đỏ.
-             ============================================== -->
-        <div id="logged-in-view" style="display: none;">
+        <!-- ===== VIEW 1: HỒ SƠ KHÁCH HÀNG (ghi cứng, xem như đã đăng nhập) ===== -->
+        <div id="view-profile">
           <div class="profile-box">
-            <div class="profile-avatar-large" id="profile-avatar">👤</div>
-            <h2 class="profile-name" id="profile-name">K-Pop Stan</h2>
-            <p class="profile-email" id="profile-email">kpopfan@store.vn</p>
-            <span class="profile-badge">🌟 Thành viên VIP Hạng Vàng</span>
+            <div class="profile-avatar-large">👤</div>
+            <h2 class="profile-name">Nguyễn Thu Hà</h2>
+            <p class="profile-email">thuha@gmail.com</p>
 
-            <!-- Chi tiết thông tin cá nhân của người mua hàng -->
             <div class="profile-info-list">
               <div class="profile-info-row">
                 <span class="lbl">Họ và tên:</span>
-                <span class="val" id="profile-fullname-val">Nguyễn Thu Hà</span>
+                <span class="val">Nguyễn Thu Hà</span>
               </div>
               <div class="profile-info-row">
                 <span class="lbl">Số điện thoại:</span>
-                <span class="val" id="profile-phone-val">0909 123 456</span>
+                <span class="val">0909 123 456</span>
               </div>
               <div class="profile-info-row">
                 <span class="lbl">Địa chỉ nhận hàng:</span>
-                <span class="val" id="profile-address-val" style="max-width: 280px; text-align: right;">123 Đường K-Pop, Quận 1, TP. HCM</span>
+                <span class="val" style="max-width: 280px; text-align: right;">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</span>
               </div>
             </div>
 
             <div class="profile-details-grid">
               <div class="profile-stat-item">
-                <div class="val" id="profile-orders-count">0</div>
+                <div class="val">3</div>
                 <div class="lbl">Đơn đã đặt</div>
               </div>
               <div class="profile-stat-item">
-                <div class="val" id="profile-cart-count">0</div>
+                <div class="val">3</div>
                 <div class="lbl">Sản phẩm giỏ</div>
               </div>
               <div class="profile-stat-item">
@@ -216,52 +109,163 @@
             </div>
 
             <div class="profile-action-btns">
-              <a href="cart.html" class="btn btn-primary btn-block">
-                🛒 Xem & Tiến hành đặt hàng giỏ hàng
-              </a>
-              <a href="products.html" class="btn btn-outline btn-block">
-                🎵 Tiếp tục khám phá album K-Pop
-              </a>
-              <button type="button" class="btn btn-logout btn-block mt-2" onclick="handleLogout()">
-                🚪 Đăng xuất tài khoản
-              </button>
+              <a href="cart.html" class="btn btn-primary btn-block">Xem giỏ hàng</a>
+              <a href="products.html" class="btn btn-outline btn-block">Tiếp tục khám phá album K-Pop</a>
+              <button type="button" class="btn btn-logout btn-block mt-2" onclick="showView('login')">Đăng xuất tài khoản</button>
             </div>
 
-            <!-- Danh sách lịch sử đơn hàng đã mua -->
-            <div class="profile-orders-section" id="profile-orders-section" style="display: none;">
-              <h3>📦 Lịch sử đơn hàng của bạn</h3>
-              <div style="overflow-x: auto;">
-                <table class="orders-table">
-                  <thead>
-                    <tr>
-                      <th>Mã Đơn</th>
-                      <th>Ngày đặt</th>
-                      <th>Tổng tiền</th>
-                      <th>Trạng thái</th>
-                    </tr>
-                  </thead>
-                  <tbody id="profile-orders-tbody">
-                    <!-- Nạp động từ localStorage -->
-                  </tbody>
-                </table>
+            <!-- Lịch sử mua hàng, nhóm theo từng đơn (dữ liệu ghi cứng) -->
+            <div class="profile-orders-section" id="orders">
+              <h3>Lịch sử đơn hàng của bạn</h3>
+
+            <div class="order-card">
+              <div class="order-card-head">
+                <strong>#DH-102948</strong>
+                <span class="order-date">25/10/2026 18:05</span>
+                <span class="order-status st-shipping">Đang giao</span>
+              </div>
+              <div class="order-line">
+                <span>DEADLINE STANDARD – BLACKPINK <em>(STANDARD) x1</em></span>
+                <strong>880.000 ₫</strong>
+              </div>
+              <div class="order-line">
+                <span>RUBY STANDARD – JENNIE <em>(STANDARD) x1</em></span>
+                <strong>1.200.000 ₫</strong>
+              </div>
+              <div class="order-line order-ship"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
+              <div class="order-card-foot">
+                <div>📍 45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
+                <div>💳 Chuyển khoản trực tuyến</div>
+                <div class="order-total"><span>Tổng thanh toán</span><strong>2.110.000 ₫</strong></div>
               </div>
             </div>
+            <div class="order-card">
+              <div class="order-card-head">
+                <strong>#DH-102731</strong>
+                <span class="order-date">12/10/2026 14:32</span>
+                <span class="order-status st-done">Đã giao</span>
+              </div>
+              <div class="order-line">
+                <span>ARIRANG – BTS <em>(CD BOX SET) x1</em></span>
+                <strong>3.260.000 ₫</strong>
+              </div>
+              <div class="order-line order-ship"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
+              <div class="order-card-foot">
+                <div>📍 45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
+                <div>💳 Tiền mặt khi nhận hàng (COD)</div>
+                <div class="order-total"><span>Tổng thanh toán</span><strong>3.290.000 ₫</strong></div>
+              </div>
+            </div>
+            <div class="order-card">
+              <div class="order-card-head">
+                <strong>#DH-102455</strong>
+                <span class="order-date">28/09/2026 09:20</span>
+                <span class="order-status st-done">Đã giao</span>
+              </div>
+              <div class="order-line">
+                <span>EP STANDARD – NEWJEANS <em>(STANDARD) x2</em></span>
+                <strong>860.000 ₫</strong>
+              </div>
+              <div class="order-line order-ship"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
+              <div class="order-card-foot">
+                <div>📍 123 Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
+                <div>💳 Tiền mặt khi nhận hàng (COD)</div>
+                <div class="order-total"><span>Tổng thanh toán</span><strong>890.000 ₫</strong></div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
 
+        <!-- ===== VIEW 2: ĐĂNG NHẬP (bị khóa, chỉ minh họa giao diện) ===== -->
+        <div id="view-login" style="display: none;">
+          <div class="auth-header">
+            <h1>Đăng nhập tài khoản</h1>
+          </div>
+
+          <form id="login-form" class="auth-form" onsubmit="return false;">
+            <div class="form-group">
+              <label for="login-email">Địa chỉ Email</label>
+              <input type="email" id="login-email" placeholder="customer@example.com" disabled>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Mật khẩu</label>
+              <input type="password" id="login-password" placeholder="Nhập mật khẩu" disabled>
+            </div>
+            <div class="auth-options">
+              <label><input type="checkbox" disabled> Ghi nhớ đăng nhập</label>
+            </div>
+            <button type="button" class="btn btn-primary btn-submit" disabled>Đăng nhập ngay</button>
+          </form>
+          <a class="back-home-link" href="index.html">← Quay lại trang chủ</a>
+
+          <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
+            Khách hàng mới chưa có tài khoản?
+            <a href="#register" onclick="showView('register'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">Đăng ký tại đây</a>
+            &nbsp;|&nbsp;
+            <a href="#orders" onclick="showView('profile'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">Xem hồ sơ khách mẫu</a>
+          </div>
+        </div>
+
+        <!-- ===== VIEW 3: ĐĂNG KÝ (bị khóa, chỉ minh họa giao diện) ===== -->
+        <div id="view-register" style="display: none;">
+          <div class="auth-header">
+            <h1>Đăng ký tài khoản</h1>
+          </div>
+
+          <form id="register-form" class="auth-form" onsubmit="return false;">
+            <div class="form-group">
+              <label for="reg-fullname">Họ và tên <span class="text-danger">*</span></label>
+              <input type="text" id="reg-fullname" placeholder="Ví dụ: Nguyễn Thu Hà" disabled>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-email">Email <span class="text-danger">*</span></label>
+                <input type="email" id="reg-email" placeholder="thuha@gmail.com" disabled>
+              </div>
+              <div class="form-group">
+                <label for="reg-phone">Số điện thoại <span class="text-danger">*</span></label>
+                <input type="tel" id="reg-phone" placeholder="0901234567" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="reg-address">Địa chỉ giao hàng mặc định <span class="text-danger">*</span></label>
+              <input type="text" id="reg-address" placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/TP" disabled>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="reg-password">Mật khẩu <span class="text-danger">*</span></label>
+                <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự" disabled>
+              </div>
+              <div class="form-group">
+                <label for="reg-confirm-password">Xác nhận mật khẩu <span class="text-danger">*</span></label>
+                <input type="password" id="reg-confirm-password" placeholder="Nhập lại mật khẩu" disabled>
+              </div>
+            </div>
+            <div class="auth-options">
+              <label><input type="checkbox" disabled> Tôi đồng ý với Điều khoản và Chính sách của K-POP STORE</label>
+            </div>
+            <button type="button" class="btn btn-primary btn-submit" disabled>Hoàn tất đăng ký &amp; Đăng nhập ngay</button>
+          </form>
+          <a class="back-home-link" href="index.html">← Quay lại trang chủ</a>
+
+          <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
+            Đã có tài khoản rồi?
+            <a href="#login" onclick="showView('login'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">Đăng nhập ngay</a>
           </div>
         </div>
 
       </div>
-
     </div>
   </main>
 
-  <!-- ===== FOOTER ĐỒNG NHẤT CANH ĐỀU ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-col">
         <h3>K-POP STORE</h3>
         <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
-        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
+        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> &amp; <strong>Circle Chart</strong>.</p>
         <div class="social-links">
           <a href="#" class="social-btn" title="Facebook">📘</a>
           <a href="#" class="social-btn" title="Instagram">📷</a>
@@ -285,7 +289,7 @@
         <div class="footer-links">
           <a href="#">Chính sách đổi trả 7 ngày</a>
           <a href="#">Bảo hiểm vận chuyển album</a>
-          <a href="#">Hướng dẫn thanh toán & ship</a>
+          <a href="#">Hướng dẫn thanh toán &amp; ship</a>
           <a href="#">Bảo mật thông tin</a>
         </div>
       </div>
@@ -306,231 +310,20 @@
 
   <script src="js/cart.js"></script>
   <script>
-    // Tìm kiếm trên header
-    function executeSearch() {
-      const input = document.getElementById('header-search-input');
-      if (input && input.value.trim()) {
-        const query = encodeURIComponent(input.value.trim());
-        window.location.href = `products.html?search=${query}`;
-      }
+    // Chuyển giữa 3 màn hình: profile (hồ sơ mẫu), login, register. Chỉ đổi giao diện, không lưu gì.
+    function showView(name) {
+      ['profile', 'login', 'register'].forEach(function (v) {
+        document.getElementById('view-' + v).style.display = (v === name) ? 'block' : 'none';
+      });
+      document.getElementById('auth-card').classList.toggle('wide-card', name === 'register');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Chuyển đổi tab Đăng nhập / Đăng ký
-    function switchAuthTab(tab) {
-      const authCard = document.getElementById('auth-card');
-      const loginView = document.getElementById('login-view');
-      const registerView = document.getElementById('register-view');
-      const tabBtnLogin = document.getElementById('tab-btn-login');
-      const tabBtnRegister = document.getElementById('tab-btn-register');
-
-      if (tab === 'register') {
-        loginView.style.display = 'none';
-        registerView.style.display = 'block';
-        tabBtnLogin.classList.remove('active');
-        tabBtnRegister.classList.add('active');
-        authCard.classList.add('wide-card');
-      } else {
-        loginView.style.display = 'block';
-        registerView.style.display = 'none';
-        tabBtnLogin.classList.add('active');
-        tabBtnRegister.classList.remove('active');
-        authCard.classList.remove('wide-card');
-      }
-    }
-
-    // Điền tài khoản demo
-    function fillDemoCredentials() {
-      document.getElementById('login-email').value = 'kpopfan@store.vn';
-      document.getElementById('login-password').value = '123456';
-    }
-
-    // Xử lý gửi Form ĐĂNG NHẬP
-    function handleLoginSubmit(e) {
-      e.preventDefault();
-      const email = document.getElementById('login-email').value.trim();
-      const password = document.getElementById('login-password').value;
-
-      if (!email || !password) {
-        alert('Vui lòng nhập đầy đủ Email và Mật khẩu!');
-        return;
-      }
-
-      // Kiểm tra trong danh sách người dùng đã đăng ký
-      const registeredUsers = JSON.parse(localStorage.getItem('kpop_registered_users') || '[]');
-      const matchedUser = registeredUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
-
-      let currentUserObj = null;
-
-      if (matchedUser) {
-        if (matchedUser.password !== password) {
-          alert('Mật khẩu không chính xác! Vui lòng thử lại.');
-          return;
-        }
-        currentUserObj = matchedUser;
-      } else {
-        // Tài khoản demo mặc định hoặc email bất kỳ
-        const namePart = email.split('@')[0];
-        const displayName = namePart.charAt(0).toUpperCase() + namePart.slice(1);
-        currentUserObj = {
-          name: displayName === 'Kpopfan' ? 'Min Young (K-Pop Fan)' : displayName,
-          email: email,
-          phone: '0909 123 456',
-          address: '123 Đường Tôn Đức Thắng, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh',
-          role: 'VIP Member'
-        };
-      }
-
-      // Lưu người dùng hiện tại vào localStorage
-      localStorage.setItem('kpop_current_user', JSON.stringify(currentUserObj));
-
-      if (typeof showToast === 'function') {
-        showToast('🎉 Đăng nhập thành công! Chào mừng ' + currentUserObj.name);
-      } else {
-        alert('Đăng nhập thành công!');
-      }
-
-      updateAuthUI();
-      if (typeof updateHeaderAuthStatus === 'function') {
-        updateHeaderAuthStatus();
-      }
-    }
-
-    // Xử lý gửi Form ĐĂNG KÝ (Khách mới bắt buộc điền đầy đủ thông tin)
-    function handleRegisterSubmit(e) {
-      e.preventDefault();
-
-      const fullname = document.getElementById('reg-fullname').value.trim();
-      const email = document.getElementById('reg-email').value.trim();
-      const phone = document.getElementById('reg-phone').value.trim();
-      const address = document.getElementById('reg-address').value.trim();
-      const password = document.getElementById('reg-password').value;
-      const confirmPassword = document.getElementById('reg-confirm-password').value;
-
-      if (!fullname || !email || !phone || !address || !password) {
-        alert('Vui lòng điền đầy đủ tất cả thông tin cá nhân bắt buộc (*)!');
-        return;
-      }
-
-      if (password !== confirmPassword) {
-        alert('Mật khẩu xác nhận không khớp! Vui lòng kiểm tra lại.');
-        return;
-      }
-
-      if (password.length < 6) {
-        alert('Mật khẩu phải chứa ít nhất 6 ký tự!');
-        return;
-      }
-
-      // Kiểm tra trùng email
-      const registeredUsers = JSON.parse(localStorage.getItem('kpop_registered_users') || '[]');
-      if (registeredUsers.some(u => u.email.toLowerCase() === email.toLowerCase())) {
-        alert('Email này đã được đăng ký! Vui lòng chuyển sang tab Đăng nhập.');
-        switchAuthTab('login');
-        document.getElementById('login-email').value = email;
-        return;
-      }
-
-      // Tạo đối tượng người dùng mới
-      const newUser = {
-        name: fullname,
-        email: email,
-        phone: phone,
-        address: address,
-        password: password,
-        role: 'VIP Member',
-        joinedDate: new Date().toLocaleDateString('vi-VN')
-      };
-
-      // Lưu vào danh sách đã đăng ký
-      registeredUsers.push(newUser);
-      localStorage.setItem('kpop_registered_users', JSON.stringify(registeredUsers));
-
-      // Tự động đăng nhập người dùng vừa đăng ký
-      localStorage.setItem('kpop_current_user', JSON.stringify(newUser));
-
-      alert(`🎉 ĐĂNG KÝ THÀNH CÔNG!\n\nChào mừng ${fullname} đã trở thành thành viên chính thức của K-POP STORE!`);
-      if (typeof showToast === 'function') {
-        showToast('✨ Đăng ký & Đăng nhập thành công!');
-      }
-
-      updateAuthUI();
-      if (typeof updateHeaderAuthStatus === 'function') {
-        updateHeaderAuthStatus();
-      }
-    }
-
-    // Xử lý ĐĂNG XUẤT
-    function handleLogout() {
-      if (confirm('Bạn có chắc chắn muốn đăng xuất tài khoản?')) {
-        localStorage.removeItem('kpop_current_user');
-        
-        if (typeof showToast === 'function') {
-          showToast('🚪 Bạn đã đăng xuất thành công.');
-        } else {
-          alert('Đã đăng xuất!');
-        }
-
-        updateAuthUI();
-        if (typeof updateHeaderAuthStatus === 'function') {
-          updateHeaderAuthStatus();
-        }
-      }
-    }
-
-    // Cập nhật giao diện Đăng nhập / Đăng xuất / Hồ sơ
-    function updateAuthUI() {
-      const authFormsContainer = document.getElementById('auth-forms-container');
-      const loggedInView = document.getElementById('logged-in-view');
-      const authCard = document.getElementById('auth-card');
-      const stored = localStorage.getItem('kpop_current_user');
-
-      if (stored) {
-        const user = JSON.parse(stored);
-        authFormsContainer.style.display = 'none';
-        loggedInView.style.display = 'block';
-        authCard.classList.remove('wide-card');
-
-        document.getElementById('profile-name').textContent = user.name || 'Thành viên K-Pop';
-        document.getElementById('profile-email').textContent = user.email || 'user@kpopstore.vn';
-        document.getElementById('profile-avatar').textContent = (user.name ? user.name.charAt(0) : 'U').toUpperCase();
-
-        document.getElementById('profile-fullname-val').textContent = user.name || 'Chưa cập nhật';
-        document.getElementById('profile-phone-val').textContent = user.phone || '0909 123 456';
-        document.getElementById('profile-address-val').textContent = user.address || 'Chưa cập nhật địa chỉ';
-
-        // Cập nhật số sản phẩm giỏ hàng
-        const cartData = JSON.parse(localStorage.getItem('kpop_cart_items') || '[]');
-        const totalQty = cartData.reduce((sum, item) => sum + item.quantity, 0);
-        document.getElementById('profile-cart-count').textContent = totalQty;
-
-        // Cập nhật lịch sử đơn hàng
-        const orders = JSON.parse(localStorage.getItem('kpop_orders_history') || '[]');
-        const userOrders = orders.filter(o => !o.userEmail || o.userEmail === user.email);
-        document.getElementById('profile-orders-count').textContent = userOrders.length;
-
-        const ordersSection = document.getElementById('profile-orders-section');
-        const ordersTbody = document.getElementById('profile-orders-tbody');
-        if (userOrders.length > 0 && ordersSection && ordersTbody) {
-          ordersSection.style.display = 'block';
-          ordersTbody.innerHTML = userOrders.map(o => `
-            <tr>
-              <td><strong>#${o.id}</strong></td>
-              <td>${o.date}</td>
-              <td style="color: #dc2626; font-weight: 700;">${o.total}</td>
-              <td><span class="badge badge-success">${o.status || 'Chờ giao hàng'}</span></td>
-            </tr>
-          `).join('');
-        }
-      } else {
-        authFormsContainer.style.display = 'block';
-        loggedInView.style.display = 'none';
-        switchAuthTab('login');
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      updateAuthUI();
-    });
+    // Mở trang theo đường dẫn: login.html#login hoặc login.html#register (mặc định là hồ sơ mẫu)
+    (function () {
+      var h = location.hash.replace('#', '');
+      if (h === 'login' || h === 'register') showView(h);
+    })();
   </script>
 </body>
 </html>

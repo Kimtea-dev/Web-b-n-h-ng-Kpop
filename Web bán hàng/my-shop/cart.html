@@ -3,20 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giỏ hàng & Thanh toán - K-POP STORE</title>
+  <title>Giỏ hàng - K-POP STORE</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/client.css">
 </head>
 <body>
 
-  <!-- ===== HEADER CHUẨN CÓ THANH TÌM KIẾM ===== -->
+  <!-- ===== HEADER ===== -->
   <header class="header">
     <a class="logo" href="index.html">
       <span>K-POP STORE</span>
-      <span class="logo-badge">Official</span>
     </a>
 
-    <!-- Thanh tìm kiếm ở đầu trang -->
     <div class="header-search">
       <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
       <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
@@ -33,7 +31,7 @@
     <div class="header-icons">
       <a href="cart.html" class="header-icon-btn active" title="Giỏ hàng">
         🛒
-        <span class="cart-badge" id="header-cart-count">0</span>
+        <span class="cart-badge" id="header-cart-count">3</span>
       </a>
       <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
         👤
@@ -41,156 +39,135 @@
     </div>
   </header>
 
-  <!-- ===== NỘI DUNG TRANG GIỎ HÀNG ===== -->
   <main class="client-main">
     <div class="container">
-      
-      <!-- Tiêu đề giỏ hàng + số lượng sản phẩm -->
+
       <div class="cart-header-title">
         <h1>Giỏ hàng của bạn</h1>
-        <span class="cart-count-pill" id="cart-item-count-text">2 sản phẩm</span>
+        <span class="cart-count-pill">3 sản phẩm</span>
       </div>
 
-      <!-- Bố cục giỏ hàng (2 cột) -->
-      <div class="cart-layout" id="cart-main-layout">
-        
-        <!-- Cột trái: Danh sách các dòng hàng -->
+      <div class="cart-layout">
+
+        <!-- Cột trái: sản phẩm mẫu (ghi cứng) -->
         <div class="cart-items-wrapper">
           <div id="cart-items-list">
-            <!-- Danh sách các sản phẩm sẽ được nạp động từ js/cart.js -->
+
+            <div class="cart-item-card">
+              <img src="image/deadline.jpg" alt="DEADLINE STANDARD" class="cart-item-img">
+              <div class="cart-item-info">
+                <div class="cart-item-artist">BLACKPINK</div>
+                <div class="cart-item-name">DEADLINE STANDARD</div>
+                <span class="cart-item-variant">STANDARD</span>
+                <div class="cart-item-price">880.000 ₫</div>
+              </div>
+              <div class="cart-qty-box">
+                <button type="button" class="cart-qty-btn" onclick="demoNotice()">−</button>
+                <input type="number" class="cart-qty-input" value="1" min="1" max="99" readonly>
+                <button type="button" class="cart-qty-btn" onclick="demoNotice()">+</button>
+              </div>
+              <div class="cart-item-subtotal">880.000 ₫</div>
+              <button type="button" class="cart-item-remove" title="Xóa sản phẩm" onclick="demoNotice()">✕</button>
+            </div>
+
+            <div class="cart-item-card">
+              <img src="image/bomp.jpg" alt="BOMP STANDARD" class="cart-item-img">
+              <div class="cart-item-info">
+                <div class="cart-item-artist">ILLIT</div>
+                <div class="cart-item-name">BOMP STANDARD</div>
+                <span class="cart-item-variant">STANDARD</span>
+                <div class="cart-item-price">690.000 ₫</div>
+              </div>
+              <div class="cart-qty-box">
+                <button type="button" class="cart-qty-btn" onclick="demoNotice()">−</button>
+                <input type="number" class="cart-qty-input" value="2" min="1" max="99" readonly>
+                <button type="button" class="cart-qty-btn" onclick="demoNotice()">+</button>
+              </div>
+              <div class="cart-item-subtotal">1.380.000 ₫</div>
+              <button type="button" class="cart-item-remove" title="Xóa sản phẩm" onclick="demoNotice()">✕</button>
+            </div>
+
           </div>
 
-          <!-- Nút hành động phụ dưới danh sách -->
-          <div class="d-flex justify-between align-center mt-3" id="cart-actions-bar">
-            <a href="products.html" class="btn btn-outline">
-              ← Tiếp tục xem sản phẩm
-            </a>
-            <button type="button" class="btn btn-outline text-danger" onclick="clearCart()">
-              🗑️ Xóa toàn bộ giỏ hàng
-            </button>
+          <div class="d-flex justify-between align-center mt-3">
+            <a href="products.html" class="btn btn-outline">← Tiếp tục xem sản phẩm</a>
+            <button type="button" class="btn btn-outline text-danger" onclick="demoNotice()">🗑️ Xóa toàn bộ giỏ hàng</button>
           </div>
         </div>
 
-        <!-- Cột phải: Thẻ tóm tắt đơn hàng & Thông tin người mua, Địa chỉ, Thanh toán -->
-        <div class="cart-summary-card" id="cart-summary-box">
+        <!-- Cột phải: tóm tắt đơn + thông tin người mua + địa chỉ + thanh toán -->
+        <div class="cart-summary-card">
           <h2>Tóm tắt đơn hàng</h2>
 
-          <!-- Hàng tiền tạm tính, ship, giảm giá -->
-          <div class="summary-row">
-            <span>Tạm tính</span>
-            <span id="summary-subtotal">0 ₫</span>
-          </div>
+          <div class="summary-row"><span>Tạm tính</span><span>2.260.000 ₫</span></div>
+          <div class="summary-row"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
 
-          <div class="summary-row">
-            <span>Phí vận chuyển</span>
-            <span id="summary-shipping">30.000 ₫</span>
-          </div>
-
-          <div class="summary-row" id="summary-discount-row" style="display: none; color: #166534;">
-            <span>Giảm giá khuyến mãi</span>
-            <span id="summary-discount">-0 ₫</span>
-          </div>
-
-          <!-- Nhập mã giảm giá -->
           <div class="coupon-box">
-            <input type="text" id="coupon-input" class="coupon-input" placeholder="MÃ GIẢM GIÁ (VD: KPOP10)">
-            <button type="button" class="btn btn-coupon" onclick="applyCouponCode()">Áp dụng</button>
+            <input type="text" class="coupon-input" placeholder="MÃ GIẢM GIÁ (VD: KPOP10)">
+            <button type="button" class="btn btn-coupon" onclick="demoNotice()">Áp dụng</button>
           </div>
-          <small id="coupon-message" style="display: block; margin-top: -10px; margin-bottom: 12px; font-size: 12px;"></small>
 
           <div class="summary-row total-row">
             <span>Tổng thanh toán</span>
-            <span class="total-price" id="summary-total">0 ₫</span>
+            <span class="total-price">2.290.000 ₫</span>
           </div>
 
-          <!-- ==============================================
-               KHỐI BÁN HÀNG: YÊU CẦU ĐĂNG NHẬP, CHỌN ĐỊA CHỈ & HÌNH THỨC CHI TRẢ
-               ============================================== -->
-          <div class="checkout-box" id="checkout-auth-container">
-            
-            <!-- TRƯỜNG HỢP 1: CHƯA ĐĂNG NHẬP (Bắt buộc đăng nhập để mua hàng) -->
-            <div id="checkout-login-required" style="display: none; background: #fffbe6; border: 1px dashed #ca8a04; padding: 14px; border-radius: 8px; text-align: center;">
-              <strong style="color: #854d0e; display: block; margin-bottom: 6px;">🔒 Yêu cầu đăng nhập tài khoản</strong>
-              <p style="font-size: 12px; color: #713f12; margin-bottom: 10px;">
-                Bạn cần đăng nhập tài khoản người mua để xác nhận địa chỉ và hoàn tất đơn hàng.
-              </p>
-              <div class="d-flex gap-2 justify-between">
-                <a href="login.html" class="btn btn-primary btn-sm" style="flex: 1;">Đăng nhập ngay</a>
-                <a href="login.html" class="btn btn-outline btn-sm" style="flex: 1;">Đăng ký mới</a>
+          <div class="checkout-box">
+
+            <!-- Khách đã đăng nhập (ghi cứng) -->
+            <div style="background:#f0fdf4;border:1px solid #bbf7d0;color:#166534;border-radius:8px;padding:8px 12px;font-size:12px;margin-bottom:12px;">
+              Đã đăng nhập tài khoản khách hàng
+            </div>
+
+            <div class="checkout-section-title"><span>👤 Thông tin người mua hàng:</span></div>
+            <div style="background: #f8fafc; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 13px; margin-bottom: 14px;">
+              <div>Họ và tên: <strong>Nguyễn Thu Hà</strong></div>
+              <div style="color: var(--muted); font-size: 12px; margin-top: 2px;">
+                SĐT: 0909 123 456 &bull; Email: kpopfan@store.vn
               </div>
             </div>
 
-            <!-- TRƯỜNG HỢP 2: ĐÃ ĐĂNG NHẬP (Tự hiển thị thông tin, chọn địa chỉ và hình thức chi trả) -->
-            <div id="checkout-logged-in-form" style="display: none;">
-              
-              <!-- 1. Tự động hiển thị thông tin người mua -->
-              <div class="checkout-section-title">
-                <span>👤 Thông tin người mua hàng:</span>
-              </div>
-              <div style="background: #f8fafc; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 13px; margin-bottom: 14px;">
-                <div>Họ và tên: <strong id="checkout-user-name">...</strong></div>
-                <div style="color: var(--muted); font-size: 12px; margin-top: 2px;">
-                  SĐT: <span id="checkout-user-phone">...</span> &bull; Email: <span id="checkout-user-email">...</span>
+            <div class="checkout-section-title"><span>📍 Địa chỉ nhận hàng:</span></div>
+            <div class="address-options">
+              <label class="address-option-card selected" id="label-addr-default" onclick="selectAddressMode('default')">
+                <input type="radio" name="delivery_address_type" id="addr-type-default" value="default" checked>
+                <div>
+                  <strong>Địa chỉ tài khoản đã lưu:</strong>
+                  <div id="checkout-default-address" style="color: var(--muted); font-size: 12px; margin-top: 2px;">
+                    45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh
+                  </div>
                 </div>
-              </div>
+              </label>
 
-              <!-- 2. Cho phép chọn địa chỉ tài khoản mua hoặc nhập địa chỉ mới -->
-              <div class="checkout-section-title">
-                <span>📍 Địa chỉ nhận hàng:</span>
-              </div>
-              <div class="address-options">
-                <label class="address-option-card selected" id="label-addr-default" onclick="selectAddressMode('default')">
-                  <input type="radio" name="delivery_address_type" id="addr-type-default" value="default" checked>
-                  <div>
-                    <strong>Địa chỉ tài khoản đã lưu:</strong>
-                    <div id="checkout-default-address" style="color: var(--muted); font-size: 12px; margin-top: 2px;">
-                      123 Đường Lê Lợi, Quận 1, TP. HCM
-                    </div>
-                  </div>
-                </label>
-
-                <label class="address-option-card" id="label-addr-new" onclick="selectAddressMode('new')">
-                  <input type="radio" name="delivery_address_type" id="addr-type-new" value="new">
-                  <div style="flex: 1;">
-                    <strong>Giao đến địa chỉ mới khác</strong>
-                    <input type="text" id="checkout-custom-address" class="custom-address-input" placeholder="Nhập địa chỉ giao hàng cụ thể..." style="display: none;">
-                  </div>
-                </label>
-              </div>
-
-              <!-- 3. Cho phép chọn hình thức chi trả (Trực tuyến hoặc Tiền mặt) -->
-              <div class="checkout-section-title mt-3">
-                <span>💳 Hình thức chi trả:</span>
-              </div>
-              <div class="payment-options">
-                <label class="payment-option-card selected" id="label-pay-cod" onclick="selectPaymentMethod('cod')">
-                  <input type="radio" name="payment_method" id="pay-cod" value="cod" checked>
-                  <div>
-                    <strong>💵 Tiền mặt khi nhận hàng (COD)</strong>
-                    <div style="color: var(--muted); font-size: 12px; margin-top: 2px;">
-                      Thanh toán cho shipper sau khi kiểm tra album nguyên seal.
-                    </div>
-                  </div>
-                </label>
-
-                <label class="payment-option-card" id="label-pay-online" onclick="selectPaymentMethod('online')">
-                  <input type="radio" name="payment_method" id="pay-online" value="online">
-                  <div>
-                    <strong>💳 Chi trả Trực tuyến (Chuyển khoản QR / Ví)</strong>
-                    <div style="color: var(--muted); font-size: 12px; margin-top: 2px;">
-                      Chuyển khoản nhanh qua mã VietQR hoặc MoMo/ZaloPay.
-                    </div>
-                  </div>
-                </label>
-              </div>
-
-              <!-- Nút xác nhận đặt hàng -->
-              <button type="button" class="btn btn-primary btn-checkout" onclick="proceedToCheckoutOrder()">
-                🛒 Xác nhận đặt hàng
-              </button>
-
+              <label class="address-option-card" id="label-addr-new" onclick="selectAddressMode('new')">
+                <input type="radio" name="delivery_address_type" id="addr-type-new" value="new">
+                <div style="flex: 1;">
+                  <strong>Giao đến địa chỉ mới khác</strong>
+                  <input type="text" id="checkout-custom-address" class="custom-address-input" placeholder="Nhập địa chỉ giao hàng cụ thể..." style="display: none;">
+                </div>
+              </label>
             </div>
 
+            <div class="checkout-section-title mt-3"><span>💳 Hình thức chi trả:</span></div>
+            <div class="payment-options">
+              <label class="payment-option-card selected" id="label-pay-cod" onclick="selectPaymentMethod('cod')">
+                <input type="radio" name="payment_method" id="pay-cod" value="cod" checked>
+                <div>
+                  <strong>💵 Tiền mặt khi nhận hàng (COD)</strong>
+                  <div style="color: var(--muted); font-size: 12px; margin-top: 2px;">Thanh toán cho shipper sau khi kiểm tra album nguyên seal.</div>
+                </div>
+              </label>
+
+              <label class="payment-option-card" id="label-pay-online" onclick="selectPaymentMethod('online')">
+                <input type="radio" name="payment_method" id="pay-online" value="online">
+                <div>
+                  <strong>💳 Chi trả Trực tuyến (Chuyển khoản QR / Ví)</strong>
+                  <div style="color: var(--muted); font-size: 12px; margin-top: 2px;">Chuyển khoản nhanh qua mã VietQR hoặc MoMo/ZaloPay.</div>
+                </div>
+              </label>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-checkout" onclick="openOrderModal()">🛒 Xác nhận đặt hàng</button>
           </div>
 
           <div class="checkout-guarantee mt-3">
@@ -201,21 +178,10 @@
         </div>
 
       </div>
-
-      <!-- Trạng thái khi giỏ hàng trống (Ẩn mặc định, hiện khi xóa hết) -->
-      <div class="empty-cart-card" id="empty-cart-card" style="display: none;">
-        <div class="empty-cart-icon">🛒</div>
-        <h2>Giỏ hàng của bạn đang trống</h2>
-        <p>Hiện bạn chưa có sản phẩm album K-Pop nào trong giỏ hàng.</p>
-        <a href="products.html" class="btn btn-primary" style="padding: 12px 28px;">
-          Khám phá album ngay
-        </a>
-      </div>
-
     </div>
   </main>
 
-  <!-- ===== MODAL HÓA ĐƠN KHI ĐẶT HÀNG THÀNH CÔNG (LƯU & HIỂN THỊ ĐƠN HÀNG) ===== -->
+  <!-- ===== HÓA ĐƠN MẪU KHI BẤM "XÁC NHẬN ĐẶT HÀNG" (không lưu đơn) ===== -->
   <div class="modal-overlay" id="order-success-modal" style="display: none;">
     <div class="order-invoice-card">
       <div class="invoice-badge-success">✔</div>
@@ -223,60 +189,40 @@
       <p class="invoice-subtitle">Cảm ơn bạn đã mua sắm tại K-POP STORE</p>
 
       <div class="invoice-details-box">
-        <div class="invoice-line">
-          <span class="k">Mã đơn hàng:</span>
-          <span class="v" id="inv-order-id" style="color: var(--dark); font-weight: 800;">#DH-102948</span>
-        </div>
-        <div class="invoice-line">
-          <span class="k">Thời gian đặt:</span>
-          <span class="v" id="inv-order-date">...</span>
-        </div>
-        <div class="invoice-line">
-          <span class="k">Người nhận:</span>
-          <span class="v" id="inv-order-name">...</span>
-        </div>
-        <div class="invoice-line">
-          <span class="k">Số điện thoại:</span>
-          <span class="v" id="inv-order-phone">...</span>
-        </div>
-        <div class="invoice-line">
-          <span class="k">Địa chỉ nhận hàng:</span>
-          <span class="v" id="inv-order-address" style="max-width: 260px;">...</span>
-        </div>
-        <div class="invoice-line">
-          <span class="k">Hình thức chi trả:</span>
-          <span class="v" id="inv-order-payment" style="color: #166534;">Tiền mặt (COD)</span>
-        </div>
+        <div class="invoice-line"><span class="k">Mã đơn hàng:</span><span class="v" style="color: var(--dark); font-weight: 800;">#DH-102949</span></div>
+        <div class="invoice-line"><span class="k">Thời gian đặt:</span><span class="v">27/10/2026</span></div>
+        <div class="invoice-line"><span class="k">Người nhận:</span><span class="v">Nguyễn Thu Hà</span></div>
+        <div class="invoice-line"><span class="k">Số điện thoại:</span><span class="v">0909 123 456</span></div>
+        <div class="invoice-line"><span class="k">Địa chỉ nhận hàng:</span><span class="v" id="inv-order-address" style="max-width: 260px;">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</span></div>
+        <div class="invoice-line"><span class="k">Hình thức chi trả:</span><span class="v" id="inv-order-payment" style="color: #166534;">Tiền mặt (COD)</span></div>
       </div>
 
       <div style="font-weight: 700; font-size: 13px; margin-bottom: 8px;">Danh sách sản phẩm:</div>
-      <div class="invoice-items-list" id="inv-items-list">
-        <!-- Render động -->
+      <div class="invoice-items-list">
+        <div class="invoice-item-row"><span>DEADLINE STANDARD (STANDARD) x1</span><span>880.000 ₫</span></div>
+        <div class="invoice-item-row"><span>BOMP STANDARD (STANDARD) x2</span><span>1.380.000 ₫</span></div>
+        <div class="invoice-item-row"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
       </div>
 
       <div class="invoice-line" style="font-size: 16px; font-weight: 800; margin-top: 10px;">
         <span>Tổng thanh toán:</span>
-        <span id="inv-order-total" style="color: #dc2626; font-size: 19px;">0 ₫</span>
+        <span style="color: #dc2626; font-size: 19px;">2.290.000 ₫</span>
       </div>
 
       <div class="d-flex gap-2 mt-4">
-        <a href="products.html" class="btn btn-outline btn-block" onclick="closeOrderModal()">
-          Tiếp tục mua sắm
-        </a>
-        <a href="login.html" class="btn btn-primary btn-block" onclick="closeOrderModal()">
-          Xem lịch sử đơn hàng
-        </a>
+        <a href="products.html" class="btn btn-outline btn-block">Tiếp tục mua sắm</a>
+        <a href="login.html#orders" class="btn btn-primary btn-block">Xem lịch sử đơn hàng</a>
       </div>
     </div>
   </div>
 
-  <!-- ===== FOOTER ĐỒNG NHẤT CANH ĐỀU ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-col">
         <h3>K-POP STORE</h3>
         <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
-        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
+        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> &amp; <strong>Circle Chart</strong>.</p>
         <div class="social-links">
           <a href="#" class="social-btn" title="Facebook">📘</a>
           <a href="#" class="social-btn" title="Instagram">📷</a>
@@ -300,7 +246,7 @@
         <div class="footer-links">
           <a href="#">Chính sách đổi trả 7 ngày</a>
           <a href="#">Bảo hiểm vận chuyển album</a>
-          <a href="#">Hướng dẫn thanh toán & ship</a>
+          <a href="#">Hướng dẫn thanh toán &amp; ship</a>
           <a href="#">Bảo mật thông tin</a>
         </div>
       </div>
@@ -321,56 +267,45 @@
 
   <script src="js/cart.js"></script>
   <script>
-    function executeSearch() {
-      const input = document.getElementById('header-search-input');
-      if (input && input.value.trim()) {
-        const query = encodeURIComponent(input.value.trim());
-        window.location.href = `products.html?search=${query}`;
-      }
-    }
-
-    // Chọn chế độ địa chỉ (mặc định hoặc mới)
+    // Chọn địa chỉ: chỉ đổi giao diện, không lưu gì
     function selectAddressMode(mode) {
-      const defaultCard = document.getElementById('label-addr-default');
-      const newCard = document.getElementById('label-addr-new');
-      const customInput = document.getElementById('checkout-custom-address');
-      const radioDefault = document.getElementById('addr-type-default');
-      const radioNew = document.getElementById('addr-type-new');
-
+      var d = document.getElementById('label-addr-default');
+      var n = document.getElementById('label-addr-new');
+      var input = document.getElementById('checkout-custom-address');
       if (mode === 'default') {
-        radioDefault.checked = true;
-        defaultCard.classList.add('selected');
-        newCard.classList.remove('selected');
-        customInput.style.display = 'none';
+        document.getElementById('addr-type-default').checked = true;
+        d.classList.add('selected'); n.classList.remove('selected');
+        input.style.display = 'none';
       } else {
-        radioNew.checked = true;
-        newCard.classList.add('selected');
-        defaultCard.classList.remove('selected');
-        customInput.style.display = 'block';
-        customInput.focus();
+        document.getElementById('addr-type-new').checked = true;
+        n.classList.add('selected'); d.classList.remove('selected');
+        input.style.display = 'block';
+        input.focus();
       }
     }
 
-    // Chọn hình thức chi trả (COD hoặc Trực tuyến)
+    // Chọn hình thức chi trả: chỉ đổi giao diện
     function selectPaymentMethod(method) {
-      const labelCod = document.getElementById('label-pay-cod');
-      const labelOnline = document.getElementById('label-pay-online');
-      const radioCod = document.getElementById('pay-cod');
-      const radioOnline = document.getElementById('pay-online');
-
+      var c = document.getElementById('label-pay-cod');
+      var o = document.getElementById('label-pay-online');
       if (method === 'cod') {
-        radioCod.checked = true;
-        labelCod.classList.add('selected');
-        labelOnline.classList.remove('selected');
+        document.getElementById('pay-cod').checked = true;
+        c.classList.add('selected'); o.classList.remove('selected');
       } else {
-        radioOnline.checked = true;
-        labelOnline.classList.add('selected');
-        labelCod.classList.remove('selected');
+        document.getElementById('pay-online').checked = true;
+        o.classList.add('selected'); c.classList.remove('selected');
       }
     }
 
-    function closeOrderModal() {
-      document.getElementById('order-success-modal').style.display = 'none';
+    // Hiện hóa đơn mẫu theo địa chỉ / hình thức chi trả đang chọn (không lưu đơn)
+    function openOrderModal() {
+      var useNew = document.getElementById('addr-type-new').checked;
+      var custom = document.getElementById('checkout-custom-address').value.trim();
+      var addr = (useNew && custom) ? custom : document.getElementById('checkout-default-address').textContent.trim();
+      document.getElementById('inv-order-address').textContent = addr;
+      document.getElementById('inv-order-payment').textContent =
+        document.getElementById('pay-online').checked ? 'Trực tuyến (Chuyển khoản QR / Ví)' : 'Tiền mặt (COD)';
+      document.getElementById('order-success-modal').style.display = 'flex';
     }
   </script>
 </body>

@@ -24,11 +24,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-<div class="option-group">
-  <label>Phân loại</label>
-  <div class="version-options">
-    <button type="button" class="version-btn active" data-version="cd">CD BOX SET</button>
-    <button type="button" class="version-btn" data-version="vinyl">VINYL</button>
-  </div>
-</div>
