@@ -31,7 +31,7 @@
     <div class="header-icons">
       <a href="cart.html" class="header-icon-btn active" title="Giỏ hàng">
         🛒
-        <span class="cart-badge" id="header-cart-count">3</span>
+        <span class="cart-badge" id="header-cart-count">4</span>
       </a>
       <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
         👤
@@ -44,7 +44,7 @@
 
       <div class="cart-header-title">
         <h1>Giỏ hàng của bạn</h1>
-        <span class="cart-count-pill">3 sản phẩm</span>
+        <span class="cart-count-pill">4 sản phẩm</span>
       </div>
 
       <div class="cart-layout">
@@ -87,6 +87,23 @@
               <button type="button" class="cart-item-remove" title="Xóa sản phẩm" onclick="demoNotice()">✕</button>
             </div>
 
+            <div class="cart-item-card">
+              <img src="image/ruby.jpg" alt="RUBY STANDARD" class="cart-item-img">
+              <div class="cart-item-info">
+                <div class="cart-item-artist">JENNIE</div>
+                <div class="cart-item-name">RUBY STANDARD</div>
+                <span class="cart-item-variant">STANDARD</span>
+                <div class="cart-item-price">1.200.000 ₫</div>
+              </div>
+              <div class="cart-qty-box">
+                <button type="button" class="cart-qty-btn" onclick="demoNotice()">−</button>
+                <input type="number" class="cart-qty-input" value="1" min="1" max="99" readonly>
+                <button type="button" class="cart-qty-btn" onclick="demoNotice()">+</button>
+              </div>
+              <div class="cart-item-subtotal">1.200.000</div>
+              <button type="button" class="cart-item-remove" title="Xóa sản phẩm" onclick="demoNotice()">✕</button>
+            </div>
+
           </div>
 
           <div class="d-flex justify-between align-center mt-3">
@@ -99,7 +116,7 @@
         <div class="cart-summary-card">
           <h2>Tóm tắt đơn hàng</h2>
 
-          <div class="summary-row"><span>Tạm tính</span><span>2.260.000 ₫</span></div>
+          <div class="summary-row"><span>Tạm tính</span><span>3.460.000 ₫</span></div>
           <div class="summary-row"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
 
           <div class="coupon-box">
@@ -109,7 +126,7 @@
 
           <div class="summary-row total-row">
             <span>Tổng thanh toán</span>
-            <span class="total-price">2.290.000 ₫</span>
+            <span class="total-price">3.490.000 ₫</span>
           </div>
 
           <div class="checkout-box">
@@ -121,9 +138,9 @@
 
             <div class="checkout-section-title"><span>👤 Thông tin người mua hàng:</span></div>
             <div style="background: #f8fafc; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 13px; margin-bottom: 14px;">
-              <div>Họ và tên: <strong>Nguyễn Thu Hà</strong></div>
+              <div>Họ và tên: <strong>Customer</strong></div>
               <div style="color: var(--muted); font-size: 12px; margin-top: 2px;">
-                SĐT: 0909 123 456 &bull; Email: kpopfan@store.vn
+                SĐT: 0909 456 321 &bull; Email: customer@example.com
               </div>
             </div>
 
@@ -191,8 +208,8 @@
       <div class="invoice-details-box">
         <div class="invoice-line"><span class="k">Mã đơn hàng:</span><span class="v" style="color: var(--dark); font-weight: 800;">#DH-102949</span></div>
         <div class="invoice-line"><span class="k">Thời gian đặt:</span><span class="v">27/10/2026</span></div>
-        <div class="invoice-line"><span class="k">Người nhận:</span><span class="v">Nguyễn Thu Hà</span></div>
-        <div class="invoice-line"><span class="k">Số điện thoại:</span><span class="v">0909 123 456</span></div>
+        <div class="invoice-line"><span class="k">Người nhận:</span><span class="v">Customer</span></div>
+        <div class="invoice-line"><span class="k">Số điện thoại:</span><span class="v">0909 456 321</span></div>
         <div class="invoice-line"><span class="k">Địa chỉ nhận hàng:</span><span class="v" id="inv-order-address" style="max-width: 260px;">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</span></div>
         <div class="invoice-line"><span class="k">Hình thức chi trả:</span><span class="v" id="inv-order-payment" style="color: #166534;">Tiền mặt (COD)</span></div>
       </div>
@@ -201,12 +218,13 @@
       <div class="invoice-items-list">
         <div class="invoice-item-row"><span>DEADLINE STANDARD (STANDARD) x1</span><span>880.000 ₫</span></div>
         <div class="invoice-item-row"><span>BOMP STANDARD (STANDARD) x2</span><span>1.380.000 ₫</span></div>
+        <div class="invoice-item-row"><span>RUBY STANDARD (STANDARD) x1</span><span>1.200.000 ₫</span></div>
         <div class="invoice-item-row"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
       </div>
 
       <div class="invoice-line" style="font-size: 16px; font-weight: 800; margin-top: 10px;">
         <span>Tổng thanh toán:</span>
-        <span style="color: #dc2626; font-size: 19px;">2.290.000 ₫</span>
+        <span style="color: #dc2626; font-size: 19px;">3.490.000 ₫</span>
       </div>
 
       <div class="d-flex gap-2 mt-4">

@@ -18,6 +18,7 @@
     .auth-form input:disabled:hover,
     .auth-form button:disabled:hover { border-color: #dc2626; box-shadow: 0 0 0 2px rgba(220,38,38,.15); }
     .static-notice { margin: 14px 0 0; padding: 10px 12px; border-radius: 8px; background: #fef2f2; color: #b91c1c; font-size: 13px; text-align: center; }
+    .demo-note { margin: 14px 0 0; padding: 10px 12px; border-radius: 8px; background: #f1f5f9; color: #475569; font-size: 13px; text-align: center; }
     .back-home-link { display: block; margin-top: 14px; text-align: center; font-weight: 700; font-size: 14px; color: var(--dark); text-decoration: underline; }
 
     /* Lịch sử đơn hàng (nhóm theo đơn) */
@@ -59,7 +60,7 @@
     <div class="header-icons">
       <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
         🛒
-        <span class="cart-badge" id="header-cart-count">3</span>
+        <span class="cart-badge" id="header-cart-count">4</span>
       </a>
       <a href="login.html" class="header-icon-btn active" id="header-user-btn" title="Tài khoản">
         👤
@@ -72,38 +73,60 @@
       <div class="auth-card" id="auth-card">
 
         <!-- ===== VIEW 1: HỒ SƠ KHÁCH HÀNG (ghi cứng, xem như đã đăng nhập) ===== -->
-        <div id="view-profile">
+        <div id="view-profile" style="display: none;">
           <div class="profile-box">
             <div class="profile-avatar-large">👤</div>
-            <h2 class="profile-name">Nguyễn Thu Hà</h2>
-            <p class="profile-email">thuha@gmail.com</p>
+            <h2 class="profile-name" id="profile-name">Customer</h2>
+            <p class="profile-email" id="profile-email">customer@example.com</p>
 
-            <div class="profile-info-list">
+            <!-- Xem thông tin cá nhân -->
+            <div class="profile-info-list" id="profile-info-view">
               <div class="profile-info-row">
                 <span class="lbl">Họ và tên:</span>
-                <span class="val">Nguyễn Thu Hà</span>
+                <span class="val" id="pv-name">Customer</span>
               </div>
               <div class="profile-info-row">
                 <span class="lbl">Số điện thoại:</span>
-                <span class="val">0909 123 456</span>
+                <span class="val" id="pv-phone">0909 456 321</span>
               </div>
               <div class="profile-info-row">
                 <span class="lbl">Địa chỉ nhận hàng:</span>
-                <span class="val" style="max-width: 280px; text-align: right;">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</span>
+                <span class="val" id="pv-address" style="max-width: 280px; text-align: right;">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</span>
               </div>
             </div>
+            <button type="button" class="btn btn-outline btn-block" id="btn-edit-profile" onclick="toggleEdit(true)" style="margin-bottom: 14px;">✏️ Chỉnh sửa thông tin cá nhân</button>
+
+            <!-- Sửa thông tin cá nhân (chỉ cập nhật trên màn hình, không lưu) -->
+            <form id="profile-edit-form" class="auth-form" style="display: none; text-align: left; margin-bottom: 14px;" onsubmit="saveProfile(event)">
+              <div class="form-group">
+                <label for="ed-name">Họ và tên</label>
+                <input type="text" id="ed-name">
+              </div>
+              <div class="form-group">
+                <label for="ed-phone">Số điện thoại</label>
+                <input type="tel" id="ed-phone">
+              </div>
+              <div class="form-group">
+                <label for="ed-address">Địa chỉ nhận hàng</label>
+                <input type="text" id="ed-address">
+              </div>
+              <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-primary btn-block">Lưu thay đổi</button>
+                <button type="button" class="btn btn-outline btn-block" onclick="toggleEdit(false)">Hủy</button>
+              </div>
+            </form>
 
             <div class="profile-details-grid">
               <div class="profile-stat-item">
-                <div class="val">3</div>
+                <div class="val">4</div>
                 <div class="lbl">Đơn đã đặt</div>
               </div>
               <div class="profile-stat-item">
-                <div class="val">3</div>
+                <div class="val">4</div>
                 <div class="lbl">Sản phẩm giỏ</div>
               </div>
               <div class="profile-stat-item">
-                <div class="val">1.250</div>
+                <div class="val">1.650</div>
                 <div class="lbl">Điểm tích lũy</div>
               </div>
             </div>
@@ -178,32 +201,31 @@
         </div>
 
         <!-- ===== VIEW 2: ĐĂNG NHẬP (bị khóa, chỉ minh họa giao diện) ===== -->
-        <div id="view-login" style="display: none;">
+        <div id="view-login">
           <div class="auth-header">
             <h1>Đăng nhập tài khoản</h1>
           </div>
 
-          <form id="login-form" class="auth-form" onsubmit="return false;">
+          <form id="login-form" class="auth-form" novalidate onsubmit="handleLogin(event)">
             <div class="form-group">
               <label for="login-email">Địa chỉ Email</label>
-              <input type="email" id="login-email" placeholder="customer@example.com" disabled>
+              <input type="email" id="login-email" placeholder="customer@example.com">
             </div>
             <div class="form-group">
               <label for="login-password">Mật khẩu</label>
-              <input type="password" id="login-password" placeholder="Nhập mật khẩu" disabled>
+              <input type="password" id="login-password" placeholder="Nhập mật khẩu">
             </div>
             <div class="auth-options">
-              <label><input type="checkbox" disabled> Ghi nhớ đăng nhập</label>
+              <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
             </div>
-            <button type="button" class="btn btn-primary btn-submit" disabled>Đăng nhập ngay</button>
+            <button type="submit" class="btn btn-primary btn-submit">Đăng nhập ngay</button>
           </form>
+
           <a class="back-home-link" href="index.html">← Quay lại trang chủ</a>
 
           <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
             Khách hàng mới chưa có tài khoản?
             <a href="#register" onclick="showView('register'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">Đăng ký tại đây</a>
-            &nbsp;|&nbsp;
-            <a href="#orders" onclick="showView('profile'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">Xem hồ sơ khách mẫu</a>
           </div>
         </div>
 
@@ -213,40 +235,41 @@
             <h1>Đăng ký tài khoản</h1>
           </div>
 
-          <form id="register-form" class="auth-form" onsubmit="return false;">
+          <form id="register-form" class="auth-form" novalidate onsubmit="handleRegister(event)">
             <div class="form-group">
               <label for="reg-fullname">Họ và tên <span class="text-danger">*</span></label>
-              <input type="text" id="reg-fullname" placeholder="Ví dụ: Nguyễn Thu Hà" disabled>
+              <input type="text" id="reg-fullname" placeholder="Ví dụ: Customer">
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="reg-email">Email <span class="text-danger">*</span></label>
-                <input type="email" id="reg-email" placeholder="thuha@gmail.com" disabled>
+                <input type="email" id="reg-email" placeholder="customer@gmail.com">
               </div>
               <div class="form-group">
                 <label for="reg-phone">Số điện thoại <span class="text-danger">*</span></label>
-                <input type="tel" id="reg-phone" placeholder="0901234567" disabled>
+                <input type="tel" id="reg-phone" placeholder="0901234567">
               </div>
             </div>
             <div class="form-group">
               <label for="reg-address">Địa chỉ giao hàng mặc định <span class="text-danger">*</span></label>
-              <input type="text" id="reg-address" placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/TP" disabled>
+              <input type="text" id="reg-address" placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/TP">
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label for="reg-password">Mật khẩu <span class="text-danger">*</span></label>
-                <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự" disabled>
+                <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự">
               </div>
               <div class="form-group">
                 <label for="reg-confirm-password">Xác nhận mật khẩu <span class="text-danger">*</span></label>
-                <input type="password" id="reg-confirm-password" placeholder="Nhập lại mật khẩu" disabled>
+                <input type="password" id="reg-confirm-password" placeholder="Nhập lại mật khẩu">
               </div>
             </div>
             <div class="auth-options">
-              <label><input type="checkbox" disabled> Tôi đồng ý với Điều khoản và Chính sách của K-POP STORE</label>
+              <label><input type="checkbox"> Tôi đồng ý với Điều khoản và Chính sách của K-POP STORE</label>
             </div>
-            <button type="button" class="btn btn-primary btn-submit" disabled>Hoàn tất đăng ký &amp; Đăng nhập ngay</button>
+            <button type="submit" class="btn btn-primary btn-submit">Hoàn tất đăng ký &amp; Đăng nhập ngay</button>
           </form>
+
           <a class="back-home-link" href="index.html">← Quay lại trang chủ</a>
 
           <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
@@ -310,7 +333,15 @@
 
   <script src="js/cart.js"></script>
   <script>
-    // Chuyển giữa 3 màn hình: profile (hồ sơ mẫu), login, register. Chỉ đổi giao diện, không lưu gì.
+    // Dữ liệu tài khoản chỉ nằm trong bộ nhớ của trang (không lưu ở đâu cả, tải lại trang là mất)
+    var DEFAULT_USER = {
+      name: 'Customer',
+      email: 'customer@example.com',
+      phone: '0909 456 321',
+      address: '45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh'
+    };
+
+    // Chuyển giữa 3 màn hình: login, register, profile
     function showView(name) {
       ['profile', 'login', 'register'].forEach(function (v) {
         document.getElementById('view-' + v).style.display = (v === name) ? 'block' : 'none';
@@ -319,10 +350,75 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Mở trang theo đường dẫn: login.html#login hoặc login.html#register (mặc định là hồ sơ mẫu)
+    // Hiển thị thông tin tài khoản đang đăng nhập
+    function renderUser(u) {
+      document.getElementById('profile-name').textContent = u.name;
+      document.getElementById('profile-email').textContent = u.email;
+      document.getElementById('pv-name').textContent = u.name;
+      document.getElementById('pv-phone').textContent = u.phone;
+      document.getElementById('pv-address').textContent = u.address;
+    }
+
+    // Đăng nhập: bấm là thành công
+    function handleLogin(e) {
+      e.preventDefault();
+      var email = document.getElementById('login-email').value.trim();
+      renderUser({
+        name: DEFAULT_USER.name,
+        email: email || DEFAULT_USER.email,
+        phone: DEFAULT_USER.phone,
+        address: DEFAULT_USER.address
+      });
+      toggleEdit(false);
+      showView('profile');
+    }
+
+    // Đăng ký: bấm là thành công, hiện luôn thông tin vừa nhập
+    function handleRegister(e) {
+      e.preventDefault();
+      function val(id, fallback) {
+        var v = document.getElementById(id).value.trim();
+        return v || fallback;
+      }
+      renderUser({
+        name: val('reg-fullname', DEFAULT_USER.name),
+        email: val('reg-email', DEFAULT_USER.email),
+        phone: val('reg-phone', DEFAULT_USER.phone),
+        address: val('reg-address', DEFAULT_USER.address)
+      });
+      toggleEdit(false);
+      showView('profile');
+    }
+
+    // Bật / tắt form sửa thông tin cá nhân
+    function toggleEdit(on) {
+      document.getElementById('profile-info-view').style.display = on ? 'none' : '';
+      document.getElementById('btn-edit-profile').style.display = on ? 'none' : '';
+      document.getElementById('profile-edit-form').style.display = on ? 'block' : 'none';
+      if (on) {
+        document.getElementById('ed-name').value = document.getElementById('pv-name').textContent;
+        document.getElementById('ed-phone').value = document.getElementById('pv-phone').textContent;
+        document.getElementById('ed-address').value = document.getElementById('pv-address').textContent;
+      }
+    }
+
+    // Lưu thay đổi: chỉ cập nhật lên màn hình
+    function saveProfile(e) {
+      e.preventDefault();
+      renderUser({
+        name: document.getElementById('ed-name').value.trim() || DEFAULT_USER.name,
+        email: document.getElementById('profile-email').textContent,
+        phone: document.getElementById('ed-phone').value.trim() || DEFAULT_USER.phone,
+        address: document.getElementById('ed-address').value.trim() || DEFAULT_USER.address
+      });
+      toggleEdit(false);
+    }
+
+    // Mở thẳng theo đường dẫn: login.html#register, login.html#orders (xem hồ sơ + lịch sử đơn)
     (function () {
       var h = location.hash.replace('#', '');
-      if (h === 'login' || h === 'register') showView(h);
+      if (h === 'register') showView('register');
+      else if (h === 'orders' || h === 'profile') showView('profile');
     })();
   </script>
 </body>
