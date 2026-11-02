@@ -32,7 +32,7 @@
     <div class="header-icons">
       <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
         🛒
-        <span class="cart-badge" id="header-cart-count">4</span>
+        <span class="cart-badge" id="header-cart-count">3</span>
       </a>
       <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
         👤
@@ -60,7 +60,7 @@
 
       <div class="container">
         <div class="search-bar">
-          <input type="text" placeholder="Tìm kiếm nghệ sĩ..." onkeydown="if(event.key==='Enter') { const q = encodeURIComponent(this.value.trim()); if(q) window.location.href='products.html?search='+q; }">
+          <input type="text" placeholder="Tìm kiếm nghệ sĩ..." onkeydown="if(event.key==='Enter' && this.value.trim()) window.location.href='products.html';">
         </div>
       </div>
 

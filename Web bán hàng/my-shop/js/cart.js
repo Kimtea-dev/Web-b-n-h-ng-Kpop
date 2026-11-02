@@ -21,11 +21,11 @@ function formatMoney(n) {
   return n.toLocaleString('vi-VN') + ' ₫';
 }
 
-// Tìm kiếm: chuyển sang products.html?search=...
+// Tìm kiếm (bản demo): gõ được nhưng KHÔNG lọc kết quả.
 function executeSearch() {
   var input = document.getElementById('header-search-input');
-  if (input && input.value.trim()) {
-    window.location.href = 'products.html?search=' + encodeURIComponent(input.value.trim());
+  if (input && input.value.trim() && !/products\.html$/i.test(window.location.pathname)) {
+    window.location.href = 'products.html';
   }
 }
 
@@ -82,28 +82,6 @@ function renderProductDetail() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  // Lọc sản phẩm theo từ khóa trên products.html?search=...
-  var q = (new URLSearchParams(window.location.search).get('search') || '').trim().toLowerCase();
-  var searchInput = document.getElementById('header-search-input');
-  if (searchInput && q) searchInput.value = q;
-
-  var cards = document.querySelectorAll('.product-grid .product-card');
-  if (q && cards.length) {
-    var found = 0;
-    cards.forEach(function (card) {
-      var match = card.textContent.toLowerCase().indexOf(q) !== -1;
-      card.style.display = match ? '' : 'none';
-      if (match) found++;
-    });
-    if (found === 0) {
-      var grid = cards[0].parentElement;
-      var msg = document.createElement('p');
-      msg.style.cssText = 'padding:20px;text-align:center;width:100%;';
-      msg.textContent = 'Không tìm thấy sản phẩm nào cho "' + q + '"';
-      grid.parentElement.insertBefore(msg, grid);
-    }
-  }
-
   // Trang chi tiết: nút "Thêm vào giỏ hàng" chỉ hiện thông báo (không lưu gì)
   var product = renderProductDetail();
   var addBtn = document.querySelector('.btn-add-cart');
