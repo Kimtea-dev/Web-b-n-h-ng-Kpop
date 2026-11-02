@@ -37,6 +37,24 @@ body {
   color: var(--text);
   line-height: 1.5;
 }
+.price,
+.product-price,
+.detail-price,
+.total-price,
+.cart-badge,
+.cart-count-pill,
+.cart-item-price,
+.cart-item-subtotal,
+.cart-qty-input,
+input[type="number"],
+.order-total strong,
+.profile-stat-item .val,
+.stat-card .value,
+.overview-data,
+.overview-subtitle .highlight-increase,
+.overview-subtitle .highlight-descrease {
+  font-family: 'Roboto', Arial, sans-serif;
+}
 a { color: inherit; text-decoration: none; transition: all 0.2s ease; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }

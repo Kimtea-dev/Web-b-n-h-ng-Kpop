@@ -47,7 +47,7 @@
 
     <div class="toolbar-card">
       <div class="search-box">
-        <input type="search" placeholder="Tìm tên hoặc email người dùng..." disabled>
+        <input type="search" placeholder="Tìm tên hoặc email người dùng...">
       </div>
       <button type="button" class="btn btn-primary" data-open="addUserModal">+ Thêm người dùng</button>
     </div>
@@ -78,6 +78,7 @@
             <th>Mã user</th>
             <th>Họ và tên</th>
             <th>Email</th>
+            <th>Số điện thoại</th>
             <th>Vai trò</th>
             <th>Trạng thái</th>
             <th>Thao tác</th>
@@ -88,36 +89,36 @@
             <td>US001</td>
             <td>Nguyễn Minh Anh</td>
             <td>minhanh@example.com</td>
+            <td>0901234567</td>
             <td>Khách hàng</td>
             <td><span class="badge badge-success">Đang hoạt động</span></td>
-            <td><button type="button" class="btn" disabled>Sửa</button><button type="button" class="btn btn-danger"
-                disabled>Khóa</button></td>
+            <td><button type="button" class="btn" data-open="editUserModalUS001">Sửa</button><button type="button" class="btn btn-danger">Khóa</button></td>
           </tr>
           <tr>
             <td>US002</td>
             <td>Trần Hoàng Nam</td>
             <td>hoangnam@example.com</td>
+            <td>0912345678</td>
             <td>Khách hàng</td>
             <td><span class="badge badge-danger">Đã khóa</span></td>
-            <td><button type="button" class="btn" disabled>Sửa</button><button type="button" class="btn btn-primary"
-                disabled>Mở khóa</button></td>
+            <td><button type="button" class="btn" data-open="editUserModalUS002">Sửa</button><button type="button" class="btn btn-primary">Mở khóa</button></td>
           </tr>
           <tr>
             <td>US003</td>
             <td>Lê Thu Hà</td>
             <td>thuha@example.com</td>
+            <td>0987654321</td>
             <td>Nhân viên</td>
             <td><span class="badge badge-success">Đang hoạt động</span></td>
-            <td><button type="button" class="btn" disabled>Sửa</button><button type="button" class="btn btn-danger"
-                disabled>Khóa</button></td>
+            <td><button type="button" class="btn" data-open="editUserModalUS003">Sửa</button><button type="button" class="btn btn-danger">Khóa</button></td>
           </tr>
         </tbody>
       </table>
       <div class="pagination">
-        <button class="btn" disabled>&laquo; Trang trước</button>
-        <button class="btn btn-primary" disabled>1</button>
-        <button class="btn" disabled>2</button>
-        <button class="btn" disabled>Trang sau &raquo;</button>
+        <button class="btn">&laquo; Trang trước</button>
+        <button class="btn btn-primary">1</button>
+        <button class="btn">2</button>
+        <button class="btn">Trang sau &raquo;</button>
       </div>
     </div>
 
@@ -129,26 +130,129 @@
       <h3>Thêm người dùng</h3>
       <form>
         <div class="form-grid-2">
-          <div class="form-group"><label for="userName">Họ và tên</label><input id="userName" type="text" disabled>
+          <div class="form-group"><label for="userName">Họ và tên</label><input id="userName" type="text">
           </div>
-          <div class="form-group"><label for="userEmail">Email</label><input id="userEmail" type="email" disabled></div>
-          <div class="form-group"><label for="userPassword">Mật khẩu</label><input id="userPassword" type="password"
-              disabled></div>
+          <div class="form-group"><label for="userEmail">Email</label><input id="userEmail" type="email"></div>
+          <div class="form-group"><label for="userPhone">Số điện thoại</label><input id="userPhone" type="tel" autocomplete="tel"></div>
+          <div class="form-group"><label for="userPassword">Mật khẩu</label><input id="userPassword" type="password"></div>
           <div class="form-group">
             <label for="userRole">Vai trò</label>
-            <select id="userRole" disabled>
+            <select id="userRole">
               <option>Khách hàng</option>
               <option>Nhân viên</option>
               <option>Quản trị viên</option>
             </select>
           </div>
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary" disabled>Tạo tài khoản</button></div>
+        <div class="form-actions"><button type="button" class="btn btn-primary">Tạo tài khoản</button></div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="editUserModalUS001">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="Đóng">&times;</button>
+      <h3>Sửa tài khoản US001</h3>
+      <form>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="editUserName">Họ và tên</label>
+            <input id="editUserName" type="text" value="Nguyễn Minh Anh" required>
+          </div>
+          <div class="form-group">
+            <label for="editUserEmail">Email</label>
+            <input id="editUserEmail" type="email" value="minhanh@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="editUserPhone">Số điện thoại</label>
+            <input id="editUserPhone" type="tel" value="0901234567" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="editUserRole">Vai trò</label>
+            <select id="editUserRole" required>
+              <option>Khách hàng</option>
+              <option>Nhân viên</option>
+              <option>Quản trị viên</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" data-notification="Lưu thay đổi thành công">Lưu thay đổi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="editUserModalUS002">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="Đóng">&times;</button>
+      <h3>Sửa tài khoản US002</h3>
+      <form>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="editUserName2">Họ và tên</label>
+            <input id="editUserName2" type="text" value="Trần Hoàng Nam" required>
+          </div>
+          <div class="form-group">
+            <label for="editUserEmail2">Email</label>
+            <input id="editUserEmail2" type="email" value="hoangnam@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="editUserPhone2">Số điện thoại</label>
+            <input id="editUserPhone2" type="tel" value="0912345678" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="editUserRole2">Vai trò</label>
+            <select id="editUserRole2" required>
+              <option>Khách hàng</option>
+              <option>Nhân viên</option>
+              <option>Quản trị viên</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" data-notification="Lưu thay đổi thành công">Lưu thay đổi</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="editUserModalUS003">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="Đóng">&times;</button>
+      <h3>Sửa tài khoản US003</h3>
+      <form>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="editUserName3">Họ và tên</label>
+            <input id="editUserName3" type="text" value="Lê Thu Hà" required>
+          </div>
+          <div class="form-group">
+            <label for="editUserEmail3">Email</label>
+            <input id="editUserEmail3" type="email" value="thuha@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="editUserPhone3">Số điện thoại</label>
+            <input id="editUserPhone3" type="tel" value="0987654321" autocomplete="tel">
+          </div>
+          <div class="form-group">
+            <label for="editUserRole3">Vai trò</label>
+            <select id="editUserRole3" required>
+              <option>Khách hàng</option>
+              <option selected>Nhân viên</option>
+              <option>Quản trị viên</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" data-notification="Lưu thay đổi thành công">Lưu thay đổi</button>
+        </div>
       </form>
     </div>
   </div>
 
   <script src="../js/modal.js"></script>
+  <script src="../js/admin-notifications.js"></script>
 </body>
 
 </html>

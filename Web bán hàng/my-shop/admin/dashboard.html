@@ -75,37 +75,6 @@
                 </div>
             </div>
 
-            <div class="revenue-dashboard">
-                <div class="column-chart">
-                    <div class="column-header-flex">
-                        <div>
-                            <p class="column-title">Doanh thu bán hàng</p>
-                            <p class="column-subtitle">Biến động doanh thu trong 7 ngày gần nhất</p>
-                        </div>
-                        <select id="metric-select" class="dropdown" disabled>
-                            <option value="doanhThu">Doanh thu</option>
-                            <option value="donHang">Đơn hàng</option>
-                        </select>
-                    </div>
-                    <div class="column-description">
-                        <img id="doanhThu" class="chart-box active" src="../image/column-chart-revenue.png">
-                        <img id="donHang" class="chart-box" src="../image/column-chart-order.png">
-                    </div>
-                </div>
-
-                <div class="pie-chart">
-                    <div class="pie-header-flex">
-                        <div>
-                            <p class="pie-title">Trạng thái đơn hàng</p>
-                            <p class="pie-subtitle">Tỷ lệ đơn hàng theo trạng thái</p>
-                        </div>
-                    </div>
-                    <div class="pie-content">
-                        <img class="pie-img" src="../image/pie-chart.png" alt="Biểu đồ trạng thái đơn hàng">
-                    </div>
-                </div>
-            </div>
-
             <div class="other-option">
                 <a href="products.html" class="product-btn">
                     <div class="product-btn-information">
@@ -140,39 +109,44 @@
                         <tr>
                             <th>Mã đơn</th>
                             <th>Khách hàng</th>
+                            <th>Số điện thoại</th>
                             <th>Ngày đặt</th>
                             <th>Tổng tiền</th>
                             <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><strong>#DH1208</strong></td>
-                            <td>Thảo Trần</td>
-                            <td>17/10/2025</td>
-                            <td>1.200.000đ</td>
-                            <td><span class="badge badge-success">Hoàn thành</span></td>
+                        <tr class="order-row">
+                            <td><a class="order-cell-link" href="detail-order.html"><strong>#DH1208</strong></a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">Thảo Trần</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">999999999</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">17/10/2025</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">1.200.000đ</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html"><span class="badge badge-success">Hoàn thành</span></a></td>
                         </tr>
-                        <tr>
-                            <td><strong>#DH1207</strong></td>
-                            <td>Hoài Như</td>
-                            <td>17/10/2026</td>
-                            <td>4.460.000đ</td>
-                            <td><span class="badge badge-warning">Đang xử lý</span></td>
+                        <tr class="order-row">
+                            <td><a class="order-cell-link" href="detail-order.html"><strong>#DH1207</strong></a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">Hoài Như</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">0901234567</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">17/10/2026</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">4.460.000đ</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html"><span class="badge badge-warning">Đang xử lý</span></a></td>
                         </tr>
-                        <tr>
-                            <td><strong>#DH1206</strong></td>
-                            <td>Linh Chi</td>
-                            <td>17/10/2026</td>
-                            <td>880.000đ</td>
-                            <td><span class="badge badge-success">Hoàn thành</span></td>
+                        <tr class="order-row">
+                            <td><a class="order-cell-link" href="detail-order.html"><strong>#DH1206</strong></a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">Linh Chi</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">234567890</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">17/10/2026</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">880.000đ</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html"><span class="badge badge-success">Hoàn thành</span></a></td>
                         </tr>
-                        <tr>
-                            <td><strong>#DH1205</strong></td>
-                            <td>Thủy Tiên</td>
-                            <td>16/10/2026</td>
-                            <td>3.260.000đ</td>
-                            <td><span class="badge badge-info">Đang giao</span></td>
+                        <tr class="order-row">
+                            <td><a class="order-cell-link" href="detail-order.html"><strong>#DH1205</strong></a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">Thủy Tiên</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">098765432</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">16/10/2026</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html">3.260.000đ</a></td>
+                            <td><a class="order-cell-link" href="detail-order.html"><span class="badge badge-info">Đang giao</span></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -180,6 +154,7 @@
         </main>
     </div>
 
+    <script src="../js/admin-notifications.js"></script>
 </body>
 
 </html>
