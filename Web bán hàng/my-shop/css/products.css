@@ -1,0 +1,377 @@
+/* 1. Thanh danh mục Icon tròn */
+.category-filter-section {
+    padding: 40px 0 20px;
+    text-align: center;
+}
+
+.category-filter-section .page-title {
+    font-size: clamp(28px, 4vw, 42px);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.cat-icon-list {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.cat-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.cat-icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    display: grid;
+    place-items: center;
+    transition: all 0.3s ease;
+}
+
+.cat-icon-circle svg {
+    width: 26px;
+    height: 26px;
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.cat-icon-label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.cat-icon-item:hover .cat-icon-circle,
+.cat-icon-item.active .cat-icon-circle {
+    background: var(--pink);
+    border-color: var(--pink);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(242, 0, 87, 0.3);
+}
+
+.cat-icon-item:hover .cat-icon-circle svg,
+.cat-icon-item.active .cat-icon-circle svg {
+    stroke: var(--black);
+}
+
+.cat-icon-item:hover,
+.cat-icon-item.active {
+    color: var(--white);
+}
+
+/* 2. Thanh tiện ích Toolbar (Show filters | Count | Sort By) */
+.filter-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.btn-toggle-filter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.btn-toggle-filter:hover {
+    color: var(--pink);
+}
+
+.btn-toggle-filter svg {
+    stroke: currentColor;
+}
+
+.product-count-text {
+    color: var(--muted);
+}
+
+/* Custom Select Box cho Sort By */
+.toolbar-right {
+    position: relative;
+}
+
+.sort-dropdown {
+    background: var(--panel);
+    color: var(--white);
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: var(--body);
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.sort-dropdown:focus {
+    border-color: var(--pink);
+}
+
+/* 3. BẢNG TRƯỢT TÌM KIẾM NÂNG CAO (SLIDE-IN DRAWER BÊN TRÁI) */
+.filter-drawer-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.filter-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.filter-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 360px;
+    max-width: 85vw;
+    height: 100%;
+    background: #141414;
+    border-right: 1px solid var(--line);
+    z-index: 101;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-drawer.active {
+    transform: translateX(0);
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px solid var(--line);
+}
+
+.drawer-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn-close-drawer {
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.btn-close-drawer:hover {
+    color: var(--pink);
+}
+
+.drawer-body {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.filter-group-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 6px;
+}
+
+.filter-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--pink);
+    cursor: pointer;
+}
+
+.checkbox-label:hover {
+    color: var(--white);
+}
+
+/* Ô nhập khoảng giá min - max */
+.price-range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-input {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 8px 12px;
+    color: var(--white);
+    font-family: var(--body);
+    font-size: 13px;
+}
+
+.price-input:focus {
+    outline: none;
+    border-color: var(--pink);
+}
+
+.drawer-footer {
+    padding: 20px 24px;
+    border-top: 1px solid var(--line);
+    background: #171717;
+}
+
+.btn-apply-filter {
+    width: 100%;
+    background: var(--pink);
+    color: var(--black);
+    border: none;
+    padding: 14px;
+    font-weight: 700;
+    font-family: var(--body);
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-apply-filter:hover {
+    filter: brightness(1.15);
+}
+
+/* 4. Lưới sản phẩm 4 cột x 3 dòng */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 24px;
+}
+
+.products-grid .p-card {
+    width: 100%;
+}
+
+/* 5. Phân trang */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 60px 0 20px;
+}
+
+.pagination {
+    display: inline-flex;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.page-node {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--muted);
+    border-right: 1px solid var(--line);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.page-node:last-child {
+    border-right: none;
+}
+
+.page-node:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+}
+
+.page-node.active {
+    background: var(--pink);
+    color: var(--black);
+    font-weight: 800;
+}
+
+.page-node.dots {
+    cursor: default;
+}
+
+@media (max-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .filter-toolbar {
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}

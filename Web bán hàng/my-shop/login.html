@@ -3,423 +3,505 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tài khoản - K-POP STORE</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/client.css">
-  <style>
-    /* Ô nhập bị khóa: rê chuột vào hiện dấu cấm đỏ */
-    .auth-form input:disabled,
-    .auth-form button:disabled,
-    .auth-form label:has(input:disabled) {
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%23dc2626' stroke-width='3' stroke-linecap='round'><circle cx='12' cy='12' r='9'/><line x1='5.6' y1='5.6' x2='18.4' y2='18.4'/></svg>") 14 14, not-allowed;
-    }
-    .auth-form input:disabled,
-    .auth-form button:disabled { opacity: .65; }
-    .auth-form input:disabled:hover,
-    .auth-form button:disabled:hover { border-color: #dc2626; box-shadow: 0 0 0 2px rgba(220,38,38,.15); }
-    .static-notice { margin: 14px 0 0; padding: 10px 12px; border-radius: 8px; background: #fef2f2; color: #b91c1c; font-size: 13px; text-align: center; }
-    .demo-note { margin: 14px 0 0; padding: 10px 12px; border-radius: 8px; background: #f1f5f9; color: #475569; font-size: 13px; text-align: center; }
-    .back-home-link { display: block; margin-top: 14px; text-align: center; font-weight: 700; font-size: 14px; color: var(--dark); text-decoration: underline; }
-
-    /* Lịch sử đơn hàng (nhóm theo đơn) */
-    .order-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; text-align: left; background: #fff; }
-    .order-card-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
-    .order-date { font-size: 12px; color: #6b7280; margin-right: auto; }
-    .order-status { font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 999px; }
-    .st-done { background: #dcfce7; color: #166534; }
-    .st-shipping { background: #dbeafe; color: #1e40af; }
-    .order-line { display: flex; justify-content: space-between; gap: 10px; padding: 4px 0; font-size: 13px; }
-    .order-line em { color: #6b7280; font-style: normal; }
-    .order-ship { color: #6b7280; border-top: 1px dashed #e5e7eb; margin-top: 6px; padding-top: 8px; }
-    .order-card-foot { border-top: 1px dashed #e5e7eb; margin-top: 6px; padding-top: 8px; font-size: 13px; display: grid; gap: 3px; }
-    .order-total { display: flex; justify-content: space-between; margin-top: 4px; }
-    .order-total strong { color: #dc2626; font-size: 15px; }
-  </style>
+  <title>Tài khoản - K-Star Merch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="header">
-    <a class="logo" href="index.html">
-      <span>K-POP STORE</span>
+<!-- Bộ icon dùng chung -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><path d="M7 7h.01"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 1-5 5 1.2 7L12 18l-6.2 3.5L7 14.5l-5-5 7-1z"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="4.5"/><path d="M10.7 12.3L21 2"/><path d="M17 6l3 3"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></symbol>
+</svg>
+
+<!-- ===== HEADER CHUNG ===== -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="K-Star Merch">
+      <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
+      <span>K-Star Merch</span>
     </a>
-
-    <div class="header-search">
-      <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
-      <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
-    </div>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="products.html">Sản phẩm</a></li>
-        <li><a href="about.html">Giới thiệu</a></li>
-      </ul>
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
-
-    <div class="header-icons">
-      <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
-        🛒
-        <span class="cart-badge" id="header-cart-count">3</span>
+    <div class="header-tools">
+      <div class="search-box">
+        <input type="text" placeholder="Tìm kiếm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+        <button type="button" aria-label="Tìm kiếm">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <a class="bag" href="cart.html" aria-label="Giỏ hàng">
+        <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
+        <span id="header-cart-count">3</span>
       </a>
-      <a href="login.html" class="header-icon-btn active" id="header-user-btn" title="Tài khoản">
-        👤
+      <a class="user-account" href="login.html" aria-label="Tài khoản">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main class="client-main">
-    <div class="auth-wrapper">
-      <div class="auth-card" id="auth-card">
+<main class="sec black account-main">
+  <div class="wrap">
 
-        <!-- ===== VIEW 1: HỒ SƠ KHÁCH HÀNG (ghi cứng, xem như đã đăng nhập) ===== -->
-        <div id="view-profile" style="display: none;">
-          <div class="profile-box">
-            <div class="profile-avatar-large">👤</div>
-            <h2 class="profile-name" id="profile-name">Customer</h2>
-            <p class="profile-email" id="profile-email">customer@example.com</p>
+    <!-- ================= VIEW CHƯA ĐĂNG NHẬP ================= -->
+    <div id="view-auth-container">
+      <div class="auth-shell">
 
-            <!-- Xem thông tin cá nhân -->
-            <div class="profile-info-list" id="profile-info-view">
-              <div class="profile-info-row">
-                <span class="lbl">Họ và tên:</span>
-                <span class="val" id="pv-name">Customer</span>
-              </div>
-              <div class="profile-info-row">
-                <span class="lbl">Số điện thoại:</span>
-                <span class="val" id="pv-phone">0909 456 321</span>
-              </div>
-              <div class="profile-info-row">
-                <span class="lbl">Địa chỉ nhận hàng:</span>
-                <span class="val" id="pv-address" style="max-width: 280px; text-align: right;">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</span>
-              </div>
-            </div>
-            <button type="button" class="btn btn-outline btn-block" id="btn-edit-profile" style="margin-bottom: 14px;">✏️ Chỉnh sửa thông tin cá nhân</button>
+        <aside class="auth-aside">
+          <h2>Tài khoản K-Star giúp bạn mua sắm nhanh hơn</h2>
+          <ul>
+            <li>Theo dõi đơn hàng từ lúc đóng gói đến khi giao tới tay bạn.</li>
+            <li>Tích điểm sau mỗi đơn và đổi voucher cho album comeback.</li>
+            <li>Lưu sổ địa chỉ để thanh toán chỉ với vài thao tác.</li>
+          </ul>
+          <svg class="bg-star" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+        </aside>
 
-            <!-- Sửa thông tin cá nhân (chỉ cập nhật trên màn hình, không lưu) -->
-            <form id="profile-edit-form" class="auth-form" style="display: none; text-align: left; margin-bottom: 14px;" onsubmit="saveProfile(event)">
-              <div class="form-group">
-                <label for="ed-name">Họ và tên</label>
-                <input type="text" id="ed-name">
-              </div>
-              <div class="form-group">
-                <label for="ed-phone">Số điện thoại</label>
-                <input type="tel" id="ed-phone">
-              </div>
-              <div class="form-group">
-                <label for="ed-address">Địa chỉ nhận hàng</label>
-                <input type="text" id="ed-address">
-              </div>
-              <div class="d-flex gap-2">
-                <button type="submit" class="btn btn-primary btn-block">Lưu thay đổi</button>
-                <button type="button" class="btn btn-outline btn-block" onclick="toggleEdit(false)">Hủy</button>
-              </div>
-            </form>
+        <div class="auth-main">
+          <div class="auth-forms">
 
-            <div class="profile-details-grid">
-              <div class="profile-stat-item">
-                <div class="val">4</div>
-                <div class="lbl">Đơn đã đặt</div>
-              </div>
-              <div class="profile-stat-item">
-                <div class="val">4</div>
-                <div class="lbl">Sản phẩm giỏ</div>
-              </div>
-              <div class="profile-stat-item">
-                <div class="val">1.500</div>
-                <div class="lbl">Điểm tích lũy</div>
+            <div class="auth-center-wrap" id="view-login">
+              <h2 class="auth-title">Đăng nhập</h2>
+              <p class="auth-sub">Nhập email và mật khẩu để vào tài khoản của bạn.</p>
+              <form novalidate onsubmit="handleLogin(event)">
+                <div class="form-group">
+                  <label for="login-email">Địa chỉ email</label>
+                  <input type="email" id="login-email" placeholder="customer@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="login-password">Mật khẩu</label>
+                  <input type="password" id="login-password" placeholder="Nhập mật khẩu bất kỳ">
+                </div>
+                <button type="submit" class="btn pink auth-submit">Đăng nhập</button>
+              </form>
+              <div class="auth-switch">
+                Chưa có tài khoản? <a href="#" onclick="showRegisterForm(); return false;">Đăng ký ngay</a>
               </div>
             </div>
 
-            <div class="profile-action-btns">
-              <a href="cart.html" class="btn btn-primary btn-block">Xem giỏ hàng</a>
-              <a href="products.html" class="btn btn-outline btn-block">Tiếp tục khám phá album K-Pop</a>
-              <button type="button" class="btn btn-logout btn-block mt-2" onclick="showView('login')">Đăng xuất tài khoản</button>
+            <div class="auth-center-wrap" id="view-register" style="display: none;">
+              <h2 class="auth-title">Tạo tài khoản mới</h2>
+              <p class="auth-sub">Chỉ mất một phút để bắt đầu tích điểm và theo dõi đơn hàng.</p>
+              <form novalidate onsubmit="handleRegister(event)">
+                <div class="form-grid-2">
+                  <div class="form-group"><label for="reg-name">Họ và tên</label><input type="text" id="reg-name" placeholder="Nguyễn Văn A"></div>
+                  <div class="form-group"><label for="reg-phone">Số điện thoại</label><input type="tel" id="reg-phone" placeholder="0909 123 456"></div>
+                </div>
+                <div class="form-group"><label for="reg-email">Email</label><input type="email" id="reg-email" placeholder="customer@gmail.com"></div>
+                <div class="form-grid-2">
+                  <div class="form-group"><label for="reg-dob">Ngày sinh</label><input type="date" id="reg-dob"></div>
+                  <div class="form-group"><label for="reg-bias">Nhóm nhạc yêu thích</label><input type="text" id="reg-bias" placeholder="BLACKPINK, TWICE..."></div>
+                </div>
+                <div class="form-group"><label for="reg-address">Địa chỉ nhận hàng</label><input type="text" id="reg-address" placeholder="Số nhà, đường, phường, quận, tỉnh/thành"></div>
+                <div class="form-grid-2">
+                  <div class="form-group"><label for="reg-pass">Mật khẩu</label><input type="password" id="reg-pass" placeholder="Tối thiểu 6 ký tự"></div>
+                  <div class="form-group"><label for="reg-pass2">Nhập lại mật khẩu</label><input type="password" id="reg-pass2" placeholder="Nhập lại mật khẩu"></div>
+                </div>
+                <label class="check-row">
+                  <input type="checkbox" id="reg-agree">
+                  <span>Mình đồng ý với <a href="#">điều khoản sử dụng</a> và <a href="#">chính sách bảo mật</a> của K-Star Merch.</span>
+                </label>
+                <button type="submit" class="btn pink auth-submit">Hoàn tất đăng ký</button>
+              </form>
+              <div class="auth-switch">
+                Đã có tài khoản? <a href="#" onclick="showLoginForm(); return false;">Đăng nhập</a>
+              </div>
             </div>
 
-            <!-- Lịch sử mua hàng, nhóm theo từng đơn (dữ liệu ghi cứng) -->
-            <div class="profile-orders-section" id="orders">
-              <h3>Lịch sử đơn hàng của bạn</h3>
-
-            <div class="order-card">
-              <div class="order-card-head">
-                <strong>#DH-102948</strong>
-                <span class="order-date">25/10/2026 18:05</span>
-                <span class="order-status st-shipping">Đang giao</span>
-              </div>
-              <div class="order-line">
-                <span>DEADLINE STANDARD – BLACKPINK <em>(STANDARD) x1</em></span>
-                <strong>880.000 ₫</strong>
-              </div>
-              <div class="order-line">
-                <span>RUBY STANDARD – JENNIE <em>(STANDARD) x1</em></span>
-                <strong>1.200.000 ₫</strong>
-              </div>
-              <div class="order-line order-ship"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
-              <div class="order-card-foot">
-                <div>📍 45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
-                <div>💳 Chuyển khoản trực tuyến</div>
-                <div class="order-total"><span>Tổng thanh toán</span><strong>2.110.000 ₫</strong></div>
-              </div>
-            </div>
-            <div class="order-card">
-              <div class="order-card-head">
-                <strong>#DH-102731</strong>
-                <span class="order-date">12/10/2026 14:32</span>
-                <span class="order-status st-done">Đã giao</span>
-              </div>
-              <div class="order-line">
-                <span>ARIRANG – BTS <em>(CD BOX SET) x1</em></span>
-                <strong>3.260.000 ₫</strong>
-              </div>
-              <div class="order-line order-ship"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
-              <div class="order-card-foot">
-                <div>📍 45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
-                <div>💳 Tiền mặt khi nhận hàng (COD)</div>
-                <div class="order-total"><span>Tổng thanh toán</span><strong>3.290.000 ₫</strong></div>
-              </div>
-            </div>
-            <div class="order-card">
-              <div class="order-card-head">
-                <strong>#DH-102455</strong>
-                <span class="order-date">28/09/2026 09:20</span>
-                <span class="order-status st-done">Đã giao</span>
-              </div>
-              <div class="order-line">
-                <span>EP STANDARD – NEWJEANS <em>(STANDARD) x2</em></span>
-                <strong>860.000 ₫</strong>
-              </div>
-              <div class="order-line order-ship"><span>Phí vận chuyển</span><span>30.000 ₫</span></div>
-              <div class="order-card-foot">
-                <div>📍 123 Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
-                <div>💳 Tiền mặt khi nhận hàng (COD)</div>
-                <div class="order-total"><span>Tổng thanh toán</span><strong>890.000 ₫</strong></div>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ===== VIEW 2: ĐĂNG NHẬP (bị khóa, chỉ minh họa giao diện) ===== -->
-        <div id="view-login">
-          <div class="auth-header">
-            <h1>Đăng nhập tài khoản</h1>
-          </div>
-
-          <form id="login-form" class="auth-form" novalidate onsubmit="handleLogin(event)">
-            <div class="form-group">
-              <label for="login-email">Địa chỉ Email</label>
-              <input type="email" id="login-email" placeholder="customer@example.com">
-            </div>
-            <div class="form-group">
-              <label for="login-password">Mật khẩu</label>
-              <input type="password" id="login-password" placeholder="Nhập mật khẩu">
-            </div>
-            <div class="auth-options">
-              <label><input type="checkbox"> Ghi nhớ đăng nhập</label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-submit">Đăng nhập ngay</button>
-          </form>
-
-          <a class="back-home-link" href="index.html">← Quay lại trang chủ</a>
-
-          <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
-            Khách hàng mới chưa có tài khoản?
-            <a href="#register" onclick="showView('register'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">Đăng ký tại đây</a>
-          </div>
-        </div>
-
-        <!-- ===== VIEW 3: ĐĂNG KÝ (bị khóa, chỉ minh họa giao diện) ===== -->
-        <div id="view-register" style="display: none;">
-          <div class="auth-header">
-            <h1>Đăng ký tài khoản</h1>
-          </div>
-
-          <form id="register-form" class="auth-form" novalidate onsubmit="handleRegister(event)">
-            <div class="form-group">
-              <label for="reg-fullname">Họ và tên <span class="text-danger">*</span></label>
-              <input type="text" id="reg-fullname" placeholder="Ví dụ: Customer">
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="reg-email">Email <span class="text-danger">*</span></label>
-                <input type="email" id="reg-email" placeholder="customer@gmail.com">
-              </div>
-              <div class="form-group">
-                <label for="reg-phone">Số điện thoại <span class="text-danger">*</span></label>
-                <input type="tel" id="reg-phone" placeholder="0901234567">
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="reg-address">Địa chỉ giao hàng mặc định <span class="text-danger">*</span></label>
-              <input type="text" id="reg-address" placeholder="Số nhà, Tên đường, Phường/Xã, Quận/Huyện, Tỉnh/TP">
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="reg-password">Mật khẩu <span class="text-danger">*</span></label>
-                <input type="password" id="reg-password" placeholder="Tối thiểu 6 ký tự">
-              </div>
-              <div class="form-group">
-                <label for="reg-confirm-password">Xác nhận mật khẩu <span class="text-danger">*</span></label>
-                <input type="password" id="reg-confirm-password" placeholder="Nhập lại mật khẩu">
-              </div>
-            </div>
-            <div class="auth-options">
-              <label><input type="checkbox"> Tôi đồng ý với Điều khoản và Chính sách của K-POP STORE</label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-submit">Hoàn tất đăng ký &amp; Đăng nhập ngay</button>
-          </form>
-
-          <a class="back-home-link" href="index.html">← Quay lại trang chủ</a>
-
-          <div class="text-center mt-3" style="font-size: 13px; color: var(--muted);">
-            Đã có tài khoản rồi?
-            <a href="#login" onclick="showView('login'); return false;" style="font-weight: 700; color: var(--dark); text-decoration: underline;">Đăng nhập ngay</a>
           </div>
         </div>
 
       </div>
     </div>
-  </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>K-POP STORE</h3>
-        <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
-        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> &amp; <strong>Circle Chart</strong>.</p>
-        <div class="social-links">
-          <a href="#" class="social-btn" title="Facebook">📘</a>
-          <a href="#" class="social-btn" title="Instagram">📷</a>
-          <a href="#" class="social-btn" title="TikTok">🎵</a>
-          <a href="#" class="social-btn" title="YouTube">▶️</a>
+
+    <!-- ================= VIEW ĐÃ ĐĂNG NHẬP: DASHBOARD ================= -->
+    <div id="view-dashboard" style="display: none;" class="dashboard-container">
+      <div class="dashboard-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="dashboard-sidebar">
+          <div class="sidebar-user-brief">
+            <div class="avatar-slot"><svg class="ico" viewBox="0 0 24 24" width="26" height="26" style="color:#fff"><use href="#i-user"/></svg></div>
+            <div class="sidebar-user-info">
+              <div class="name" id="sb-name">Customer</div>
+              <div class="email" id="sb-email">customer@example.com</div>
+              <button type="button" class="text-btn" onclick="goTab('tab-vouchers')">Xem ưu đãi của tôi</button>
+            </div>
+          </div>
+
+          <nav class="sidebar-menu" aria-label="Menu tài khoản">
+            <button type="button" class="sidebar-menu-item active" data-tab="tab-overview" onclick="switchTab('tab-overview', this)"><svg class="ico"><use href="#i-home"/></svg>Tài khoản</button>
+            <button type="button" class="sidebar-menu-item" data-tab="tab-profile" onclick="switchTab('tab-profile', this)"><svg class="ico"><use href="#i-user"/></svg>Thông tin của bạn</button>
+            <button type="button" class="sidebar-menu-item" data-tab="tab-orders" onclick="switchTab('tab-orders', this)"><svg class="ico"><use href="#i-bag"/></svg>Lịch sử đơn hàng</button>
+            <button type="button" class="sidebar-menu-item" data-tab="tab-address" onclick="switchTab('tab-address', this)"><svg class="ico"><use href="#i-pin"/></svg>Sổ địa chỉ</button>
+            <button type="button" class="sidebar-menu-item" data-tab="tab-wishlist" onclick="switchTab('tab-wishlist', this)"><svg class="ico"><use href="#i-heart"/></svg>Danh sách yêu thích</button>
+            <button type="button" class="sidebar-menu-item" data-tab="tab-vouchers" onclick="switchTab('tab-vouchers', this)"><svg class="ico"><use href="#i-tag"/></svg>Voucher &amp; điểm</button>
+            <button type="button" class="sidebar-menu-item" data-tab="tab-security" onclick="switchTab('tab-security', this)"><svg class="ico"><use href="#i-shield"/></svg>Bảo mật</button>
+            <button type="button" class="sidebar-menu-item logout" onclick="handleLogout()"><svg class="ico"><use href="#i-logout"/></svg>Đăng xuất</button>
+          </nav>
+        </aside>
+
+        <!-- NỘI DUNG -->
+        <div class="dashboard-content">
+
+          <!-- TAB: TỔNG QUAN -->
+          <div id="tab-overview" class="tab-pane active">
+            <div class="page-head">
+              <h1 class="page-title">Tài khoản</h1>
+              <div class="quick-actions">
+                <button type="button" class="quick" onclick="goTab('tab-vouchers')">
+                  <span class="quick-ico"><svg class="ico"><use href="#i-tag"/></svg></span>
+                  <span><b>Ví voucher</b><small>3 mã khả dụng</small></span>
+                </button>
+                <button type="button" class="quick" onclick="goTab('tab-security')">
+                  <span class="quick-ico"><svg class="ico"><use href="#i-key"/></svg></span>
+                  <span><b>Đổi mật khẩu</b><small>Bảo mật</small></span>
+                </button>
+              </div>
+            </div>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-star"/></svg></span>
+                <span class="ms-titles"><b>Hạng thành viên</b><span>VIP Fandom Member • tích điểm sau mỗi đơn hàng</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div class="points-grid">
+                  <div>
+                    <div class="label">Điểm thưởng hiện có</div>
+                    <div class="points-big">1.500<small>/ 3.000</small></div>
+                    <button type="button" class="text-btn" style="margin-top:12px;" onclick="goTab('tab-vouchers')">Xem cách đổi điểm</button>
+                  </div>
+                  <div>
+                    <div class="label" style="color:var(--white);font-weight:600;">Đã đạt 50% để lên hạng Kim Cương</div>
+                    <div class="meter" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><i></i></div>
+                    <div class="meter-note">Tích thêm 1.500 điểm để mở khóa ưu đãi comeback sớm.</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-bag"/></svg></span>
+                <span class="ms-titles"><b>Đơn hàng gần đây</b><span>Theo dõi trạng thái các đơn bạn vừa đặt</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div id="recent-orders"></div>
+                <button type="button" class="btn outline btn-sm" style="margin-top:22px;" onclick="goTab('tab-orders')">Xem tất cả đơn hàng</button>
+              </div>
+            </section>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-shield"/></svg></span>
+                <span class="ms-titles"><b>Thông tin đăng nhập</b><span>Email, số điện thoại và mật khẩu của bạn</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div class="kv"><span class="k">Email</span><span class="v" id="ov-email">customer@example.com</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-email')">Thay đổi</button></div>
+                <div class="kv"><span class="k">Số điện thoại</span><span class="v" id="ov-phone">0909 456 321</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-phone')">Thay đổi</button></div>
+                <div class="kv"><span class="k">Mật khẩu</span><span class="v">••••••••</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-pass')">Thay đổi</button></div>
+              </div>
+            </section>
+          </div>
+
+          <!-- TAB: THÔNG TIN CÁ NHÂN -->
+          <div id="tab-profile" class="tab-pane">
+            <div class="page-head"><h1 class="page-title">Thông tin của bạn</h1></div>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-user"/></svg></span>
+                <span class="ms-titles"><b>Ảnh đại diện</b><span>Hiển thị ở thanh bên và trong các đơn hàng</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+                  <div class="avatar-slot big"><svg class="ico" viewBox="0 0 24 24" width="38" height="38" style="color:#fff"><use href="#i-user"/></svg></div>
+                  <div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                      <button type="button" class="btn pink btn-sm" onclick="demoAvatar('update')">Đổi ảnh</button>
+                      <button type="button" class="btn outline btn-sm" onclick="demoAvatar('remove')">Xóa ảnh</button>
+                    </div>
+                    <span class="hint">Ảnh JPG, PNG hoặc WEBP, tối đa 3 MB.</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-user"/></svg></span>
+                <span class="ms-titles"><b>Thông tin cơ bản</b><span>Ngày sinh giúp bọn mình gửi mã giảm giá sinh nhật cho bạn</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <form class="form-narrow" novalidate onsubmit="saveProfileInfo(event)">
+                  <div class="form-group">
+                    <label for="inp-name">Họ và tên</label>
+                    <input type="text" id="inp-name" value="Customer">
+                  </div>
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="inp-gender">Giới tính</label>
+                      <select id="inp-gender">
+                        <option value="">Không muốn nêu</option>
+                        <option value="nu">Nữ</option>
+                        <option value="nam">Nam</option>
+                        <option value="khac">Khác</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inp-dob">Ngày sinh</label>
+                      <input type="date" id="inp-dob">
+                    </div>
+                  </div>
+                  <div class="form-msg" id="profile-msg" role="status"></div>
+                  <button type="submit" class="btn pink btn-sm">Lưu thay đổi</button>
+                </form>
+                <div style="margin-top:32px;border-top:1px solid var(--line);padding-top:24px;">
+                  <div class="kv"><span class="k">Email</span><span class="v" id="pf-email">customer@example.com</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-email')">Thay đổi</button></div>
+                  <div class="kv"><span class="k">Số điện thoại</span><span class="v" id="pf-phone">0909 456 321</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-phone')">Thay đổi</button></div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- TAB: ĐƠN HÀNG -->
+          <div id="tab-orders" class="tab-pane">
+            <div class="page-head"><h1 class="page-title">Lịch sử đơn hàng</h1></div>
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-bag"/></svg></span>
+                <span class="ms-titles"><b>Đơn hàng của bạn</b><span>Lọc theo trạng thái để tìm đơn nhanh hơn</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div class="seg-row" id="order-tabs"></div>
+                <div id="order-list"></div>
+              </div>
+            </section>
+          </div>
+
+          <!-- TAB: SỔ ĐỊA CHỈ -->
+          <div id="tab-address" class="tab-pane">
+            <div class="page-head"><h1 class="page-title">Sổ địa chỉ</h1></div>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-pin"/></svg></span>
+                <span class="ms-titles"><b>Địa chỉ nhận hàng</b><span>Địa chỉ mặc định sẽ được chọn sẵn khi thanh toán</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body"><div id="addr-list"></div></div>
+            </section>
+
+            <section class="ms-card" id="addr-form-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-pin"/></svg></span>
+                <span class="ms-titles"><b id="addr-form-title">Thêm địa chỉ mới</b><span id="addr-form-sub">Nhà riêng, công ty, ký túc xá...</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <form class="form-narrow" novalidate onsubmit="addAddress(event)">
+                  <div class="form-grid-2">
+                    <div class="form-group">
+                      <label for="addr-label">Loại địa chỉ</label>
+                      <select id="addr-label"><option>Nhà riêng</option><option>Công ty</option><option>Ký túc xá</option><option>Khác</option></select>
+                    </div>
+                    <div class="form-group"><label for="addr-name">Người nhận</label><input type="text" id="addr-name" placeholder="Để trống = tên của bạn"></div>
+                  </div>
+                  <div class="form-group"><label for="addr-phone">Số điện thoại nhận hàng</label><input type="tel" id="addr-phone" placeholder="Để trống = số điện thoại của bạn"></div>
+                  <div class="form-group"><label for="addr-text">Địa chỉ</label><input type="text" id="addr-text" placeholder="Số nhà, đường, phường, quận, tỉnh/thành"></div>
+                  <label class="check-row"><input type="checkbox" id="addr-default"><span>Đặt làm địa chỉ mặc định</span></label>
+                  <div class="form-msg" id="addr-msg" role="alert"></div>
+                  <button type="submit" class="btn pink btn-sm" id="addr-submit">Thêm địa chỉ</button>
+                </form>
+              </div>
+            </section>
+          </div>
+
+          <!-- TAB: YÊU THÍCH -->
+          <div id="tab-wishlist" class="tab-pane">
+            <div class="page-head"><h1 class="page-title">Danh sách yêu thích</h1></div>
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-heart"/></svg></span>
+                <span class="ms-titles"><b>Bộ sưu tập của bạn</b><span>Album, lightstick, photocard bạn đã thả tim để dành mua sau</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body"><div id="wish-list"></div></div>
+            </section>
+          </div>
+
+          <!-- TAB: VOUCHER & ĐIỂM -->
+          <div id="tab-vouchers" class="tab-pane">
+            <div class="page-head"><h1 class="page-title">Voucher &amp; điểm</h1></div>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-star"/></svg></span>
+                <span class="ms-titles"><b>Điểm thưởng</b><span>VIP Fandom Member</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div class="points-grid">
+                  <div>
+                    <div class="label">Điểm hiện có</div>
+                    <div class="points-big">1.500<small>/ 3.000</small></div>
+                  </div>
+                  <div>
+                    <div class="label" style="color:var(--white);font-weight:600;">Đã đạt 50% để lên hạng Kim Cương</div>
+                    <div class="meter"><i></i></div>
+                    <div class="meter-note">Dùng điểm để đổi ưu đãi giảm giá cho các album comeback sắp tới.</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-tag"/></svg></span>
+                <span class="ms-titles"><b>Ví voucher cá nhân</b><span>3 mã đang khả dụng</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div class="voucher">
+                  <div><b>Giảm 10% đơn từ 500k</b><span>Áp dụng cho tất cả album K-Pop nguyên seal • HSD 30/11/2026</span><code>KSTAR10</code></div>
+                  <button type="button" class="btn outline btn-sm" onclick="copyCode('KSTAR10')">Sao chép mã</button>
+                </div>
+                <div class="voucher">
+                  <div><b>Miễn phí vận chuyển</b><span>Cho đơn từ 300k • HSD 15/11/2026</span><code>FREESHIP</code></div>
+                  <button type="button" class="btn outline btn-sm" onclick="copyCode('FREESHIP')">Sao chép mã</button>
+                </div>
+                <div class="voucher">
+                  <div><b>Tri ân comeback giảm 50k</b><span>Cho lightstick và photocard • HSD 31/12/2026</span><code>COMEBACK50</code></div>
+                  <button type="button" class="btn outline btn-sm" onclick="copyCode('COMEBACK50')">Sao chép mã</button>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- TAB: BẢO MẬT -->
+          <div id="tab-security" class="tab-pane">
+            <div class="page-head"><h1 class="page-title">Bảo mật</h1></div>
+
+            <section class="ms-card" id="sec-pass">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-key"/></svg></span>
+                <span class="ms-titles"><b>Đổi mật khẩu</b><span>Nên dùng mật khẩu dài, khác với các trang khác</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <form class="form-narrow" novalidate onsubmit="changePassword(event)">
+                  <div class="form-group">
+                    <label for="pw-old">Mật khẩu hiện tại</label>
+                    <input type="password" id="pw-old" autocomplete="current-password">
+                    <span class="hint">Bản demo: nhập gì cũng được, thay đổi sẽ không được lưu thật.</span>
+                  </div>
+                  <div class="form-group"><label for="pw-new">Mật khẩu mới</label><input type="password" id="pw-new" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password"></div>
+                  <div class="form-group"><label for="pw-new2">Nhập lại mật khẩu mới</label><input type="password" id="pw-new2" autocomplete="new-password"></div>
+                  <div class="form-msg" id="pw-msg" role="alert"></div>
+                  <button type="submit" class="btn pink btn-sm">Đổi mật khẩu</button>
+                </form>
+              </div>
+            </section>
+
+            <section class="ms-card" id="sec-email">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-mail"/></svg></span>
+                <span class="ms-titles"><b>Email đăng nhập</b><span id="sec-email-now">customer@example.com</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <form class="form-narrow" novalidate onsubmit="changeEmail(event)">
+                  <div class="form-group"><label for="em-new">Email mới</label><input type="email" id="em-new" placeholder="ten@example.com"></div>
+                  <div class="form-group"><label for="em-pass">Xác nhận bằng mật khẩu</label><input type="password" id="em-pass" autocomplete="current-password"></div>
+                  <div class="form-msg" id="em-msg" role="alert"></div>
+                  <button type="submit" class="btn pink btn-sm">Cập nhật email</button>
+                </form>
+              </div>
+            </section>
+
+            <section class="ms-card" id="sec-phone">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-phone"/></svg></span>
+                <span class="ms-titles"><b>Số điện thoại</b><span id="sec-phone-now">0909 456 321</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <form class="form-narrow" novalidate onsubmit="changePhone(event)">
+                  <div class="form-group"><label for="ph-new">Số điện thoại mới</label><input type="tel" id="ph-new" placeholder="0909 123 456"></div>
+                  <div class="form-group"><label for="ph-pass">Xác nhận bằng mật khẩu</label><input type="password" id="ph-pass" autocomplete="current-password"></div>
+                  <div class="form-msg" id="ph-msg" role="alert"></div>
+                  <button type="submit" class="btn pink btn-sm">Cập nhật số điện thoại</button>
+                </form>
+              </div>
+            </section>
+          </div>
+
         </div>
       </div>
+    </div>
 
-      <div class="footer-col">
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ===== FOOTER CHUNG ===== -->
+<footer class="site-footer" id="lien-he">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>K-Star Merch</h4>
+        <p>Cửa hàng album, đĩa than (vinyl), lightstick và phụ kiện K-Pop chính hãng nhập khẩu từ Hàn Quốc.</p>
+      </div>
+      <div>
         <h4>Khám phá</h4>
-        <div class="footer-links">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html">Tất cả sản phẩm</a>
-          <a href="about.html">Giới thiệu cửa hàng</a>
-          <a href="cart.html">Giỏ hàng</a>
-        </div>
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="login.html">Tài khoản</a>
       </div>
-
-      <div class="footer-col">
+      <div>
         <h4>Chính sách</h4>
-        <div class="footer-links">
-          <a href="#">Chính sách đổi trả 7 ngày</a>
-          <a href="#">Bảo hiểm vận chuyển album</a>
-          <a href="#">Hướng dẫn thanh toán &amp; ship</a>
-          <a href="#">Bảo mật thông tin</a>
-        </div>
+        <a href="#">Đổi trả 7 ngày</a>
+        <a href="#">Bảo hiểm vận chuyển</a>
+        <a href="#">Hướng dẫn thanh toán</a>
       </div>
-
-      <div class="footer-col">
-        <h4>Thông tin liên hệ</h4>
-        <p>📍 <strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
-        <p>📞 <strong>Hotline:</strong> 0909 123 456 (9:00 - 21:00)</p>
-        <p>✉️ <strong>Email:</strong> support@kpopstore.vn</p>
-        <p>⏰ <strong>Thời gian:</strong> Thứ 2 - Chủ Nhật (9:00 - 22:00)</p>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>Hotline: 0909 123 456</p>
       </div>
     </div>
+    <div class="fbottom">&copy; 2026 K-Star Merch</div>
+  </div>
+</footer>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 K-POP STORE</p>
-    </div>
-  </footer>
-
-  <script src="js/cart.js"></script>
-  <script>
-    // Dữ liệu tài khoản chỉ nằm trong bộ nhớ của trang (không lưu ở đâu cả, tải lại trang là mất)
-    var DEFAULT_USER = {
-      name: 'Customer',
-      email: 'customer@example.com',
-      phone: '0909 456 321',
-      address: '45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh'
-    };
-
-    // Chuyển giữa 3 màn hình: login, register, profile
-    function showView(name) {
-      ['profile', 'login', 'register'].forEach(function (v) {
-        document.getElementById('view-' + v).style.display = (v === name) ? 'block' : 'none';
-      });
-      document.getElementById('auth-card').classList.toggle('wide-card', name === 'register');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // Hiển thị thông tin tài khoản đang đăng nhập
-    function renderUser(u) {
-      document.getElementById('profile-name').textContent = u.name;
-      document.getElementById('profile-email').textContent = u.email;
-      document.getElementById('pv-name').textContent = u.name;
-      document.getElementById('pv-phone').textContent = u.phone;
-      document.getElementById('pv-address').textContent = u.address;
-    }
-
-    // Đăng nhập: bấm là thành công
-    function handleLogin(e) {
-      e.preventDefault();
-      var email = document.getElementById('login-email').value.trim();
-      renderUser({
-        name: DEFAULT_USER.name,
-        email: email || DEFAULT_USER.email,
-        phone: DEFAULT_USER.phone,
-        address: DEFAULT_USER.address
-      });
-      toggleEdit(false);
-      showView('profile');
-    }
-
-    // Đăng ký: bấm là thành công, hiện luôn thông tin vừa nhập
-    function handleRegister(e) {
-      e.preventDefault();
-      function val(id, fallback) {
-        var v = document.getElementById(id).value.trim();
-        return v || fallback;
-      }
-      renderUser({
-        name: val('reg-fullname', DEFAULT_USER.name),
-        email: val('reg-email', DEFAULT_USER.email),
-        phone: val('reg-phone', DEFAULT_USER.phone),
-        address: val('reg-address', DEFAULT_USER.address)
-      });
-      toggleEdit(false);
-      showView('profile');
-    }
-
-    // Bật / tắt form sửa thông tin cá nhân
-    function toggleEdit(on) {
-      document.getElementById('profile-info-view').style.display = on ? 'none' : '';
-      document.getElementById('btn-edit-profile').style.display = on ? 'none' : '';
-      document.getElementById('profile-edit-form').style.display = on ? 'block' : 'none';
-      if (on) {
-        document.getElementById('ed-name').value = document.getElementById('pv-name').textContent;
-        document.getElementById('ed-phone').value = document.getElementById('pv-phone').textContent;
-        document.getElementById('ed-address').value = document.getElementById('pv-address').textContent;
-      }
-    }
-
-    // Lưu thay đổi: chỉ cập nhật lên màn hình
-    function saveProfile(e) {
-      e.preventDefault();
-      renderUser({
-        name: document.getElementById('ed-name').value.trim() || DEFAULT_USER.name,
-        email: document.getElementById('profile-email').textContent,
-        phone: document.getElementById('ed-phone').value.trim() || DEFAULT_USER.phone,
-        address: document.getElementById('ed-address').value.trim() || DEFAULT_USER.address
-      });
-      toggleEdit(false);
-    }
-
-    // Mở thẳng theo đường dẫn: login.html#register, login.html#orders (xem hồ sơ + lịch sử đơn)
-    (function () {
-      var h = location.hash.replace('#', '');
-      if (h === 'register') showView('register');
-      else if (h === 'orders' || h === 'profile') showView('profile');
-    })();
-  </script>
+<script src="js/home.js"></script>
 </body>
 </html>

@@ -2,212 +2,369 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tất cả sản phẩm - K-POP STORE</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/client.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/detail.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sản phẩm - K-Star Merch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/products.css">
 </head>
 <body>
 
-  <!-- ===== HEADER (copy y nguyên sang mọi trang khách hàng) ===== -->
-  <header class="header">
-    <a class="logo" href="index.html">
-      <span>K-POP STORE</span>
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="K-Star Merch - trang chủ">
+      <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
+      <span>K-Star Merch</span>
     </a>
-
-    <!-- Thanh tìm kiếm ở đầu trang -->
-    <div class="header-search">
-      <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
-      <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="products.html" class="active">Sản phẩm</a></li>
-        <li><a href="about.html">Giới thiệu</a></li>
-      </ul>
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
-    <div class="header-icons">
-      <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
-        🛒
-        <span class="cart-badge" id="header-cart-count">3</span>
+    <div class="header-tools">
+      <div class="search-box">
+        <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+        <button type="button" aria-label="Nút tìm kiếm">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <a class="bag" href="cart.html" aria-label="Giỏ hàng">
+        <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
+        <span id="header-cart-count">3</span>
       </a>
-      <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
-        👤
+      <a class="user-account" href="login.html" aria-label="Tài khoản">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ===== NỘI DUNG TRANG ===== -->
-  <div class="container">
-    <div class="shop-header">
-      <div class="section-title">
-          <h2>Tất cả sản phẩm</h2>
-          <div class="sort-box">
-            <label for="sort-select">Sắp xếp:</label>
-            <select id="sort-select" class="sort-dropdown">
-              <option value="latest">Mới nhất</option>
-              <option value="price-asc">Giá: Thấp đến cao</option>
-              <option value="price-desc">Giá: Cao đến thấp</option>
-              <option value="popular">Bán chạy nhất</option>
-            </select>
-          </div>
+<main>
+  <!-- ===== PHẦN PHÂN LOẠI DANH MỤC ICON TRÒN ===== -->
+  <section class="sec black category-filter-section">
+    <div class="wrap">
+      <h1 class="page-title" id="current-cat-title">TẤT CẢ SẢN PHẨM</h1>
+      
+      <div class="cat-icon-list">
+        <a class="cat-icon-item active" href="products.html">
+          <div class="cat-icon-circle"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></div>
+          <span class="cat-icon-label">All</span>
+        </a>
+        <a class="cat-icon-item" href="products.html?cat=album">
+          <div class="cat-icon-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <span class="cat-icon-label">Album</span>
+        </a>
+        <a class="cat-icon-item" href="products.html?cat=lightstick">
+          <div class="cat-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 00-5 5c0 2 1 3.5 2.5 4.5L8 22h8l-1.5-10.5C16 10.5 17 9 17 7a5 5 0 00-5-5z"/></svg></div>
+          <span class="cat-icon-label">Lightstick</span>
+        </a>
+        <a class="cat-icon-item" href="products.html?cat=photocard">
+          <div class="cat-icon-circle"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 18c1-2 3-3 5-3s4 1 5 3"/></svg></div>
+          <span class="cat-icon-label">Photocard</span>
+        </a>
+        <a class="cat-icon-item" href="products.html?cat=apparel">
+          <div class="cat-icon-circle"><svg viewBox="0 0 24 24"><path d="M20.38 3.46L16 2l-4 3-4-3-4.38 1.46a2 2 0 00-1.32 1.6L2 12h5v9h10v-9h5l-.3-6.94a2 2 0 00-1.32-1.6z"/></svg></div>
+          <span class="cat-icon-label">Áo &amp; Phụ kiện</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHẦN TOOLBAR (FILTER & SORT) & LƯỚI SẢN PHẨM ===== -->
+  <section class="sec black" style="padding-top: 0;">
+    <div class="wrap">
+      
+      <!-- Thanh Filter & Sort Toolbar -->
+      <div class="filter-toolbar">
+        <div class="toolbar-left">
+          <button class="btn-toggle-filter" id="btnOpenFilter">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+            Bộ lọc
+          </button>
+          <span class="product-count-text">12 sản phẩm</span>
         </div>
 
-      <div class="product-grid">
-        
-        <div class="product-card">
-          <img src="image/deadline.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">BLACKPINK</div>
-              <div class="album-name">DEADLINE STANDARD</div>
-              <div class="product-price">880.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=1" class="btn-view">Chi tiết</a>
-              </div>
+        <div class="toolbar-right">
+          <select class="sort-dropdown" id="sortSelect">
+            <option value="featured">Sắp xếp theo đề xuất</option>
+            <option value="best-selling">Bán chạy nhất</option>
+            <option value="title-az">Theo thứ tự A đến Z</option>
+            <option value="title-za">Theo thứ tự Z đến A</option>
+            <option value="price-asc">Giá: Thấp đến cao</option>
+            <option value="price-desc">Giá: Cao đến thấp</option>
+            <option value="date-old">Ngày: Cũ đến mới</option>
+            <option value="date-new" selected>Ngày: Mới đến cũ</option>
+          </select>
         </div>
+      </div>
 
-        <div class="product-card">
-          <img src="image/green.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">CORTIS</div>
-              <div class="album-name">GREEN GREEN STANDARD</div>
-              <div class="product-price">1.200.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=2" class="btn-view">Chi tiết</a>
-              </div>
-          </div>
+      <!-- Lưới 12 Sản phẩm -->
+      <div class="products-grid">
+        <article class="p-card" data-cat="lightstick" data-artist="blackpink" data-price="650000">
+          <div class="media"></div>
+          <h3>Lightstick Nova Beam</h3>
+          <p class="price">650.000đ</p>
+          <button class="add" data-id="1">+ Thêm vào giỏ</button>
+        </article>
 
-        <div class="product-card">
-              <img src="image/EP.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">NEWJEANS</div>
-              <div class="album-name">EP STANDARD</div>
-              <div class="product-price">430.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=3" class="btn-view">Chi tiết</a>
-              </div>
-          </div>
-        
-        <div class="product-card">
-              <img src="image/bomp.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">ILLIT</div>
-              <div class="album-name">BOMP STANDARD</div>
-              <div class="product-price">690.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=4" class="btn-view">Chi tiết</a>
-              </div>
-          </div>
+        <article class="p-card" data-cat="lightstick" data-artist="illit" data-price="550000">
+          <div class="media"></div>
+          <h3>Đèn cổ vũ Starlight Glow</h3>
+          <p class="price">550.000đ</p>
+          <button class="add" data-id="2">+ Thêm vào giỏ</button>
+        </article>
 
-        <div class="product-card">
-              <img src="image/arirang.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">BTS</div>
-              <div class="album-name">ARIRANG STANDARD</div>
-              <div class="product-price">3.260.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=5" class="btn-view">Chi tiết</a>
-              </div>
-          </div>
+        <article class="p-card" data-cat="apparel" data-artist="newjeans" data-price="300000">
+          <div class="media"></div>
+          <h3>Mũ lưỡi trai thêu logo</h3>
+          <p class="price">300.000đ</p>
+          <button class="add" data-id="3">+ Thêm vào giỏ</button>
+        </article>
 
-        <div class="product-card">
-              <img src="image/5th.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">LE SSERAFIM</div>
-              <div class="album-name">5TH MINI ALBUM</div>
-              <div class="product-price">1.620.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=6" class="btn-view">Chi tiết</a>
-              </div>
-          </div>
+        <article class="p-card" data-cat="album" data-artist="twice" data-price="450000">
+          <div class="media"></div>
+          <h3>Hộp album Midnight Echoes</h3>
+          <p class="price">450.000đ</p>
+          <button class="add" data-id="4">+ Thêm vào giỏ</button>
+        </article>
 
-        <div class="product-card">
-              <img src="image/choom.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">BABYMONSTER</div>
-              <div class="album-name">CHOOM MINI ALBUM</div>
-              <div class="product-price">700.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=7" class="btn-view">Chi tiết</a>
-              </div>
-          </div>
-        
-        <div class="product-card">
-              <img src="image/ruby.jpg" alt="Tên album" class="product-card-img">
-              <div class="artist-name">JENNIE</div>
-              <div class="album-name">RUBY STANDARD</div>
-              <div class="product-price">1.200.000đ</div>
-              <div class="card-footer">
-                <span></span>
-                <a href="product-detail.html?id=8" class="btn-view">Chi tiết</a>
-              </div>
-          </div>
+        <article class="p-card" data-cat="album" data-artist="blackpink" data-price="250000">
+          <div class="media"></div>
+          <h3>Album Velvet Dream</h3>
+          <p class="price">250.000đ</p>
+          <button class="add" data-id="5">+ Thêm vào giỏ</button>
+        </article>
+
+        <article class="p-card" data-cat="apparel" data-artist="illit" data-price="620000">
+          <div class="media"></div>
+          <h3>Áo hoodie Neon Tour</h3>
+          <p class="price">620.000đ</p>
+          <button class="add" data-id="6">+ Thêm vào giỏ</button>
+        </article>
+
+        <article class="p-card" data-cat="photocard" data-artist="newjeans" data-price="90000">
+          <div class="media"></div>
+          <h3>Set photocard Holo 6 thẻ</h3>
+          <p class="price">90.000đ</p>
+          <button class="add" data-id="7">+ Thêm vào giỏ</button>
+        </article>
+
+        <article class="p-card" data-cat="apparel" data-artist="twice" data-price="75000">
+          <div class="media"></div>
+          <h3>Móc khóa acrylic Star</h3>
+          <p class="price">75.000đ</p>
+          <button class="add" data-id="8">+ Thêm vào giỏ</button>
+        </article>
+
+        <article class="p-card" data-cat="album" data-artist="blackpink" data-price="389000">
+          <div class="media"></div>
+          <h3>Album Neon Rain (Day Ver)</h3>
+          <p class="price">389.000đ</p>
+          <button class="add" data-id="9">+ Thêm vào giỏ</button>
+        </article>
+
+        <article class="p-card" data-cat="lightstick" data-artist="twice" data-price="850000">
+          <div class="media"></div>
+          <h3>Lightstick Halo Special</h3>
+          <p class="price">850.000đ</p>
+          <button class="add" data-id="10">+ Thêm vào giỏ</button>
+        </article>
+
+        <article class="p-card" data-cat="photocard" data-artist="illit" data-price="129000">
+          <div class="media"></div>
+          <h3>Photocard Holo giới hạn</h3>
+          <p class="price">129.000đ</p>
+          <button class="add" data-id="11">+ Thêm vào giỏ</button>
+        </article>
+
+        <article class="p-card" data-cat="album" data-artist="newjeans" data-price="720000">
+          <div class="media"></div>
+          <h3>Đĩa than Midnight Echoes (LP)</h3>
+          <p class="price">720.000đ</p>
+          <button class="add" data-id="12">+ Thêm vào giỏ</button>
+        </article>
+      </div>
+
+      <!-- Phân trang -->
+      <div class="pagination-wrapper">
+        <div class="pagination">
+          <a href="#" class="page-node active">1</a>
+          <a href="#" class="page-node">2</a>
+          <a href="#" class="page-node">3</a>
+          <span class="page-node dots">...</span>
+          <a href="#" class="page-node">5</a>
+          <a href="#" class="page-node" aria-label="Trang tiếp">&#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ===== BẢNG BÊN TRÁI TRƯỢT SANG (OFF-CANVAS SLIDE FILTER) ===== -->
+<div class="filter-drawer-overlay" id="filterOverlay"></div>
+<aside class="filter-drawer" id="filterDrawer">
+  <div class="drawer-header">
+    <h3>Tìm kiếm nâng cao</h3>
+    <button class="btn-close-drawer" id="btnCloseFilter">&times;</button>
+  </div>
+
+  <div class="drawer-body">
+    <!-- 1. Tên sản phẩm -->
+    <div>
+      <div class="filter-group-title">Tên sản phẩm</div>
+      <input type="text" id="filterKeyword" class="price-input" placeholder="Nhập tên sản phẩm cần tìm...">
+    </div>
+
+    <!-- 2. Phân loại (Category) -->
+    <div>
+      <div class="filter-group-title">Phân loại</div>
+      <div class="filter-options-list">
+        <label class="checkbox-label"><input type="checkbox" value="album" class="filter-cat-check"> Album</label>
+        <label class="checkbox-label"><input type="checkbox" value="lightstick" class="filter-cat-check"> Lightstick</label>
+        <label class="checkbox-label"><input type="checkbox" value="photocard" class="filter-cat-check"> Photocard</label>
+        <label class="checkbox-label"><input type="checkbox" value="apparel" class="filter-cat-check"> Áo &amp; Phụ kiện</label>
+      </div>
+    </div>
+
+    <!-- 3. Chọn Artist (Nghệ sĩ) -->
+    <div>
+      <div class="filter-group-title">Artist / Nhóm nhạc</div>
+      <div class="filter-options-list">
+        <label class="checkbox-label"><input type="checkbox" value="blackpink" class="filter-artist-check"> BlackPink</label>
+        <label class="checkbox-label"><input type="checkbox" value="illit" class="filter-artist-check"> ILLIT</label>
+        <label class="checkbox-label"><input type="checkbox" value="newjeans" class="filter-artist-check"> NEWJEANS</label>
+        <label class="checkbox-label"><input type="checkbox" value="twice" class="filter-artist-check"> TWICE</label>
+      </div>
+    </div>
+
+    <!-- 4. Khoảng giá (Tự nhập Min - Max) -->
+    <div>
+      <div class="filter-group-title">Khoảng giá (VNĐ)</div>
+      <div class="price-range-inputs">
+        <input type="number" id="minPrice" class="price-input" placeholder="Từ (0đ)">
+        <span style="color:var(--muted)">-</span>
+        <input type="number" id="maxPrice" class="price-input" placeholder="Đến (VD: 1000000)">
       </div>
     </div>
   </div>
 
-  <div class="pagination">
-      <button class="page-btn disabled">Trang trước</button>
-      <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <button class="page-btn">...</button>
-      <button class="page-btn">5</button>
-      <button class="page-btn">Trang sau &gt;&gt;</button>
-    </div>
+  <div class="drawer-footer">
+    <button class="btn-apply-filter" id="btnApplyFilter">Xem kết quả</button>
+  </div>
+</aside>
 
-  <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>K-POP STORE</h3>
-        <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
-        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
-        <div class="social-links">
-          <a href="#" class="social-btn" title="Facebook">📘</a>
-          <a href="#" class="social-btn" title="Instagram">📷</a>
-          <a href="#" class="social-btn" title="TikTok">🎵</a>
-          <a href="#" class="social-btn" title="YouTube">▶️</a>
-        </div>
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="lien-he">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>K-Star Merch</h4>
+        <p>Cửa hàng album, đĩa than (vinyl), lightstick và phụ kiện K-Pop chính hãng nhập khẩu từ Hàn Quốc.</p>
       </div>
-
-      <div class="footer-col">
+      <div>
         <h4>Khám phá</h4>
-        <div class="footer-links">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html">Tất cả sản phẩm</a>
-          <a href="about.html">Giới thiệu cửa hàng</a>
-          <a href="cart.html">Giỏ hàng</a>
-        </div>
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="orders.html">Lịch sử đơn hàng</a>
+        <a href="login.html">Tài khoản</a>
       </div>
-
-      <div class="footer-col">
+      <div id="chinh-sach">
         <h4>Chính sách</h4>
-        <div class="footer-links">
-          <a href="#">Chính sách đổi trả 7 ngày</a>
-          <a href="#">Bảo hiểm vận chuyển album</a>
-          <a href="#">Hướng dẫn thanh toán & ship</a>
-          <a href="#">Bảo mật thông tin</a>
-        </div>
+        <a href="#">Đổi trả 7 ngày</a>
+        <a href="#">Bảo hiểm vận chuyển</a>
+        <a href="#">Hướng dẫn thanh toán &amp; ship</a>
+        <a href="#">Bảo mật thông tin</a>
       </div>
-
-      <div class="footer-col">
-        <h4>Thông tin liên hệ</h4>
-        <p>📍 <strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
-        <p>📞 <strong>Hotline:</strong> 0909 123 456 (9:00 - 21:00)</p>
-        <p>✉️ <strong>Email:</strong> support@kpopstore.vn</p>
-        <p>⏰ <strong>Thời gian:</strong> Thứ 2 - Chủ Nhật (9:00 - 22:00)</p>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>Hotline: 0909 123 456 (9:00 - 21:00)</p>
+        <p>support@kpopstore.vn</p>
       </div>
     </div>
+    <div class="fbottom">&copy; 2026 K-Star Merch</div>
+  </div>
+</footer>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 K-POP STORE.</p>
-    </div>
-  </footer>
+<script src="js/home.js"></script>
 
-  <script src="js/cart.js"></script>
+<!-- ===== JS ĐIỀU KHIỂN SLIDE FILTER VÀ LỌC NÂNG CAO NGUYÊN BẢN ===== -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const btnOpenFilter = document.getElementById("btnOpenFilter");
+    const btnCloseFilter = document.getElementById("btnCloseFilter");
+    const btnApplyFilter = document.getElementById("btnApplyFilter");
+    const filterDrawer = document.getElementById("filterDrawer");
+    const filterOverlay = document.getElementById("filterOverlay");
+    const cards = document.querySelectorAll(".products-grid .p-card");
+    const addButtons = document.querySelectorAll(".products-grid .add");
+    addButtons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const card = btn.closest(".p-card");
+        const productName = card ? card.querySelector("h3").textContent : "Sản phẩm";
+        
+        // Chỉ hiển thị thông báo alert, KHÔNG nhảy số giỏ hàng
+        alert(`Đã thêm "${productName}" vào giỏ hàng thành công!`);
+      });
+    });
+
+    // 1. Mở/Đóng Bảng Filter Drawer trượt từ bên trái
+    function openDrawer() {
+      filterDrawer.classList.add("active");
+      filterOverlay.classList.add("active");
+    }
+    function closeDrawer() {
+      filterDrawer.classList.remove("active");
+      filterOverlay.classList.remove("active");
+    }
+
+    btnOpenFilter.addEventListener("click", openDrawer);
+    btnCloseFilter.addEventListener("click", closeDrawer);
+    filterOverlay.addEventListener("click", closeDrawer);
+
+    // 2. Logic Lọc Nâng Cao Kết Hợp Nhiều Điều Kiện
+    btnApplyFilter.addEventListener("click", () => {
+      const keyword = document.getElementById("filterKeyword").value.toLowerCase().trim();
+      
+      const selectedCats = Array.from(document.querySelectorAll(".filter-cat-check:checked")).map(cb => cb.value);
+      const selectedArtists = Array.from(document.querySelectorAll(".filter-artist-check:checked")).map(cb => cb.value);
+      
+      const minPrice = parseFloat(document.getElementById("minPrice").value) || 0;
+      const maxPrice = parseFloat(document.getElementById("maxPrice").value) || Infinity;
+
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const cat = card.getAttribute("data-cat");
+        const artist = card.getAttribute("data-artist");
+        const price = parseFloat(card.getAttribute("data-price"));
+
+        // Kiểm tra từng điều kiện
+        const matchKeyword = !keyword || title.includes(keyword);
+        const matchCat = selectedCats.length === 0 || selectedCats.includes(cat);
+        const matchArtist = selectedArtists.length === 0 || selectedArtists.includes(artist);
+        const matchPrice = price >= minPrice && price <= maxPrice;
+
+        if (matchKeyword && matchCat && matchArtist && matchPrice) {
+          card.style.display = "block";
+          visibleCount++;
+        } else {
+          card.style.display = "none";
+        }
+      });
+
+      document.querySelector(".product-count-text").textContent = `${visibleCount} sản phẩm`;
+      closeDrawer();
+    });
+  });
+</script>
 </body>
 </html>

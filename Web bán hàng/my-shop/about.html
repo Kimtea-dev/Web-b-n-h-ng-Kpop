@@ -2,153 +2,158 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Giới thiệu - K-POP STORE</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/client.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giới thiệu - K-Star Merch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/about.css">
+  
 </head>
 <body>
 
-  <!-- ===== HEADER CHUẨN CÓ THANH TÌM KIẾM ===== -->
-  <header class="header">
-    <a class="logo" href="index.html">
-      <span>K-POP STORE</span>
+<!-- ===== HEADER CẬP NHẬT (THÊM SEARCH & USER ICON) ===== -->
+<header class="site-header">
+  <div class="bar">
+    <!-- 1. Logo -->
+    <a class="brand" href="index.html" aria-label="K-Star Merch - trang chủ">
+      <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
+      <span>K-Star Merch</span>
     </a>
 
-    <!-- Thanh tìm kiếm ở đầu trang -->
-    <div class="header-search">
-      <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
-      <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
-    </div>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="products.html">Sản phẩm</a></li>
-        <li><a href="about.html" class="active">Giới thiệu</a></li>
-      </ul>
+    <!-- 2. Menu chính -->
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
 
-    <div class="header-icons">
-      <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
-        🛒
-        <span class="cart-badge" id="header-cart-count">3</span>
-      </a>
-      <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
-        👤
-      </a>
-    </div>
-  </header>
-
-  <!-- ===== NỘI DUNG GIỚI THIỆU CANH NGAY GIỮA (KHÔNG CHÈN ẢNH) ===== -->
-  <main class="client-main">
-    <div class="container">
-      
-      <div class="about-centered-container">
-        
-        <span class="about-badge-pill">Về chúng tôi &bull; K-POP STORE</span>
-        
-        <h1>Câu chuyện của K-POP STORE</h1>
-        
-        <p class="about-lead-text">
-          Được thành lập từ năm 2021 bởi những người hâm mộ K-Pop chân chính, <strong>K-POP STORE</strong> ra đời với sứ mệnh kết nối tình yêu âm nhạc cuồng nhiệt của các bạn trẻ Việt Nam với thần tượng thông qua những ấn phẩm album nguyên seal và vật phẩm chính hãng 100% từ Hàn Quốc.
-        </p>
-
-        <p class="about-sub-text">
-          Chúng tôi hiểu rằng mỗi cuốn photobook, mỗi tấm photocard bo góc quý giá không đơn thuần chỉ là một món hàng sưu tầm, mà là cả tình cảm, kỷ niệm và sự tự hào bạn dành cho thần tượng của mình. Do đó, K-POP STORE cam kết đem đến trải nghiệm mua sắm an tâm tuyệt đối, minh bạch và tận tâm nhất.
-        </p>
-
-        <!-- Danh sách 3 ưu điểm có dấu ✔ căn đều dạng Card -->
-        <div class="about-features-list">
-          <div class="about-feature-box">
-            <div class="about-feature-icon-circle">✔</div>
-            <h3>100% Album Chính Hãng & Tính BXH</h3>
-            <p>Mọi album nhập trực tiếp từ nhà phát hành tại Seoul, tính doanh số 100% vào bảng xếp hạng Hanteo Chart và Circle Chart để tiếp sức cho thần tượng của bạn.</p>
-          </div>
-
-          <div class="about-feature-box">
-            <div class="about-feature-icon-circle">✔</div>
-            <h3>Đóng Gói Chống Sốc 3 Lớp Chuyên Nghiệp</h3>
-            <p>Bao bọc nghiêm ngặt với 3 lớp bóng khí xốp dày, hộp carton cứng cáp và dán băng keo niêm phong cẩn thận, đảm bảo album và photocard vuông vức không móp méo.</p>
-          </div>
-
-          <div class="about-feature-box">
-            <div class="about-feature-icon-circle">✔</div>
-            <h3>Giao Hàng Hỏa Tốc & Bảo Hành 1:1</h3>
-            <p>Hỗ trợ giao hàng nhanh chóng trên toàn quốc, đồng kiểm hàng trước khi thanh toán, và chính sách đổi trả minh bạch trong 7 ngày nếu có lỗi từ nhà sản xuất.</p>
-          </div>
-        </div>
-
-        <!-- Khối 3 thông số thống kê uy tín căn giữa -->
-        <div class="about-stats-row">
-          <div class="stat-pill">
-            <div class="number">50.000+</div>
-            <div class="label">Đơn hàng trao tận tay fan</div>
-          </div>
-          <div class="stat-pill">
-            <div class="number">100%</div>
-            <div class="label">Album nguyên Seal & Quà tặng</div>
-          </div>
-          <div class="stat-pill">
-            <div class="number">5.0 ★</div>
-            <div class="label">Đánh giá tin cậy từ khách hàng</div>
-          </div>
-        </div>
-
+    <!-- 3. Cụm công cụ bên phải: Search -> Giỏ hàng -> User -->
+    <div class="header-tools">
+      <!-- Ô Tìm kiếm -->
+      <div class="search-box">
+        <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+        <button type="button" aria-label="Nút tìm kiếm">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
       </div>
 
-    </div>
-  </main>
+      <!-- Giỏ hàng -->
+      <a class="bag" href="cart.html" aria-label="Giỏ hàng">
+        <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
+        <span id="header-cart-count">3</span>
+      </a>
 
-  <!-- ===== FOOTER ĐỒNG NHẤT CANH ĐỀU ===== -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>K-POP STORE</h3>
-        <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
-        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
-        <div class="social-links">
-          <a href="#" class="social-btn" title="Facebook">📘</a>
-          <a href="#" class="social-btn" title="Instagram">📷</a>
-          <a href="#" class="social-btn" title="TikTok">🎵</a>
-          <a href="#" class="social-btn" title="YouTube">▶️</a>
-        </div>
+      <!-- Biểu tượng Người dùng (Chuyển tới login.html) -->
+      <a class="user-account" href="login.html" aria-label="Tài khoản / Đăng nhập">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===== HERO GIỚI THIỆU ===== -->
+  <section class="sec black">
+    <div class="wrap">
+      <div class="about-hero">
+        <h1>K-STAR MERCH</h1>
+        <p>Thánh địa của những tín đồ K-Pop – Nơi kết nối niềm đam mê và đưa bạn đến gần hơn với idol của mình qua từng vật phẩm chính hãng chọn lọc.</p>
       </div>
 
-      <div class="footer-col">
+      <!-- Con số ấn tượng -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="num">100%</div>
+          <div class="label">Chính hãng Hàn Quốc</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">50K+</div>
+          <div class="label">Đơn hàng trao tay</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">30+</div>
+          <div class="label">Nhóm nhạc đối tác</div>
+        </div>
+        <div class="stat-card">
+          <div class="num">4.9/5★</div>
+          <div class="label">Đánh giá từ K-Fan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NỘI DUNG CHÍNH ===== -->
+  <section class="sec panel">
+    <div class="wrap narrow">
+      <h2 class="center">Câu Chuyện Của Chúng Mình</h2>
+      <br>
+      <p style="text-align: justify; color: var(--muted);">
+        Xuất phát điểm từ những người hâm mộ K-Pop cuồng nhiệt, chúng mình hiểu rõ cảm giác hồi hộp khi chờ đợi từng đợt album phát hành, cảm giác tự hào khi cầm trên tay chiếc Lightstick rực rỡ trong concert, hay niềm vui giản dị khi săn được chiếc Photocard hiếm có.
+      </p>
+      <p style="text-align: justify; color: var(--muted);">
+        K-Star Merch ra đời với sứ mệnh mang đến trải nghiệm mua sắm đồ sưu tầm K-Pop <strong>an toàn, chính hãng và nhanh chóng nhất</strong> cho cộng đồng fan tại Việt Nam. Toàn bộ sản phẩm từ Album, Lightstick, Photocard cho đến Streetwear đều được nhập khẩu trực tiếp từ các công ty giải trí hàng đầu Hàn Quốc (YG, JYP, HYBE, SM...).
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== GIÁ TRỊ CỐT LÕI ===== -->
+  <section class="sec black">
+    <div class="wrap">
+      <h2 class="center">Cam Kết Từ K-Star Merch</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <h3>Hàng Chính Hãng 100%</h3>
+          <p>Mọi Album bán ra đều được tính trực tiếp vào bảng xếp hạng Hanteo & Circle Chart, ủng hộ thành tích trực tiếp cho idol.</p>
+        </div>
+        <div class="value-card">
+          <h3>Đóng Gói Chuyên Nghiệp</h3>
+          <p>Bao bọc xốp nổ chống sốc nhiều lớp, đảm bảo album và photocard của bạn nguyên vẹn không tì vết khi tới tay.</p>
+        </div>
+        <div class="value-card">
+          <h3>Hỗ Trợ Tận Tâm</h3>
+          <p>Đội ngũ hỗ trợ là những fan K-Pop thực thụ, luôn sẵn sàng giải đáp thắc mắc và đồng hành cùng bạn 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="lien-he">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>K-Star Merch</h4>
+        <p>Cửa hàng album, đĩa than (vinyl), lightstick và phụ kiện K-Pop chính hãng nhập khẩu từ Hàn Quốc.</p>
+      </div>
+      <div>
         <h4>Khám phá</h4>
-        <div class="footer-links">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html">Tất cả sản phẩm</a>
-          <a href="about.html">Giới thiệu cửa hàng</a>
-          <a href="cart.html">Giỏ hàng</a>
-        </div>
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="orders.html">Lịch sử đơn hàng</a>
+        <a href="login.html">Tài khoản</a>
       </div>
-
-      <div class="footer-col">
+      <div id="chinh-sach">
         <h4>Chính sách</h4>
-        <div class="footer-links">
-          <a href="#">Chính sách đổi trả 7 ngày</a>
-          <a href="#">Bảo hiểm vận chuyển album</a>
-          <a href="#">Hướng dẫn thanh toán & ship</a>
-          <a href="#">Bảo mật thông tin</a>
-        </div>
+        <a href="#">Đổi trả 7 ngày</a>
+        <a href="#">Bảo hiểm vận chuyển</a>
+        <a href="#">Hướng dẫn thanh toán &amp; ship</a>
+        <a href="#">Bảo mật thông tin</a>
       </div>
-
-      <div class="footer-col">
-        <h4>Thông tin liên hệ</h4>
-        <p>📍 <strong>Địa chỉ:</strong> 123 Đường K-Pop, Quận 1, TP. Hồ Chí Minh</p>
-        <p>📞 <strong>Hotline:</strong> 0909 123 456 (9:00 - 21:00)</p>
-        <p>✉️ <strong>Email:</strong> support@kpopstore.vn</p>
-        <p>⏰ <strong>Thời gian:</strong> Thứ 2 - Chủ Nhật (9:00 - 22:00)</p>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>Hotline: 0909 123 456 (9:00 - 21:00)</p>
+        <p>support@kpopstore.vn</p>
       </div>
     </div>
+    <div class="fbottom">&copy; 2026 K-Star Merch</div>
+  </div>
+</footer>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 K-POP STORE</p>
-    </div>
-  </footer>
-
-  <script src="js/cart.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>

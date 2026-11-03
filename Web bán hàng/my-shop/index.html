@@ -2,199 +2,256 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trang chủ - K-POP STORE</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/client.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/detail.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>K-Star Merch - Album, lightstick và đồ mặc K-Pop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
-  <!-- ===== HEADER (copy y nguyên sang mọi trang khách hàng) ===== -->
-  <header class="header">
-    <a class="logo" href="index.html">
-      <span>K-POP STORE</span>
+<!-- ===== HEADER CẬP NHẬT (THÊM SEARCH & USER ICON) ===== -->
+<header class="site-header">
+  <div class="bar">
+    <!-- 1. Logo -->
+    <a class="brand" href="index.html" aria-label="K-Star Merch - trang chủ">
+      <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
+      <span>K-Star Merch</span>
     </a>
 
-    <!-- Thanh tìm kiếm ở đầu trang -->
-    <div class="header-search">
-      <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
-      <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Trang chủ</a></li>
-        <li><a href="products.html">Sản phẩm</a></li>
-        <li><a href="about.html">Giới thiệu</a></li>
-      </ul>
+    <!-- 2. Menu chính -->
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
-    <div class="header-icons">
-      <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
-        🛒
-        <span class="cart-badge" id="header-cart-count">3</span>
-      </a>
-      <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
-        👤
-      </a>
-    </div>
-  </header>
 
-  <!-- ===== NỘI DUNG TRANG ===== -->
-  <main class="client-main">
-        <div class="hero-slider" id="hero-slider">
-          <img src="image/1.png" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/2.png" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/3.png" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/4.png" alt="Banner quảng cáo" class="slider-img">
-          <img src="image/5.png" alt="Banner quảng cáo" class="slider-img">
-          
-          <button class="slider-btn prev-btn" id="prev-btn">&#10094;</button>
-          <button class="slider-btn next-btn" id="next-btn">&#10095;</button>
-          <div class="slider-dots" id="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-        </div>
-
-      <div class="container">
-        <div class="search-bar">
-          <input type="text" placeholder="Tìm kiếm nghệ sĩ..." onkeydown="if(event.key==='Enter' && this.value.trim()) window.location.href='products.html';">
-        </div>
+    <!-- 3. Cụm công cụ bên phải: Search -> Giỏ hàng -> User -->
+    <div class="header-tools">
+      <!-- Ô Tìm kiếm -->
+      <div class="search-box">
+        <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+        <button type="button" aria-label="Nút tìm kiếm">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
       </div>
 
-      <div class="container">
-        <div class="artists-container-box">
-          <div class="artists-section">
-            <h3>Nghệ sĩ nổi bật</h3>
-            <div class="artist-list">
-              <div class="artist-item">
-                <img src="image/bts.jpg" alt="Artist 1" class="artist-avatar-img">
-                <span>BTS</span>
-              </div>
-              <div class="artist-item">
-                <img src="image/blackpink.jpg" alt="Artist 2" class="artist-avatar-img">
-                <span>BLACKPINK</span>
-              </div>
-              <div class="artist-item">
-                <img src="image/cortis.jpg" alt="Artist 3" class="artist-avatar-img">
-                <span>CORTIS</span>
-              </div>
-              <div class="artist-item">
-                <img src="image/newjeans.jpg" alt="Artist 4" class="artist-avatar-img">
-                <span>NEWJEANS</span>
-              </div>
-              <div class="artist-item">
-                <img src="image/illit.jpg" alt="Artist 5" class="artist-avatar-img">
-                <span>ILLIT</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- Giỏ hàng -->
+      <a class="bag" href="cart.html" aria-label="Giỏ hàng">
+        <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
+        <span id="header-cart-count">3</span>
+      </a>
 
-        <div class="section-title">
-          <h3>Sản phẩm nổi bật</h3>
-          <a href="products.html" class="btn-see-all">Xem tất cả</a>
-        </div>
+      <!-- Biểu tượng Người dùng (Chuyển tới login.html) -->
+      <a class="user-account" href="login.html" aria-label="Tài khoản / Đăng nhập">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
 
-      <div class="product-grid">
+<main>
+  <!-- ===== 1. BĂNG CHUYỀN NHÓM NHẠC (ACCORDION + ẢNH ĐỒNG BỘ) ===== -->
+  <section class="sec black" id="group-carousel-wrapper">
+    <div class="wrap">
+      <div class="group-carousel-wrapper" id="groupSlider">
         
-        <div class="product-card">
-          <img src="image/deadline.jpg" alt="Tên album" class="product-card-img">
-          <div class="artist-name">BLACKPINK</div>
-          <div class="album-name">DEADLINE STANDARD</div>
-          <div class="product-price">880.000đ</div>
-          <div class="card-footer">
-            <span style="color: #ffb400;">★★★★★</span>
-            <a href="product-detail.html?id=1" class="btn-view">Xem</a>
+        <div class="content-container">
+          <h2 class="section-title">TOP GIRL GROUPS</h2>
+          <div class="accordion-list">
+            
+            <div class="accordion-item active" data-index="0">
+              <div class="item-header">
+                <div class="item-title"><span class="number">01.</span> BLACKPINK</div>
+                <div class="item-arrow">→</div>
+              </div>
+              <div class="item-description">
+                Khám phá bộ sưu tập BLACKPINK được săn đón nhất, từ những món merchandise thời thượng, album đặc sắc, lightstick chính hãng đến các photocard độc quyền dành cho người hâm mộ.
+              </div>
+              <div class="item-progress-bar"><div class="progress-fill"></div></div>
+            </div>
+
+            <div class="accordion-item" data-index="1">
+              <div class="item-header">
+                <div class="item-title"><span class="number">02.</span> ILLIT</div>
+                <div class="item-arrow">→</div>
+              </div>
+              <div class="item-description">
+                Thể hiện tình yêu dành cho ILLIT với bộ sưu tập merchandise độc quyền, album, lightstick và photocard. Cùng lưu giữ những khoảnh khắc và kết nối với thần tượng yêu thích!
+              </div>
+              <div class="item-progress-bar"><div class="progress-fill"></div></div>
+            </div>
+
+            <div class="accordion-item" data-index="2">
+              <div class="item-header">
+                <div class="item-title"><span class="number">03.</span> NEWJEANS</div>
+                <div class="item-arrow">→</div>
+              </div>
+              <div class="item-description">
+                Khám phá thế giới merchandise độc đáo của NEWJEANS, với những album, lightstick và photocard sưu tầm đầy ấn tượng. Lưu giữ dấu ấn NEWJEANS theo cách riêng của bạn!
+              </div>
+              <div class="item-progress-bar"><div class="progress-fill"></div></div>
+            </div>
+
+            <div class="accordion-item" data-index="3">
+              <div class="item-header">
+                <div class="item-title"><span class="number">04.</span> TWICE</div>
+                <div class="item-arrow">→</div>
+              </div>
+              <div class="item-description">
+                Mở ra thế giới âm nhạc đầy sắc màu cùng TWICE với những album độc quyền, lightstick rực sáng và các photocard quý hiếm dành cho bộ sưu tập của bạn.
+              </div>
+              <div class="item-progress-bar"><div class="progress-fill"></div></div>
+            </div>
+
           </div>
         </div>
 
-        <div class="product-card">
-          <img src="image/green.jpg" alt="Tên album" class="product-card-img">
-          <div class="artist-name">CORTIS</div>
-          <div class="album-name">GREEN GREEN STANDARD</div>
-          <div class="product-price">1.200.000đ</div>
-          <div class="card-footer">
-            <span style="color: #ffb400;">★★★★★</span>
-            <a href="product-detail.html?id=2" class="btn-view">Xem</a>
-          </div>
-        </div>
+        <div class="image-preview-container">
+  <img src="image/blackpink.jpg" class="active" alt="BLACKPINK" data-bg="#5D6578">
+  <img src="image/illit.jpg" alt="ILLIT" data-bg="#cff3f2">
+  <img src="image/Newjeans.jpg" alt="NEWJEANS" data-bg="#f4f1cb">
+  <img src="image/Twice.jpg" alt="Twice" data-bg="hsl(242, 93%, 63%)">
+</div>
 
-        <div class="product-card">
-          <img src="image/EP.jpg" alt="Tên album" class="product-card-img">
-          <div class="artist-name">NEWJEANS</div>
-          <div class="album-name">EP STANDARD</div>
-          <div class="product-price">430.000đ</div>
-          <div class="card-footer">
-            <span style="color: #ffb400;">★★★★★</span>
-            <a href="product-detail.html?id=3" class="btn-view">Xem</a>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="image/bomp.jpg" alt="Tên album" class="product-card-img">
-          <div class="artist-name">ILLIT</div>
-          <div class="album-name">BOMP STANDARD</div>
-          <div class="product-price">690.000đ</div>
-          <div class="card-footer">
-            <span style="color: #ffb400;">★★★★★</span>
-            <a href="product-detail.html?id=4" class="btn-view">Xem</a>
-          </div>
-        </div>
       </div>
-  </main>
+    </div>
+  </section>
 
-  <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>K-POP STORE</h3>
-        <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
-        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
-        <div class="social-links">
-          <a href="#" class="social-btn" title="Facebook">📘</a>
-          <a href="#" class="social-btn" title="Instagram">📷</a>
-          <a href="#" class="social-btn" title="TikTok">🎵</a>
-          <a href="#" class="social-btn" title="YouTube">▶️</a>
-        </div>
+  <!-- ===== 2. SẢN PHẨM NỔI BẬT (carousel, JS đổ sản phẩm vào #track) ===== -->
+  <section class="sec panel" id="noi-bat">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Sản phẩm nổi bật</h2>
+        <a class="btn outline" href="products.html">Xem tất cả</a>
       </div>
+      <div class="carousel" data-list="featured" data-interval="3000">
+        <button class="arrow prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="track"></div>
+        <button class="arrow next" aria-label="Sản phẩm sau">&#10095;</button>
+      </div>
+    </div>
+  </section>
 
-      <div class="footer-col">
+  <!-- ===== 3. MUA THEO DANH MỤC ===== -->
+  <section class="sec black" id="danh-muc">
+    <div class="wrap">
+      <h2 class="center">Mua theo danh mục</h2>
+      <div class="cats">
+        <a class="cat" href="products.html?cat=album">
+          <div class="media"></div><h3>Album</h3><span class="link">Mua ngay</span>
+        </a>
+        <a class="cat" href="products.html?cat=lightstick">
+          <div class="media"></div><h3>Lightstick</h3><span class="link">Mua ngay</span>
+        </a>
+        <a class="cat" href="products.html?cat=photocard">
+          <div class="media"></div><h3>Photocard</h3><span class="link">Mua ngay</span>
+        </a>
+        <a class="cat" href="products.html?cat=apparel">
+          <div class="media"></div><h3>Áo &amp; phụ kiện</h3><span class="link">Mua ngay</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. TẤT CẢ SẢN PHẨM (carousel, JS đổ sản phẩm vào .track) ===== -->
+  <section class="sec black" id="tat-ca">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Tất cả sản phẩm</h2>
+        <a class="btn outline" href="products.html">Xem tất cả</a>
+      </div>
+      <div class="carousel" data-list="all" data-interval="3600">
+        <button class="arrow prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="track"></div>
+        <button class="arrow next" aria-label="Sản phẩm sau">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. BANNER ĐỢT PHÁT HÀNH ===== -->
+  <section class="sec black" id="dot-moi">
+    <div class="wrap">
+      <div class="drop">
+        <div class="drop-text">
+          <h2>Đợt phát hành K-Pop đỉnh nhất</h2>
+          <p>Lightstick phiên bản giới hạn và album đĩa than độc quyền. Giữ chỗ trong bộ sưu tập trước khi hết hàng.</p>
+          <a class="btn pink" href="products.html?filter=drop">Mua đợt này</a>
+        </div>
+        <div class="media"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. GIỚI THIỆU ===== -->
+  <section class="sec black about" id="gioi-thieu">
+    <div class="wrap narrow">
+      <h2 class="center">Đam mê K-Pop</h2>
+      <p>K-Star Merch là điểm đến chọn lọc cho đồ sưu tầm K-Pop chính hãng. Chúng mình nối cộng đồng fan toàn cầu với streetwear cao cấp, mang đến trải nghiệm đầy năng lượng cho mọi người hâm mộ.</p>
+      <p>Sứ mệnh của chúng mình là tôn vinh văn hóa K-Pop qua những món đồ độc quyền, từ lightstick biểu tượng đến photocard phiên bản giới hạn. Chúng mình yêu nghệ thuật và cộng đồng đã làm nên nó.</p>
+    </div>
+  </section>
+
+  <!-- ===== 6. FAN NÓI GÌ ===== -->
+  <section class="sec black" id="fan">
+    <div class="wrap">
+      <h2 class="center">Tình yêu từ fan</h2>
+      <div class="quotes">
+        <figure>
+          <span class="qm" aria-hidden="true">&ldquo;</span>
+          <blockquote>Chất lượng lightstick quá tuyệt. Ánh sáng xanh cyan rực rỡ và đường may hoàn hảo. Món mình thích nhất trong bộ sưu tập!</blockquote>
+          <figcaption><b>Minh Anh</b><span>Fan đã mua hàng</span></figcaption>
+        </figure>
+        <figure>
+          <span class="qm" aria-hidden="true">&ldquo;</span>
+          <blockquote>Cuối cùng cũng có một cửa hàng hiểu cộng đồng K-Pop. Đồ chính hãng, giao hàng siêu nhanh. Rất đáng mua!</blockquote>
+          <figcaption><b>Quốc Bảo</b><span>Fan đã mua hàng</span></figcaption>
+        </figure>
+        <figure>
+          <span class="qm" aria-hidden="true">&ldquo;</span>
+          <blockquote>Photocard đến nơi còn nguyên vẹn. Đóng gói đẹp, màu đúng như trên web. Trải nghiệm 10/10!</blockquote>
+          <figcaption><b>Thu Hà</b><span>Fan đã mua hàng</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="lien-he">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>K-Star Merch</h4>
+        <p>Cửa hàng album, đĩa than (vinyl), lightstick và phụ kiện K-Pop chính hãng nhập khẩu từ Hàn Quốc.</p>
+      </div>
+      <div>
         <h4>Khám phá</h4>
-        <div class="footer-links">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html">Tất cả sản phẩm</a>
-          <a href="about.html">Giới thiệu cửa hàng</a>
-          <a href="cart.html">Giỏ hàng</a>
-        </div>
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="orders.html">Lịch sử đơn hàng</a>
+        <a href="login.html">Tài khoản</a>
       </div>
-
-      <div class="footer-col">
+      <div id="chinh-sach">
         <h4>Chính sách</h4>
-        <div class="footer-links">
-          <a href="#">Chính sách đổi trả 7 ngày</a>
-          <a href="#">Bảo hiểm vận chuyển album</a>
-          <a href="#">Hướng dẫn thanh toán & ship</a>
-          <a href="#">Bảo mật thông tin</a>
-        </div>
+        <a href="#">Đổi trả 7 ngày</a>
+        <a href="#">Bảo hiểm vận chuyển</a>
+        <a href="#">Hướng dẫn thanh toán &amp; ship</a>
+        <a href="#">Bảo mật thông tin</a>
       </div>
-
-      <div class="footer-col">
-        <h4>Thông tin liên hệ</h4>
-        <p>📍 <strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
-        <p>📞 <strong>Hotline:</strong> 0909 123 456 (9:00 - 21:00)</p>
-        <p>✉️ <strong>Email:</strong> support@kpopstore.vn</p>
-        <p>⏰ <strong>Thời gian:</strong> Thứ 2 - Chủ Nhật (9:00 - 22:00)</p>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>Hotline: 0909 123 456 (9:00 - 21:00)</p>
+        <p>support@kpopstore.vn</p>
       </div>
     </div>
+    <div class="fbottom">&copy; 2026 K-Star Merch</div>
+  </div>
+</footer>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 K-POP STORE</p>
-    </div>
-  </footer>
-
-  <script src="js/slider.js"></script>
-  <script src="js/cart.js"></script>
+<script src="js/home.js"></script>
 </body>
 </html>
