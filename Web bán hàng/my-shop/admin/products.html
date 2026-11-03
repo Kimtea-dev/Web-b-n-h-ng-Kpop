@@ -44,15 +44,15 @@
         <img class="avatar" src="../image/sigma-face-meme.jpg" alt="Admin">
         <div><strong>Admin</strong><small>Quản trị viên</small></div>
         <div class="admin-auth-actions">
-          <a href="login.html">Đăng nhập</a>
-          <button type="button" onclick="window.location.href='login.html'">Đăng xuất</button>
+          <a href="index.html">Đăng nhập</a>
+          <button type="button" onclick="window.location.href='index.html'">Đăng xuất</button>
         </div>
       </div>
     </div>
     <!-- ===== TOOLBAR ===== -->
     <div class="toolbar-card">
       <div class="search-box">
-        <input type="text" placeholder="Tìm tên sản phẩm..." disabled>
+        <input type="text" placeholder="Tìm tên sản phẩm...">
       </div>
       <button class="btn btn-primary" data-open="addProductModal">+ Thêm sản phẩm</button>
     </div>
@@ -104,7 +104,7 @@
             <td><span class="badge badge-success">Còn Hàng</span></td>
             <td>
               <button type="button" class="btn" data-open="editProductModal1">Sửa</button>
-              <button type="button" class="btn btn-danger" data-open="deleteProductModal">Xóa</button>
+              <button type="button" class="btn btn-danger" data-open="hideProductModal">Xóa</button>
             </td>
           </tr>
           <tr>
@@ -134,7 +134,7 @@
             <td><span class="badge badge-danger">Hết hàng</span></td>
             <td>
               <button type="button" class="btn" data-open="editProductModal3">Sửa</button>
-              <button type="button" class="btn btn-danger" data-open="deleteProductModal">Xóa</button>
+              <button type="button" class="btn btn-danger" data-open="hideProductModal">Xóa</button>
             </td>
           </tr>
         </tbody>
@@ -142,13 +142,13 @@
 
       <!-- Phân trang -->
       <div class="pagination">
-        <button class="btn" disabled>&laquo; Trang trước</button>
-        <button class="btn btn-primary" disabled>1</button>
-        <button class="btn" disabled>2</button>
-        <button class="btn" disabled>3</button>
+        <button class="btn">&laquo; Trang trước</button>
+        <button class="btn btn-primary">1</button>
+        <button class="btn">2</button>
+        <button class="btn">3</button>
         <span>...</span>
-        <button class="btn" disabled>5</button>
-        <button class="btn" disabled>Trang sau &raquo;</button>
+        <button class="btn">5</button>
+        <button class="btn">Trang sau &raquo;</button>
       </div>
     </div>
 
@@ -164,11 +164,11 @@
         <div class="form-grid-2">
           <div class="form-group">
             <label for="prodName">Tên sản phẩm</label>
-            <input type="text" id="prodName" placeholder="Nhập tên sản phẩm..." required disabled>
+            <input type="text" id="prodName" placeholder="Nhập tên sản phẩm..." required>
           </div>
           <div class="form-group">
             <label for="prodCategory">Phân loại</label>
-            <select id="prodCategory" required disabled>
+            <select id="prodCategory" required>
               <option selected>Chọn phân loại</option>
               <option>Album</option>
               <option>Photocard</option>
@@ -178,11 +178,11 @@
           </div>
           <div class="form-group">
             <label for="prodPrice">Giá bán</label>
-            <input type="text" id="prodPrice" placeholder="Nhập giá bán..." required disabled>
+            <input type="text" id="prodPrice" inputmode="numeric" data-thousand-separator placeholder="Nhập giá bán..." required>
           </div>
           <div class="form-group">
             <label for="prodStock">Tồn kho</label>
-            <input type="number" id="prodStock" placeholder="Nhập số lượng..." required disabled>
+            <input type="text" id="prodStock" inputmode="numeric" data-thousand-separator placeholder="Nhập số lượng..." required>
           </div>
         </div>
 
@@ -190,7 +190,7 @@
           <label>Hình ảnh sản phẩm</label>
           <div class="upload-box">
             <span>+ Thêm hình ảnh</span>
-            <input type="file" accept="image/*" class="file-input" disabled>
+            <input type="file" accept="image/*" class="file-input">
           </div>
           <div class="product-image-preview">
             <span>Ảnh minh họa</span>
@@ -199,7 +199,7 @@
         </div>
 
         <div class="form-actions">
-          <button type="button" class="btn btn-primary" disabled>Lưu thông tin </button>
+          <button type="button" class="btn btn-primary">Lưu thông tin </button>
         </div>
       </form>
     </div>
@@ -212,12 +212,12 @@
       <form>
         <div class="form-grid-2">
           <div class="form-group"><label for="editName1">Tên sản phẩm</label><input id="editName1"
-              value="CORTIS GREEN GREEN STANDARD" disabled></div>
-          <div class="form-group"><label for="editCategory1">Phân loại</label><input id="editCategory1" value="Album" disabled>
+ value="CORTIS GREEN GREEN STANDARD"></div>
+          <div class="form-group"><label for="editCategory1">Phân loại</label><input id="editCategory1" value="Album">
           </div>
-          <div class="form-group"><label for="editPrice1">Giá bán</label><input id="editPrice1" value="1200000" disabled></div>
-          <div class="form-group"><label for="editStock1">Tồn kho</label><input id="editStock1" type="number"
-              value="18" disabled></div>
+          <div class="form-group"><label for="editPrice1">Giá bán</label><input id="editPrice1" inputmode="numeric" data-thousand-separator value="1200000"></div>
+          <div class="form-group"><label for="editStock1">Tồn kho</label><input id="editStock1" type="text" inputmode="numeric" data-thousand-separator
+ value="18"></div>
         </div>
         <div class="product-image-preview">
           <span>Ảnh hiện tại</span>
@@ -225,9 +225,9 @@
         </div>
         <div class="form-group">
           <label for="editImage1">Thay ảnh sản phẩm</label>
-          <input id="editImage1" type="file" accept="image/*" disabled>
+          <input id="editImage1" type="file" accept="image/*">
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary" disabled>Lưu thay đổi </button></div>
+        <div class="form-actions"><button type="button" class="btn btn-primary">Lưu thay đổi </button></div>
       </form>
     </div>
   </div>
@@ -239,11 +239,11 @@
       <form>
         <div class="form-grid-2">
           <div class="form-group"><label for="editName2">Tên sản phẩm</label><input id="editName2"
-              value="NEWJEANS EP STANDARD" disabled></div>
-          <div class="form-group"><label for="editCategory2">Phân loại</label><input id="editCategory2" value="Album" disabled>
+ value="NEWJEANS EP STANDARD"></div>
+          <div class="form-group"><label for="editCategory2">Phân loại</label><input id="editCategory2" value="Album">
           </div>
-          <div class="form-group"><label for="editPrice2">Giá bán</label><input id="editPrice2" value="430000" disabled></div>
-          <div class="form-group"><label for="editStock2">Tồn kho</label><input id="editStock2" type="number" value="9" disabled>
+          <div class="form-group"><label for="editPrice2">Giá bán</label><input id="editPrice2" inputmode="numeric" data-thousand-separator value="430000"></div>
+          <div class="form-group"><label for="editStock2">Tồn kho</label><input id="editStock2" type="text" inputmode="numeric" data-thousand-separator value="9">
           </div>
         </div>
         <div class="product-image-preview">
@@ -252,9 +252,9 @@
         </div>
         <div class="form-group">
           <label for="editImage2">Thay ảnh sản phẩm</label>
-          <input id="editImage2" type="file" accept="image/*" disabled>
+          <input id="editImage2" type="file" accept="image/*">
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary" disabled>Lưu thay đổi </button></div>
+        <div class="form-actions"><button type="button" class="btn btn-primary">Lưu thay đổi </button></div>
       </form>
     </div>
   </div>
@@ -266,11 +266,11 @@
       <form>
         <div class="form-grid-2">
           <div class="form-group"><label for="editName3">Tên sản phẩm</label><input id="editName3"
-              value="BLACKPINK DEADLINE STANDARD" disabled></div>
-          <div class="form-group"><label for="editCategory3">Phân loại</label><input id="editCategory3" value="Album" disabled>
+ value="BLACKPINK DEADLINE STANDARD"></div>
+          <div class="form-group"><label for="editCategory3">Phân loại</label><input id="editCategory3" value="Album">
           </div>
-          <div class="form-group"><label for="editPrice3">Giá bán</label><input id="editPrice3" value="880000" disabled></div>
-          <div class="form-group"><label for="editStock3">Tồn kho</label><input id="editStock3" type="number" value="0" disabled>
+          <div class="form-group"><label for="editPrice3">Giá bán</label><input id="editPrice3" inputmode="numeric" data-thousand-separator value="880000"></div>
+          <div class="form-group"><label for="editStock3">Tồn kho</label><input id="editStock3" type="text" inputmode="numeric" data-thousand-separator value="0">
           </div>
         </div>
         <div class="product-image-preview">
@@ -279,9 +279,9 @@
         </div>
         <div class="form-group">
           <label for="editImage3">Thay ảnh sản phẩm</label>
-          <input id="editImage3" type="file" accept="image/*" disabled>
+          <input id="editImage3" type="file" accept="image/*">
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary" disabled>Lưu thay đổi </button></div>
+        <div class="form-actions"><button type="button" class="btn btn-primary">Lưu thay đổi </button></div>
       </form>
     </div>
   </div>
@@ -290,17 +290,31 @@
     <div class="modal-box">
       <button class="modal-close" data-close aria-label="Đóng">&times;</button>
       <h3>Xác nhận xóa sản phẩm</h3>
-      <p>Nếu sản phẩm đã phát sinh giao dịch, hãy ẩn sản phẩm khỏi website. Nếu chưa bán, xác nhận trước khi xóa sản
-        phẩm.</p>
+      <p>Chọn cách xử lý sản phẩm chưa phát sinh đơn hàng.</p>
       <div class="form-actions">
-        <button type="button" class="btn" data-close>Hủy</button>
-        <button type="button" class="btn btn-primary" disabled>Ẩn sản phẩm </button>
-        <button type="button" class="btn btn-danger" disabled>Xác nhận xóa </button>
+        <button type="button" class="btn" data-close data-notification="Đã hủy thao tác">Hủy</button>
+        <button type="button" class="btn btn-primary" data-close data-notification="Đã ẩn sản phẩm khỏi cửa hàng">Ẩn sản phẩm</button>
+        <button type="button" class="btn btn-danger" data-close data-notification="Đã xóa sản phẩm">Xác nhận xóa</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal modal-confirm" id="hideProductModal">
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="Đóng">&times;</button>
+      <h3>Ẩn sản phẩm khỏi cửa hàng?</h3>
+      <p>Sản phẩm đã phát sinh đơn hàng. Hãy ẩn sản phẩm để giữ nguyên lịch sử giao dịch.</p>
+      <div class="form-actions">
+        <button type="button" class="btn" data-close data-notification="Đã hủy thao tác">Hủy</button>
+        <button type="button" class="btn btn-primary" data-close data-notification="Đã ẩn sản phẩm khỏi cửa hàng">Ẩn sản phẩm</button>
+        <button type="button" class="btn btn-danger" data-close data-notification="Sản phẩm đã có đơn hàng, không thể xóa">Xóa sản phẩm</button>
       </div>
     </div>
   </div>
 
   <script src="../js/modal.js"></script>
+  <script src="../js/number-format.js"></script>
+  <script src="../js/admin-notifications.js"></script>
 </body>
 
 </html>

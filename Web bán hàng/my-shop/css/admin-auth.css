@@ -21,7 +21,6 @@
 
 .admin-auth-actions button:disabled {
   color: #6b7280;
-  cursor: not-allowed;
   opacity: 0.58;
 }
 

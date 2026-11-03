@@ -44,28 +44,31 @@
                         <small>Quản trị viên</small>
                     </div>
                     <div class="admin-auth-actions">
-                        <a href="login.html">Đăng nhập</a>
-                        <button type="button" onclick="window.location.href='login.html'">Đăng xuất</button>
+                        <a href="index.html">Đăng nhập</a>
+                        <button type="button" onclick="window.location.href='index.html'">Đăng xuất</button>
                     </div>
                 </div>
             </div>
 
             <div class="report-header">
-                <div class="day-filter">
-                    <div class="filter-left-group">
-                        <i class="bi bi-calendar"></i>
-                        <p>Bộ lọc báo cáo</p>
+                <div class="filter-left-group">
+                    <i class="bi bi-calendar"></i>
+                    <p>Bộ lọc báo cáo</p>
+                </div>
+                <div class="report-range-fields">
+                    <div class="form-group">
+                        <label for="reportFrom">Từ ngày</label>
+                        <input id="reportFrom" type="date">
                     </div>
-                    <select id="metric-select" class="dropdown" disabled>
-                        <option value="homNay">Hôm nay</option>
-                        <option value="7Ngay">7 ngày qua</option>
-                        <option value="toanThoiGian">Toàn thời gian</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="reportTo">Đến ngày</label>
+                        <input id="reportTo" type="date">
+                    </div>
                 </div>
                 <div class="header-btn">
-                    <button type="button" class="filter-btn" disabled>Áp dụng lọc <i
-                            class="bi bi-arrow-up-right"></i></button>
-                    <button type="button" class="download-btn" disabled>Xuất CSV <i class="bi bi-download"></i></button>
+                    <button type="button" class="filter-btn">Áp dụng lọc <i
+ class="bi bi-arrow-up-right"></i></button>
+                    <button type="button" class="download-btn">Xuất CSV <i class="bi bi-download"></i></button>
                 </div>
             </div>
 
@@ -100,19 +103,20 @@
                 <div class="report-date-range">
                     <div class="form-group">
                         <label for="topCustomerFrom">Từ ngày</label>
-                        <input id="topCustomerFrom" type="date" disabled>
+                        <input id="topCustomerFrom" type="date">
                     </div>
                     <div class="form-group">
                         <label for="topCustomerTo">Đến ngày</label>
-                        <input id="topCustomerTo" type="date" disabled>
+                        <input id="topCustomerTo" type="date">
                     </div>
-                    <button type="button" class="btn btn-primary" disabled>Thống kê</button>
+                    <button type="button" class="btn btn-primary">Thống kê</button>
                 </div>
                 <table class="data-table">
                     <thead>
                         <tr>
                             <th>Hạng</th>
                             <th>Khách hàng</th>
+                            <th>Số điện thoại</th>
                             <th>Số đơn</th>
                             <th>Tổng tiền mua</th>
                             <th>Đơn hàng</th>
@@ -122,37 +126,42 @@
                         <tr>
                             <td>1</td>
                             <td>Quỳnh Trang</td>
+                            <td>123456789</td>
                             <td>8</td>
                             <td>5.600.000đ</td>
-                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Hoài Như</td>
+                            <td>0901234567</td>
                             <td>2</td>
                             <td>4.460.000đ</td>
-                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Linh Chi</td>
+                            <td>234567890</td>
                             <td>3</td>
                             <td>2.640.000đ</td>
-                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>Thủy Tiên</td>
+                            <td>098765432</td>
                             <td>2</td>
                             <td>1.850.000đ</td>
-                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>Thảo Trần</td>
+                            <td>999999999</td>
                             <td>1</td>
                             <td>1.200.000đ</td>
-                            <td><button type="button" class="btn" disabled>Xem đơn hàng</button></td>
+                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -165,7 +174,7 @@
                             <p class="column-title">Doanh thu bán hàng</p>
                             <p class="column-subtitle">Biến động doanh thu trong 7 ngày gần nhất</p>
                         </div>
-                        <select id="chart-metric-select" class="dropdown" disabled>
+                        <select id="chart-metric-select" class="dropdown">
                             <option value="doanhThu">Doanh thu</option>
                             <option value="donHang">Đơn hàng</option>
                         </select>
@@ -189,65 +198,10 @@
                 </div>
             </div>
 
-            <div class="recent-order card">
-                <div class="order-status-information">
-                    <div class="order-header">
-                        <p>Đơn hàng gần đây</p>
-                    </div>
-                    <div class="search-group">
-                        <div class="search-input-wrapper">
-                            <i class="bi bi-search"></i>
-                            <input class="search-box" type="text" placeholder="Tìm mã đơn, sản phẩm..." disabled>
-                        </div>
-                        <input class="search-btn" type="button" value="Tìm kiếm" disabled>
-                    </div>
-                </div>
-
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Mã đơn</th>
-                            <th>Khách hàng</th>
-                            <th>Ngày đặt</th>
-                            <th>Tổng tiền</th>
-                            <th>Chi tiết</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>#DH1208</strong></td>
-                            <td>Thảo Trần</td>
-                            <td>17/10/2025</td>
-                            <td>1.200.000đ</td>
-                            <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>#DH1207</strong></td>
-                            <td>Hoài Như</td>
-                            <td>17/10/2026</td>
-                            <td>4.460.000đ</td>
-                            <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>#DH1206</strong></td>
-                            <td>Linh Chi</td>
-                            <td>17/10/2026</td>
-                            <td>880.000đ</td>
-                            <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                        </tr>
-                        <tr>
-                            <td><strong>#DH1205</strong></td>
-                            <td>Thủy Tiên</td>
-                            <td>16/10/2026</td>
-                            <td>3.260.000đ</td>
-                            <td><a href="detail-order.html" class="detail-btn">Xem chi tiết</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </main>
     </div>
 
+    <script src="../js/admin-notifications.js"></script>
 </body>
 
 </html>

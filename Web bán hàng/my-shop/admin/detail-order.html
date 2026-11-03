@@ -45,18 +45,18 @@
                             <small>Quản trị viên</small>
                         </div>
                         <div class="admin-auth-actions">
-                            <a href="login.html">Đăng nhập</a>
-                            <button type="button" onclick="window.location.href='login.html'">Đăng xuất</button>
+                            <a href="index.html">Đăng nhập</a>
+                            <button type="button" onclick="window.location.href='index.html'">Đăng xuất</button>
                         </div>
                     </div>
                 </div>
 
                 <div class="card-title">
                     <div>
-                        <h2>Chi tiết đơn #DH001</h2>
-                        <p>Ngày đặt: 20/10/2026</p>
+                        <h2>Chi tiết đơn #DH1207</h2>
+                        <p>Ngày đặt: 17/10/2026</p>
                     </div>
-                    <a href="reports.html" class="btn-back">← Quay lại danh sách</a>
+                    <a href="orders.html" class="btn-back">← Quay lại danh sách</a>
                 </div>
 
                 <!-- Bố cục lưới 2 cột chính -->
@@ -66,13 +66,12 @@
                         <div class="card-detail-order">
                             <div class="card-header-flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                                 <p style="margin: 0; font-weight: bold;">Thông tin đơn hàng</p>
-                                <!-- Thêm id để tự động đổi badge trạng thái -->
-                                <span id="orderStatusBadge" class="badge-cancelled">Đã hủy</span>
+                                <span class="badge-pending">Đang xử lý</span>
                             </div>
                             <div class="info-order">
                                 <div class="info-group">
                                     <div class="info-title">KHÁCH HÀNG</div>
-                                    <div class="info-value">Phan Nguyễn Hoài Như</div>
+                                    <div class="info-value">Hoài Như</div>
                                     <div class="info-sub">
                                         <p style="margin: 2px 0;">Điện thoại: 0901234567</p>
                                         <p style="margin: 2px 0;">Email: hoainhu@example.com</p>
@@ -167,19 +166,20 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="statusSelect">Trạng thái đơn hàng</label>
-                                    <select id="statusSelect" disabled>
+                                    <select id="statusSelect">
+                                        <option value="processing" selected>Đang xử lý</option>
                                         <option value="pending">Chờ xác nhận</option>
                                         <option value="confirmed">Đã xác nhận</option>
                                         <option value="shipping">Đang giao hàng</option>
                                         <option value="completed">Đã giao</option>
-                                        <option value="cancelled" selected>Đã hủy</option>
+                                        <option value="cancelled">Đã hủy</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="adminNote">Ghi chú của Admin</label>
-                                    <textarea id="adminNote" placeholder="Nhập ghi chú..." disabled></textarea>
+                                    <textarea id="adminNote" placeholder="Nhập ghi chú..."></textarea>
                                 </div>
-                                <button type="button" class="save-btn" disabled>Lưu thay đổi</button>
+                                <button type="button" class="save-btn">Lưu thay đổi</button>
                             </div>
                         </div>
 
@@ -193,13 +193,13 @@
                         </div>
                         
                         <div class="operate">
-                            <button type="button" disabled style="flex: 1; background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px;">Xác nhận đơn hàng</button>
-                            <button type="button" disabled style="flex: 1; background: #e11d48; color: white; border: none; padding: 10px; border-radius: 6px;">Hủy đơn hàng</button>
+                            <button type="button" style="flex: 1; background: #2563eb; color: white; border: none; padding: 10px; border-radius: 6px;">Xác nhận đơn hàng</button>
+                            <button type="button" style="flex: 1; background: #e11d48; color: white; border: none; padding: 10px; border-radius: 6px;">Hủy đơn hàng</button>
                         </div>
                     </div>
                 </div>
                 </main>
             </div>
-
+        <script src="../js/admin-notifications.js"></script>
     </body>
 </html>
