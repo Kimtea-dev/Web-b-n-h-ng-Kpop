@@ -3,24 +3,24 @@
    Ảnh: trong mỗi .media thêm <img src="..." alt="...">. */
 const LISTS = {
   featured: [
-    { id: 1, name: "Lightstick Nova Beam", price: 650000 },
-    { id: 2, name: "Đèn cổ vũ Starlight Glow", price: 550000 },
-    { id: 3, name: "Mũ lưỡi trai thêu logo", price: 300000 },
-    { id: 4, name: "Hộp album Midnight Echoes", price: 450000 },
-    { id: 5, name: "Album Velvet Dream", price: 250000 },
-    { id: 6, name: "Áo hoodie Neon Tour", price: 620000 },
-    { id: 7, name: "Set photocard Holo 6 thẻ", price: 90000 },
-    { id: 8, name: "Móc khóa acrylic Star", price: 75000 }
+    { id: 1, name: "Lightstick CORTIS", price: 1200000 },
+    { id: 2, name: "Box merch ARIRANG BTS", price: 5500000 },
+    { id: 3, name: "Mũ lưỡi trai thêu logo BIGBANG", price: 900000 },
+    { id: 4, name: "Hộp album JISOO", price: 1500000 },
+    { id: 5, name: "Album Color outside the line CORTIS", price: 730000 },
+    { id: 6, name: "Áo hoodie ARIRANG BTS", price: 6200000 },
+    { id: 7, name: "Set photocard 9 thẻ NEWJEANS", price: 900000 },
+    { id: 8, name: "Móc khóa acrylic ENHYPEN", price: 350000 }
   ],
   all: [
-    { id: 9, name: "Album Neon Rain (bản Day)", price: 389000 },
-    { id: 10, name: "Album Neon Rain (bản Night)", price: 389000 },
-    { id: 11, name: "Lightstick Halo", price: 850000 },
-    { id: 12, name: "Photocard Holo giới hạn", price: 129000 },
-    { id: 13, name: "Áo thun Neon Rain", price: 350000 },
-    { id: 14, name: "Túi tote Daybreak", price: 210000 },
-    { id: 15, name: "Dây đeo lightstick", price: 79000 },
-    { id: 16, name: "Đĩa than Midnight Echoes (LP)", price: 720000 }
+    { id: 9, name: "Album ARIRANG BTS", price: 1389000 },
+    { id: 10, name: "Album RUBY JENNIE ", price: 1389000 },
+    { id: 11, name: "Album CHOOM BABYMONSTER", price: 850000 },
+    { id: 12, name: "Album DEADLINE BLACKPINK", price: 1129000 },
+    { id: 13, name: "Album EP NEWJEANS", price: 750000 },
+    { id: 14, name: "Album GREEN CORTIS", price: 210000 },
+    { id: 15, name: "Album 5TH LE SSERAFIM", price: 790000 },
+    { id: 16, name: "Album BOMP ILLIT", price: 720000 }
   ]
 };
 
@@ -189,9 +189,9 @@ var S = {
     { id: 1, label: 'Nhà riêng', name: 'Customer', phone: '0909 456 321', text: '45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh', def: true }
   ],
   wishlist: [
-    { id: 1, n: 'Lightstick Nova Beam', p: 650000 },
-    { id: 2, n: 'Album Velvet Dream', p: 250000 },
-    { id: 3, n: 'Áo hoodie Neon Tour', p: 620000 }
+    { id: 1, n: 'Lightstick CORTIS', p: 1200000 },
+    { id: 2, n: 'Box merch ARIRANG BTS', p: 5500000 },
+    { id: 3, n: 'Mũ lưỡi trai thêu logo BIGBANG', p: 900000 }
   ]
 };
 var STATUS = {
