@@ -3,31 +3,33 @@
    Ảnh: trong mỗi .media thêm <img src="..." alt="...">. */
 const LISTS = {
   featured: [
-    { id: 1, name: "Lightstick CORTIS", price: 1200000 },
-    { id: 2, name: "Box merch ARIRANG BTS", price: 5500000 },
-    { id: 3, name: "Mũ lưỡi trai thêu logo BIGBANG", price: 900000 },
-    { id: 4, name: "Hộp album JISOO", price: 1500000 },
-    { id: 5, name: "Album Color outside the line CORTIS", price: 730000 },
-    { id: 6, name: "Áo hoodie ARIRANG BTS", price: 6200000 },
-    { id: 7, name: "Set photocard 9 thẻ NEWJEANS", price: 900000 },
-    { id: 8, name: "Móc khóa acrylic ENHYPEN", price: 350000 }
+    { id: 1, name: "Lightstick CORTIS", price: 1200000, image: "image/lightstickcortis.jpg" },
+    { id: 2, name: "Box merch ARIRANG BTS", price: 5500000, image: "image/btsmerchbox.jpg" },
+    { id: 3, name: "Mũ lưỡi trai thêu logo BIGBANG", price: 900000, image: "image/bigbanghat.jpg" },
+    { id: 4, name: "Hộp album JISOO", price: 1500000, image: "image/jisooalbumbox.jpg" },
+    { id: 5, name: "Album Color outside the line CORTIS", price: 730000, image: "image/cortisalbum.jpg"},
+    { id: 6, name: "Áo hoodie ARIRANG BTS", price: 6200000, image: "image/ariranghoodie.jpg" },
+    { id: 7, name: "Set photocard 9 thẻ NEWJEANS", price: 900000, image: "image/photocardnewjeans.jpg" },
+    { id: 8, name: "Móc khóa acrylic ENHYPEN", price: 350000, image: "image/enhypenkeyring.jpg" }
   ],
   all: [
-    { id: 9, name: "Album ARIRANG BTS", price: 1389000 },
-    { id: 10, name: "Album RUBY JENNIE ", price: 1389000 },
-    { id: 11, name: "Album CHOOM BABYMONSTER", price: 850000 },
-    { id: 12, name: "Album DEADLINE BLACKPINK", price: 1129000 },
-    { id: 13, name: "Album EP NEWJEANS", price: 750000 },
-    { id: 14, name: "Album GREEN CORTIS", price: 210000 },
-    { id: 15, name: "Album 5TH LE SSERAFIM", price: 790000 },
-    { id: 16, name: "Album BOMP ILLIT", price: 720000 }
+    { id: 9, name: "Album ARIRANG BTS", price: 1389000, image: "image/arirang.jpg" },
+    { id: 10, name: "Album RUBY JENNIE ", price: 1389000, image: "image/ruby.jpg" },
+    { id: 11, name: "Album CHOOM BABYMONSTER", price: 850000, image: "image/choom.jpg" },
+    { id: 12, name: "Album DEADLINE BLACKPINK", price: 1129000, image: "image/deadline.jpg" },
+    { id: 13, name: "Album EP NEWJEANS", price: 750000, image: "image/EP.jpg" },
+    { id: 14, name: "Album GREEN CORTIS", price: 210000, image: "image/green.jpg" },
+    { id: 15, name: "Album 5TH LE SSERAFIM", price: 790000, image: "image/5th.jpg" },
+    { id: 16, name: "Album BOMP ILLIT", price: 720000, image: "image/bomp.jpg" }
   ]
 };
 
 const vnd = n => n.toLocaleString("vi-VN") + "đ";
 const card = p => `
   <article class="p-card">
-    <div class="media"></div>
+    <div class="media">
+      <img src="${p.image}" alt="${p.name}">
+    </div>
     <h3>${p.name}</h3>
     <p class="price">${vnd(p.price)}</p>
     <button class="add" data-id="${p.id}">+ Thêm vào giỏ</button>
@@ -460,8 +462,8 @@ function removeWish(id) { toast('Đã bỏ thích sản phẩm thành công' + D
 
 /* ================= VOUCHER ================= */
 function copyCode(code) {
-  function ok() { toast('Đã sao chép mã ' + code + '.'); }
-  try { navigator.clipboard.writeText(code).then(ok, ok); } catch (err) { ok(); }
+  // Chỉ hiển thị thông báo thành công ảo, hoàn toàn không gọi lệnh sao chép vào clipboard
+  toast('Đã sao chép mã ' + code + '.');
 }
 
 /* ================= MỞ THẲNG VÀO DASHBOARD QUA #HASH ================= */

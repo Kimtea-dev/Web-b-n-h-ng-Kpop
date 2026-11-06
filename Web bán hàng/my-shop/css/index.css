@@ -1,7 +1,7 @@
 /* index.css - trang chủ K-Star Merch (độc lập, không cần base.css / client.css)
    Đổi màu: sửa các biến trong :root */
 :root{
-  --black:#0d0d0d; --panel:#1a1a1a; --light:#e7eaed;
+  --black:#0d0d0d; --panel:#1a1a1a; --light:#6d8298;
   --pink:#f20057; --purple:#6b0fff; --white:#fff; --muted:#a3a3a3; --line:#3a3a3a;
   --display:"Unbounded","Be Vietnam Pro",system-ui,sans-serif;
   --body:"Be Vietnam Pro",system-ui,sans-serif;
