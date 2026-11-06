@@ -182,18 +182,18 @@ var S = {
   password: '123456',
   user: { name: 'Customer', email: 'customer@example.com', phone: '0909456321', dob: '', gender: '', avatar: '' },
   orders: [
-    { id: 'DH-103015', date: '30/10/2026', status: 'pending',   ship: 30000, items: [{ n: 'Lightstick Halo', q: 1, p: 850000 }] },
-    { id: 'DH-102948', date: '27/10/2026', status: 'shipping',  ship: 30000, items: [{ n: 'DEADLINE STANDARD – BLACKPINK', q: 1, p: 880000 }, { n: 'RUBY SPECIAL – TWICE', q: 1, p: 1200000 }] },
-    { id: 'DH-102731', date: '12/10/2026', status: 'done',      ship: 30000, items: [{ n: 'ARIRANG – BTS (CD BOX SET)', q: 1, p: 3260000 }] },
-    { id: 'DH-102500', date: '05/10/2026', status: 'cancelled', ship: 30000, items: [{ n: 'Photocard Holo giới hạn', q: 2, p: 129000 }] }
+    { id: 'DH-102949', date: '27/10/2026', status: 'pending',   ship: 30000, items: [{ n: 'Hộp Album JISOO', q: 1, p: 1200000, img: 'image/jisooalbumbox.jpg' }, { n: 'Album RUBY JENNIE', q: 1, p: 1389000, img: 'image/ruby.jpg' }, { n: 'Album BOMP ILLIT', q: 1, p: 720000, img: 'image/bomp.jpg' }] },
+    { id: 'DH-102815', date: '20/10/2026', status: 'shipping',  ship: 30000, items: [{ n: 'Lightstick CORTIS', q: 1, p: 1200000, img: 'image/lightstickcortis.jpg' }] },
+    { id: 'DH-102731', date: '12/10/2026', status: 'done',      ship: 30000, items: [{ n: 'ARIRANG - BTS (CD BOX SET)', q: 1, p: 1389000, img: 'image/arirang.jpg' }] },
+    { id: 'DH-102500', date: '05/10/2026', status: 'cancelled', ship: 30000, items: [{ n: 'Móc khóa acrylic ENHYPEN', q: 2, p: 90000, img: 'image/enhypenkeyring.jpg' }] }
   ],
   addresses: [
     { id: 1, label: 'Nhà riêng', name: 'Customer', phone: '0909 456 321', text: '45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh', def: true }
   ],
   wishlist: [
-    { id: 1, n: 'Lightstick CORTIS', p: 1200000 },
-    { id: 2, n: 'Box merch ARIRANG BTS', p: 5500000 },
-    { id: 3, n: 'Mũ lưỡi trai thêu logo BIGBANG', p: 900000 }
+    { id: 1, n: 'Set photocard 9 thẻ NEWJEANS', p: 900000, img: 'image/photocardnewjeans.jpg' },
+    { id: 2, n: 'Album DEADLINE BLACKPINK', p: 1129000, img: 'image/deadline.jpg' },
+    { id: 3, n: 'Mũ lưỡi trai thêu logo BIGBANG', p: 900000, img: 'image/bigbanghat.jpg' }
   ]
 };
 var STATUS = {
@@ -318,6 +318,10 @@ function onAvatarChange(input) {
 }
 function removeAvatar() { toast('Đã xóa ảnh đại diện thành công' + DEMO_TAG + '.'); }
 
+function demoAvatar(act) {
+  toast((act === 'remove' ? 'Đã xóa ảnh đại diện thành công' : 'Đã cập nhật ảnh đại diện thành công') + DEMO_TAG + '.');
+}
+
 /* ================= THÔNG TIN CÁ NHÂN ================= */
 /* DEMO: không lưu dữ liệu, chỉ báo thành công */
 function saveProfileInfo(e) {
@@ -365,12 +369,16 @@ function setOrderFilter(f) { orderFilter = f; renderOrders(); }
 function orderHtml(o) {
   var st = STATUS[o.status];
   var items = o.items.map(function (i) {
-    return '<div class="order-item"><div class="thumb"></div><div><div class="oi-name">' + esc(i.n) + '</div><div class="oi-meta">Số lượng: ' + i.q + '</div></div><div class="oi-price">' + fmtVnd(i.p * i.q) + '</div></div>';
+    // Thêm thẻ <img> dựa vào thuộc tính i.img, nếu không có thì để trống
+    var imgTag = i.img ? '<img src="' + i.img + '" alt="' + esc(i.n) + '" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">' : '';
+    return '<div class="order-item"><div class="thumb">' + imgTag + '</div><div><div class="oi-name">' + esc(i.n) + '</div><div class="oi-meta">Số lượng: ' + i.q + '</div></div><div class="oi-price">' + fmtVnd(i.p * i.q) + '</div></div>';
   }).join('');
+  
   var act = '';
   if (o.status === 'pending') act = '<button type="button" class="btn outline btn-sm danger" onclick="orderAction(\'' + o.id + '\',\'cancel\')">Hủy đơn</button>';
   else if (o.status === 'shipping') act = '<button type="button" class="btn pink btn-sm" onclick="orderAction(\'' + o.id + '\',\'track\')">Theo dõi đơn</button>';
   else act = '<button type="button" class="btn outline btn-sm" onclick="orderAction(\'' + o.id + '\',\'rebuy\')">Mua lại</button>';
+  
   return '<div class="order-card"><div class="order-head"><strong>#' + o.id + '</strong><span class="badge-status ' + st[1] + '">' + st[0] + '</span></div>' + items +
     '<div class="order-foot"><div>Tổng thanh toán: <strong style="color:var(--pink);">' + fmtVnd(orderTotal(o)) + '</strong><span class="date">Đặt ngày ' + o.date + '</span></div><div class="order-actions">' + act + '</div></div></div>';
 }
@@ -452,7 +460,8 @@ function removeAddr(id) {
 /* ================= YÊU THÍCH ================= */
 function renderWishlist() {
   $('wish-list').innerHTML = S.wishlist.length ? '<div class="wish-grid">' + S.wishlist.map(function (w) {
-    return '<div class="wish"><div class="thumb-lg"></div><b>' + esc(w.n) + '</b><span class="cost">' + fmtVnd(w.p) + '</span>' +
+    var imgTag = w.img ? '<img src="' + w.img + '" alt="' + esc(w.n) + '" style="width:100%;height:100%;object-fit:cover;border-radius:6px;">' : '';
+    return '<div class="wish"><div class="thumb-lg">' + imgTag + '</div><b>' + esc(w.n) + '</b><span class="cost">' + fmtVnd(w.p) + '</span>' +
       '<div class="wish-actions"><button type="button" class="btn pink btn-sm" onclick="wishToCart(' + w.id + ')">Thêm vào giỏ</button>' +
       '<button type="button" class="btn outline btn-sm" aria-label="Bỏ thích" onclick="removeWish(' + w.id + ')">Bỏ thích</button></div></div>';
   }).join('') + '</div>' : '<div class="empty">Bạn chưa thả tim sản phẩm nào. <a href="products.html">Khám phá sản phẩm</a></div>';

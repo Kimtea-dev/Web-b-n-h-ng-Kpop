@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K-Pop Store - Album, lightstick và đồ mặc K-Pop</title>
+  <title>Giỏ hàng - K-Pop Store</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
@@ -14,7 +14,7 @@
 <!-- ===== HEADER ===== -->
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html" aria-label="K-Star Merch - trang chủ">
+    <a class="brand" href="index.html" aria-label="K-Pop Store - trang chủ">
       <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
       <span>K-POP STORE</span>
     </a>
@@ -44,144 +44,168 @@
   </div>
 </header>
 
-<main class="sec black">
+<main class="sec black cart-main">
   <div class="wrap">
-    
+
     <div class="cart-page-title">
       <h1>GIỎ HÀNG CỦA BẠN</h1>
       <span class="cart-count-badge">3 sản phẩm</span>
     </div>
 
-    <div class="cart-grid-layout">
-      <!-- Cột trái: Danh sách sản phẩm -->
-      <div class="cart-items-wrapper">
-        <div id="cart-items-list">
-
-          <!-- Item 1 -->
-          <div class="cart-item-card">
-            <img src="image/jisooalbumbox.jpg" alt="Hộp album JISOO" class="cart-item-img">
-            <div class="cart-item-info">
-              <div class="artist"></div>
-              <div class="name"></div>
-              <span class="variant"></span>
-              <div class="cart-item-price">1.200.000đ</div>
-            </div>
-            <div class="cart-qty-box">
-              <button type="button" class="cart-qty-btn" onclick="demoNotice()">−</button>
-              <input type="number" class="cart-qty-input" value="1" readonly>
-              <button type="button" class="cart-qty-btn" onclick="demoNotice()">+</button>
-            </div>
-            <div class="cart-item-subtotal">1.200.000đ</div>
-            <button type="button" class="cart-item-remove" title="Xóa" onclick="demoNotice()">&times;</button>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="cart-item-card">
-            <img src="image/ruby.jpg" alt="Album RUBY JENNIE" class="cart-item-img">
-            <div class="cart-item-info">
-              <div class="artist"></div>
-              <div class="name"></div>
-              <span class="variant"></span>
-              <div class="cart-item-price">1.389.000đ</div>
-            </div>
-            <div class="cart-qty-box">
-              <button type="button" class="cart-qty-btn" onclick="demoNotice()">−</button>
-              <input type="number" class="cart-qty-input" value="1" readonly>
-              <button type="button" class="cart-qty-btn" onclick="demoNotice()">+</button>
-            </div>
-            <div class="cart-item-subtotal">1.389.000đ</div>
-            <button type="button" class="cart-item-remove" title="Xóa" onclick="demoNotice()">&times;</button>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="cart-item-card">
-            <img src="image/bomp.jpg" alt="Album BOMP ILLIT" class="cart-item-img">
-            <div class="cart-item-info">
-              <div class="artist"></div>
-              <div class="name"></div>
-              <span class="variant"></span>
-              <div class="cart-item-price">720.000đ</div>
-            </div>
-            <div class="cart-qty-box">
-              <button type="button" class="cart-qty-btn" onclick="demoNotice()">−</button>
-              <input type="number" class="cart-qty-input" value="1" readonly>
-              <button type="button" class="cart-qty-btn" onclick="demoNotice()">+</button>
-            </div>
-            <div class="cart-item-subtotal">720.000đ</div>
-            <button type="button" class="cart-item-remove" title="Xóa" onclick="demoNotice()">&times;</button>
-          </div>
-
-        </div>
-
-        <div class="cart-actions-bar">
-          <a href="products.html" class="btn outline" style="text-transform: none; font-size: 14px;">← Tiếp tục xem sản phẩm</a>
-          <button type="button" class="btn outline" style="border-color: var(--muted); color: var(--muted); text-transform: none; font-size: 14px;" onclick="demoNotice()">🗑️ Xóa toàn bộ giỏ hàng</button>
-        </div>
+    <!-- ===== PHẦN 1: DANH SÁCH SẢN PHẨM (rộng toàn chiều ngang) ===== -->
+    <section class="cart-panel" aria-label="Sản phẩm trong giỏ hàng">
+      <div class="cart-table-head" aria-hidden="true">
+        <span>Sản phẩm</span>
+        <span>Phân loại</span>
+        <span>Đơn giá</span>
+        <span>Số lượng</span>
+        <span class="r">Thành tiền</span>
+        <span></span>
       </div>
 
-      <!-- Cột phải: Tóm tắt đơn & Thanh toán -->
-      <div class="cart-summary-card">
+      <div id="cart-items-list">
+
+          <!-- Sản phẩm 1 -->
+          <div class="cart-item-card">
+            <div class="cart-product">
+              <a href="product-detail.html" class="cart-item-imglink"><img src="image/jisooalbumbox.jpg" alt="Hộp album JISOO" class="cart-item-img"></a>
+              <div class="cart-item-info">
+                <div class="artist">JISOO (BLACKPINK)</div>
+                <div class="name"><a href="product-detail.html">Hộp album JISOO</a></div>
+              </div>
+            </div>
+            <div class="cart-item-variant"><span class="variant">Bản tiêu chuẩn</span></div>
+            <div class="cart-item-price">1.200.000đ</div>
+            <div class="cart-qty-box">
+              <button type="button" class="cart-qty-btn" onclick="demoNotice()" aria-label="Giảm số lượng">−</button>
+              <input type="number" class="cart-qty-input" value="1" readonly aria-label="Số lượng">
+              <button type="button" class="cart-qty-btn" onclick="demoNotice()" aria-label="Tăng số lượng">+</button>
+            </div>
+            <div class="cart-item-subtotal">1.200.000đ</div>
+            <button type="button" class="cart-item-remove" title="Xóa" aria-label="Xóa sản phẩm" onclick="demoNotice()">&times;</button>
+          </div>
+
+          <!-- Sản phẩm 2 -->
+          <div class="cart-item-card">
+            <div class="cart-product">
+              <a href="product-detail.html" class="cart-item-imglink"><img src="image/ruby.jpg" alt="Album RUBY - JENNIE" class="cart-item-img"></a>
+              <div class="cart-item-info">
+                <div class="artist">JENNIE (BLACKPINK)</div>
+                <div class="name"><a href="product-detail.html">Album RUBY - JENNIE</a></div>
+              </div>
+            </div>
+            <div class="cart-item-variant"><span class="variant">Photobook – Zen Ver.</span></div>
+            <div class="cart-item-price">1.389.000đ</div>
+            <div class="cart-qty-box">
+              <button type="button" class="cart-qty-btn" onclick="demoNotice()" aria-label="Giảm số lượng">−</button>
+              <input type="number" class="cart-qty-input" value="1" readonly aria-label="Số lượng">
+              <button type="button" class="cart-qty-btn" onclick="demoNotice()" aria-label="Tăng số lượng">+</button>
+            </div>
+            <div class="cart-item-subtotal">1.389.000đ</div>
+            <button type="button" class="cart-item-remove" title="Xóa" aria-label="Xóa sản phẩm" onclick="demoNotice()">&times;</button>
+          </div>
+
+          <!-- Sản phẩm 3 -->
+          <div class="cart-item-card">
+            <div class="cart-product">
+              <a href="product-detail.html" class="cart-item-imglink"><img src="image/bomp.jpg" alt="Album BOMP - ILLIT" class="cart-item-img"></a>
+              <div class="cart-item-info">
+                <div class="artist">ILLIT</div>
+                <div class="name"><a href="product-detail.html">Album BOMP - ILLIT</a></div>
+              </div>
+            </div>
+            <div class="cart-item-variant"><span class="variant">Bản tiêu chuẩn</span></div>
+            <div class="cart-item-price">720.000đ</div>
+            <div class="cart-qty-box">
+              <button type="button" class="cart-qty-btn" onclick="demoNotice()" aria-label="Giảm số lượng">−</button>
+              <input type="number" class="cart-qty-input" value="1" readonly aria-label="Số lượng">
+              <button type="button" class="cart-qty-btn" onclick="demoNotice()" aria-label="Tăng số lượng">+</button>
+            </div>
+            <div class="cart-item-subtotal">720.000đ</div>
+            <button type="button" class="cart-item-remove" title="Xóa" aria-label="Xóa sản phẩm" onclick="demoNotice()">&times;</button>
+          </div>
+
+      </div>
+
+      <div class="cart-actions-bar">
+        <a href="products.html" class="btn outline cart-btn-text">← Tiếp tục xem sản phẩm</a>
+        <button type="button" class="btn outline cart-btn-text cart-btn-muted" onclick="demoNotice()">🗑️ Xóa toàn bộ giỏ hàng</button>
+      </div>
+    </section>
+
+    <!-- ===== PHẦN 2: THÔNG TIN ĐẶT HÀNG (trái) + TỔNG TIỀN (phải) ===== -->
+    <div class="checkout-layout">
+
+      <div class="checkout-main">
+
+        <div class="checkout-box">
+          <div class="user-logged-badge">✓ Đã đăng nhập tài khoản khách hàng</div>
+          <div class="checkout-section-title">👤 Người nhận hàng</div>
+          <div class="info-display-box">
+            <strong>Customer</strong>
+            <div>SĐT: 0909 456 321 • Email: customer@example.com</div>
+          </div>
+        </div>
+
+        <div class="checkout-box">
+          <div class="checkout-section-title">📍 Địa chỉ giao hàng</div>
+          <div class="option-card-group">
+            <label class="option-card selected" id="label-addr-default" onclick="selectAddressMode('default')">
+              <input type="radio" name="delivery_address_type" id="addr-type-default" value="default" checked>
+              <div>
+                <strong>Địa chỉ tài khoản đã lưu:</strong>
+                <div class="subtext" id="checkout-default-address">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
+              </div>
+            </label>
+
+            <label class="option-card" id="label-addr-new" onclick="selectAddressMode('new')">
+              <input type="radio" name="delivery_address_type" id="addr-type-new" value="new">
+              <div style="flex:1;">
+                <strong>Giao đến địa chỉ mới khác</strong>
+                <input type="text" id="checkout-custom-address" class="custom-address-input" placeholder="Nhập địa chỉ giao hàng mới..." style="display: none;">
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="checkout-box">
+          <div class="checkout-section-title">💳 Hình thức thanh toán</div>
+          <div class="option-card-group">
+            <label class="option-card selected" id="label-pay-cod" onclick="selectPaymentMethod('cod')">
+              <input type="radio" name="payment_method" id="pay-cod" value="cod" checked>
+              <div>
+                <strong>💵 Tiền mặt khi nhận hàng (COD)</strong>
+                <div class="subtext">Thanh toán cho shipper sau khi kiểm tra album nguyên seal.</div>
+              </div>
+            </label>
+
+            <label class="option-card" id="label-pay-online" onclick="selectPaymentMethod('online')">
+              <input type="radio" name="payment_method" id="pay-online" value="online">
+              <div>
+                <strong>💳 Chuyển khoản Trực tuyến (Mã QR / Ví)</strong>
+                <div class="subtext">Thanh toán nhanh qua VietQR, MoMo hoặc ZaloPay.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tổng đơn hàng (dính theo khi cuộn trên máy tính) -->
+      <aside class="cart-summary-card">
         <h2>TỔNG ĐƠN HÀNG</h2>
 
-        <div class="summary-row"><span>Tạm tính</span><span>3.309.000đ</span></div>
+        <div class="summary-row"><span>Tạm tính (3 sản phẩm)</span><span>3.309.000đ</span></div>
         <div class="summary-row"><span>Phí vận chuyển</span><span>30.000đ</span></div>
 
         <div class="coupon-box">
-          <input type="text" class="coupon-input" placeholder="Mã giảm giá (VD: KSTAR10)">
-          <button type="button" class="btn pink" style="padding: 10px 16px; font-size: 13px;" onclick="demoNotice()">Áp dụng</button>
+          <input type="text" class="coupon-input" placeholder="Mã giảm giá (VD: KSTAR10)" aria-label="Mã giảm giá">
+          <button type="button" class="btn pink" onclick="demoNotice()">Áp dụng</button>
         </div>
 
         <div class="summary-row total-row">
           <span>Tổng thanh toán</span>
           <span class="total-price">3.339.000đ</span>
-        </div>
-
-        <div class="user-logged-badge">
-          ✓ Đã đăng nhập tài khoản khách hàng
-        </div>
-
-        <div class="checkout-section-title">👤 Người nhận hàng</div>
-        <div class="info-display-box">
-          <strong style="color:var(--white);">Customer</strong>
-          <div>SĐT: 0909 456 321 • Email: customer@example.com</div>
-        </div>
-
-        <div class="checkout-section-title">📍 Địa chỉ giao hàng</div>
-        <div class="option-card-group">
-          <label class="option-card selected" id="label-addr-default" onclick="selectAddressMode('default')">
-            <input type="radio" name="delivery_address_type" id="addr-type-default" value="default" checked>
-            <div>
-              <strong>Địa chỉ tài khoản đã lưu:</strong>
-              <div class="subtext" id="checkout-default-address">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</div>
-            </div>
-          </label>
-
-          <label class="option-card" id="label-addr-new" onclick="selectAddressMode('new')">
-            <input type="radio" name="delivery_address_type" id="addr-type-new" value="new">
-            <div style="flex:1;">
-              <strong>Giao đến địa chỉ mới khác</strong>
-              <input type="text" id="checkout-custom-address" class="custom-address-input" placeholder="Nhập địa chỉ giao hàng mới..." style="display: none;">
-            </div>
-          </label>
-        </div>
-
-        <div class="checkout-section-title">💳 Hình thức thanh toán</div>
-        <div class="option-card-group">
-          <label class="option-card selected" id="label-pay-cod" onclick="selectPaymentMethod('cod')">
-            <input type="radio" name="payment_method" id="pay-cod" value="cod" checked>
-            <div>
-              <strong>💵 Tiền mặt khi nhận hàng (COD)</strong>
-              <div class="subtext">Thanh toán cho shipper sau khi kiểm tra album nguyên seal.</div>
-            </div>
-          </label>
-
-          <label class="option-card" id="label-pay-online" onclick="selectPaymentMethod('online')">
-            <input type="radio" name="payment_method" id="pay-online" value="online">
-            <div>
-              <strong>💳 Chuyển khoản Trực tuyến (Mã QR / Ví)</strong>
-              <div class="subtext">Thanh toán nhanh qua VietQR, MoMo hoặc ZaloPay.</div>
-            </div>
-          </label>
         </div>
 
         <button type="button" class="btn pink btn-checkout-submit" onclick="openOrderModal()">XÁC NHẬN ĐẶT HÀNG</button>
@@ -191,7 +215,7 @@
           <div>✔ Được kiểm tra hàng trước khi thanh toán (COD)</div>
           <div>✔ Hỗ trợ đổi trả miễn phí trong 7 ngày</div>
         </div>
-      </div>
+      </aside>
 
     </div>
   </div>
@@ -266,6 +290,7 @@
   </div>
 </footer>
 
-<script src="js/home.js"></script>
+<!-- Các hàm demoNotice / chọn địa chỉ / chọn thanh toán / mở hóa đơn nằm trong cart.js -->
+<script src="js/cart.js"></script>
 </body>
 </html>
