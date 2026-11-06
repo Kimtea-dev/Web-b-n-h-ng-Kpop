@@ -15,38 +15,30 @@
 <!-- ===== HEADER CẬP NHẬT (THÊM SEARCH & USER ICON) ===== -->
 <header class="site-header">
   <div class="bar">
-    <!-- 1. Logo -->
-    <a class="brand" href="index.html" aria-label="K-Star Merch - trang chủ">
+    <a class="brand" href="index.html" aria-label="K-Pop Store - trang chủ">
       <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
-      <span>K-Pop Store</span>
+      <span>K-POP STORE</span>
     </a>
-
-    <!-- 2. Menu chính -->
     <nav aria-label="Menu chính">
       <a href="index.html">Trang chủ</a>
       <a href="products.html">Sản phẩm</a>
       <a href="about.html">Giới thiệu</a>
       <a href="contact.html">Liên hệ</a>
     </nav>
-
-    <!-- 3. Cụm công cụ bên phải: Search -> Giỏ hàng -> User -->
     <div class="header-tools">
-      <!-- Ô Tìm kiếm -->
-      <div class="search-box">
-        <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
-        <button type="button" aria-label="Nút tìm kiếm">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        </button>
-      </div>
-
-      <!-- Giỏ hàng -->
+      <form action="search-result.html" style="display:inline;">
+        <div class="search-box">
+          <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+          <button type="submit" aria-label="Nút tìm kiếm">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </button>
+        </div>
+      </form>
       <a class="bag" href="cart.html" aria-label="Giỏ hàng">
         <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
         <span id="header-cart-count">3</span>
       </a>
-
-      <!-- Biểu tượng Người dùng (Chuyển tới login.html) -->
-      <a class="user-account" href="login.html" aria-label="Tài khoản / Đăng nhập">
+      <a class="user-account" href="login.html" aria-label="Tài khoản">
         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </a>
     </div>
@@ -125,7 +117,7 @@
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <h4>K-Pop Store</h4>
+        <h4>K-POP STORE</h4>
         <p>Cửa hàng album, lightstick, photocard và phụ kiện K-Pop chính hãng nhập khẩu từ Hàn Quốc.</p>
       </div>
       <div>

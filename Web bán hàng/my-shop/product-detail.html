@@ -2,140 +2,306 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chi tiết sản phẩm - K-POP STORE</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/client.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/detail.css">
-
-  <style>
-  #quantity-input {
-    text-align: center;
-  }
-</style>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Album RUBY - JENNIE | K-Pop Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/product-detail.css">
+  <link rel="stylesheet" href="css/home-nojs.css">
 </head>
 <body>
 
-  <!-- ===== HEADER (copy y nguyên sang mọi trang khách hàng) ===== -->
-  <header class="header">
-    <a class="logo" href="index.html">
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="K-Pop Store - trang chủ">
+      <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
       <span>K-POP STORE</span>
     </a>
-
-    <!-- Thanh tìm kiếm ở đầu trang -->
-    <div class="header-search">
-      <input type="text" id="header-search-input" placeholder="Tìm kiếm album, nghệ sĩ K-Pop..." onkeydown="if(event.key==='Enter') executeSearch()">
-      <button type="button" class="header-search-btn" title="Tìm kiếm" onclick="executeSearch()">🔍</button>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Trang chủ</a></li>
-        <li><a href="products.html" class="active">Sản phẩm</a></li>
-        <li><a href="about.html">Giới thiệu</a></li>
-      </ul>
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html" aria-current="page">Sản phẩm</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
     </nav>
-    <div class="header-icons">
-      <a href="cart.html" class="header-icon-btn" title="Giỏ hàng">
-        🛒
-        <span class="cart-badge" id="header-cart-count">3</span>
+    <div class="header-tools">
+      <div class="search-box">
+        <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+        <button type="button" aria-label="Nút tìm kiếm">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+      <a class="bag" href="cart.html" aria-label="Giỏ hàng">
+        <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
+        <span id="header-cart-count">3</span>
       </a>
-      <a href="login.html" class="header-icon-btn" id="header-user-btn" title="Tài khoản">
-        👤
+      <a class="user-account" href="login.html" aria-label="Tài khoản">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       </a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ===== NỘI DUNG TRANG ===== -->
- <main class="client-main">
-  <div class="container">
-    <div class="product-detail-container">
-      <div class="detail-img-box">
-        <img src="image/arirang.jpg" alt="Tên album" class="detail-img">
+<main class="sec black detail-page">
+  <div class="wrap">
+
+    <!-- Đường dẫn -->
+    <nav class="breadcrumb" aria-label="Đường dẫn">
+      <a href="index.html">Trang chủ</a><span aria-hidden="true">/</span>
+      <a href="products.html">Sản phẩm</a><span aria-hidden="true">/</span>
+      <a href="products.html#cat-album">Album</a><span aria-hidden="true">/</span>
+      <span aria-current="page">RUBY - JENNIE</span>
+    </nav>
+
+    <!-- ===== THÔNG TIN SẢN PHẨM ===== -->
+    <article class="detail-grid">
+
+      <!-- Ảnh sản phẩm: đặt ảnh tại image/ruby.jpg -->
+      <div class="detail-gallery">
+        <div class="media detail-media">
+          <img src="image/ruby.jpg" alt="Album RUBY của JENNIE">
+          <span class="detail-badge">Album phòng thu đầu tay</span>
+        </div>
       </div>
 
       <div class="detail-info">
-        <div class="detail-title"><b>ARIRANG</b></div>
-        <div class="detail-desc"> • Travel Tag CD Box Set: Hộp gồm Jewel Case, đĩa CD, sách ảnh (Booklet), móc khóa dạng thẻ (Chainkey Tag) và poster.<br>
-• Phiên bản Đĩa than (Vinyl): Gồm các bản Modern Korea, Group Red, Deluxe B&W, Deluxe Color, và 7 phiên bản riêng của từng thành viên.</div>
-        <div class="detail-price"><b>3.260.000 ₫</b></div>
-        <div class="rating">★★★★★ (... đánh giá)</div>
+        <div class="detail-artist">JENNIE (BLACKPINK)</div>
+        <h1 class="detail-title">RUBY</h1>
+        <div class="detail-sub">The 1st Studio Album &bull; Phát hành 07/03/2025</div>
+        <div class="detail-rating" aria-label="5 trên 5 sao">&#9733;&#9733;&#9733;&#9733;&#9733; <span>Được K-Fan yêu thích</span></div>
+
+        <div class="detail-price">1.389.000đ</div>
+
+        <p class="detail-desc">
+          Album phòng thu đầu tiên của JENNIE với 15 ca khúc, pha trộn nhiều thể loại và có sự góp mặt của FKJ, Dua Lipa, Doechii, Dominic Fike, Childish Gambino, Kali Uchis. Mọi phiên bản đĩa đều kèm bản <strong>JENNIE Only Audio</strong> (chỉ có giọng JENNIE, không có nghệ sĩ khách mời).
+        </p>
 
         <hr class="detail-divider">
 
-        <div class="option-group">
-          <label>Phân loại</label>
-          <button class="version-btn active">CD BOX SET</button>
-          <button class="version-btn">VINYL</button>
-        </div>
+        <!-- Chọn phiên bản: radio + label, CSS :checked (không cần JavaScript) -->
+        <fieldset class="option-group">
+          <legend>Phiên bản</legend>
+          <div class="version-list">
+            <input type="radio" name="ver" id="ver-zen" class="vh" checked>
+            <label for="ver-zen" class="version-pill">Photobook &ndash; Zen Ver.</label>
+            <input type="radio" name="ver" id="ver-jane" class="vh">
+            <label for="ver-jane" class="version-pill">Photobook &ndash; Jane Ver.</label>
+          </div>
+        </fieldset>
 
         <div class="option-group">
-          <label>Số lượng</label>
-          <div class="quantity-control">
-            <button class="quantity-btn" id="btn-minus">-</button>
-            <input type="number" id="quantity-input" value="1" min="1">
-            <button class="quantity-btn" id="btn-plus">+</button>
+          <label class="option-label" for="qty">Số lượng</label>
+          <input type="number" id="qty" class="qty-input" value="1" min="1" max="99">
+        </div>
+
+        <hr class="detail-divider">
+
+        <div class="detail-actions">
+          <button type="button" class="btn pink btn-add" popovertarget="pop-added">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Thêm vào giỏ hàng
+          </button>
+          <a class="btn outline btn-buy" href="cart.html">Mua ngay</a>
+        </div>
+
+        <ul class="perk-list">
+          <li>Cam kết 100% album chính hãng, tính điểm Hanteo / Circle Chart</li>
+          <li>Được kiểm tra hàng trước khi thanh toán (COD)</li>
+          <li>Hỗ trợ đổi trả miễn phí trong 7 ngày</li>
+        </ul>
+      </div>
+    </article>
+
+   <!-- ===== TAB CHI TIẾT & ĐÁNH GIÁ (BỐ CỤC CHUẨN HIỂN THỊ THÔNG TIN) ===== -->
+    <section class="detail-more" aria-label="Chi tiết sản phẩm">
+      <!-- 1. Bộ Radio chọn Tab (Ẩn bằng CSS) -->
+      <input type="radio" name="tab-switch" id="tab-desc-radio" class="tab-radio" checked>
+      <input type="radio" name="tab-switch" id="tab-review-radio" class="tab-radio">
+
+      <!-- 2. Thanh nút bấm chuyển đổi Tab -->
+      <div class="product-tabs-header">
+        <label for="tab-desc-radio" class="tab-btn">Mô tả</label>
+        <label for="tab-review-radio" class="tab-btn">Nhận xét (2)</label>
+      </div>
+
+      <!-- 3. Nội dung TAB 1: DESCRIPTION (MÔ TẢ CHI TIẾT) -->
+      <div class="tab-content tab-content-desc">
+        
+        <div class="detail-card-body" style="padding: 0;">
+          <h3 style="font-size: 18px; margin: 0 0 14px; color: var(--white);">Nội dung trong bộ</h3>
+          <ul class="content-list" style="margin-bottom: 28px;">
+            <li>1 đĩa CD (kèm bản JENNIE Only Audio)</li>
+            <li>1 Photobook 136 trang</li>
+            <li>1 Ticket &amp; Envelope</li>
+            <li>1 Carousel Card</li>
+            <li>1 Postcard (ngẫu nhiên 1 trong 3 loại)</li>
+            <li>1 Sticker Pack (7 miếng)</li>
+            <li>3 Photocard (ngẫu nhiên 3 trong 7 loại)</li>
+            <li>1 Mini Poster</li>
+          </ul>
+          <p class="note" style="margin-bottom: 28px;">* Nội dung có thể thay đổi nhẹ tùy lô hàng và nhà phân phối. Photocard, postcard được giao ngẫu nhiên.</p>
+        </div>
+
+        <div class="description-images">
+          <img src="image/rubyoverview.jpg" alt="Mô tả sản phẩm" style="width:100%; border-radius:12px; margin-bottom:24px;">
+        </div>
+
+        <div>
+          <h3 style="font-size: 18px; margin: 0 0 14px; color: var(--white);">Danh sách bài hát (15 ca khúc)</h3>
+          <ol class="track-list" style="margin-bottom: 28px;">
+            <li>Intro: JANE (with FKJ)</li>
+            <li>like JENNIE</li>
+            <li>start a war</li>
+            <li>Handlebars (feat. Dua Lipa)</li>
+            <li>with the IE (way up)</li>
+            <li>ExtraL (feat. Doechii)</li>
+            <li>Mantra</li>
+            <li>Love Hangover (feat. Dominic Fike)</li>
+            <li>ZEN</li>
+            <li>Damn Right (feat. Childish Gambino &amp; Kali Uchis)</li>
+            <li>F.T.S.</li>
+            <li>Filter</li>
+            <li>Seoul City</li>
+            <li>Starlight</li>
+            <li>twin</li>
+          </ol>
+
+          <h3 style="font-size: 18px; margin: 0 0 14px; color: var(--white);">Thông tin phát hành &amp; chính sách</h3>
+          <div style="border-top: 1px dashed var(--line); padding-top: 8px;">
+            <div class="kv-row"><span>Nghệ sĩ</span><strong>JENNIE (BLACKPINK)</strong></div>
+            <div class="kv-row"><span>Ngày phát hành</span><strong>07/03/2025</strong></div>
+            <div class="kv-row"><span>Hãng đĩa</span><strong>ODDATELIER / Columbia Records</strong></div>
+            <div class="kv-row"><span>Xuất xứ</span><strong>Nhập khẩu chính hãng từ Hàn Quốc</strong></div>
+            <div class="kv-row"><span>Đổi trả</span><strong>Miễn phí trong 7 ngày</strong></div>
           </div>
         </div>
 
-        <hr class="detail-divider">
-
-        <button class="btn-add-cart">🛒 Thêm vào giỏ hàng</button>
       </div>
-    </div>
+
+      <!-- 4. Nội dung TAB 2: REVIEWS (ĐÁNH GIÁ & BÌNH LUẬN) -->
+      <div class="tab-content tab-content-review">
+        <div class="reviews-wrapper" style="padding: 8px 0;">
+          
+          <!-- Tổng quan đánh giá -->
+          <div class="review-summary" style="display: flex; gap: 40px; align-items: center; margin-bottom: 28px; padding-bottom: 20px; border-bottom: 1px dashed var(--line);">
+            <div style="text-align: center;">
+              <div style="font-size: 48px; font-weight: 800; color: var(--pink); line-height: 1;">5.0</div>
+              <div style="color: #ffc83d; font-size: 18px; margin: 6px 0;">★★★★★</div>
+              <div style="color: var(--muted); font-size: 13px;">Dựa trên 2 đánh giá</div>
+            </div>
+            <div style="flex: 1; color: var(--muted); font-size: 14px; line-height: 1.8;">
+              100% người mua hài lòng về sản phẩm này.<br>
+              Tất cả đánh giá đều đến từ khách hàng đã xác thực mua hàng.
+            </div>
+          </div>
+
+          <!-- Danh sách bình luận -->
+          <div class="review-list" style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px;">
+            
+            <div class="review-item" style="background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <strong style="color: var(--white); font-size: 15px;">Thu Hà <span style="color: #27c4ff; font-size: 12px; font-weight: 400; margin-left: 6px;">✓ Đã mua hàng</span></strong>
+                <span style="color: var(--muted); font-size: 13px;">10/03/2025</span>
+              </div>
+              <div style="color: #ffc83d; font-size: 14px; margin-bottom: 8px;">★★★★★</div>
+              <p style="color: var(--muted); font-size: 14px; margin: 0; line-height: 1.6;">Album đóng gói siêu kỹ luôn, photobook đẹp xỉu! Trúng photocard JENNIE đúng ver mình thích. 100/10 điểm cho shop ạ 🥰</p>
+            </div>
+
+            <div class="review-item" style="background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <strong style="color: var(--white); font-size: 15px;">Nguyễn Ngọc <span style="color: #27c4ff; font-size: 12px; font-weight: 400; margin-left: 6px;">✓ Đã mua hàng</span></strong>
+                <span style="color: var(--muted); font-size: 13px;">08/03/2025</span>
+              </div>
+              <div style="color: #ffc83d; font-size: 14px; margin-bottom: 8px;">★★★★★</div>
+              <p style="color: var(--muted); font-size: 14px; margin: 0; line-height: 1.6;">Hàng nguyên seal chuẩn Hanteo nha mọi người. Đĩa nghe bản Only Audio mượt cực kỳ. Giao hàng SG 1 ngày là tới rồi.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SẢN PHẨM LIÊN QUAN ===== -->
+    <section class="related" aria-labelledby="related-title">
+      <div class="sec-head">
+        <h2 id="related-title">Có thể bạn cũng thích</h2>
+        <a class="btn outline" href="products.html">Xem tất cả</a>
+      </div>
+      <div class="related-grid">
+        <article class="p-card">
+          <a class="card-link" href="product-detail.html" aria-label="Xem chi tiết Album DEADLINE BLACKPINK"><div class="media"><img src="image/deadline.jpg" alt="Album DEADLINE BLACKPINK"></div></a>
+          <h3><a href="product-detail.html">Album DEADLINE BLACKPINK</a></h3>
+          <p class="price">1.129.000đ</p>
+          <a class="add" href="product-detail.html">Xem chi tiết</a>
+        </article>
+        <article class="p-card">
+          <a class="card-link" href="product-detail.html" aria-label="Xem chi tiết Hộp album JISOO"><div class="media"><img src="image/jisooalbumbox.jpg" alt="Hộp album JISOO"></div></a>
+          <h3><a href="product-detail.html">Hộp album JISOO</a></h3>
+          <p class="price">1.500.000đ</p>
+          <a class="add" href="product-detail.html">Xem chi tiết</a>
+        </article>
+        <article class="p-card">
+          <a class="card-link" href="product-detail.html" aria-label="Xem chi tiết Album ARIRANG BTS"><div class="media"><img src="image/arirang.jpg" alt="Album ARIRANG BTS"></div></a>
+          <h3><a href="product-detail.html">Album ARIRANG BTS</a></h3>
+          <p class="price">1.389.000đ</p>
+          <a class="add" href="product-detail.html">Xem chi tiết</a>
+        </article>
+        <article class="p-card">
+          <a class="card-link" href="product-detail.html" aria-label="Xem chi tiết Album 5TH LE SSERAFIM"><div class="media"><img src="image/5th.jpg" alt="Album 5TH LE SSERAFIM"></div></a>
+          <h3><a href="product-detail.html">Album 5TH LE SSERAFIM</a></h3>
+          <p class="price">790.000đ</p>
+          <a class="add" href="product-detail.html">Xem chi tiết</a>
+        </article>
+      </div>
+    </section>
+
   </div>
 </main>
 
-  <!-- ===== FOOTER (copy y nguyên sang mọi trang khách hàng) ===== -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h3>K-POP STORE</h3>
-        <p>Cửa hàng chuyên phân phối album, đĩa than (vinyl) và phụ kiện K-Pop chính hãng 100% nhập khẩu từ Hàn Quốc.</p>
-        <p>Tính điểm trực tiếp vào bảng xếp hạng <strong>Hanteo Chart</strong> & <strong>Circle Chart</strong>.</p>
-        <div class="social-links">
-          <a href="#" class="social-btn" title="Facebook">📘</a>
-          <a href="#" class="social-btn" title="Instagram">📷</a>
-          <a href="#" class="social-btn" title="TikTok">🎵</a>
-          <a href="#" class="social-btn" title="YouTube">▶️</a>
-        </div>
-      </div>
+<!-- ===== THÔNG BÁO ĐÃ THÊM VÀO GIỎ (popover HTML5) ===== -->
+<div class="pop" popover id="pop-added">
+  <p>Đã thêm <strong>Album RUBY - JENNIE</strong> (<span class="pv pv-zen">Photobook Zen Ver.</span><span class="pv pv-jane">Photobook Jane Ver.</span>) vào giỏ hàng thành công!</p>
+  <div class="pop-actions">
+    <a class="btn outline btn-sm" href="products.html">Tiếp tục mua sắm</a>
+    <a class="btn pink btn-sm" href="cart.html">Xem giỏ hàng</a>
+  </div>
+</div>
 
-      <div class="footer-col">
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer" id="lien-he">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>K-POP STORE</h4>
+        <p>Cửa hàng album, lightstick, photocard và phụ kiện K-Pop chính hãng nhập khẩu từ Hàn Quốc.</p>
+      </div>
+      <div>
         <h4>Khám phá</h4>
-        <div class="footer-links">
-          <a href="index.html">Trang chủ</a>
-          <a href="products.html">Tất cả sản phẩm</a>
-          <a href="about.html">Giới thiệu cửa hàng</a>
-          <a href="cart.html">Giỏ hàng</a>
-        </div>
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+        <a href="login.html">Tài khoản</a>
       </div>
-
-      <div class="footer-col">
+      <div id="chinh-sach">
         <h4>Chính sách</h4>
-        <div class="footer-links">
-          <a href="#">Chính sách đổi trả 7 ngày</a>
-          <a href="#">Bảo hiểm vận chuyển album</a>
-          <a href="#">Hướng dẫn thanh toán & ship</a>
-          <a href="#">Bảo mật thông tin</a>
-        </div>
+        <a href="#">Đổi trả 7 ngày</a>
+        <a href="#">Bảo hiểm vận chuyển</a>
+        <a href="#">Hướng dẫn thanh toán &amp; ship</a>
+        <a href="#">Bảo mật thông tin</a>
       </div>
-
-      <div class="footer-col">
-        <h4>Thông tin liên hệ</h4>
-        <p>📍 <strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
-        <p>📞 <strong>Hotline:</strong> 0909 123 456 (9:00 - 21:00)</p>
-        <p>✉️ <strong>Email:</strong> support@kpopstore.vn</p>
-        <p>⏰ <strong>Thời gian:</strong> Thứ 2 - Chủ Nhật (9:00 - 22:00)</p>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>Hotline: 0909 123 456 (9:00 - 21:00)</p>
+        <p>support@kpopstore.vn</p>
       </div>
     </div>
+    <div class="fbottom">&copy; 2026 K-Pop Store</div>
+  </div>
+</footer>
 
-    <div class="footer-bottom">
-      <p>&copy; 2026 K-POP STORE.</p>
-    </div>
-  </footer>
-
-  <script src="js/cart.js"></script>
 </body>
 </html>

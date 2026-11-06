@@ -27,10 +27,10 @@ const LISTS = {
 const vnd = n => n.toLocaleString("vi-VN") + "đ";
 const card = p => `
   <article class="p-card">
-    <div class="media">
-      <img src="${p.image}" alt="${p.name}">
-    </div>
-    <h3>${p.name}</h3>
+    <a href="product-detail.html" style="display:block">
+      <div class="media"><img src="${p.image}" alt="${p.name}"></div>
+    </a>
+    <h3><a href="product-detail.html">${p.name}</a></h3>
     <p class="price">${vnd(p.price)}</p>
     <button class="add" data-id="${p.id}">+ Thêm vào giỏ</button>
   </article>`;
