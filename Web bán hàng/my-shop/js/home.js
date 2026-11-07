@@ -72,41 +72,6 @@ document.addEventListener("click", e => {
   setTimeout(() => { b.textContent = "+ Thêm vào giỏ"; }, 1200);
 });
 
-/* ===== KỊCH BẢN CHẠY BĂNG CHUYỆN HERO (TỰ ĐỘNG ĐẾM ẢNH) ===== */
-document.addEventListener("DOMContentLoaded", () => {
-  const heroTrack = document.querySelector(".hero-track");
-  if (!heroTrack) return;
-  
-  const slides = heroTrack.querySelectorAll(".hero-slide");
-  const totalSlides = slides.length;
-  let currentIndex = 0;
-
-  // Tự động set chiều rộng track theo đúng số lượng slide (Ví dụ: 4 ảnh = 400% chiều rộng)
-  heroTrack.style.width = `${totalSlides * 100}%`;
-  slides.forEach(slide => {
-    slide.style.width = `${100 / totalSlides}%`;
-  });
-  
-  function nextHeroSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    // Dịch chuyển theo phần trăm tương ứng của từng slide
-    const movePercentage = currentIndex * (100 / totalSlides);
-    heroTrack.style.transform = `translateX(-${movePercentage}%)`;
-  }
-
-  // Tự động chuyển ảnh mỗi 3.5 giây
-  let heroTimer = setInterval(nextHeroSlide, 3500);
-
-  // Dừng khi rê chuột vào khung banner, rời chuột thì chạy tiếp
-  const heroBox = document.querySelector(".hero-carousel");
-  if (heroBox) {
-    heroBox.addEventListener("mouseenter", () => clearInterval(heroTimer));
-    heroBox.addEventListener("mouseleave", () => {
-      heroTimer = setInterval(nextHeroSlide, 3500);
-    });
-  }
-});
-
 /* ===== ĐỒNG BỘ ACCORDION, CHUYỂN ẢNH VÀ ĐỔI MÀU NỀN TỰ ĐỘNG ===== */
 function initGroupSlider() {
   const sectionFull = document.querySelector("#group-carousel-wrapper");

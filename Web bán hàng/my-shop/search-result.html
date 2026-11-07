@@ -102,10 +102,10 @@
       
       <div class="filter-toolbar">
         <div class="toolbar-left">
-          <button class="btn-toggle-filter" id="btnOpenFilter">
+          <label for="toggle-filter" class="btn-toggle-filter" id="btnOpenFilter" style="cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
             Bộ lọc
-          </button>
+          </label>
           <span class="product-count-text">3 sản phẩm</span>
         </div>
 
@@ -161,11 +161,13 @@
 </main>
 
 <!-- ===== BẢNG SLIDE FILTER ===== -->
+<input type="checkbox" id="toggle-filter" hidden>
+
 <div class="filter-drawer-overlay" id="filterOverlay"></div>
 <aside class="filter-drawer" id="filterDrawer">
   <div class="drawer-header">
     <h3>Tìm kiếm nâng cao</h3>
-    <button class="btn-close-drawer" id="btnCloseFilter">&times;</button>
+    <label for="toggle-filter" class="btn-close-drawer" id="btnCloseFilter" style="cursor: pointer;">&times;</label>
   </div>
 
   <div class="drawer-body">
@@ -206,27 +208,6 @@
   </div>
 </footer>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const btnOpenFilter = document.getElementById("btnOpenFilter");
-    const btnCloseFilter = document.getElementById("btnCloseFilter");
-    const filterDrawer = document.getElementById("filterDrawer");
-    const filterOverlay = document.getElementById("filterOverlay");
-
-    btnOpenFilter.addEventListener("click", () => {
-      filterDrawer.classList.add("active");
-      filterOverlay.classList.add("active");
-    });
-    btnCloseFilter.addEventListener("click", () => {
-      filterDrawer.classList.remove("active");
-      filterOverlay.classList.remove("active");
-    });
-    filterOverlay.addEventListener("click", () => {
-      filterDrawer.classList.remove("active");
-      filterOverlay.classList.remove("active");
-    });
-  });
-</script>
 <script src="js/home.js"></script>
 </body>
 </html>

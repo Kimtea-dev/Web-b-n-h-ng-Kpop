@@ -375,3 +375,20 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ===== CHECKBOX HACK CHO BỘ LỌC TRƯỢT (0 DÒNG JS) ===== */
+
+/* Khi checkbox #toggle-filter được tích chọn thì trượt bảng lọc ra */
+#toggle-filter:checked ~ .filter-drawer {
+  transform: translateX(0);
+}
+
+#toggle-filter:checked ~ .filter-drawer-overlay {
+  display: block;
+  opacity: 1;
+}
+
+/* Đảm bảo overlay có thể bấm vào để đóng (bằng cách đặt label che nền hoặc dùng chung cơ chế) */
+.filter-drawer-overlay {
+  cursor: pointer;
+}
