@@ -37,5 +37,42 @@ function openOrderModal() {
   document.getElementById('inv-order-address').textContent = addr;
   document.getElementById('inv-order-payment').textContent =
     document.getElementById('pay-online').checked ? 'Trực tuyến (Mã QR / Ví)' : 'Tiền mặt (COD)';
+  sessionStorage.setItem('kpop_is_logged_in', 'true');
+  updateHeaderUserStatus();
   document.getElementById('order-success-modal').style.display = 'flex';
+}
+
+/* ================= ĐỒNG BỘ TRẠNG THÁI USER HEADER TẠI CART ================= */
+function updateHeaderUserStatus() {
+  var isLogged = sessionStorage.getItem('kpop_is_logged_in') === 'true';
+  var userWrapper = document.getElementById('userMenuWrapper') || document.querySelector('.user-menu-wrapper');
+  var nameEl = document.getElementById('headerPopupName');
+  var emailEl = document.getElementById('headerPopupEmail');
+
+  if (userWrapper) {
+    if (isLogged) {
+      userWrapper.classList.add('logged-in');
+      var savedName = sessionStorage.getItem('kpop_user_name') || 'Customer';
+      var savedEmail = sessionStorage.getItem('kpop_user_email') || 'customer@example.com';
+      if (nameEl) nameEl.textContent = savedName;
+      if (emailEl) emailEl.textContent = savedEmail;
+    } else {
+      userWrapper.classList.remove('logged-in');
+    }
+  }
+}
+
+function handleLogout() {
+  sessionStorage.removeItem('kpop_is_logged_in');
+  sessionStorage.removeItem('kpop_user_name');
+  sessionStorage.removeItem('kpop_user_email');
+  updateHeaderUserStatus();
+  alert('Đã đăng xuất tài khoản thành công!');
+  window.location.reload();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', updateHeaderUserStatus);
+} else {
+  updateHeaderUserStatus();
 }

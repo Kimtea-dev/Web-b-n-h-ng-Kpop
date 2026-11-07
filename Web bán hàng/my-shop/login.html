@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/login-extra.css">
 </head>
 <body>
 
@@ -53,9 +54,30 @@
         <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
         <span id="header-cart-count">3</span>
       </a>
-      <a class="user-account" href="login.html" aria-label="Tài khoản">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
+      <!-- Biểu tượng Người dùng kèm Popup Profile khi hover (sau khi đăng nhập) -->
+      <div class="user-menu-wrapper" id="userMenuWrapper">
+        <a class="user-account" href="login.html" aria-label="Tài khoản / Đăng nhập">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+
+        <!-- Popup Menu giống Microsoft style -->
+        <div class="user-profile-popup" id="userProfilePopup">
+          <div class="popup-brand">
+            <span>K-POP STORE</span>
+            <a href="#" onclick="handleLogout(); return false;" class="popup-logout-link">Đăng xuất</a>
+          </div>
+          <div class="popup-user-info">
+            <div class="popup-avatar-slot">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="popup-user-details">
+              <div class="popup-name" id="headerPopupName">Customer</div>
+              <div class="popup-email" id="headerPopupEmail">customer@example.com</div>
+              <a href="login.html" class="popup-link-account">Xem tài khoản</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -153,10 +175,8 @@
             <button type="button" class="sidebar-menu-item active" data-tab="tab-overview" onclick="switchTab('tab-overview', this)"><svg class="ico"><use href="#i-home"/></svg>Tài khoản</button>
             <button type="button" class="sidebar-menu-item" data-tab="tab-profile" onclick="switchTab('tab-profile', this)"><svg class="ico"><use href="#i-user"/></svg>Thông tin của bạn</button>
             <button type="button" class="sidebar-menu-item" data-tab="tab-orders" onclick="switchTab('tab-orders', this)"><svg class="ico"><use href="#i-bag"/></svg>Lịch sử đơn hàng</button>
-            <button type="button" class="sidebar-menu-item" data-tab="tab-address" onclick="switchTab('tab-address', this)"><svg class="ico"><use href="#i-pin"/></svg>Sổ địa chỉ</button>
             <button type="button" class="sidebar-menu-item" data-tab="tab-wishlist" onclick="switchTab('tab-wishlist', this)"><svg class="ico"><use href="#i-heart"/></svg>Danh sách yêu thích</button>
             <button type="button" class="sidebar-menu-item" data-tab="tab-vouchers" onclick="switchTab('tab-vouchers', this)"><svg class="ico"><use href="#i-tag"/></svg>Voucher &amp; điểm</button>
-            <button type="button" class="sidebar-menu-item" data-tab="tab-security" onclick="switchTab('tab-security', this)"><svg class="ico"><use href="#i-shield"/></svg>Bảo mật</button>
             <button type="button" class="sidebar-menu-item logout" onclick="handleLogout()"><svg class="ico"><use href="#i-logout"/></svg>Đăng xuất</button>
           </nav>
         </aside>
@@ -173,7 +193,7 @@
                   <span class="quick-ico"><svg class="ico"><use href="#i-tag"/></svg></span>
                   <span><b>Ví voucher</b><small>3 mã khả dụng</small></span>
                 </button>
-                <button type="button" class="quick" onclick="goTab('tab-security')">
+                <button type="button" class="quick" onclick="goTab('tab-profile','sec-pass')">
                   <span class="quick-ico"><svg class="ico"><use href="#i-key"/></svg></span>
                   <span><b>Đổi mật khẩu</b><small>Bảo mật</small></span>
                 </button>
@@ -221,15 +241,15 @@
                 <svg class="ico ms-chev"><use href="#i-chev"/></svg>
               </button>
               <div class="ms-body">
-                <div class="kv"><span class="k">Email</span><span class="v" id="ov-email">customer@example.com</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-email')">Thay đổi</button></div>
-                <div class="kv"><span class="k">Số điện thoại</span><span class="v" id="ov-phone">0909 456 321</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-phone')">Thay đổi</button></div>
-                <div class="kv"><span class="k">Mật khẩu</span><span class="v">••••••••</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-pass')">Thay đổi</button></div>
+                <div class="kv"><span class="k">Email</span><span class="v" id="ov-email">customer@example.com</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-profile','sec-email')">Thay đổi</button></div>
+                <div class="kv"><span class="k">Số điện thoại</span><span class="v" id="ov-phone">0909 456 321</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-profile','sec-phone')">Thay đổi</button></div>
+                <div class="kv"><span class="k">Mật khẩu</span><span class="v">••••••••</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-profile','sec-pass')">Thay đổi</button></div>
               </div>
             </section>
           </div>
 
           <!-- TAB: THÔNG TIN CÁ NHÂN -->
-          <div id="tab-profile" class="tab-pane">
+<div id="tab-profile" class="tab-pane">
             <div class="page-head"><h1 class="page-title">Thông tin của bạn</h1></div>
 
             <section class="ms-card">
@@ -251,6 +271,7 @@
                 </div>
               </div>
             </section>
+
 
             <section class="ms-card">
               <button type="button" class="ms-head" aria-expanded="true">
@@ -281,34 +302,10 @@
                   <div class="form-msg" id="profile-msg" role="status"></div>
                   <button type="submit" class="btn pink btn-sm">Lưu thay đổi</button>
                 </form>
-                <div style="margin-top:32px;border-top:1px solid var(--line);padding-top:24px;">
-                  <div class="kv"><span class="k">Email</span><span class="v" id="pf-email">customer@example.com</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-email')">Thay đổi</button></div>
-                  <div class="kv"><span class="k">Số điện thoại</span><span class="v" id="pf-phone">0909 456 321</span><button type="button" class="btn outline btn-sm" onclick="goTab('tab-security','sec-phone')">Thay đổi</button></div>
-                </div>
               </div>
             </section>
-          </div>
 
-          <!-- TAB: ĐƠN HÀNG -->
-          <div id="tab-orders" class="tab-pane">
-            <div class="page-head"><h1 class="page-title">Lịch sử đơn hàng</h1></div>
-            <section class="ms-card">
-              <button type="button" class="ms-head" aria-expanded="true">
-                <span class="ms-ico"><svg class="ico"><use href="#i-bag"/></svg></span>
-                <span class="ms-titles"><b>Đơn hàng của bạn</b><span>Lọc theo trạng thái để tìm đơn nhanh hơn</span></span>
-                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
-              </button>
-              <div class="ms-body">
-                <div class="seg-row" id="order-tabs"></div>
-                <div id="order-list"></div>
-              </div>
-            </section>
-          </div>
-
-          <!-- TAB: SỔ ĐỊA CHỈ -->
-          <div id="tab-address" class="tab-pane">
-            <div class="page-head"><h1 class="page-title">Sổ địa chỉ</h1></div>
-
+            <!-- Sổ địa chỉ: nằm chung trang thông tin vì đây đều là thông tin đặt hàng -->
             <section class="ms-card">
               <button type="button" class="ms-head" aria-expanded="true">
                 <span class="ms-ico"><svg class="ico"><use href="#i-pin"/></svg></span>
@@ -339,6 +336,78 @@
                   <div class="form-msg" id="addr-msg" role="alert"></div>
                   <button type="submit" class="btn pink btn-sm" id="addr-submit">Thêm địa chỉ</button>
                 </form>
+              </div>
+            </section>
+
+            <!-- Đăng nhập & bảo mật: đổi email / số điện thoại / mật khẩu ngay tại đây -->
+            <section class="ms-card" id="sec-login">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-shield"/></svg></span>
+                <span class="ms-titles"><b>Đăng nhập &amp; bảo mật</b><span>Bấm “Thay đổi” ở dòng nào thì sửa ngay tại dòng đó</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+
+                <details class="edit-row" id="sec-email">
+                  <summary class="kv"><span class="k">Email</span><span class="v" id="pf-email">customer@example.com</span><span class="btn outline btn-sm"><span class="t-open">Thay đổi</span><span class="t-close">Đóng</span></span></summary>
+                  <div class="edit-body">
+                    <p class="hint-line">Email hiện tại: <strong id="sec-email-now">customer@example.com</strong></p>
+                    <form class="form-narrow" novalidate onsubmit="changeEmail(event)">
+                      <div class="form-group"><label for="em-new">Email mới</label><input type="email" id="em-new" placeholder="ten@example.com"></div>
+                      <div class="form-group"><label for="em-pass">Xác nhận bằng mật khẩu</label><input type="password" id="em-pass" autocomplete="current-password"></div>
+                      <div class="form-msg" id="em-msg" role="alert"></div>
+                      <button type="submit" class="btn pink btn-sm">Cập nhật email</button>
+                    </form>
+                  </div>
+                </details>
+
+                <details class="edit-row" id="sec-phone">
+                  <summary class="kv"><span class="k">Số điện thoại</span><span class="v" id="pf-phone">0909 456 321</span><span class="btn outline btn-sm"><span class="t-open">Thay đổi</span><span class="t-close">Đóng</span></span></summary>
+                  <div class="edit-body">
+                    <p class="hint-line">Số điện thoại hiện tại: <strong id="sec-phone-now">0909 456 321</strong></p>
+                    <form class="form-narrow" novalidate onsubmit="changePhone(event)">
+                      <div class="form-group"><label for="ph-new">Số điện thoại mới</label><input type="tel" id="ph-new" placeholder="0909 123 456"></div>
+                      <div class="form-group"><label for="ph-pass">Xác nhận bằng mật khẩu</label><input type="password" id="ph-pass" autocomplete="current-password"></div>
+                      <div class="form-msg" id="ph-msg" role="alert"></div>
+                      <button type="submit" class="btn pink btn-sm">Cập nhật số điện thoại</button>
+                    </form>
+                  </div>
+                </details>
+
+                <details class="edit-row" id="sec-pass">
+                  <summary class="kv"><span class="k">Mật khẩu</span><span class="v">••••••••</span><span class="btn outline btn-sm"><span class="t-open">Thay đổi</span><span class="t-close">Đóng</span></span></summary>
+                  <div class="edit-body">
+                    <p class="hint-line">Nên dùng mật khẩu dài, khác với các trang khác.</p>
+                    <form class="form-narrow" novalidate onsubmit="changePassword(event)">
+                      <div class="form-group">
+                        <label for="pw-old">Mật khẩu hiện tại</label>
+                        <input type="password" id="pw-old" autocomplete="current-password">
+                        <span class="hint">Bản demo: nhập gì cũng được, thay đổi sẽ không được lưu thật.</span>
+                      </div>
+                      <div class="form-group"><label for="pw-new">Mật khẩu mới</label><input type="password" id="pw-new" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password"></div>
+                      <div class="form-group"><label for="pw-new2">Nhập lại mật khẩu mới</label><input type="password" id="pw-new2" autocomplete="new-password"></div>
+                      <div class="form-msg" id="pw-msg" role="alert"></div>
+                      <button type="submit" class="btn pink btn-sm">Đổi mật khẩu</button>
+                    </form>
+                  </div>
+                </details>
+
+              </div>
+            </section>
+          </div>
+
+          <!-- TAB: ĐƠN HÀNG -->
+          <div id="tab-orders" class="tab-pane">
+            <div class="page-head"><h1 class="page-title">Lịch sử đơn hàng</h1></div>
+            <section class="ms-card">
+              <button type="button" class="ms-head" aria-expanded="true">
+                <span class="ms-ico"><svg class="ico"><use href="#i-bag"/></svg></span>
+                <span class="ms-titles"><b>Đơn hàng của bạn</b><span>Lọc theo trạng thái để tìm đơn nhanh hơn</span></span>
+                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
+              </button>
+              <div class="ms-body">
+                <div class="seg-row" id="order-tabs"></div>
+                <div id="order-list"></div>
               </div>
             </section>
           </div>
@@ -404,64 +473,6 @@
             </section>
           </div>
 
-          <!-- TAB: BẢO MẬT -->
-          <div id="tab-security" class="tab-pane">
-            <div class="page-head"><h1 class="page-title">Bảo mật</h1></div>
-
-            <section class="ms-card" id="sec-pass">
-              <button type="button" class="ms-head" aria-expanded="true">
-                <span class="ms-ico"><svg class="ico"><use href="#i-key"/></svg></span>
-                <span class="ms-titles"><b>Đổi mật khẩu</b><span>Nên dùng mật khẩu dài, khác với các trang khác</span></span>
-                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
-              </button>
-              <div class="ms-body">
-                <form class="form-narrow" novalidate onsubmit="changePassword(event)">
-                  <div class="form-group">
-                    <label for="pw-old">Mật khẩu hiện tại</label>
-                    <input type="password" id="pw-old" autocomplete="current-password">
-                    <span class="hint">Bản demo: nhập gì cũng được, thay đổi sẽ không được lưu thật.</span>
-                  </div>
-                  <div class="form-group"><label for="pw-new">Mật khẩu mới</label><input type="password" id="pw-new" placeholder="Tối thiểu 6 ký tự" autocomplete="new-password"></div>
-                  <div class="form-group"><label for="pw-new2">Nhập lại mật khẩu mới</label><input type="password" id="pw-new2" autocomplete="new-password"></div>
-                  <div class="form-msg" id="pw-msg" role="alert"></div>
-                  <button type="submit" class="btn pink btn-sm">Đổi mật khẩu</button>
-                </form>
-              </div>
-            </section>
-
-            <section class="ms-card" id="sec-email">
-              <button type="button" class="ms-head" aria-expanded="true">
-                <span class="ms-ico"><svg class="ico"><use href="#i-mail"/></svg></span>
-                <span class="ms-titles"><b>Email đăng nhập</b><span id="sec-email-now">customer@example.com</span></span>
-                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
-              </button>
-              <div class="ms-body">
-                <form class="form-narrow" novalidate onsubmit="changeEmail(event)">
-                  <div class="form-group"><label for="em-new">Email mới</label><input type="email" id="em-new" placeholder="ten@example.com"></div>
-                  <div class="form-group"><label for="em-pass">Xác nhận bằng mật khẩu</label><input type="password" id="em-pass" autocomplete="current-password"></div>
-                  <div class="form-msg" id="em-msg" role="alert"></div>
-                  <button type="submit" class="btn pink btn-sm">Cập nhật email</button>
-                </form>
-              </div>
-            </section>
-
-            <section class="ms-card" id="sec-phone">
-              <button type="button" class="ms-head" aria-expanded="true">
-                <span class="ms-ico"><svg class="ico"><use href="#i-phone"/></svg></span>
-                <span class="ms-titles"><b>Số điện thoại</b><span id="sec-phone-now">0909 456 321</span></span>
-                <svg class="ico ms-chev"><use href="#i-chev"/></svg>
-              </button>
-              <div class="ms-body">
-                <form class="form-narrow" novalidate onsubmit="changePhone(event)">
-                  <div class="form-group"><label for="ph-new">Số điện thoại mới</label><input type="tel" id="ph-new" placeholder="0909 123 456"></div>
-                  <div class="form-group"><label for="ph-pass">Xác nhận bằng mật khẩu</label><input type="password" id="ph-pass" autocomplete="current-password"></div>
-                  <div class="form-msg" id="ph-msg" role="alert"></div>
-                  <button type="submit" class="btn pink btn-sm">Cập nhật số điện thoại</button>
-                </form>
-              </div>
-            </section>
-          </div>
-
         </div>
       </div>
     </div>
@@ -470,6 +481,59 @@
 </main>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- ===== MODAL CHI TIẾT ĐƠN HÀNG & HÀNH TRÌNH VẬN CHUYỂN ===== -->
+<div class="order-modal-overlay" id="orderModalOverlay" onclick="closeOrderModal()">
+  <div class="order-modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <h3 id="modalOrderId">Chi tiết đơn hàng #DH-102815</h3>
+        <span class="modal-date" id="modalOrderDate">Đặt ngày 20/10/2026</span>
+      </div>
+      <button type="button" class="btn-close-modal" onclick="closeOrderModal()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- 1. SƠ ĐỒ TIẾN TRÌNH TRẠNG THÁI (STEPPER) -->
+      <div id="modalStepperContainer">
+        <!-- Được JS tự động tạo theo trạng thái đơn hàng -->
+      </div>
+
+      <!-- 2. THÔNG TIN NGƯỜI NHẬN & DỊCH VỤ GIAO HÀNG -->
+      <div class="info-grid-2">
+        <div class="info-box-card">
+          <h4>📍 Thông tin người nhận</h4>
+          <p><strong id="modalCustomerName">Customer</strong> | <span id="modalCustomerPhone">0909 456 321</span></p>
+          <p id="modalCustomerAddr" class="muted-text">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
+        </div>
+        <div class="info-box-card">
+          <h4>🚚 Đơn vị vận chuyển</h4>
+          <p><strong id="modalCarrierName">K-Express Standard (Chuyển phát nhanh)</strong></p>
+          <p class="muted-text">Mã vận đơn: <span id="modalTrackingCode" style="color:var(--pink); font-family:monospace;">KEX-88940219VN</span></p>
+          <p class="muted-text">Thanh toán: <span id="modalPaymentStatus" style="color:#00e676;">Đã thanh toán (Momo / ZaloPay)</span></p>
+        </div>
+      </div>
+
+      <!-- 3. NHẬT KÝ HÀNH TRÌNH VẬN CHUYỂN CHI TIẾT -->
+      <div class="tracking-history-card">
+        <h4 id="modalTrackingTitle">🗺️ Lịch trình vận chuyển chi tiết</h4>
+        <ul class="tracking-list" id="modalTrackingList">
+          <!-- Nhật ký động sẽ được JS sinh vào đây -->
+        </ul>
+      </div>
+
+      <!-- 4. DANH SÁCH SẢN PHẨM TRONG ĐƠN -->
+      <div class="modal-products-card">
+        <h4>🛒 Sản phẩm trong đơn</h4>
+        <div id="modalProductList"></div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn outline btn-sm" onclick="closeOrderModal()">Đóng</button>
+    </div>
+  </div>
+</div>
 
 <!-- ===== FOOTER CHUNG ===== -->
 <footer class="site-footer" id="lien-he">
@@ -484,6 +548,7 @@
         <a href="index.html">Trang chủ</a>
         <a href="products.html">Sản phẩm</a>
         <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
         <a href="login.html">Tài khoản</a>
       </div>
       <div>

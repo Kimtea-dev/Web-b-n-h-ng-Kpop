@@ -18,7 +18,7 @@
       <span>K-POP STORE</span>
     </a>
     <nav aria-label="Menu chính">
-      <a href="index.html">Trang chủ</a>
+      <a href="index.html" aria-current="page">Trang chủ</a>
       <a href="products.html">Sản phẩm</a>
       <a href="about.html">Giới thiệu</a>
       <a href="contact.html">Liên hệ</a>
@@ -36,15 +36,144 @@
         <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
         <span id="header-cart-count">3</span>
       </a>
-      <a class="user-account" href="login.html" aria-label="Tài khoản">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
+
+      <!-- Biểu tượng Người dùng kèm Popup Profile khi hover (sau khi đăng nhập) -->
+      <div class="user-menu-wrapper" id="userMenuWrapper">
+        <a class="user-account" href="login.html" aria-label="Tài khoản / Đăng nhập">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+
+        <!-- Popup Menu giống Microsoft style -->
+        <div class="user-profile-popup" id="userProfilePopup">
+          <div class="popup-brand">
+            <span>K-POP STORE</span>
+            <a href="#" onclick="handleLogout(); return false;" class="popup-logout-link">Đăng xuất</a>
+          </div>
+          <div class="popup-user-info">
+            <div class="popup-avatar-slot">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="popup-user-details">
+              <div class="popup-name" id="headerPopupName">Customer</div>
+              <div class="popup-email" id="headerPopupEmail">customer@example.com</div>
+              <a href="login.html" class="popup-link-account">Xem tài khoản</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </header>
 
 <main>
-  <!-- ===== 1. BĂNG CHUYỀN NHÓM NHẠC (ACCORDION + ẢNH ĐỒNG BỘ) ===== -->
+  <section class="sec-full-hero">
+    <div class="full-hero-slider" id="fullHeroSlider">
+      
+      <div class="full-hero-track" id="fullHeroTrack">
+        <!-- Slide 1 -->
+        <div class="full-hero-slide">
+          <img src="image/1.png" alt="Banner 1">
+          <div class="full-hero-caption">
+            <h2>CORTIS "COLOR OUTSIDE" COMEBACK</h2>
+            <p>Khám phá bộ sưu tập độc quyền phiên bản giới hạn chính hãng.</p>
+            <a class="btn pink" href="products.html">MUA NGAY</a>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="full-hero-slide">
+          <img src="image/2.png" alt="Banner 2">
+          <div class="full-hero-caption">
+            <h2>BTS ARIRANG MERCH BOX</h2>
+            <p>Trọn bộ quà tặng và phụ kiện độc quyền cho Fandom.</p>
+            <a class="btn pink" href="products.html">XEM CHI TIẾT</a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="full-hero-slide">
+          <img src="image/3.png" alt="Banner 3">
+          <div class="full-hero-caption">
+            <h2>JISOO ALBUM & MERCH</h2>
+            <p>Sản phẩm chính hãng nhập khẩu trực tiếp từ Hàn Quốc.</p>
+            <a class="btn pink" href="products.html">KHÁM PHÁ</a>
+          </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="full-hero-slide">
+          <img src="image/4.png" alt="Banner 4">
+          <div class="full-hero-caption">
+            <h2>NEWJEANS EXCLUSIVE COMEBACK</h2>
+            <p>Bộ sưu tập đĩa đơn, photobook và phụ kiện mới nhất.</p>
+            <a class="btn pink" href="products.html">XEM NGAY</a>
+          </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="full-hero-slide">
+          <img src="image/5.png" alt="Banner 5">
+          <div class="full-hero-caption">
+            <h2>OFFICIAL LIGHTSTICK & ALBUMS</h2>
+            <p>Phụ kiện concert chính hãng – Đồng hành cùng idol mọi khoảnh khắc.</p>
+            <a class="btn pink" href="products.html">MUA NGAY</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- MÃ NÚT MŨI TÊN VÀ CHẤM TRÒN PHẢI NẰM Ở ĐÂY (BÊN TRONG SLIDER) -->
+      <button class="hero-arrow prev" onclick="moveFullSlide(-1)">&#10094;</button>
+      <button class="hero-arrow next" onclick="moveFullSlide(1)">&#10095;</button>
+
+      <div class="full-hero-dots" id="fullHeroDots">
+        <span class="dot active" onclick="goFullSlide(0)"></span>
+        <span class="dot" onclick="goFullSlide(1)"></span>
+        <span class="dot" onclick="goFullSlide(2)"></span>
+        <span class="dot" onclick="goFullSlide(3)"></span>
+        <span class="dot" onclick="goFullSlide(4)"></span>
+      </div>
+
+    </div> <!-- Đóng thẻ div id="fullHeroSlider" ở đây -->
+  </section>
+
+  <!-- ===== 1. SẢN PHẨM NỔI BẬT (carousel, JS đổ sản phẩm vào #track) ===== -->
+  <section class="sec panel" id="noi-bat">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Sản phẩm nổi bật</h2>
+        <a class="btn outline" href="products.html">Xem tất cả</a>
+      </div>
+      <div class="carousel" data-list="featured" data-interval="3000">
+        <button class="arrow prev" aria-label="Sản phẩm trước">&#10094;</button>
+        <div class="track"></div>
+        <button class="arrow next" aria-label="Sản phẩm sau">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. MUA THEO DANH MỤC ===== -->
+  <section class="sec black" id="danh-muc">
+    <div class="wrap">
+      <h2 class="center">Mua theo danh mục</h2>
+      <div class="cats">
+        <a class="cat" href="products.html?cat=album">
+          <div class="media"><img src="image/album.jpg" alt="Album"></div><h3>Album</h3><span class="link">Mua ngay</span>
+        </a>
+        <a class="cat" href="products.html?cat=lightstick">
+          <div class="media"><img src="image/lightstick.jpg" alt="Lightstick"></div><h3>Lightstick</h3><span class="link">Mua ngay</span>
+        </a>
+        <a class="cat" href="products.html?cat=photocard">
+          <div class="media"><img src="image/photocard.jpg" alt="Photocard"></div><h3>Photocard</h3><span class="link">Mua ngay</span>
+        </a>
+        <a class="cat" href="products.html?cat=apparel">
+          <div class="media"><img src="image/ao-phukien-kpop.jpg" alt="Áo phụ kiện"></div><h3>Áo &amp; phụ kiện</h3><span class="link">Mua ngay</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 3. BĂNG CHUYỀN NHÓM NHẠC (ACCORDION + ẢNH ĐỒNG BỘ) - ĐÃ DỜI VO ĐÂY ===== -->
   <section class="sec black" id="group-carousel-wrapper">
     <div class="wrap">
       <div class="group-carousel-wrapper" id="groupSlider">
@@ -101,48 +230,12 @@
         </div>
 
         <div class="image-preview-container">
-  <img src="image/blackpink.jpg" class="active" alt="BLACKPINK" data-bg="#5D6578">
-  <img src="image/illit.jpg" alt="ILLIT" data-bg="#cff3f2">
-  <img src="image/Newjeans.jpg" alt="NEWJEANS" data-bg="#f4f1cb">
-  <img src="image/babymonster.jpg" alt="BABYMONSTER" data-bg="#506b86">
-</div>
+          <img src="image/blackpink.jpg" class="active" alt="BLACKPINK" data-bg="#5D6578">
+          <img src="image/illit.jpg" alt="ILLIT" data-bg="#cff3f2">
+          <img src="image/Newjeans.jpg" alt="NEWJEANS" data-bg="#f4f1cb">
+          <img src="image/babymonster.jpg" alt="BABYMONSTER" data-bg="#506b86">
+        </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 2. SẢN PHẨM NỔI BẬT (carousel, JS đổ sản phẩm vào #track) ===== -->
-  <section class="sec panel" id="noi-bat">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Sản phẩm nổi bật</h2>
-        <a class="btn outline" href="products.html">Xem tất cả</a>
-      </div>
-      <div class="carousel" data-list="featured" data-interval="3000">
-        <button class="arrow prev" aria-label="Sản phẩm trước">&#10094;</button>
-        <div class="track"></div>
-        <button class="arrow next" aria-label="Sản phẩm sau">&#10095;</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 3. MUA THEO DANH MỤC ===== -->
-  <section class="sec black" id="danh-muc">
-    <div class="wrap">
-      <h2 class="center">Mua theo danh mục</h2>
-      <div class="cats">
-        <a class="cat" href="products.html?cat=album">
-          <div class="media"><img src="image/album.jpg" alt="Album"></div><h3>Album</h3><span class="link">Mua ngay</span>
-        </a>
-        <a class="cat" href="products.html?cat=lightstick">
-          <div class="media"><img src="image/lightstick.jpg" alt="Lightstick"></div><h3>Lightstick</h3><span class="link">Mua ngay</span>
-        </a>
-        <a class="cat" href="products.html?cat=photocard">
-          <div class="media"><img src="image/photocard.jpg" alt="Photocard"></div><h3>Photocard</h3><span class="link">Mua ngay</span>
-        </a>
-        <a class="cat" href="products.html?cat=apparel">
-          <div class="media"><img src="image/ao-phukien-kpop.jpg" alt="Áo phụ kiện"></div><h3>Áo &amp; phụ kiện</h3><span class="link">Mua ngay</span>
-        </a>
       </div>
     </div>
   </section>
@@ -162,7 +255,7 @@
     </div>
   </section>
 
-  <!-- ===== 4. BANNER ĐỢT PHÁT HÀNH ===== -->
+  <!-- ===== 5. BANNER ĐỢT PHÁT HÀNH ===== -->
   <section class="sec black" id="dot-moi">
     <div class="wrap">
       <div class="drop">
@@ -176,7 +269,7 @@
     </div>
   </section>
 
-  <!-- ===== 5. GIỚI THIỆU ===== -->
+  <!-- ===== 6. GIỚI THIỆU ===== -->
   <section class="sec black about" id="gioi-thieu">
     <div class="wrap narrow">
       <h2 class="center">Đam mê K-Pop</h2>
@@ -185,7 +278,7 @@
     </div>
   </section>
 
-  <!-- ===== 6. FAN NÓI GÌ ===== -->
+  <!-- ===== 7. FAN NÓI GÌ ===== -->
   <section class="sec black" id="fan">
     <div class="wrap">
       <h2 class="center">Tình yêu từ fan</h2>

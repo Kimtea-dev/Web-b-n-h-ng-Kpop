@@ -36,9 +36,30 @@
         <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
         <span id="header-cart-count">3</span>
       </a>
-      <a class="user-account" href="login.html" aria-label="Tài khoản">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
+      <!-- Biểu tượng Người dùng kèm Popup Profile khi hover (sau khi đăng nhập) -->
+      <div class="user-menu-wrapper" id="userMenuWrapper">
+        <a class="user-account" href="login.html" aria-label="Tài khoản / Đăng nhập">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+
+        <!-- Popup Menu giống Microsoft style -->
+        <div class="user-profile-popup" id="userProfilePopup">
+          <div class="popup-brand">
+            <span>K-POP STORE</span>
+            <a href="#" onclick="handleLogout(); return false;" class="popup-logout-link">Đăng xuất</a>
+          </div>
+          <div class="popup-user-info">
+            <div class="popup-avatar-slot">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="popup-user-details">
+              <div class="popup-name" id="headerPopupName">Customer</div>
+              <div class="popup-email" id="headerPopupEmail">customer@example.com</div>
+              <a href="login.html" class="popup-link-account">Xem tài khoản</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -303,5 +324,6 @@
   </div>
 </footer>
 
+<script src="js/home.js"></script>
 </body>
 </html>
