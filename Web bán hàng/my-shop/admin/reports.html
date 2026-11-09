@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Báo cáo - Admin</title>
+    <title>K-POP STORE - ADMIN</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/admin-forms.css">
@@ -66,13 +66,12 @@
                     </div>
                 </div>
                 <div class="header-btn">
-                    <button type="button" class="filter-btn">Áp dụng lọc <i
- class="bi bi-arrow-up-right"></i></button>
+                    <button type="button" class="filter-btn">Áp dụng lọc <i class="bi bi-arrow-up-right"></i></button>
                     <button type="button" class="download-btn">Xuất CSV <i class="bi bi-download"></i></button>
                 </div>
             </div>
 
-            <div class="overview dashboard-overview">
+            <div class="overview dashboard-overview overview-metric-cards">
                 <div class="overview-box">
                     <p class="overview-title">Tổng doanh thu</p>
                     <p class="overview-data">48.650.000đ</p>
@@ -98,7 +97,7 @@
             <section class="top-customer-report">
                 <div class="card-header">
                     <h3>Top 5 khách hàng mua nhiều nhất</h3>
-                    <p class="subtitle">Số liệu minh họa tĩnh; cần cơ sở dữ liệu để tính theo khoảng thời gian.</p>
+                    <p class="subtitle"></p>
                 </div>
                 <div class="report-date-range">
                     <div class="form-group">
@@ -109,7 +108,7 @@
                         <label for="topCustomerTo">Đến ngày</label>
                         <input id="topCustomerTo" type="date">
                     </div>
-                    <button type="button" class="btn btn-primary">Thống kê</button>
+                    <button type="button" class="btn-apply">Thống kê</button>
                 </div>
                 <table class="data-table">
                     <thead>
@@ -124,44 +123,44 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td><img src="../image/Top-1.jpg" class="img_Top"></td>
                             <td>Quỳnh Trang</td>
                             <td>123456789</td>
                             <td>8</td>
                             <td>5.600.000đ</td>
-                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
+                            <td><a href="detail-order.html" class="btn-see">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
-                            <td>2</td>
+                            <td><img src="../image/Top-2.jpg" class="img_Top_2"></td>
                             <td>Hoài Như</td>
                             <td>0901234567</td>
                             <td>2</td>
                             <td>4.460.000đ</td>
-                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
+                            <td><a href="detail-order.html" class="btn-see">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
-                            <td>3</td>
+                            <td><img src="../image/Top-3.jpg" class="img_Top_3"></td>
                             <td>Linh Chi</td>
                             <td>234567890</td>
                             <td>3</td>
                             <td>2.640.000đ</td>
-                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
+                            <td><a href="detail-order.html" class="btn-see">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
-                            <td>4</td>
+                            <td><p style="font-size: 17px;"><b>4</b></p></td>
                             <td>Thủy Tiên</td>
                             <td>098765432</td>
                             <td>2</td>
                             <td>1.850.000đ</td>
-                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
+                            <td><a href="detail-order.html" class="btn-see">Xem đơn hàng</a></td>
                         </tr>
                         <tr>
-                            <td>5</td>
+                            <td><p style="font-size: 17px;"><b>5</b></p></td>
                             <td>Thảo Trần</td>
                             <td>999999999</td>
                             <td>1</td>
                             <td>1.200.000đ</td>
-                            <td><a href="detail-order.html" class="btn">Xem đơn hàng</a></td>
+                            <td><a href="detail-order.html" class="btn-see">Xem đơn hàng</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -171,7 +170,7 @@
                 <div class="column-chart">
                     <div class="column-header-flex">
                         <div>
-                            <p class="column-title">Doanh thu bán hàng</p>
+                            <h3>Doanh thu bán hàng</h3>
                             <p class="column-subtitle">Biến động doanh thu trong 7 ngày gần nhất</p>
                         </div>
                         <select id="chart-metric-select" class="dropdown">
@@ -188,7 +187,7 @@
                 <div class="pie-chart">
                     <div class="pie-header-flex">
                         <div>
-                            <p class="pie-title">Trạng thái đơn hàng</p>
+                            <h3>Trạng thái đơn hàng</h3>
                             <p class="pie-subtitle">Tỷ lệ đơn hàng theo trạng thái</p>
                         </div>
                     </div>

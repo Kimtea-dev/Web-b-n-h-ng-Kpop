@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Người dùng - Admin</title>
+  <title>K-POP STORE - ADMIN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
@@ -46,24 +46,27 @@
     </div>
 
     <div class="toolbar-card">
-      <div class="search-box">
-        <input type="search" placeholder="Tìm tên hoặc email người dùng...">
+      <div class="product-search">
+        <div class="search-box">
+          <input type="search" placeholder="Tìm tên, email người dùng..." aria-label="Tìm tên, email...">
+        </div>
+        <button type="button" class="product-search-button">Tìm kiếm</button>
       </div>
-      <button type="button" class="btn btn-primary" data-open="addUserModal">+ Thêm người dùng</button>
+      <button type="button" class="btn-create-primary" data-open="addUserModal">+ Thêm người dùng</button>
     </div>
 
-    <div class="stats-grid-3">
+    <div class="stats-grid-3 user-summary-stats">
       <div class="stat-card">
-        <div class="label">Tổng người dùng</div>
-        <div class="value">1.248</div>
+        <div class="overview-title">Tổng người dùng</div>
+        <div class="overview-data">1.248</div>
       </div>
       <div class="stat-card">
-        <div class="label">Đang hoạt động</div>
-        <div class="value">1.231</div>
+        <div class="overview-title">Đang hoạt động</div>
+        <div class="overview-data">1.231</div>
       </div>
       <div class="stat-card">
-        <div class="label">Đã khóa</div>
-        <div class="value">17</div>
+        <div class="overview-title">Đã khóa</div>
+        <div class="overview-data">17</div>
       </div>
     </div>
 
@@ -72,7 +75,7 @@
         <h3>Danh sách tài khoản</h3>
         <p class="subtitle">Thông tin, quyền truy cập và trạng thái tài khoản</p>
       </div>
-      <table class="data-table">
+      <table class="data-table users-table">
         <thead>
           <tr>
             <th>Mã user</th>
@@ -86,7 +89,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>US001</td>
+            <td><b>US001</b></td>
             <td>Nguyễn Minh Anh</td>
             <td>minhanh@example.com</td>
             <td>0901234567</td>
@@ -95,7 +98,7 @@
             <td><button type="button" class="btn" data-open="editUserModalUS001">Sửa</button><button type="button" class="btn btn-danger">Khóa</button></td>
           </tr>
           <tr>
-            <td>US002</td>
+            <td><b>US002</b></td>
             <td>Trần Hoàng Nam</td>
             <td>hoangnam@example.com</td>
             <td>0912345678</td>
@@ -104,7 +107,7 @@
             <td><button type="button" class="btn" data-open="editUserModalUS002">Sửa</button><button type="button" class="btn btn-primary">Mở khóa</button></td>
           </tr>
           <tr>
-            <td>US003</td>
+            <td><b>US003</b></td>
             <td>Lê Thu Hà</td>
             <td>thuha@example.com</td>
             <td>0987654321</td>
@@ -115,10 +118,10 @@
         </tbody>
       </table>
       <div class="pagination">
-        <button class="btn">&laquo; Trang trước</button>
-        <button class="btn btn-primary">1</button>
-        <button class="btn">2</button>
-        <button class="btn">Trang sau &raquo;</button>
+        <a href="users.html" class="btn">&laquo; Trang trước</a>
+        <a href="users.html" class="btn btn-primary">1</a>
+        <a href="users.html" class="btn">2</a>
+        <a href="users.html" class="btn">Trang sau &raquo;</a>
       </div>
     </div>
 
@@ -144,7 +147,7 @@
             </select>
           </div>
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary">Tạo tài khoản</button></div>
+        <div class="form-actions"><button type="button" class="btn-apply-primary">Tạo tài khoản</button></div>
       </form>
     </div>
   </div>
@@ -177,7 +180,7 @@
           </div>
         </div>
         <div class="form-actions">
-          <button type="button" class="btn btn-primary" data-notification="Lưu thay đổi thành công">Lưu thay đổi</button>
+          <button type="button" class="btn-apply-primary" data-notification="Lưu thay đổi thành công">Lưu thay đổi</button>
         </div>
       </form>
     </div>

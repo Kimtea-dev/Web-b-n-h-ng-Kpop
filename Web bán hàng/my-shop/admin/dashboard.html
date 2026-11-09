@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Admin</title>
+    <title>K-POP STORE - ADMIN</title>
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/admin.css">
     <link rel="stylesheet" href="../css/admin-forms.css">
@@ -46,13 +46,13 @@
                         <small>Quản trị viên</small>
                     </div>
                     <div class="admin-auth-actions">
-                        <a href="index.html">Đăng nhập</a>
-                        <button type="button" onclick="window.location.href='index.html'">Đăng xuất</button>
+                        <a href="index.html" class="btn-inout">Đăng nhập</a>
+                        <button type="button" onclick="window.location.href='index.html'" class="btn-inout">Đăng xuất</button>
                     </div>
                 </div>
             </div>
 
-            <div class="overview dashboard-overview">
+            <div class="overview dashboard-overview overview-metric-cards">
                 <div class="overview-box">
                     <p class="overview-title">Tổng doanh thu</p>
                     <p class="overview-data">48.650.000đ</p>
@@ -69,7 +69,7 @@
                     <p class="overview-subtitle"><span class="highlight-increase">↑ 6,5%</span> khách hàng đã mua</p>
                 </div>
                 <div class="overview-box">
-                    <p class="overview-title">sản phẩm</p>
+                    <p class="overview-title">Sản phẩm</p>
                     <p class="overview-data">478</p>
                     <p class="overview-subtitle"><span class="highlight-descrease">155</span> sản phẩm sắp hết hàng</p>
                 </div>
@@ -78,19 +78,19 @@
             <div class="other-option">
                 <a href="products.html" class="product-btn">
                     <div class="product-btn-information">
-                        <p class="option-title">Quản lý sản phẩm</p>
+                        <p class="option-title" style="color: #4F46E5;">Quản lý sản phẩm</p>
                         <p class="option-subtitle">Xem và cập nhật kho hàng</p>
                     </div>
                 </a>
                 <a href="orders.html" class="order-btn">
                     <div class="order-btn-information">
-                        <p class="option-title">Quản lý đơn hàng</p>
+                        <p class="option-title" style="color: #4F46E5;">Quản lý đơn hàng</p>
                         <p class="option-subtitle">Theo dõi đơn mới và trạng thái</p>
                     </div>
                 </a>
                 <a href="reports.html" class="report-btn">
                     <div class="report-btn-information">
-                        <p class="option-title">Xem báo cáo</p>
+                        <p class="option-title" style="color: #4F46E5;">Xem báo cáo</p>
                         <p class="option-subtitle">Phân tích doanh thu và lợi nhuận</p>
                     </div>
                 </a>
@@ -99,12 +99,25 @@
             <div class="recent-order card">
                 <div class="order-status-information">
                     <div class="order-header">
-                        <p>Đơn hàng gần đây</p>
+                        <h3>Doanh thu</h3>
                     </div>
-                    <a href="orders.html" class="all-order-btn">Xem tất cả &rarr;</a>
+                    <a href="reports.html" class="all-btn">Xem tất cả &rarr;</a>
                 </div>
 
-                <table class="data-table">
+                <div class="sales-chart">
+                    <img src="../image/Sales-chart.png">
+                </div>
+            </div>
+
+            <div class="recent-order card dashboard-recent-orders">
+                <div class="order-status-information">
+                    <div class="order-header">
+                        <h3>Đơn hàng gần đây</h3>
+                    </div>
+                    <a href="orders.html" class="all-btn">Xem tất cả &rarr;</a>
+                </div>
+
+                <table class="data-table ">
                     <thead>
                         <tr>
                             <th>Mã đơn</th>
@@ -151,9 +164,8 @@
                     </tbody>
                 </table>
             </div>
-        </main>
-    </div>
 
+    <script src="../js/modal.js"></script>
     <script src="../js/admin-notifications.js"></script>
 </body>
 

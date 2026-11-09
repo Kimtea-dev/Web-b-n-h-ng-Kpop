@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sản phẩm - Admin</title>
+  <title>K-POP STORE - ADMIN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
@@ -51,26 +51,31 @@
     </div>
     <!-- ===== TOOLBAR ===== -->
     <div class="toolbar-card">
-      <div class="search-box">
-        <input type="text" placeholder="Tìm tên sản phẩm...">
+      <div class="product-search">
+        <div class="search-box">
+          <input type="search" placeholder="Tìm tên sản phẩm..." aria-label="Tìm tên sản phẩm">
+        </div>
+        <button type="button" class="product-search-button">Tìm kiếm</button>
       </div>
-      <button class="btn btn-primary" data-open="addProductModal">+ Thêm sản phẩm</button>
+      <button class="btn-create-primary" data-open="addProductModal">+ Thêm sản phẩm</button>
     </div>
+
     <!-- ===== 3 THẺ TỒN KHO ===== -->
-    <div class="stats-grid-3">
+    <div class="stats-grid-3 inventory-stock-stats">
       <div class="stat-card">
-        <div class="label">Còn hàng</div>
-        <div class="value">128</div>
+        <div class="overview-title">Còn hàng</div>
+        <div class="overview-data">128</div>
       </div>
       <div class="stat-card">
-        <div class="label">Sắp hết hàng</div>
-        <div class="value">155</div>
+        <div class="overview-title">Sắp hết hàng</div>
+        <div class="overview-data">155</div>
       </div>
       <div class="stat-card">
-        <div class="label">Hết hàng</div>
-        <div class="value">195</div>
+        <div class="overview-title">Hết hàng</div>
+        <div class="overview-data">195</div>
       </div>
     </div>
+
     <!-- ===== DANH SÁCH SẢN PHẨM ===== -->
     <div class="card">
       <div class="card-header">
@@ -78,7 +83,7 @@
         <p class="subtitle">Thông tin, giá bán và số lượng tồn kho</p>
       </div>
 
-      <table class="data-table">
+      <table class="data-table product-list-table">
         <thead>
           <tr>
             <th>Mã SP</th>
@@ -93,7 +98,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>#SP001</td>
+            <td><b>#SP001</b></td>
             <td>
               <img class="table-thumb" src="../image/green.jpg" alt="CORTIS GREEN GREEN STANDARD">
             </td>
@@ -108,7 +113,7 @@
             </td>
           </tr>
           <tr>
-            <td>#SP002</td>
+            <td><b>#SP002</b></td>
             <td>
               <img class="table-thumb" src="../image/EP.jpg" alt="NEWJEANS EP STANDARD">
             </td>
@@ -123,7 +128,7 @@
             </td>
           </tr>
           <tr>
-            <td>#SP003</td>
+            <td><b>#SP003</b></td>
             <td>
               <img class="table-thumb" src="../image/deadline.jpg" alt="BLACKPINK DEADLINE STANDARD">
             </td>
@@ -142,13 +147,13 @@
 
       <!-- Phân trang -->
       <div class="pagination">
-        <button class="btn">&laquo; Trang trước</button>
-        <button class="btn btn-primary">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
+        <a href="products.html" class="btn">&laquo; Trang trước</a>
+        <a href="products.html" class="btn btn-primary">1</a>
+        <a href="products.html" class="btn">2</a>
+        <a href="products.html" class="btn">3</a>
         <span>...</span>
-        <button class="btn">5</button>
-        <button class="btn">Trang sau &raquo;</button>
+        <a href="products.html" class="btn">5</a>
+        <a href="products.html" class="btn">Trang sau &raquo;</a>
       </div>
     </div>
 
@@ -199,7 +204,7 @@
         </div>
 
         <div class="form-actions">
-          <button type="button" class="btn btn-primary">Lưu thông tin </button>
+          <button type="button" class="btn-apply-primary">Lưu thông tin </button>
         </div>
       </form>
     </div>
@@ -227,7 +232,7 @@
           <label for="editImage1">Thay ảnh sản phẩm</label>
           <input id="editImage1" type="file" accept="image/*">
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary">Lưu thay đổi </button></div>
+        <div class="form-actions"><button type="button" class="btn-apply-primary">Lưu thay đổi </button></div>
       </form>
     </div>
   </div>
@@ -254,7 +259,7 @@
           <label for="editImage2">Thay ảnh sản phẩm</label>
           <input id="editImage2" type="file" accept="image/*">
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary">Lưu thay đổi </button></div>
+        <div class="form-actions"><button type="button" class="btn-apply-primary">Lưu thay đổi </button></div>
       </form>
     </div>
   </div>
@@ -281,7 +286,7 @@
           <label for="editImage3">Thay ảnh sản phẩm</label>
           <input id="editImage3" type="file" accept="image/*">
         </div>
-        <div class="form-actions"><button type="button" class="btn btn-primary">Lưu thay đổi </button></div>
+        <div class="form-actions"><button type="button" class="btn-apply-primary">Lưu thay đổi </button></div>
       </form>
     </div>
   </div>
@@ -292,9 +297,9 @@
       <h3>Xác nhận xóa sản phẩm</h3>
       <p>Chọn cách xử lý sản phẩm chưa phát sinh đơn hàng.</p>
       <div class="form-actions">
-        <button type="button" class="btn" data-close data-notification="Đã hủy thao tác">Hủy</button>
-        <button type="button" class="btn btn-primary" data-close data-notification="Đã ẩn sản phẩm khỏi cửa hàng">Ẩn sản phẩm</button>
-        <button type="button" class="btn btn-danger" data-close data-notification="Đã xóa sản phẩm">Xác nhận xóa</button>
+        <button type="button" class="btn-cancel" data-close data-notification="Đã hủy thao tác">Hủy</button>
+        <button type="button" class="btn-hide" data-close data-notification="Đã ẩn sản phẩm khỏi cửa hàng">Ẩn sản phẩm</button>
+        <button type="button" class="btn-delete" data-close data-notification="Đã xóa sản phẩm">Xác nhận xóa</button>
       </div>
     </div>
   </div>
@@ -305,9 +310,9 @@
       <h3>Ẩn sản phẩm khỏi cửa hàng?</h3>
       <p>Sản phẩm đã phát sinh đơn hàng. Hãy ẩn sản phẩm để giữ nguyên lịch sử giao dịch.</p>
       <div class="form-actions">
-        <button type="button" class="btn" data-close data-notification="Đã hủy thao tác">Hủy</button>
-        <button type="button" class="btn btn-primary" data-close data-notification="Đã ẩn sản phẩm khỏi cửa hàng">Ẩn sản phẩm</button>
-        <button type="button" class="btn btn-danger" data-close data-notification="Sản phẩm đã có đơn hàng, không thể xóa">Xóa sản phẩm</button>
+        <button type="button" class="btn-cancel" data-close data-notification="Đã hủy thao tác">Hủy</button>
+        <button type="button" class="btn-hide" data-close data-notification="Đã ẩn sản phẩm khỏi cửa hàng">Ẩn sản phẩm</button>
+        <button type="button" class="btn-delete" data-close data-notification="Sản phẩm đã có đơn hàng, không thể xóa">Xóa sản phẩm</button>
       </div>
     </div>
   </div>

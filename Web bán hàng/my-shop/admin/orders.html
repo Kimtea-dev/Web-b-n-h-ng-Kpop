@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đơn hàng - Admin</title>
+  <title>K-POP STORE - ADMIN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
@@ -47,24 +47,14 @@
       </div>
     </div>
 
-    <!-- Ghi chú orders cũ (được giữ lại nhưng không hiển thị trên giao diện):
-    <div class="todo-box">
-      <strong>Đơn hàng</strong> &mdash; phần của <strong>N4</strong>. Xóa khung này khi làm xong.
-      <ul>
-        <li>Toolbar: ô tìm đơn hàng + nút '+ Tạo đơn hàng'</li>
-        <li>4 thẻ: Tổng đơn hàng, Hoàn thành, Đang xử lý, Đã hủy</li>
-        <li>Bảng 6 cột: Mã đơn, Khách hàng, Ngày đặt, Sản phẩm, Tổng tiền, Trạng thái (dùng .badge-success/warning/danger/info)</li>
-        <li>Modal 'Tạo đơn hàng': Tên khách, Tên sản phẩm, Số lượng, Trạng thái (select), nút 'Lưu thông tin'</li>
-      </ul>
-      <button class="btn btn-primary" data-open="addOrderModal">+ Tạo đơn hàng</button>
-    </div>
-    -->
-
     <div class="toolbar-card">
-      <div class="search-box">
-        <input type="text" placeholder="Tìm mã đơn, khách hàng...">
+      <div class="product-search">
+        <div class="search-box">
+          <input type="search" placeholder="Tìm mã đơn, khách hàng..." aria-label="Tìm mã đơn, khách hàng...">
+        </div>
+        <button type="button" class="product-search-button">Tìm kiếm</button>
       </div>
-      <button class="btn btn-primary" data-open="addOrderModal">+ Tạo đơn hàng</button>
+      <button class="btn-create-primary" data-open="addOrderModal">+ Tạo đơn hàng</button>
       <div class="order-filter-demo">
         <div class="form-group">
           <label for="filterOrderStatus">Trạng thái đơn hàng</label>
@@ -95,26 +85,26 @@
             <option>Đồng Nai</option>
           </select>
         </div>
-        <button type="button" class="btn btn-primary">Áp dụng bộ lọc </button>
+        <button type="button" class="btn-apply-primary">Áp dụng bộ lọc </button>
       </div>
     </div>
 
-    <div class="stats-grid-4">
+    <div class="stats-grid-4 order-status-stats">
       <div class="stat-card">
-        <div class="label">Tổng đơn hàng</div>
-        <div class="value">60.205</div>
+        <div class="overview-title">Tổng đơn hàng</div>
+        <div class="overview-data">60.205</div>
       </div>
       <div class="stat-card">
-        <div class="label">Hoàn thành</div>
-        <div class="value">60.000</div>
+        <div class="overview-title">Hoàn thành</div>
+        <div class="overview-data">60.000</div>
       </div>
       <div class="stat-card">
-        <div class="label">Đang xử lý</div>
-        <div class="value">203</div>
+        <div class="overview-title">Đang xử lý</div>
+        <div class="overview-data">203</div>
       </div>
       <div class="stat-card">
-        <div class="label">Đã hủy</div>
-        <div class="value">2</div>
+        <div class="overview-title">Đã hủy</div>
+        <div class="overview-data">2</div>
       </div>
     </div>
 
@@ -124,7 +114,7 @@
         <p class="subtitle">Tra cứu và cập nhật trạng thái đơn hàng</p>
       </div>
 
-      <table class="data-table">
+      <table class="data-table orders-list-table">
         <thead>
           <tr>
             <th>Mã đơn</th>
@@ -138,17 +128,16 @@
         </thead>
         <tbody>
           <tr class="order-row">
-            <td><a class="order-cell-link" href="detail-order.html">#DH1208</a></td>
+            <td><a class="order-cell-link" href="detail-order.html"><b>#DH1208</b></a></td>
             <td><a class="order-cell-link" href="detail-order.html">Thảo Trần</a></td>
             <td><a class="order-cell-link" href="detail-order.html">999999999</a></td>
             <td><a class="order-cell-link" href="detail-order.html">17/10/2025</a></td>
             <td><a class="order-cell-link" href="detail-order.html">Album JENNIE RUBY STANDARD</a></td>
             <td><a class="order-cell-link" href="detail-order.html">1.200.000đ</a></td>
-            <td><a class="order-cell-link" href="detail-order.html"><span class="badge badge-success">Hoàn
-                  thành</span></a></td>
+            <td><a class="order-cell-link" href="detail-order.html"><span class="badge badge-success">Hoàn thành</span></a></td>
           </tr>
           <tr class="order-row">
-            <td><a class="order-cell-link" href="detail-order.html">#DH1207</a></td>
+            <td><a class="order-cell-link" href="detail-order.html"><b>#DH1207</b></a></td>
             <td><a class="order-cell-link" href="detail-order.html">Hoài Như</a></td>
             <td><a class="order-cell-link" href="detail-order.html">0901234567</a></td>
             <td><a class="order-cell-link" href="detail-order.html">17/10/2026</a></td>
@@ -159,7 +148,7 @@
                   lý</span></a></td>
           </tr>
           <tr class="order-row">
-            <td><a class="order-cell-link" href="detail-order.html">#DH1206</a></td>
+            <td><a class="order-cell-link" href="detail-order.html"><b>#DH1206</b></a></td>
             <td><a class="order-cell-link" href="detail-order.html">Linh Chi</a></td>
             <td><a class="order-cell-link" href="detail-order.html">234567890</a></td>
             <td><a class="order-cell-link" href="detail-order.html">17/10/2026</a></td>
@@ -169,7 +158,7 @@
                   thành</span></a></td>
           </tr>
           <tr class="order-row">
-            <td><a class="order-cell-link" href="detail-order.html">#DH1205</a></td>
+            <td><a class="order-cell-link" href="detail-order.html"><b>#DH1205</b></a></td>
             <td><a class="order-cell-link" href="detail-order.html">Thủy Tiên</a></td>
             <td><a class="order-cell-link" href="detail-order.html">098765432</a></td>
             <td><a class="order-cell-link" href="detail-order.html">16/10/2026</a></td>
@@ -179,7 +168,7 @@
             </td>
           </tr>
           <tr class="order-row">
-            <td><a class="order-cell-link" href="detail-order.html">#DH1204</a></td>
+            <td><a class="order-cell-link" href="detail-order.html"><b>#DH1204</b></a></td>
             <td><a class="order-cell-link" href="detail-order.html">Quỳnh Trang</a></td>
             <td><a class="order-cell-link" href="detail-order.html">123456789</a></td>
             <td><a class="order-cell-link" href="detail-order.html">16/10/2026</a></td>
@@ -192,13 +181,13 @@
       </table>
 
       <div class="pagination">
-        <button class="btn">&laquo; Trang trước</button>
-        <button class="btn btn-primary">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
+        <a href="orders.html" class="btn">&laquo; Trang trước</a>
+        <a href="orders.html" class="btn btn-primary">1</a>
+        <a href="orders.html" class="btn">2</a>
+        <a href="orders.html" class="btn">3</a>
         <span>...</span>
-        <button class="btn">5</button>
-        <button class="btn">Trang sau &raquo;</button>
+        <a href="orders.html" class="btn">5</a>
+        <a href="orders.html" class="btn">Trang sau &raquo;</a>
       </div>
     </div>
   </main>
@@ -239,7 +228,7 @@
         </div>
 
         <div class="form-actions">
-          <button type="button" class="btn btn-primary">Lưu thông tin</button>
+          <button type="button" class="btn-apply-primary">Lưu thông tin</button>
         </div>
       </form>
     </div>

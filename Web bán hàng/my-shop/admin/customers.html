@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Khách hàng - Admin</title>
+  <title>K-POP STORE - ADMIN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
@@ -51,28 +51,31 @@
     </div>
 
     <div class="toolbar-card">
-      <div class="search-box">
-        <input type="search" placeholder="Tìm tên, số điện thoại,...">
+      <div class="product-search">
+        <div class="search-box">
+          <input type="search" placeholder="Tìm tên, số điện thoại..." aria-label="Tìm tên, số điện thoại...">
+        </div>
+        <button type="button" class="product-search-button">Tìm kiếm</button>
       </div>
-      <button class="btn btn-primary" data-open="addCustomerModal">+ Thêm khách hàng</button>
+      <button class="btn-create-primary" data-open="addCustomerModal">+ Thêm khách hàng</button>
     </div>
 
-    <div class="stats-grid-4">
+    <div class="stats-grid-4 customer-summary-stats">
       <div class="stat-card">
-        <div class="label">Tổng khách hàng</div>
-        <div class="value">3.000</div>
+        <div class="overview-title">Tổng khách hàng</div>
+        <div class="overview-data">3.000</div>
       </div>
       <div class="stat-card">
-        <div class="label">Khách hàng thân thiết</div>
-        <div class="value">1.201</div>
+        <div class="overview-title">Khách hàng thân thiết</div>
+        <div class="overview-data">1.201</div>
       </div>
       <div class="stat-card">
-        <div class="label">Khách hàng mới</div>
-        <div class="value">35</div>
+        <div class="overview-title">Khách hàng mới</div>
+        <div class="overview-data">35</div>
       </div>
       <div class="stat-card">
-        <div class="label">Tổng lượt mua</div>
-        <div class="value">60.205</div>
+        <div class="overview-title">Tổng lượt mua</div>
+        <div class="overview-data">60.205</div>
       </div>
     </div>
 
@@ -82,7 +85,7 @@
         <p class="subtitle">Thông tin liên hệ và lịch sử mua hàng của khách</p>
       </div>
 
-      <table class="data-table">
+      <table class="data-table customer-list-table">
         <thead>
           <tr>
             <th>Mã KH</th>
@@ -138,13 +141,13 @@
       </table>
 
       <div class="pagination">
-        <button class="btn">&laquo; Trang trước</button>
-        <button class="btn btn-primary">1</button>
-        <button class="btn">2</button>
-        <button class="btn">3</button>
+        <a href="customers.html" class="btn">&laquo; Trang trước</a>
+        <a href="customers.html" class="btn btn-primary">1</a>
+        <a href="customers.html" class="btn">2</a>
+        <a href="customers.html" class="btn">3</a>
         <span>...</span>
-        <button class="btn">5</button>
-        <button class="btn">Trang sau &raquo;</button>
+        <a href="customers.html" class="btn">5</a>
+        <a href="customers.html" class="btn">Trang sau &raquo;</a>
       </div>
     </div>
 
@@ -172,7 +175,7 @@
         </div>
 
         <div class="form-actions">
-          <button type="button" class="btn btn-primary">Lưu thông tin</button>
+          <button type="button" class="btn-apply-primary">Lưu thông tin</button>
         </div>
       </form>
     </div>
