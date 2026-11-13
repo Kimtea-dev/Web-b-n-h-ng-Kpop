@@ -30,15 +30,20 @@ function selectPaymentMethod(method) {
   }
 }
 
+/* Bấm "Xác nhận đặt hàng": chưa đăng nhập thì chuyển sang trang đăng nhập,
+   đăng nhập xong home.js sẽ đưa khách quay lại giỏ hàng */
 function openOrderModal() {
+  if (sessionStorage.getItem('kpop_is_logged_in') !== 'true') {
+    sessionStorage.setItem('kpop_return_to', 'cart.html');
+    window.location.href = 'login.html';
+    return;
+  }
   var useNew = document.getElementById('addr-type-new').checked;
   var custom = document.getElementById('checkout-custom-address').value.trim();
   var addr = (useNew && custom) ? custom : document.getElementById('checkout-default-address').textContent.trim();
   document.getElementById('inv-order-address').textContent = addr;
   document.getElementById('inv-order-payment').textContent =
     document.getElementById('pay-online').checked ? 'Trực tuyến (Mã QR / Ví)' : 'Tiền mặt (COD)';
-  sessionStorage.setItem('kpop_is_logged_in', 'true');
-  updateHeaderUserStatus();
   document.getElementById('order-success-modal').style.display = 'flex';
 }
 
@@ -60,6 +65,26 @@ function updateHeaderUserStatus() {
       userWrapper.classList.remove('logged-in');
     }
   }
+  updateCheckoutUser(isLogged);
+}
+
+/* Badge + khung "Người nhận hàng" đổi theo trạng thái đăng nhập */
+function updateCheckoutUser(isLogged) {
+  var badge = document.getElementById('checkout-login-badge');
+  var nameEl = document.getElementById('checkout-receiver-name');
+  var infoEl = document.getElementById('checkout-receiver-info');
+  if (!badge) return;
+  if (isLogged) {
+    badge.textContent = '✓ Đã đăng nhập tài khoản khách hàng';
+    badge.classList.remove('guest');
+    if (nameEl) nameEl.textContent = sessionStorage.getItem('kpop_user_name') || 'Customer';
+    if (infoEl) infoEl.textContent = 'SĐT: 0909 456 321 • Email: ' + (sessionStorage.getItem('kpop_user_email') || 'customer@example.com');
+  } else {
+    badge.textContent = '⚠ Bạn chưa đăng nhập — sẽ chuyển sang trang đăng nhập khi đặt hàng';
+    badge.classList.add('guest');
+    if (nameEl) nameEl.textContent = 'Khách chưa đăng nhập';
+    if (infoEl) infoEl.textContent = 'Thông tin người nhận sẽ hiện sau khi bạn đăng nhập.';
+  }
 }
 
 function handleLogout() {
@@ -76,3 +101,5 @@ if (document.readyState === 'loading') {
 } else {
   updateHeaderUserStatus();
 }
+
+sessionStorage.removeItem('kpop_return_to');
