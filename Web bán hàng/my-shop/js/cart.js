@@ -1,5 +1,5 @@
 function demoNotice() {
-  alert("Tính năng demo giao diện!");
+  alert("Thao tác thành công!");
 }
 
 function selectAddressMode(mode) {
