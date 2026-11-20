@@ -22,7 +22,8 @@
 .detail-rating { color: #ffc83d; font-size: 18px; letter-spacing: 2px; margin-bottom: 18px; }
 .detail-rating span { color: var(--muted); font-size: 14px; letter-spacing: 0; margin-left: 8px; }
 .detail-price { font: 800 clamp(28px, 3.4vw, 38px)/1.1 var(--display); color: var(--pink); margin-bottom: 20px; }
-.detail-desc { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.detail-desc { margin: 0; padding-left: 20px; display: grid; gap: 8px; color: var(--muted); font-size: 16px; line-height: 1.7; }
+.detail-desc li::marker { color: var(--pink); }
 .detail-desc strong { color: var(--white); }
 .detail-divider { border: 0; border-top: 1px solid var(--line); margin: 26px 0; }
 

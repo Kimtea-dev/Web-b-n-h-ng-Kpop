@@ -638,6 +638,10 @@ i {
     margin-bottom: 24px;
 }
 
+.customer-orders-table-wrap {
+    overflow-x: auto;
+}
+
 .report-date-range {
     display: flex;
     align-items: end;

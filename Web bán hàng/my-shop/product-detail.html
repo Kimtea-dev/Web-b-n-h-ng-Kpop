@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/product-detail.css">
+  <link rel="stylesheet" href="css/home-nojs.css">
 </head>
 <body>
 
@@ -20,31 +21,17 @@
     </a>
     <nav aria-label="Menu chính">
       <a href="index.html">Trang chủ</a>
-      <!-- Rê chuột (hoặc Tab bằng bàn phím) vào "Sản phẩm" để mở danh sách phân loại -->
-      <div class="nav-dropdown">
-        <a href="products.html" aria-current="page">Sản phẩm</a>
-        <div class="nav-dropdown-menu">
-          <div class="nav-dropdown-panel">
-            <a href="products.html">Tất cả sản phẩm</a>
-            <a href="products.html?cat=album">Album</a>
-            <a href="products.html?cat=lightstick">Lightstick</a>
-            <a href="products.html?cat=photocard">Photocard</a>
-            <a href="products.html?cat=apparel">Áo &amp; Phụ kiện</a>
-          </div>
-        </div>
-      </div>
+      <a href="products.html" aria-current="page">Sản phẩm</a>
       <a href="about.html">Giới thiệu</a>
       <a href="contact.html">Liên hệ</a>
     </nav>
     <div class="header-tools">
-      <form action="search-result.html" style="display:inline;">
-        <div class="search-box">
-          <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
-          <button type="submit" aria-label="Nút tìm kiếm">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-          </button>
-        </div>
-      </form>
+      <div class="search-box">
+        <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+        <button type="button" aria-label="Nút tìm kiếm">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
       <a class="bag" href="cart.html" aria-label="Giỏ hàng">
         <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
         <span id="header-cart-count">3</span>
@@ -102,6 +89,9 @@
       <div class="detail-info">
         <div class="detail-artist">JENNIE (BLACKPINK)</div>
         <h1 class="detail-title">RUBY</h1>
+        <div class="detail-sub">The 1st Studio Album &bull; Phát hành 07/03/2025</div>
+        <div class="detail-rating" aria-label="5 trên 5 sao">&#9733;&#9733;&#9733;&#9733;&#9733; <span>Được K-Fan yêu thích</span></div>
+
         <div class="detail-price">1.389.000đ</div>
 
         <p class="detail-desc">
@@ -174,7 +164,30 @@
           <p class="note" style="margin-bottom: 28px;">* Nội dung có thể thay đổi nhẹ tùy lô hàng và nhà phân phối. Photocard, postcard được giao ngẫu nhiên.</p>
         </div>
 
+        <div class="description-images">
+          <img src="image/rubyoverview.jpg" alt="Mô tả sản phẩm" style="width:100%; border-radius:12px; margin-bottom:24px;">
+        </div>
+
         <div>
+          <h3 style="font-size: 18px; margin: 0 0 14px; color: var(--white);">Danh sách bài hát (15 ca khúc)</h3>
+          <ol class="track-list" style="margin-bottom: 28px;">
+            <li>Intro: JANE (with FKJ)</li>
+            <li>like JENNIE</li>
+            <li>start a war</li>
+            <li>Handlebars (feat. Dua Lipa)</li>
+            <li>with the IE (way up)</li>
+            <li>ExtraL (feat. Doechii)</li>
+            <li>Mantra</li>
+            <li>Love Hangover (feat. Dominic Fike)</li>
+            <li>ZEN</li>
+            <li>Damn Right (feat. Childish Gambino &amp; Kali Uchis)</li>
+            <li>F.T.S.</li>
+            <li>Filter</li>
+            <li>Seoul City</li>
+            <li>Starlight</li>
+            <li>twin</li>
+          </ol>
+
           <h3 style="font-size: 18px; margin: 0 0 14px; color: var(--white);">Thông tin phát hành &amp; chính sách</h3>
           <div style="border-top: 1px dashed var(--line); padding-top: 8px;">
             <div class="kv-row"><span>Nghệ sĩ</span><strong>JENNIE (BLACKPINK)</strong></div>

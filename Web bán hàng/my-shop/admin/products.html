@@ -161,7 +161,7 @@
 
   <!-- ===== MODAL: Thêm sản phẩm (khung sẵn - N4 điền form vào trong) ===== -->
   <div class="modal" id="addProductModal">
-    <div class="modal-box">
+    <div class="modal-box product-modal-box">
       <button class="modal-close" data-close>&times;</button>
       <h3>Thêm sản phẩm</h3>
 
@@ -189,6 +189,35 @@
             <label for="prodStock">Tồn kho</label>
             <input type="text" id="prodStock" inputmode="numeric" data-thousand-separator placeholder="Nhập số lượng..." required>
           </div>
+          <div class="form-group">
+            <label for="prodArtist">Tên nghệ sĩ</label>
+            <input type="text" id="prodArtist" name="artist" placeholder="Nhập tên nghệ sĩ...">
+          </div>
+          <div class="form-group">
+            <label for="prodReleaseDate">Ngày phát hành</label>
+            <input type="date" id="prodReleaseDate" name="releaseDate">
+          </div>
+          <div class="form-group">
+            <label for="prodLabel">Hãng đĩa</label>
+            <input type="text" id="prodLabel" name="label" placeholder="Nhập tên hãng đĩa...">
+          </div>
+          <div class="form-group">
+            <label for="prodOrigin">Xuất xứ</label>
+            <input type="text" id="prodOrigin" name="origin" placeholder="Nhập xuất xứ...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prodReturnPolicy">Đổi trả</label>
+          <textarea id="prodReturnPolicy" name="returnPolicy" rows="2" placeholder="Nhập chính sách đổi trả..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="prodSummary">Tóm tắt</label>
+          <textarea id="prodSummary" name="summary" rows="3" placeholder="Nhập nội dung tóm tắt..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="prodDescription">Mô tả chi tiết</label>
+          <textarea id="prodDescription" name="description" rows="8" placeholder="Nhập mô tả chi tiết..."></textarea>
         </div>
 
         <div class="form-group">
@@ -211,7 +240,7 @@
   </div>
 
   <div class="modal" id="editProductModal1">
-    <div class="modal-box">
+    <div class="modal-box product-modal-box">
       <button class="modal-close" data-close aria-label="Đóng">&times;</button>
       <h3>Sửa sản phẩm #SP001</h3>
       <form>
@@ -223,6 +252,24 @@
           <div class="form-group"><label for="editPrice1">Giá bán</label><input id="editPrice1" inputmode="numeric" data-thousand-separator value="1200000"></div>
           <div class="form-group"><label for="editStock1">Tồn kho</label><input id="editStock1" type="text" inputmode="numeric" data-thousand-separator
  value="18"></div>
+          <div class="form-group"><label for="editArtist1">Tên nghệ sĩ</label><input id="editArtist1" name="artist" value="CORTIS"></div>
+          <div class="form-group"><label for="editReleaseDate1">Ngày phát hành</label><input id="editReleaseDate1" name="releaseDate" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" value="27/03/2025"></div>
+          <div class="form-group"><label for="editLabel1">Hãng đĩa</label><input id="editLabel1" name="label" type="text" value="ODDATELIER / Columbia Records"></div>
+          <div class="form-group"><label for="editOrigin1">Xuất xứ</label><input id="editOrigin1" name="origin" type="text" value="Nhập khẩu chính hãng từ Hàn Quốc"></div>
+        </div>
+        <div class="form-group"><label for="editReturnPolicy1">Đổi trả</label><textarea id="editReturnPolicy1" name="returnPolicy" rows="2">Miễn phí trong 7 ngày</textarea></div>
+        <div class="form-group"><label for="editSummary1">Tóm tắt</label><textarea id="editSummary1" name="summary" rows="3">Album phòng thu của CORTIS, phát hành ngày 07/03/2025. Album gồm 15 ca khúc, pha trộn nhiều thể loại với sự góp mặt của FKJ, Dua Lipa, Doechii, Dominic Fike, Childish Gambino và Kali Uchis. Mọi phiên bản đĩa đều kèm bản JENNIE Only Audio, chỉ có giọng hát của JENNIE và không có nghệ sĩ khách mời.</textarea></div>
+        <div class="form-group">
+          <label for="editDescription1">Mô tả chi tiết</label>
+          <textarea id="editDescription1" name="description" rows="9">- 1 đĩa CD
+- 1 photobook 136 trang
+- 1 ticket và envelope
+- 1 carousel card
+- 1 postcard ngẫu nhiên
+- 1 sticker pack (7 miếng)
+- 3 photocard ngẫu nhiên
+- 1 mini poster
+- Lưu ý: Nội dung có thể thay đổi nhẹ tùy lô hàng; photocard và postcard được giao ngẫu nhiên.</textarea>
         </div>
         <div class="product-image-preview">
           <span>Ảnh hiện tại</span>
@@ -238,19 +285,33 @@
   </div>
 
   <div class="modal" id="editProductModal2">
-    <div class="modal-box">
+    <div class="modal-box product-modal-box">
       <button class="modal-close" data-close aria-label="Đóng">&times;</button>
       <h3>Sửa sản phẩm #SP002</h3>
       <form>
         <div class="form-grid-2">
-          <div class="form-group"><label for="editName2">Tên sản phẩm</label><input id="editName2"
- value="NEWJEANS EP STANDARD"></div>
+          <div class="form-group"><label for="editName2">Tên sản phẩm</label><input id="editName2" value="NEWJEANS EP STANDARD"></div>
           <div class="form-group"><label for="editCategory2">Phân loại</label><input id="editCategory2" value="Album">
           </div>
           <div class="form-group"><label for="editPrice2">Giá bán</label><input id="editPrice2" inputmode="numeric" data-thousand-separator value="430000"></div>
           <div class="form-group"><label for="editStock2">Tồn kho</label><input id="editStock2" type="text" inputmode="numeric" data-thousand-separator value="9">
           </div>
+          <div class="form-group"><label for="editArtist2">Tên nghệ sĩ</label><input id="editArtist2" name="artist" value="NEWJEANS"></div>
+          <div class="form-group"><label for="editReleaseDate2">Ngày phát hành</label><input id="editReleaseDate2" name="releaseDate" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" value="27/03/2025"></div>
+          <div class="form-group"><label for="editLabel2">Hãng đĩa</label><input id="editLabel2" name="label" type="text" value="ODDATELIER / Columbia Records"></div>
+          <div class="form-group"><label for="editOrigin2">Xuất xứ</label><input id="editOrigin2" name="origin" type="text" value="Nhập khẩu chính hãng từ Hàn Quốc"></div>
         </div>
+        <div class="form-group"><label for="editReturnPolicy2">Đổi trả</label><textarea id="editReturnPolicy2" name="returnPolicy" rows="2">Miễn phí trong 7 ngày</textarea></div>
+        <div class="form-group"><label for="editSummary2">Tóm tắt</label><textarea id="editSummary2" name="summary" rows="3">Album phòng thu của NEWJEANS, phát hành ngày 07/03/2025. Album gồm 15 ca khúc, pha trộn nhiều thể loại với sự góp mặt của FKJ, Dua Lipa, Doechii, Dominic Fike, Childish Gambino và Kali Uchis. Mọi phiên bản đĩa đều kèm bản JENNIE Only Audio, chỉ có giọng hát của JENNIE và không có nghệ sĩ khách mời.</textarea></div>
+        <div class="form-group"><label for="editDescription2">Mô tả chi tiết</label><textarea id="editDescription2" name="description" rows="9">- 1 đĩa CD
+- 1 photobook 136 trang
+- 1 ticket và envelope
+- 1 carousel card
+- 1 postcard ngẫu nhiên
+- 1 sticker pack (7 miếng)
+- 3 photocard ngẫu nhiên
+- 1 mini poster
+- Lưu ý: Nội dung có thể thay đổi nhẹ tùy lô hàng; photocard và postcard được giao ngẫu nhiên.</textarea></div>
         <div class="product-image-preview">
           <span>Ảnh hiện tại</span>
           <img src="../image/EP.jpg" alt="NEWJEANS EP STANDARD">
@@ -265,7 +326,7 @@
   </div>
 
   <div class="modal" id="editProductModal3">
-    <div class="modal-box">
+    <div class="modal-box product-modal-box">
       <button class="modal-close" data-close aria-label="Đóng">&times;</button>
       <h3>Sửa sản phẩm #SP003</h3>
       <form>
@@ -277,7 +338,22 @@
           <div class="form-group"><label for="editPrice3">Giá bán</label><input id="editPrice3" inputmode="numeric" data-thousand-separator value="880000"></div>
           <div class="form-group"><label for="editStock3">Tồn kho</label><input id="editStock3" type="text" inputmode="numeric" data-thousand-separator value="0">
           </div>
+          <div class="form-group"><label for="editArtist3">Tên nghệ sĩ</label><input id="editArtist3" name="artist" value="BLACKPINK"></div>
+          <div class="form-group"><label for="editReleaseDate3">Ngày phát hành</label><input id="editReleaseDate3" name="releaseDate" type="text" inputmode="numeric" placeholder="dd/mm/yyyy" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" value="27/03/2025"></div>
+          <div class="form-group"><label for="editLabel3">Hãng đĩa</label><input id="editLabel3" name="label" type="text" value="ODDATELIER / Columbia Records"></div>
+          <div class="form-group"><label for="editOrigin3">Xuất xứ</label><input id="editOrigin3" name="origin" type="text"  value="Nhập khẩu chính hãng từ Hàn Quốc"></div>
         </div>
+        <div class="form-group"><label for="editReturnPolicy3">Đổi trả</label><textarea id="editReturnPolicy3" name="returnPolicy" rows="2">Miễn phí trong 7 ngày</textarea></div>
+        <div class="form-group"><label for="editSummary3">Tóm tắt</label><textarea id="editSummary3" name="summary" rows="3">Album phòng thu của BLACKPINK, phát hành ngày 07/03/2025. Album gồm 15 ca khúc, pha trộn nhiều thể loại với sự góp mặt của FKJ, Dua Lipa, Doechii, Dominic Fike, Childish Gambino và Kali Uchis. Mọi phiên bản đĩa đều kèm bản JENNIE Only Audio, chỉ có giọng hát của JENNIE và không có nghệ sĩ khách mời.</textarea></div>
+        <div class="form-group"><label for="editDescription3">Mô tả chi tiết</label><textarea id="editDescription3" name="description" rows="9">- 1 đĩa CD
+- 1 photobook 136 trang
+- 1 ticket và envelope
+- 1 carousel card
+- 1 postcard ngẫu nhiên
+- 1 sticker pack (7 miếng)
+- 3 photocard ngẫu nhiên
+- 1 mini poster
+- Lưu ý: Nội dung có thể thay đổi nhẹ tùy lô hàng; photocard và postcard được giao ngẫu nhiên.</textarea></div>
         <div class="product-image-preview">
           <span>Ảnh hiện tại</span>
           <img src="../image/deadline.jpg" alt="BLACKPINK DEADLINE STANDARD">
