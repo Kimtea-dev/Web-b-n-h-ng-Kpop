@@ -950,3 +950,31 @@ button.btn { font-family: var(--body); }
   border-radius: 50%;
   border: 1.5px solid #0d0d0d;
 }
+
+/* ===== Dropdown phân loại ở mục "Sản phẩm" trên menu ===== */
+.nav-dropdown { position: relative; }
+.site-header .nav-dropdown > a { display: block; }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; min-width: 220px;
+  padding-top: 30px;
+  opacity: 0; visibility: hidden; transform: translate(-50%, 6px);
+  transition: opacity .18s ease, transform .18s ease, visibility .18s;
+  z-index: 300;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.nav-dropdown-panel {
+  padding: 8px; border-radius: 12px;
+  background: var(--panel); border: 1px solid var(--line);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, .55);
+}
+.site-header .nav-dropdown .nav-dropdown-menu a {
+  display: block; margin: 0; padding: 10px 14px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; white-space: nowrap; color: var(--white);
+}
+.site-header .nav-dropdown .nav-dropdown-menu a:hover,
+.site-header .nav-dropdown .nav-dropdown-menu a:focus-visible { background: rgba(255, 255, 255, .08); color: var(--pink); }
+@media (prefers-reduced-motion: reduce) { .nav-dropdown-menu { transition: none; } }
+@media (max-width: 1180px) { .nav-dropdown-menu { padding-top: 20px; } }
+@media (min-width: 521px) and (max-width: 1180px) { .site-header nav { overflow: visible; } }
+@media (max-width: 520px) { .nav-dropdown-menu { display: none; } }

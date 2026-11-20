@@ -20,7 +20,19 @@
     </a>
     <nav aria-label="Menu chính">
       <a href="index.html">Trang chủ</a>
-      <a href="products.html">Sản phẩm</a>
+      <!-- Rê chuột (hoặc Tab bằng bàn phím) vào "Sản phẩm" để mở danh sách phân loại -->
+      <div class="nav-dropdown">
+        <a href="products.html">Sản phẩm</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-panel">
+            <a href="products.html">Tất cả sản phẩm</a>
+            <a href="products.html?cat=album">Album</a>
+            <a href="products.html?cat=lightstick">Lightstick</a>
+            <a href="products.html?cat=photocard">Photocard</a>
+            <a href="products.html?cat=apparel">Áo &amp; Phụ kiện</a>
+          </div>
+        </div>
+      </div>
       <a href="about.html">Giới thiệu</a>
       <a href="contact.html">Liên hệ</a>
     </nav>
@@ -209,6 +221,16 @@
         <label class="checkbox-label"><input type="checkbox" value="babymonster" class="filter-artist-check"> BABYMONSTER</label>
       </div>
     </div>
+
+    <!-- Khoảng giá (Tự nhập Min - Max) -->
+    <div>
+      <div class="filter-group-title">Khoảng giá (VNĐ)</div>
+      <div class="price-range-inputs">
+        <input type="text" inputmode="numeric" autocomplete="off" id="minPrice" class="price-input" placeholder="Từ (0đ)" aria-label="Giá thấp nhất (VNĐ)">
+        <span style="color:var(--muted)">-</span>
+        <input type="text" inputmode="numeric" autocomplete="off" id="maxPrice" class="price-input" placeholder="Đến (VD: 1.000.000)" aria-label="Giá cao nhất (VNĐ)">
+      </div>
+    </div>
   </div>
 
   <div class="drawer-footer">
@@ -223,5 +245,27 @@
 </footer>
 
 <script src="js/home.js"></script>
+
+<script>
+  /* Ô khoảng giá: tự thêm dấu chấm hàng nghìn ngay khi gõ / dán (1000000 -> 1.000.000).
+     Lấy giá trị số khi cần lọc: parseInt(input.value.replace(/\./g, ""), 10) || 0 */
+  ["minPrice", "maxPrice"].forEach(id => {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.addEventListener("input", () => {
+      const caret = input.selectionStart;
+      const digitsBeforeCaret = input.value.slice(0, caret).replace(/\D/g, "").length;
+      const digits = input.value.replace(/\D/g, "").replace(/^0+(?=\d)/, "").slice(0, 10);   // bỏ số 0 đầu, tối đa 10 chữ số
+      input.value = digits.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      // giữ con trỏ đúng chỗ đang gõ (không nhảy về cuối khi sửa ở giữa)
+      let pos = 0, seen = 0;
+      while (pos < input.value.length && seen < digitsBeforeCaret) {
+        if (/\d/.test(input.value[pos])) seen++;
+        pos++;
+      }
+      input.setSelectionRange(pos, pos);
+    });
+  });
+</script>
 </body>
 </html>

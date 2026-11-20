@@ -254,8 +254,13 @@
     gap: 10px;
 }
 
+.price-range-inputs .price-input {
+    flex: 1;
+    min-width: 0;
+    width: 0;
+}
+
 .price-input {
-    width: 100%;
     background: var(--black);
     border: 1px solid var(--line);
     border-radius: 6px;
@@ -263,6 +268,8 @@
     color: var(--white);
     font-family: var(--body);
     font-size: 13px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .price-input:focus {

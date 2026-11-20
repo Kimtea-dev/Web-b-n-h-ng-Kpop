@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết đơn hàng - K-Pop Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/order-detail.css">
+</head>
+<body>
+
+<!-- ===== HEADER DÙNG CHUNG ===== -->
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html" aria-label="K-Pop Store - trang chủ">
+      <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#B026FF"/><stop offset="1" stop-color="#27C4FF"/></linearGradient></defs><path d="M24 4l6 13 14 2-10 10 3 14-13-7-13 7 3-14L4 19l14-2z" fill="none" stroke="url(#sg)" stroke-width="3.5" stroke-linejoin="round"/></svg>
+      <span>K-Pop Store</span>
+    </a>
+    <nav aria-label="Menu chính">
+      <a href="index.html">Trang chủ</a>
+      <!-- Rê chuột (hoặc Tab bằng bàn phím) vào "Sản phẩm" để mở danh sách phân loại -->
+      <div class="nav-dropdown">
+        <a href="products.html">Sản phẩm</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-panel">
+            <a href="products.html">Tất cả sản phẩm</a>
+            <a href="products.html?cat=album">Album</a>
+            <a href="products.html?cat=lightstick">Lightstick</a>
+            <a href="products.html?cat=photocard">Photocard</a>
+            <a href="products.html?cat=apparel">Áo &amp; Phụ kiện</a>
+          </div>
+        </div>
+      </div>
+      <a href="about.html">Giới thiệu</a>
+      <a href="contact.html">Liên hệ</a>
+    </nav>
+    <div class="header-tools">
+      <form action="search-result.html" style="display:inline;">
+        <div class="search-box">
+          <input type="text" placeholder="Tìm album, lightstick..." aria-label="Tìm kiếm sản phẩm">
+          <button type="submit" aria-label="Nút tìm kiếm">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </button>
+        </div>
+      </form>
+      <a class="bag" href="cart.html" aria-label="Giỏ hàng">
+        <svg viewBox="0 0 24 28" width="28" height="32" aria-hidden="true"><path d="M8 10V7a4 4 0 018 0v3" fill="none" stroke="#fff" stroke-width="2"/><path d="M4.5 10h15l1.5 16H3z" fill="#fff"/></svg>
+        <span id="header-cart-count">3</span>
+      </a>
+      <a class="user-account" href="login.html" aria-label="Tài khoản">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="order-detail-main">
+  <div class="wrap">
+
+    <!-- BREADCRUMB -->
+    <nav class="od-breadcrumb" aria-label="Điều hướng">
+      <a href="index.html">Trang chủ</a>
+      <span class="sep">/</span>
+      <a href="login.html">Tài khoản</a>
+      <span class="sep">/</span>
+      <a href="login.html#orders">Lịch sử đơn hàng</a>
+      <span class="sep">/</span>
+      <span class="cur" id="odBreadcrumbId">Chi tiết đơn #DH-102815</span>
+    </nav>
+
+    <!-- HEADER ĐƠN HÀNG -->
+    <section class="od-header-card">
+      <div class="od-title-group">
+        <h1>
+          Đơn hàng <span class="order-num" id="odHeaderId">#DH-102815</span>
+          <span class="od-badge shipping" id="odHeaderBadge">🚚 Đang giao</span>
+        </h1>
+        <div class="od-meta-text">
+          Đặt lúc <strong id="odHeaderDate">10:30 - 20/10/2026</strong> • Phương thức: <span id="odHeaderPayment" style="color:var(--white);">Chuyển khoản QR (Đã thanh toán)</span>
+        </div>
+      </div>
+      <div class="od-header-actions">
+        <a href="login.html#orders" class="btn outline">← Quay lại danh sách đơn</a>
+      </div>
+    </section>
+
+    <!-- TIẾN TRÌNH TRẠNG THÁI (STEPPER) -->
+    <section class="od-stepper-card" id="odStepperSection">
+      <div class="od-stepper" id="odStepperContainer">
+        <!-- JS tự động điền hoặc render mặc định -->
+        <div class="od-step completed">
+          <div class="od-step-circle">✓</div>
+          <div class="od-step-label">Đã đặt hàng<br><small style="color:var(--muted)">20/10</small></div>
+        </div>
+        <div class="od-step completed">
+          <div class="od-step-circle">✓</div>
+          <div class="od-step-label">Đã xác nhận<br><small style="color:var(--muted)">20/10</small></div>
+        </div>
+        <div class="od-step completed">
+          <div class="od-step-circle">✓</div>
+          <div class="od-step-label">Đang chuẩn bị<br><small style="color:var(--muted)">21/10</small></div>
+        </div>
+        <div class="od-step active">
+          <div class="od-step-circle">🚚</div>
+          <div class="od-step-label">Đang vận chuyển<br><small style="color:#27C4FF">Đang giao</small></div>
+        </div>
+        <div class="od-step">
+          <div class="od-step-circle">5</div>
+          <div class="od-step-label">Đã nhận hàng<br><small style="color:var(--muted)">Dự kiến 30/10</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BỐ CỤC 2 CỘT CHÍNH -->
+    <div class="od-grid-layout">
+
+      <!-- CỘT TRÁI (LỚN): SẢN PHẨM & LỊCH TRÌNH VẬN CHUYỂN -->
+      <div class="od-col-left">
+
+        <!-- Danh sách sản phẩm -->
+        <div class="od-card">
+          <h2 class="od-card-title">
+            <span>🛒</span> Sản phẩm trong đơn hàng (<span id="odItemCount">1</span>)
+          </h2>
+          <div id="odProductList">
+            <!-- Item 1 -->
+            <div class="od-product-item">
+              <div class="od-product-thumb">
+                <img src="image/cortis.jpg" alt="Lightstick CORTIS" id="odDemoImg">
+              </div>
+              <div class="od-product-info">
+                <h4><a href="products.html">Lightstick CORTIS Phiên Bản Đặc Biệt</a></h4>
+                <div class="od-product-meta">
+                  <span>Phân loại: <b>Full Box Nguyên Seal</b></span>
+                  <span>Mã SP: <b>KPOP-LS-082</b></span>
+                </div>
+              </div>
+              <div class="od-product-price">
+                <div class="total">1.200.000đ</div>
+                <div class="unit">1.200.000đ &times; 1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nhật ký hành trình vận chuyển chi tiết -->
+        <div class="od-card">
+          <h2 class="od-card-title">
+            <span>🗺️</span> Nhật ký hành trình vận chuyển
+          </h2>
+          <ul class="od-tracking-timeline" id="odTrackingTimeline">
+            <li class="od-track-step latest">
+              <div class="od-track-dot"></div>
+              <div class="od-track-time">08:00 - Hôm nay (29/10/2026)</div>
+              <div class="od-track-desc">Bưu tá đang trên đường giao hàng đến địa chỉ của bạn. Vui lòng chú ý điện thoại.</div>
+              <div class="od-track-loc">📍 Tài xế Nguyễn Văn B (0912.345.678) - Bưu cục Quận 1</div>
+            </li>
+            <li class="od-track-step">
+              <div class="od-track-dot"></div>
+              <div class="od-track-time">14:30 - 28/10/2026</div>
+              <div class="od-track-desc">Đơn hàng đã nhập kho trung chuyển TP. Hồ Chí Minh và chuẩn bị phân loại.</div>
+              <div class="od-track-loc">📍 Trung tâm khai thác K-Express (Quận 7, TP.HCM)</div>
+            </li>
+            <li class="od-track-step">
+              <div class="od-track-dot"></div>
+              <div class="od-track-time">09:15 - 28/10/2026</div>
+              <div class="od-track-desc">Kiện hàng đã hoàn tất thủ tục hải quan và thông quan nhập khẩu.</div>
+              <div class="od-track-loc">📍 Cửa khẩu Sân bay Quốc tế Tân Sơn Nhất</div>
+            </li>
+            <li class="od-track-step">
+              <div class="od-track-dot"></div>
+              <div class="od-track-time">21:00 - 27/10/2026</div>
+              <div class="od-track-desc">Hàng hóa đã rời kho trung chuyển quốc tế Seoul, bay về Việt Nam.</div>
+              <div class="od-track-loc">📍 Kho Incheon (Hàn Quốc)</div>
+            </li>
+            <li class="od-track-step">
+              <div class="od-track-dot"></div>
+              <div class="od-track-time">10:00 - 27/10/2026</div>
+              <div class="od-track-desc">Shop đã đóng gói hoàn tất và bàn giao cho đơn vị vận chuyển quốc tế.</div>
+              <div class="od-track-loc">📍 Seoul, Hàn Quốc</div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- CỘT PHẢI: THÔNG TIN GIAO NHẬN & TỔNG TIỀN -->
+      <div class="od-col-right">
+
+        <!-- Thông tin giao nhận -->
+        <div class="od-card">
+          <h2 class="od-card-title">
+            <span>📍</span> Thông tin nhận hàng
+          </h2>
+
+          <div class="od-info-block">
+            <h5>Người nhận hàng</h5>
+            <p><strong id="odReceiverName">Customer</strong> • <span id="odReceiverPhone">0909 456 321</span></p>
+          </div>
+
+          <div class="od-info-block">
+            <h5>Địa chỉ giao đến</h5>
+            <p id="odReceiverAddr" style="color:var(--muted)">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
+          </div>
+
+          <div class="od-info-block">
+            <h5>Đơn vị vận chuyển</h5>
+            <p><strong id="odCarrierName">K-Express Standard (Nhanh)</strong></p>
+            <div style="margin-top:6px;">
+              <span class="od-copy-badge">
+                <span id="odTrackingCode">KEX-88940219VN</span>
+                <button type="button" onclick="this.textContent='Đã sao chép ✓'; setTimeout(() => this.textContent='📋 Chép mã', 1500);" title="Sao chép mã vận đơn">📋 Chép mã</button>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tóm tắt thanh toán -->
+        <div class="od-card">
+          <h2 class="od-card-title">
+            <span>💳</span> Tóm tắt thanh toán
+          </h2>
+
+          <div class="od-calc-row">
+            <span>Tạm tính tiền hàng:</span>
+            <span id="odSubtotal">1.200.000đ</span>
+          </div>
+          <div class="od-calc-row">
+            <span>Phí vận chuyển quốc tế:</span>
+            <span id="odShipFee">30.000đ</span>
+          </div>
+          <div class="od-calc-row">
+            <span>Mã giảm giá (KSTAR10):</span>
+            <span id="odDiscount" style="color:#00e676;">-0đ</span>
+          </div>
+          <div class="od-calc-row total-row">
+            <span>Tổng thanh toán:</span>
+            <span class="price" id="odGrandTotal">1.230.000đ</span>
+          </div>
+
+          <div class="od-actions-group">
+            <button type="button" class="btn pink" onclick="buyAgainAction()">🔁 Mua lại đơn này</button>
+            <a href="contact.html" class="btn outline">💬 Cần hỗ trợ về đơn hàng</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<!-- ===== FOOTER CHUNG ===== -->
+<footer class="site-footer" id="lien-he">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <h4>K-POP STORE</h4>
+        <p>Cửa hàng album, lightstick, photocard và phụ kiện K-Pop chính hãng nhập khẩu từ Hàn Quốc.</p>
+      </div>
+      <div>
+        <h4>Khám phá</h4>
+        <a href="index.html">Trang chủ</a>
+        <a href="products.html">Sản phẩm</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+        <a href="login.html">Tài khoản</a>
+      </div>
+      <div>
+        <h4>Chính sách</h4>
+        <a href="#">Đổi trả 7 ngày</a>
+        <a href="#">Bảo hiểm vận chuyển</a>
+        <a href="#">Hướng dẫn thanh toán</a>
+      </div>
+      <div>
+        <h4>Liên hệ</h4>
+        <p>123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+        <p>Hotline: 0909 123 456 (9:00 - 21:00)</p>
+        <p>support@kpopstore.vn</p>
+      </div>
+    </div>
+    <div class="fbottom">&copy; 2026 K-Pop Store</div>
+  </div>
+</footer>
+
+<script src="js/home.js"></script>
+<script>
+  // Script xử lý hiển thị dữ liệu chi tiết đơn hàng
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1. Lấy mã đơn hàng từ Query String (?id=DH-102949)
+    const urlParams = new URLSearchParams(window.location.search);
+    const orderId = urlParams.get("id");
+
+    if (!orderId || typeof S === "undefined" || !S.orders) return;
+
+    // 2. Tìm đơn hàng tương ứng trong cơ sở dữ liệu mẫu S.orders
+    const order = S.orders.find(o => o.id === orderId);
+    if (!order) return;
+
+    // Cập nhật Mã đơn & Breadcrumb
+    document.title = `Chi tiết đơn #${order.id} - K-Pop Store`;
+    document.getElementById("odBreadcrumbId").textContent = `Chi tiết đơn #${order.id}`;
+    document.getElementById("odHeaderId").textContent = `#${order.id}`;
+    document.getElementById("odHeaderDate").textContent = `10:30 - ${order.date}`;
+
+    // Cập nhật Badge Trạng thái
+    const badgeEl = document.getElementById("odHeaderBadge");
+    const badgeConfig = {
+      shipping:  { text: "🚚 Đang giao", cls: "shipping" },
+      done:      { text: "✓ Đã giao", cls: "done" },
+      pending:   { text: "⏳ Chờ xác nhận", cls: "pending" },
+      cancelled: { text: "✕ Đã hủy", cls: "cancelled" }
+    };
+    const b = badgeConfig[order.status] || badgeConfig.done;
+    badgeEl.textContent = b.text;
+    badgeEl.className = `od-badge ${b.cls}`;
+
+    // Cập nhật Stepper theo trạng thái
+    const stepperContainer = document.getElementById("odStepperContainer");
+    if (order.status === "cancelled") {
+      document.getElementById("odStepperSection").innerHTML = `
+        <div class="od-cancelled-alert">
+          <span style="font-size:22px;">⚠️</span>
+          <div><strong>Đơn hàng này đã bị hủy.</strong> Bạn không cần thanh toán bất kỳ khoản tiền nào cho đơn hàng này.</div>
+        </div>
+      `;
+    } else {
+      const stepIndex = order.status === "pending" ? 0 : order.status === "shipping" ? 3 : 4;
+      const steps = [
+        { label: "Đã đặt hàng", date: order.date },
+        { label: "Đã xác nhận", date: order.date },
+        { label: "Đang chuẩn bị", date: order.date },
+        { label: "Đang vận chuyển", date: order.status === "pending" ? "Chờ xử lý" : "Đang giao" },
+        { label: "Đã nhận hàng", date: order.status === "done" ? "Đã giao" : "Dự kiến 30/10" }
+      ];
+      stepperContainer.innerHTML = steps.map((s, idx) => {
+        const isDone = idx < stepIndex || (idx === stepIndex && order.status === "done");
+        const isActive = idx === stepIndex && order.status !== "done";
+        const cls = isDone ? "completed" : isActive ? "active" : "";
+        const icon = isDone ? "✓" : isActive ? "🚚" : (idx + 1);
+        return `
+          <div class="od-step ${cls}">
+            <div class="od-step-circle">${icon}</div>
+            <div class="od-step-label">${s.label}<br><small style="color:${isActive ? '#27C4FF' : 'var(--muted)'}">${s.date}</small></div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Cập nhật Danh sách sản phẩm trong đơn
+    document.getElementById("odItemCount").textContent = order.items.length;
+    document.getElementById("odProductList").innerHTML = order.items.map(item => `
+      <div class="od-product-item">
+        <div class="od-product-thumb">
+          <img src="${item.img || 'image/cortis.jpg'}" alt="${item.n}">
+        </div>
+        <div class="od-product-info">
+          <h4><a href="products.html">${item.n}</a></h4>
+          <div class="od-product-meta">
+            <span>Phân loại: <b>Chính hãng nguyên seal</b></span>
+            <span>Số lượng: <b>${item.q}</b></span>
+          </div>
+        </div>
+        <div class="od-product-price">
+          <div class="total">${(item.p * item.q).toLocaleString('vi-VN')}đ</div>
+          <div class="unit">${item.p.toLocaleString('vi-VN')}đ &times; ${item.q}</div>
+        </div>
+      </div>
+    `).join("");
+
+    // Cập nhật Tổng tiền
+    const subtotal = order.items.reduce((sum, item) => sum + (item.p * item.q), 0);
+    const ship = order.ship || 30000;
+    const grandTotal = subtotal + ship;
+
+    document.getElementById("odSubtotal").textContent = subtotal.toLocaleString('vi-VN') + "đ";
+    document.getElementById("odShipFee").textContent = ship.toLocaleString('vi-VN') + "đ";
+    document.getElementById("odGrandTotal").textContent = grandTotal.toLocaleString('vi-VN') + "đ";
+  });
+
+  function buyAgainAction() {
+    alert("Đã thêm toàn bộ sản phẩm của đơn hàng vào giỏ!");
+    window.location.href = "cart.html";
+  }
+</script>
+
+</body>
+</html>

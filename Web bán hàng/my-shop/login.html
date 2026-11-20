@@ -37,7 +37,19 @@
     </a>
     <nav aria-label="Menu chính">
       <a href="index.html">Trang chủ</a>
-      <a href="products.html">Sản phẩm</a>
+      <!-- Rê chuột (hoặc Tab bằng bàn phím) vào "Sản phẩm" để mở danh sách phân loại -->
+      <div class="nav-dropdown">
+        <a href="products.html">Sản phẩm</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-panel">
+            <a href="products.html">Tất cả sản phẩm</a>
+            <a href="products.html?cat=album">Album</a>
+            <a href="products.html?cat=lightstick">Lightstick</a>
+            <a href="products.html?cat=photocard">Photocard</a>
+            <a href="products.html?cat=apparel">Áo &amp; Phụ kiện</a>
+          </div>
+        </div>
+      </div>
       <a href="about.html">Giới thiệu</a>
       <a href="contact.html">Liên hệ</a>
     </nav>
@@ -141,7 +153,7 @@
                 </div>
                 <label class="check-row">
                   <input type="checkbox" id="reg-agree">
-                  <span>Tôi đồng ý với <a href="#">điều khoản sử dụng</a> và <a href="#">chính sách bảo mật</a> của K-Star Merch.</span>
+                  <span>Tôi đồng ý với <a href="#">điều khoản sử dụng</a> và <a href="#">chính sách bảo mật</a> của K-Pop Store.</span>
                 </label>
                 <button type="submit" class="btn pink auth-submit">Hoàn tất đăng ký</button>
               </form>
@@ -481,59 +493,6 @@
 </main>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-
-<!-- ===== MODAL CHI TIẾT ĐƠN HÀNG & HÀNH TRÌNH VẬN CHUYỂN ===== -->
-<div class="order-modal-overlay" id="orderModalOverlay" onclick="closeOrderModal()">
-  <div class="order-modal" onclick="event.stopPropagation()">
-    <div class="modal-header">
-      <div>
-        <h3 id="modalOrderId">Chi tiết đơn hàng #DH-102815</h3>
-        <span class="modal-date" id="modalOrderDate">Đặt ngày 20/10/2026</span>
-      </div>
-      <button type="button" class="btn-close-modal" onclick="closeOrderModal()">&times;</button>
-    </div>
-
-    <div class="modal-body">
-      <!-- 1. SƠ ĐỒ TIẾN TRÌNH TRẠNG THÁI (STEPPER) -->
-      <div id="modalStepperContainer">
-        <!-- Được JS tự động tạo theo trạng thái đơn hàng -->
-      </div>
-
-      <!-- 2. THÔNG TIN NGƯỜI NHẬN & DỊCH VỤ GIAO HÀNG -->
-      <div class="info-grid-2">
-        <div class="info-box-card">
-          <h4>📍 Thông tin người nhận</h4>
-          <p><strong id="modalCustomerName">Customer</strong> | <span id="modalCustomerPhone">0909 456 321</span></p>
-          <p id="modalCustomerAddr" class="muted-text">45 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh</p>
-        </div>
-        <div class="info-box-card">
-          <h4>🚚 Đơn vị vận chuyển</h4>
-          <p><strong id="modalCarrierName">K-Express Standard (Chuyển phát nhanh)</strong></p>
-          <p class="muted-text">Mã vận đơn: <span id="modalTrackingCode" style="color:var(--pink); font-family:monospace;">KEX-88940219VN</span></p>
-          <p class="muted-text">Thanh toán: <span id="modalPaymentStatus" style="color:#00e676;">Đã thanh toán (Momo / ZaloPay)</span></p>
-        </div>
-      </div>
-
-      <!-- 3. NHẬT KÝ HÀNH TRÌNH VẬN CHUYỂN CHI TIẾT -->
-      <div class="tracking-history-card">
-        <h4 id="modalTrackingTitle">🗺️ Lịch trình vận chuyển chi tiết</h4>
-        <ul class="tracking-list" id="modalTrackingList">
-          <!-- Nhật ký động sẽ được JS sinh vào đây -->
-        </ul>
-      </div>
-
-      <!-- 4. DANH SÁCH SẢN PHẨM TRONG ĐƠN -->
-      <div class="modal-products-card">
-        <h4>🛒 Sản phẩm trong đơn</h4>
-        <div id="modalProductList"></div>
-      </div>
-    </div>
-
-    <div class="modal-footer">
-      <button type="button" class="btn outline btn-sm" onclick="closeOrderModal()">Đóng</button>
-    </div>
-  </div>
-</div>
 
 <!-- ===== FOOTER CHUNG ===== -->
 <footer class="site-footer" id="lien-he">

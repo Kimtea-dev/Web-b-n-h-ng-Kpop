@@ -20,7 +20,19 @@
     </a>
     <nav aria-label="Menu chính">
       <a href="index.html">Trang chủ</a>
-      <a href="products.html">Sản phẩm</a>
+      <!-- Rê chuột (hoặc Tab bằng bàn phím) vào "Sản phẩm" để mở danh sách phân loại -->
+      <div class="nav-dropdown">
+        <a href="products.html">Sản phẩm</a>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-panel">
+            <a href="products.html">Tất cả sản phẩm</a>
+            <a href="products.html?cat=album">Album</a>
+            <a href="products.html?cat=lightstick">Lightstick</a>
+            <a href="products.html?cat=photocard">Photocard</a>
+            <a href="products.html?cat=apparel">Áo &amp; Phụ kiện</a>
+          </div>
+        </div>
+      </div>
       <a href="about.html">Giới thiệu</a>
       <a href="contact.html">Liên hệ</a>
     </nav>
@@ -131,7 +143,7 @@
         <a href="index.html">Trang chủ</a>
         <a href="products.html">Sản phẩm</a>
         <a href="about.html">Giới thiệu</a>
-        <a href="orders.html">Lịch sử đơn hàng</a>
+        <a href="login.html#orders">Lịch sử đơn hàng</a>
         <a href="login.html">Tài khoản</a>
       </div>
       <div id="chinh-sach">

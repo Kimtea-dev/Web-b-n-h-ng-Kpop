@@ -102,4 +102,4 @@ if (document.readyState === 'loading') {
   updateHeaderUserStatus();
 }
 
-sessionStorage.removeItem('kpop_return_to');
+// kpop_return_to được xóa sau khi đặt hàng thành công (không xóa sớm khi load cart)

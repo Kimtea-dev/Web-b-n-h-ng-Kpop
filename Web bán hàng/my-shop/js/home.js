@@ -307,7 +307,7 @@ function orderHtml(o) {
   const [label, cls] = STATUS[o.status], a = ORDER_ACT[o.status];
   const items = o.items.map(i => `<div class="order-item"><div class="thumb">${img(i.img, i.n, 'width:100%;height:100%;object-fit:cover;border-radius:4px;')}</div><div><div class="oi-name">${esc(i.n)}</div><div class="oi-meta">Số lượng: ${i.q}</div></div><div class="oi-price">${fmtVnd(i.p * i.q)}</div></div>`).join('');
   const act = a ? `<button type="button" class="btn outline btn-sm${a[2]}" onclick="orderAction('${o.id}','${a[0]}')">${a[1]}</button>` : '';
-  return `<div class="order-card"><div class="order-head"><strong>#${o.id}</strong><span class="badge-status ${cls}">${label}</span></div>${items}<div class="order-foot"><div>Tổng thanh toán: <strong style="color:var(--pink);">${fmtVnd(orderTotal(o))}</strong><span class="date">Đặt ngày ${o.date}</span></div><div class="order-actions"><button type="button" class="btn outline btn-sm" onclick="openOrderModal('${o.id}')">Chi tiết đơn</button>${act}</div></div></div>`;
+  return `<div class="order-card"><div class="order-head"><strong>#${o.id}</strong><span class="badge-status ${cls}">${label}</span></div>${items}<div class="order-foot"><div>Tổng thanh toán: <strong style="color:var(--pink);">${fmtVnd(orderTotal(o))}</strong><span class="date">Đặt ngày ${o.date}</span></div><div class="order-actions"><a href="order-detail.html?id=${o.id}" class="btn outline btn-sm">Chi tiết đơn</a>${act}</div></div></div>`;
 }
 
 function renderOrders() {
@@ -323,7 +323,7 @@ function renderOrders() {
 function renderRecent() {
   $('recent-orders').innerHTML = S.orders.slice(0, 2).map(o => {
     const [label, cls] = STATUS[o.status];
-    return `<div class="recent"><div><strong>#${o.id}</strong><small>Đặt ngày ${o.date}</small></div><div class="recent-end"><span>${fmtVnd(orderTotal(o))}</span><span class="badge-status ${cls}">${label}</span></div></div>`;
+    return `<a href="order-detail.html?id=${o.id}" class="recent" style="text-decoration:none; color:inherit; display:flex;"><div><strong>#${o.id}</strong><small>Đặt ngày ${o.date} • Bấm xem chi tiết</small></div><div class="recent-end"><span>${fmtVnd(orderTotal(o))}</span><span class="badge-status ${cls}">${label}</span></div></a>`;
   }).join('');
 }
 
