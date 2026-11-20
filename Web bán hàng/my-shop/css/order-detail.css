@@ -4,16 +4,23 @@
   padding: 40px 0 90px;
 }
 
-/* ===== 1. THANH ĐIỀU HƯỚNG BREADCRUMB ===== */
+/* ===== 1. THANH ĐIỀU HƯỚNG BREADCRUMB (ghi đè rule nav chung của index.css) ===== */
 .od-breadcrumb {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  justify-self: start;
   align-items: center;
   gap: 10px;
   font-size: 14px;
+  font-weight: 400;
+  white-space: normal;
   color: var(--muted);
   margin-bottom: 24px;
+  width: 100%;
 }
 .od-breadcrumb a {
+  padding: 0;
   color: var(--muted);
   transition: color 0.2s;
 }

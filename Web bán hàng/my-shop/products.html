@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/products.css?v=2">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
       <a href="index.html">Trang chủ</a>
       <!-- Rê chuột (hoặc Tab bằng bàn phím) vào "Sản phẩm" để mở danh sách phân loại -->
       <div class="nav-dropdown">
-        <a href="products.html">Sản phẩm</a>
+        <a href="products.html" aria-current="page">Sản phẩm</a>
         <div class="nav-dropdown-menu">
           <div class="nav-dropdown-panel">
             <a href="products.html">Tất cả sản phẩm</a>
@@ -343,10 +343,10 @@
     <!-- 4. Khoảng giá (Tự nhập Min - Max) -->
     <div>
       <div class="filter-group-title">Khoảng giá (VNĐ)</div>
-      <div class="price-range-inputs">
-        <input type="text" inputmode="numeric" autocomplete="off" id="minPrice" class="price-input" placeholder="Từ (0đ)" aria-label="Giá thấp nhất (VNĐ)">
-        <span style="color:var(--muted)">-</span>
-        <input type="text" inputmode="numeric" autocomplete="off" id="maxPrice" class="price-input" placeholder="Đến (VD: 1.000.000)" aria-label="Giá cao nhất (VNĐ)">
+      <div class="price-range-inputs" style="display:flex; align-items:center; gap:8px; width:100%;">
+        <input type="text" inputmode="numeric" autocomplete="off" id="minPrice" class="price-input" placeholder="Từ 0đ" aria-label="Giá thấp nhất (VNĐ)" style="flex:1 1 0; min-width:0; width:0; text-align:center; font-size:12px;">
+        <span style="color:var(--muted); flex-shrink:0;">&ndash;</span>
+        <input type="text" inputmode="numeric" autocomplete="off" id="maxPrice" class="price-input" placeholder="Đến 1.000.000đ" aria-label="Giá cao nhất (VNĐ)" style="flex:1 1 0; min-width:0; width:0; text-align:center; font-size:12px;">
       </div>
     </div>
   </div>

@@ -251,25 +251,28 @@
 .price-range-inputs {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .price-range-inputs .price-input {
-    flex: 1;
-    min-width: 0;
-    width: 0;
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    width: 0 !important;
+    text-align: center;
 }
 
 .price-input {
     background: var(--black);
     border: 1px solid var(--line);
     border-radius: 6px;
-    padding: 8px 12px;
+    padding: 8px 10px;
     color: var(--white);
     font-family: var(--body);
     font-size: 13px;
-    width: 100%;
     box-sizing: border-box;
+    width: 100%;
 }
 
 .price-input:focus {
