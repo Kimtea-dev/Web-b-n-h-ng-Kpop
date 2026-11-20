@@ -280,6 +280,11 @@ body {
   width: 500px;
 }
 
+.product-modal-box {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
 .modal-box h3 {
   margin: 0 0 18px;
   font-size: 2rem;
@@ -317,7 +322,8 @@ body {
 }
 
 .form-group input,
-.form-group select {
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #9ca3af;
@@ -326,6 +332,12 @@ body {
   outline: none;
   color: #111827;
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.form-group textarea {
+  min-height: 64px;
+  resize: vertical;
+  font: inherit;
 }
 
 .form-group input::placeholder {
